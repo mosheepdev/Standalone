@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "AppConfiguration.h"
+#include "Game.h"
 
 int main(int argc, char *argv[])
 {
@@ -34,9 +35,9 @@ int main(int argc, char *argv[])
         cout << endl;
         cout << endl;
         cout << "Libraries:" << endl;
-        cout << "\tSDL 2      Window management." << endl;
+        cout << "\tSDL 2      Window management" << endl;
         cout << "\t               https://www.libsdl.org/" << endl;
-        cout << "\tOpenGL     3D Rendering." << endl;
+        cout << "\tOpenGL     3D Rendering" << endl;
         cout << "\t               https://www.opengl.org/" << endl;
         cout << "\tGLEW       OpenGL Extension Wrangler" << endl;
         cout << "\t               http://glew.sourceforge.net/" << endl;
@@ -58,11 +59,12 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    bool quit = false;
-    while(!quit)
-    {
+    Game* game = new Game();
 
-        SDL_Delay(100);
+    while(!game->IsClosing())
+    {
+        game->TickRender();
+        game->TickUpdate();
     }
 
     return 0;
