@@ -1,0 +1,22 @@
+<Gui scriptClass="MainMenu" styleFile="MainMenu.css">
+    <!-- Button to start OAA -->
+    <Button id="button_play_oaa" tabIndex="0" text="translate/gui_play_oaa" onClick="PlayOaa()"/>
+
+    <!-- Chat window -->
+    <Chat id="chat" tabIndex="1" />
+
+    <!-- Information about current user -->
+    <Panel>
+
+    </Panel>
+
+    <!-- Friends List -->
+    <Panel>
+
+    </Panel>
+
+    <!-- Recent games -->
+    <Panel>
+
+    </Panel>
+</Gui>

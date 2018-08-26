@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Standalone"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/abit/CLionProjects/Standalone/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/abit/CLionProjects/Standalone/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/abit/CLionProjects/Standalone/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Standalone">
+				<Option output="/home/abit/CLionProjects/Standalone/cmake-build-debug/Standalone" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/abit/CLionProjects/Standalone/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 Standalone"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Standalone/fast">
+				<Option output="/home/abit/CLionProjects/Standalone/cmake-build-debug/Standalone" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/abit/CLionProjects/Standalone/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 Standalone/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/abit/CLionProjects/Standalone/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Ability.cpp">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Ability.h">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/AppConfiguration.h">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Enums.h">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Game.cpp">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Game.h">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Item.cpp">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Item.h">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Modifier.cpp">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Modifier.h">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Unit.cpp">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/Unit.h">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/main.cpp">
+			<Option target="Standalone"/>
+		</Unit>
+		<Unit filename="/home/abit/CLionProjects/Standalone/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

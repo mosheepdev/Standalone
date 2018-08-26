@@ -1,0 +1,68 @@
+"Items"
+{
+    "item_eye_of_skadi"
+    {
+        "script_file"                           "Item/eye_of_skadi.lua"
+        "id"                                    "0000"
+
+        "icon"
+        {
+            "1"                                 "Item/eye_of_skadi_1"
+            "2"                                 "Item/eye_of_skadi_2"
+            "3"                                 "Item/eye_of_skadi_3"
+            "4"                                 "Item/eye_of_skadi_4"
+            "5"                                 "Item/eye_of_skadi_5"
+        }
+
+        "max_level"                             "5"
+
+        "recipes"
+        {
+            "1"
+            {
+                "1"                             "item_ultimate_orb,item_ultimate_orb"
+            }
+            "2"
+            {
+                "1"                             "item_eye_of_skadi:1,item_core:1,item_recipe_eye_of_skadi:1"
+                "2"                             "item_eye_of_skadi:1,item_core:2,item_recipe_eye_of_skadi:1"
+                "3"                             "item_eye_of_skadi:1,item_core:3,item_recipe_eye_of_skadi:1"
+                "4"                             "item_eye_of_skadi:1,item_core:4,item_recipe_eye_of_skadi:1"
+            }
+            "3"
+            {
+                "1"                             "item_eye_of_skadi:2,item_core:2,item_recipe_eye_of_skadi:2"
+                "2"                             "item_eye_of_skadi:2,item_core:3,item_recipe_eye_of_skadi:2"
+                "3"                             "item_eye_of_skadi:2,item_core:4,item_recipe_eye_of_skadi:2"
+            }
+            "4"
+            {
+                "1"                             "item_eye_of_skadi:3,item_core:3,item_recipe_eye_of_skadi:3"
+                "2"                             "item_eye_of_skadi:3,item_core:4,item_recipe_eye_of_skadi:3"
+            }
+            "5"
+            {
+                "1"                             "item_eye_of_skadi:4,item_core:4,item_recipe_eye_of_skadi:4"
+            }
+        }
+
+        "values"
+        {
+            "attributes_all"
+            {
+                "type"                          "INT"
+                "value"                         "10 20 30 50 70"
+            }
+            "slow"
+            {
+                "type"                          "FLOAT"
+                "value"                         "10 20 30 40 50" // %
+            }
+            "slow_duration"
+            {
+                "type"                          "FLOAT"
+                "value"                         "2" // seconds
+            }
+        }
+    }
+}
