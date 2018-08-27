@@ -6,25 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/abit/CLionProjects/Standalone/Ability.cpp
-stdexcept
--
-Ability.h
-/home/abit/CLionProjects/Standalone/Ability.h
-
-/home/abit/CLionProjects/Standalone/Ability.h
-glm/glm.hpp
--
-Unit.h
-/home/abit/CLionProjects/Standalone/Unit.h
-Enums.h
-/home/abit/CLionProjects/Standalone/Enums.h
-
-/home/abit/CLionProjects/Standalone/Enums.h
+/home/abit/CLionProjects/Standalone/AppConfiguration.h
 
 /home/abit/CLionProjects/Standalone/Game.cpp
 Game.h
 /home/abit/CLionProjects/Standalone/Game.h
+iostream
+-
+AppConfiguration.h
+/home/abit/CLionProjects/Standalone/AppConfiguration.h
 
 /home/abit/CLionProjects/Standalone/Game.h
 SDL2/SDL.h
@@ -40,43 +30,15 @@ glm/glm.hpp
 lua.h
 /home/abit/CLionProjects/Standalone/lua.h
 
-/home/abit/CLionProjects/Standalone/Item.cpp
-Item.h
-/home/abit/CLionProjects/Standalone/Item.h
-
-/home/abit/CLionProjects/Standalone/Item.h
-Modifier.h
-/home/abit/CLionProjects/Standalone/Modifier.h
-
-/home/abit/CLionProjects/Standalone/Modifier.cpp
-Modifier.h
-/home/abit/CLionProjects/Standalone/Modifier.h
-
-/home/abit/CLionProjects/Standalone/Modifier.h
-Enums.h
-/home/abit/CLionProjects/Standalone/Enums.h
-Unit.h
-/home/abit/CLionProjects/Standalone/Unit.h
-
-/home/abit/CLionProjects/Standalone/Unit.cpp
-stdexcept
--
-Unit.h
-/home/abit/CLionProjects/Standalone/Unit.h
-
-/home/abit/CLionProjects/Standalone/Unit.h
-glm/glm.hpp
--
-math.h
--
-Enums.h
-/home/abit/CLionProjects/Standalone/Enums.h
-Ability.h
-/home/abit/CLionProjects/Standalone/Ability.h
-
 /home/abit/CLionProjects/Standalone/main.cpp
 iostream
 -
+cstring
+-
+AppConfiguration.h
+/home/abit/CLionProjects/Standalone/AppConfiguration.h
+Game.h
+/home/abit/CLionProjects/Standalone/Game.h
 
 /usr/include/lua5.3/lua.h
 stdarg.h

@@ -8,6 +8,21 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+    if(argc == 2 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0))
+    {
+        cout << APP_NAME << endl;
+        cout << APP_VERSION << endl;
+        return 0;
+    }
+
+    cout << "This program comes AS IS with NO WARRANTY." << endl;
+    cout << endl;
+    cout << "Copyright (C) 2018 Abit Gray" << endl;
+    cout << "AbitTheGray@gmail.com" << endl;
+    cout << "All rights reserved" << endl;
+    cout << endl;
+    cout << endl;
+
     if(argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0))
     {
         cout << "Start new instance of the game." << endl;
@@ -45,17 +60,6 @@ int main(int argc, char *argv[])
         cout << "\t               https://glm.g-truc.net/" << endl;
         cout << "\tLUA        Scripting Language" << endl;
         cout << "\t               https://www.lua.org/" << endl;
-        cout << endl;
-        cout << endl;
-        cout << "Copyright (C) 2018 Abit Gray" << endl;
-        cout << "AbitTheGray@gmail.com" << endl;
-        cout << "All rights reserved" << endl;
-        return 0;
-    }
-    if(argc == 2 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0))
-    {
-        cout << APP_NAME << endl;
-        cout << APP_VERSION << endl;
         return 0;
     }
 

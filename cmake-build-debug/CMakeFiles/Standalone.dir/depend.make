@@ -6,6 +6,7 @@ CMakeFiles/Standalone.dir/Ability.cpp.o: ../Ability.h
 CMakeFiles/Standalone.dir/Ability.cpp.o: ../Enums.h
 CMakeFiles/Standalone.dir/Ability.cpp.o: ../Unit.h
 
+CMakeFiles/Standalone.dir/Game.cpp.o: ../AppConfiguration.h
 CMakeFiles/Standalone.dir/Game.cpp.o: ../Game.cpp
 CMakeFiles/Standalone.dir/Game.cpp.o: ../Game.h
 CMakeFiles/Standalone.dir/Game.cpp.o: /usr/include/lua5.3/lua.h
@@ -29,5 +30,9 @@ CMakeFiles/Standalone.dir/Unit.cpp.o: ../Enums.h
 CMakeFiles/Standalone.dir/Unit.cpp.o: ../Unit.cpp
 CMakeFiles/Standalone.dir/Unit.cpp.o: ../Unit.h
 
+CMakeFiles/Standalone.dir/main.cpp.o: ../AppConfiguration.h
+CMakeFiles/Standalone.dir/main.cpp.o: ../Game.h
 CMakeFiles/Standalone.dir/main.cpp.o: ../main.cpp
+CMakeFiles/Standalone.dir/main.cpp.o: /usr/include/lua5.3/lua.h
+CMakeFiles/Standalone.dir/main.cpp.o: /usr/include/lua5.3/luaconf.h
 
