@@ -68,4 +68,7 @@ How to get as much of it from players?:
 
 I strongly disagree with payed heroes + Hero Pool.
 Yes, it allows for more rotation of meta in for beginner players and take some money from them (to keep their hero which they are getting used to).
+
+It also forces you to assign price to the hero. That is often done by having different price for each hero which is like saying - you want stronger hero? Pay for it or wait.
+
 This was biggest reason for me to switch from [League of Legends](https://leagueoflegends.com/) to [Dota 2](http://www.dota2.com).
