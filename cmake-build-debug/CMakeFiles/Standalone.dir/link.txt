@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++1y -lSDL2 -lGLEW -lGLU -lGL -Wall -g   CMakeFiles/Standalone.dir/main.cpp.o CMakeFiles/Standalone.dir/Unit.cpp.o CMakeFiles/Standalone.dir/Ability.cpp.o CMakeFiles/Standalone.dir/Modifier.cpp.o CMakeFiles/Standalone.dir/Item.cpp.o CMakeFiles/Standalone.dir/Game.cpp.o  -o Standalone 

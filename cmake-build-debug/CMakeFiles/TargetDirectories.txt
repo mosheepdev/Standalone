@@ -1,3 +1,0 @@
-/home/abit/CLionProjects/Standalone/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/abit/CLionProjects/Standalone/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/abit/CLionProjects/Standalone/cmake-build-debug/CMakeFiles/Standalone.dir
