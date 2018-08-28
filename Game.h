@@ -11,9 +11,7 @@
 #include <glm/glm.hpp>
 using namespace glm;
 
-#define LUA_LIB
-#include "lua.h"
-#include "lualib.h"
+#include "lua.hpp"
 
 class Game {
 // GUI (Window)

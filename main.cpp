@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    Game* game = new Game();
+    auto * game = new Game();
 
     while(!game->IsClosing())
     {

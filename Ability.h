@@ -6,7 +6,7 @@ class Ability;
 #include <glm/glm.hpp>
 #include <string>
 #include <map>
-
+#include <utility> #include <utility>
 #include "Unit.h"
 #include "Enums.h"
 
@@ -18,15 +18,15 @@ using namespace std;
 class Ability
 {
 public:
-    Ability(int id, string name, Unit* owner) : _Id(id), _Name(name), _Owner(owner)
+    Ability(int id, string name, Unit* owner) : _Id(id), _Name(std::move(std::move(name))), _Owner(owner)
     {
     }
-    Ability(int id, string name, Unit* owner, Unit* originalOwner) : _Id(id), _Name(name), _Owner(owner), _OriginalOwner(originalOwner)
+    Ability(int id, string name, Unit* owner, Unit* originalOwner) : _Id(id), _Name(std::move(std::move(name))), _Owner(owner), _OriginalOwner(originalOwner)
     {
     }
     ~Ability()
-    {
-    }
+    = default;
+
 public:
     int GetId() { return _Id; }
     string GetName() { return _Name; }
@@ -99,14 +99,14 @@ public:
 
 // Special Values
 public:
-    int GetValue_Int(string key) { return GetValue_Int(key, GetLevel()); }
-    int GetValue_Int(string key, int level) { return stoi(GetValue_String(key, level)); }
-    float GetValue_Float(string key) { return GetValue_Float(key, GetLevel()); }
-    float GetValue_Float(string key, int level) { return stof(GetValue_String(key, level)); }
-    string GetValue_String(string key) { return GetValue_String(key, GetLevel()); }
+    int GetValue_Int(string key) { return GetValue_Int(std::move(key), GetLevel()); }
+    int GetValue_Int(string key, int level) { return stoi(GetValue_String(std::move(key), level)); }
+    float GetValue_Float(string key) { return GetValue_Float(std::move(key), GetLevel()); }
+    float GetValue_Float(string key, int level) { return stof(GetValue_String(std::move(key), level)); }
+    string GetValue_String(string key) { return GetValue_String(std::move(key), GetLevel()); }
     string GetValue_String(string key, int level);
-    string GetValue_Raw(string key) { return _Values[key]; }
-    void SetValue_Raw(string key, string value) { _Values[key] = value; }
+    string GetValue_Raw(const string &key) { return _Values[key]; }
+    void SetValue_Raw(const string &key, string value) { _Values[key] = std::move(value); }
 private:
     map<string, string> _Values;
 #define ABILITY_VALUE_SEPARATOR ','

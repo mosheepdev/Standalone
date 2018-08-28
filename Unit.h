@@ -4,7 +4,7 @@
 class Unit;
 
 #include <glm/glm.hpp>
-#include <math.h>
+#include <cmath>
 
 
 #include "Enums.h"
