@@ -92,7 +92,7 @@ end
 ### Get Texture
 Get ability's current texture
 ```
-string GetTexture()
+string GetTexture(int level)
 ```
 
 ### On Cast
@@ -115,6 +115,9 @@ Perform cast of the ability without animation but still consume resources.
 
 To still perform animation, use [`PerformCast(vec3, vec3, Unit)`](#Perform_Cast)
 ```
+void Cast()
+void Cast(vec3 position)
+void Cast(vec3 position, vec3 direction)
 void Cast(vec3 position, vec3 direction, Unit unit)
 ```
 Implemented as:
@@ -145,31 +148,28 @@ end
 
 ### Get Cast Point
 Get time (in seconds) afte start of animation at which this ability should be cast.
-
-Can be changed by [`SetCastPoint(float)`](#Set_Cast_Point).
 ```
 float GetCastPoint()
+float GetCastPoint(int level)
 ```
-
-### Set Cast Point
-Get time (in seconds) afte start of animation at which this ability should be cast.
-The value is saved at start of the animation so it cannot trigger more then once.
-
-Can be retrieved by [`GetCastPoint()`](#Get_Cast_Point).
-```
-void SetCastPoint(float seconds)
+Implemented as:
+```lua
+function Ability:GetChannelTime(level)
+    return self:GetValue("CastPoint", level or self:GetLevel()) or 0
+end
 ```
 
 ### Get Channel Time
 Get channel time for the ability.
 ```
 float GetChannelTime()
+float GetChannelTime(int level)
 ```
-
-### Set Channel Time
-
-```
-void SetChannelTime(float seconds)
+Implemented as:
+```lua
+function Ability:GetChannelTime(level)
+    return self:GetValue("ChannelTime", level or self:GetLevel()) or 0
+end
 ```
 
 ### Is Channel
@@ -177,12 +177,20 @@ Utility function for channel abilities.
 Simple check of [`GetChannelTime()`](#Get_Channel_Time) being `= 0`.
 ```
 bool IsChannel()
+bool IsChannel(int level)
 ```
 Implemented as:
 ```lua
-function Ability:IsChannel()
-    return self:GetChannelTime() == 0
+function Ability:IsChannel(level)
+    return self:GetChannelTime(level) == 0
 end
+```
+
+### Get Animation
+Get name of animation for this ability.
+If `nil` (or empty string) is returned, animation for this slot is used.
+```
+string GetAnimation()
 ```
 
 ### Get Base Cooldown
@@ -230,7 +238,7 @@ float GetCurrentCooldownElapsed()
 Implemented as:
 ```lua
 function Ability:GetCurrentCooldownElapsed()
-    return self:GetCooldown(self:GetLevel()) - self:GetCurrentCooldownRemaining()
+    return self:GetCooldown() - self:GetCurrentCooldownRemaining()
 end
 ```
 

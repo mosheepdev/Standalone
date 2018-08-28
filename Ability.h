@@ -46,27 +46,28 @@ private:
 
 // Texture
 public:
-    virtual string GetTexture();
+    virtual string GetTexture(int level);
 
 // Cast
 public:
+    virtual bool CanBeCast(vec3 position, vec3 direction, Unit unit);
+    virtual string GetCastError(vec3 position, vec3 direction, Unit unit);
     virtual void OnCast(vec3 position, vec3 direction, Unit unit);
-    void Cast(vec3 position, vec3 direction, Unit unit); // Instant, without animation
+    virtual void Cast(vec3 position, vec3 direction, Unit unit); // Instant, without animation
     void PerformCast(vec3 position, vec3 direction, Unit unit); // With animation
 
 // Cast Point
 public:
-    float GetCastPoint() { return _CastPoint; }
-    void SetCastPoint(float seconds);
-private:
-    float _CastPoint = 0.0f;
+    float GetCastPoint(int level);
 
 // Channel
 public:
-    float GetChannelTime();
-    void SetChannelTime(float seconds);
-private:
-    float _ChannelTime = 0.0f;
+    float GetChannelTime(int level);
+    bool IsChannel(int level);
+
+// Animation
+public:
+    string GetAnimation(int level);
 
 // Resources
 public:
@@ -124,14 +125,12 @@ public:
     virtual float GetAbilityRange(int level);
     virtual float GetAbilityBaseRadius(int level);
     virtual float GetAbilityRadius(int level);
-    //TODO channel
     //TODO Toggle (Pressing the ability just toggles it)
     //TODO Autocast (Toggle but can still be casted)
     //TODO Can be learned?
     //TODO Is Hidden?
     //TODO Is Disabled By Root
     //TODO Can Be Cast While Stunned
-    //TODO Immediate Cast
     //TODO Don't Cancel Orders (Move to queue before current order)
     //TODo Don't Cancel Channel (Can be cast while channeling)
     //TODo Don't Alert Target (Do not show in FoW as attacker)
