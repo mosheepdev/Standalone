@@ -12,12 +12,12 @@ void Ability::OnCast(vec3 position, vec3 direction, Unit unit)
     throw std::logic_error("Not Implemented");
 }
 
-void Ability::Cast()
+void Ability::Cast(vec3 position, vec3 direction, Unit unit)
 {
     throw std::logic_error("Not Implemented");
 }
 
-void Ability::PerformCast()
+void Ability::PerformCast(vec3 position, vec3 direction, Unit unit)
 {
     throw std::logic_error("Not Implemented");
 }
@@ -34,12 +34,12 @@ void Ability::StartCooldown(float cooldown)
 
 int Ability::GetManacost(int level)
 {
-    throw std::logic_error("Not Implemented");
+    throw std::logic_error("Not Implemented - Connect to LUA");
 }
 
 int Ability::GetGoldcost(int level)
 {
-    throw std::logic_error("Not Implemented");
+    throw std::logic_error("Not Implemented - Connect to LUA");
 }
 
 void Ability::ConsumeResources(bool cooldown, bool mana, bool gold)
@@ -56,20 +56,10 @@ void Ability::ConsumeResources(bool cooldown, bool mana, bool gold)
 
 bool Ability::CanBeStolen()
 {
-    throw std::logic_error("Not Implemented");
+    throw std::logic_error("Not Implemented - Connect to LUA");
 }
 
-int Ability::GetValue_Int(char *key, int level)
-{
-    throw std::logic_error("Not Implemented");
-}
-
-float Ability::GetValue_Float(char *key, int level)
-{
-    throw std::logic_error("Not Implemented");
-}
-
-char* Ability::GetValue_String(char *key, int level)
+string Ability::GetValue_String(string key, int level)
 {
     throw std::logic_error("Not Implemented");
 }

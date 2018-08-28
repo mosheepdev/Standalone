@@ -72,3 +72,16 @@ Yes, it allows for more rotation of meta in for beginner players and take some m
 It also forces you to assign price to the hero. That is often done by having different price for each hero which is like saying - you want stronger hero? Pay for it or wait.
 
 This was biggest reason for me to switch from [League of Legends](https://leagueoflegends.com/) to [Dota 2](http://www.dota2.com).
+
+## What I would like to see in Standalone
+
+### Proper documentation
+
+When you look at my WIP documentation here, there is a lot of functions which cannot be overloaded in LUA because they will not have effect on C++ code.
+But those are marked by bold text saying `Should not be overloaded. (no effect on C++ code)`.
+
+Reason for this are either utility functions (calculating [`GetCurrentCooldownPercentage()`](Documentation/Lua_Api/Ability/README.md#Get_Current_Cooldown_Percentage)) or functions interacting directly with internal mechanics ([`GetOwner()`](Documentation/Lua_Api/Ability/README.md#Get_Owner) or [`GetCurrentCooldownRemaining()`](Documentation/Lua_Api/Ability/README.md#Get_Current_Cooldown_Remaining)).
+Using overloaded versions of those functions could cause instabilities in game.
+
+Some of abilities even have `Implemented as` block to show their base (default) implementation.
+This also applies for some functions which cannot be overloaded to show their functionality in LUA even if they are C++ only. 
