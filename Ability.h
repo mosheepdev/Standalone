@@ -13,6 +13,8 @@ class Ability;
 using namespace glm;
 using namespace std;
 
+//TODO when loding from file, parse Enums for _Values
+
 class Ability
 {
 public:
@@ -99,6 +101,7 @@ private:
 
 // Basic Ability Info
 public:
+    float GetAbilityBaseDamage(int level);
     float GetAbilityDamage(int level);
     DamageType GetAbilityDamageType(int level);
     DamageFlags GetAbilityDamageFlags(int level);
@@ -106,7 +109,9 @@ public:
     TypeFilter GetAbilityTargetType(int level);
     FlagFilter GetAbilityTargetFlags(int level);
     AbilityTargetting GetAbilityTargetting(int level);
+    float GetAbilityBaseRange(int level);
     float GetAbilityRange(int level);
+    float GetAbilityBaseRadius(int level);
     float GetAbilityRadius(int level);
     //TODO channel
     //TODO Toggle (Pressing the ability just toggles it)

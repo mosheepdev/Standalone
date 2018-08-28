@@ -464,7 +464,19 @@ public:
     float GetTotalCastRange(float castRange) { return (castRange + GetTotalCastRangeIncrease()) * (1 + GetTotalCastRangeAmplification()); }
 
 // Spell Amplification
-//TODO
+public:
+    float GetPercentageBaseSpellAmplification() { return _PercentageBaseSpellAmplification; }
+    void SetPercentageBaseSpellAmplification(float percentageSpellAmplification);
+private:
+    float _PercentageBaseSpellAmplification = 1.0f;
+public:
+    float GetPercentageBonusSpellAmplification();
+    float GetTotalPercentageSpellAmplification() { return GetPercentageBaseSpellAmplification() * GetPercentageBonusSpellAmplification() / 100.0f; }
+    float GetTotalDamageIncreasedBySpellAmplification(float damage) { return damage * (GetTotalPercentageSpellAmplification() / 100.0f); }
+
+// Ability Radius
+public:
+    float GetTotalRadius(float radius);
 
 // Movement Speed Increase
 //TODO

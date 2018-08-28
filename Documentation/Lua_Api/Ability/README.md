@@ -40,6 +40,12 @@ Utility function which checks [`GetLevel()`](#Get_Level) for being `> 0`.
 ```
 bool IsLearned()
 ```
+Implemented as:
+```lua
+function Ability:IsLearned()
+    return self:GetLevel() > 0
+end
+```
 
 ### Upgrade
 Perform upgrade of this ability.
@@ -57,9 +63,16 @@ bool Upgrade()
 ### On Upgrade
 Called from [`Upgrade()`](#Upgrade) to allow custom code on ability upgrade.
 
-Return `false` to prevent the ability to be upgraded.
+Return `true` if everything is OK.
+Return `false` (or `nil`) to prevent the ability to be upgraded.
 ```
 bool OnUpgrade()
+```
+Implemented as:
+```lua
+function Ability:OnUpgrade()
+    return true
+end
 ```
 
 ### Can Be Upgraded
@@ -68,6 +81,12 @@ Determine whenever to show GUI to allow upgrade of this ability.
 Without `true` from this, `Upgrade()` will have no way to be called from player. Does not prevent `Upgrade()` to be called from code.
 ```
 bool CanBeUpgraded()
+```
+Implemented as:
+```lua
+function Ability:CanUpgrade()
+    return self:GetOwner():GetLevel() < (self:GetValue("MinLevel") or 0)
+end
 ```
 
 ### On Cast
@@ -127,6 +146,12 @@ Value for `level = 0` is not defined and should not be called at any time (no co
 Should not count with Cooldown Reduction because (in base implementation) is called from [`GetCooldown()`](#Get_Cooldown) where is modified by Cooldown Reduction.
 ```
 float GetBaseCooldown(int level)
+```
+Implemented as:
+```lua
+function Ability:GetBaseCooldown(level)
+    return self:GetValue("Cooldown", level or self:GetLevel()) or 0
+end
 ```
 
 ### Get Cooldown
@@ -216,6 +241,12 @@ void StartCooldown(float cooldown)
 ```
 int GetBaseManacost(int level)
 ```
+Implemented as:
+```lua
+function Ability:GetBaseManacost(level)
+    return self:GetValue("Manacost", level or self:GetLevel()) or 0
+end
+```
 
 ### Get Manacost
 
@@ -224,7 +255,7 @@ int GetManacost(int level)
 ```
 Implemented as:
 ```lua
-function Ability:GetManacost()
+function Ability:GetManacost(level)
     return self:GetOwner():GetManacost(self:GetBaseManacost(level))
 end
 ```
@@ -234,6 +265,12 @@ end
 ```
 int GetBaseGoldcost(int level)
 ```
+Implemented as:
+```lua
+function Ability:GetBaseGoldcost(level)
+    return self:GetValue("Goldcost", level or self:GetLevel()) or 0
+end
+```
 
 ### Get Goldcost
 
@@ -242,7 +279,7 @@ int GetGoldcost(int level)
 ```
 Implemented as:
 ```lua
-function Ability:GetGoldcost()
+function Ability:GetGoldcost(level)
     return self:GetOwner():GetGoldcost(self:GetGoldcost(level))
 end
 ```
@@ -268,7 +305,7 @@ function Ability:ConsumeResources(cooldown, mana, gold)
     -- Gold
     if gold then
         local player = self:GetOwner():GetPlayer()
-        if player ~= nil then
+        if player then
             player:ConsumeGold(mana)
         end
     end
@@ -299,7 +336,7 @@ Implemented as:
 ```lua
 function Ability:IsStolen()
     local originalOwner = self:GetOriginalOwner()
-    return originalOwner ~= nil and GetOwner() ~= originalOwner
+    return originalOwner and originalOwner ~= self:GetOwner()
 end
 ```
 
@@ -307,4 +344,215 @@ end
 
 ```
 bool CanBeStolen()
+```
+Implemented as:
+```lua
+function Ability:CanBeStolen()
+    return true
+end
+```
+
+### Get Value
+Get Ability's value for specified level.
+To get raw data, use [`GetValueRaw(string)`](#Get_Value_Raw). 
+
+**Should not be overloaded.** (no effect on C++ code)
+```
+string GetValue(string key)
+string GetValue(string key, int level)
+```
+Implemented as:
+```lua
+function Ability:GetValue(key, level)
+    level = level or self:GetLevel()
+    
+    words = {}
+    for word in s:gmatch(ABILITY_VALUE_SEPARATOR) do
+        table.insert(words, word)
+    end
+    
+    if #words == 0 then
+        return 0
+    end
+    if #words == 1 or level <= 0 then
+        return words[0]
+    end
+    if #words < level then
+        return words[words - 1]
+    else
+        return words[level - 1]
+    end
+end
+```
+
+### Get Value Raw
+
+
+**Should not be overloaded.** (no effect on C++ code)
+```
+string GetValueRaw(string key)
+```
+
+### Set Value Raw
+
+
+**Should not be overloaded.** (no effect on C++ code)
+```
+void SetValueRaw(string key, string value)
+```
+
+### Get Ability Base Damage
+
+```
+float GetAbilityBaseDamage(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityBaseDamage(level)
+    return self:GetValue("Damage", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Damage
+
+```
+float GetAbilityDamage(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityDamage(level)
+    return self:GetOwner():GetTotalDamageIncreasedBySpellAmplification(self:GetBaseAbilityDamage(level))
+end
+```
+
+### Get Ability Damage Type
+
+```
+DamageType GetAbilityDamageType(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityDamageType(level)
+    return self:GetValue("DamageType", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Damage Flags
+
+```
+DamageFlags GetAbilityDamageFlags(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityDamageFlags(level)
+    return self:GetValue("DamageFlags", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Target Team
+
+```
+Team_Flags GetAbilityTargetTeam(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityTargetTeam(level)
+    return self:GetValue("TargetTean", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Target Type
+
+```
+TypeFilter GetAbilityTargetType(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityTargetTtype(level)
+    return self:GetValue("TargetType", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Target Flags
+
+```
+FlagFilter GetAbilityTargetFlags(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityTargetFlags(level)
+    return self:GetValue("TargetFlags", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Targetting
+
+```
+AbilityTargetting GetAbilityTargetting(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityTargetting(level)
+    return self:GetValue("Targetting", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Base Cast Range
+Maximum radius to cast a spell. 
+
+Not affecter by owner's Cast Range Increase.
+Affected version is [`GetAbilityCastRange(int)`](#Get_Ability_Cast_Range).
+```
+Team_Flags GetAbilityBaseCastRange(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityBaseCastRange(level)
+    return self:GetValue("CastRange", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Cast Range
+Maximum radius to cast a spell. 
+
+Affected by owner's Cast Range Increase.
+Not affected version is [`GetAbilityBaseCastRange(int)`](#Get_Ability_Base_Cast_Range).
+```
+Team_Flags GetAbilityCastRange(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityCastRange(level)
+    return self:GetOwner():GetTotalCastRange(self:GetAbilityBaseCastRange(level))
+end
+```
+
+### Get Ability Base Radius
+Radius of effect for AoE spells and auras.
+
+Not affected by owner's Radius Increase.
+Affected version is [`GetAbilityRadius(int)`](#Get_Ability_Radius).
+```
+Team_Flags GetAbilityBaseRadius(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityBaseRadius(level)
+    return self:GetValue("Radius", level or self:GetLevel()) or 0
+end
+```
+
+### Get Ability Radius
+Radius of effect for AoE spells and auras.
+
+Affected by owner's Radius Increase.
+Not affected version is [`GetAbilityBaseRadius(int)`](#Get_Ability_Base_Radius).
+```
+Team_Flags GetAbilityRadius(int level)
+```
+Implemented as:
+```lua
+function Ability:GetAbilityRadius(level)
+    return self:GetOwner():GetTotalRadius(self:GetAbilityBaseRadius(level))
+end
 ```

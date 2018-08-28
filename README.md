@@ -66,12 +66,23 @@ How to get as much of it from players?:
   - High price
   - After going out of Beta to Release
 
-I strongly disagree with payed heroes + Hero Pool.
+I strongly disagree with payed heroes + Hero Rotation.
 Yes, it allows for more rotation of meta in for beginner players and take some money from them (to keep their hero which they are getting used to).
 
 It also forces you to assign price to the hero. That is often done by having different price for each hero which is like saying - you want stronger hero? Pay for it or wait.
 
 This was biggest reason for me to switch from [League of Legends](https://leagueoflegends.com/) to [Dota 2](http://www.dota2.com).
+
+Even when you consider Hero Rotation:
+- Allow new players to **chose** 1 or 2 heroes which they will be able to keep as if they payed for them
+  - Long-time learning of the hero (for casual players, often with a coach)
+  - May wait few games to use Hero Rotation's heroes to figure out favorite hero to learn
+- Make new heroes temporary free
+  - Will allow for better balance because of more played matches with him
+- Add reward for versatility
+- Allow all heroes in tournaments
+  - Unique (temporary) tournament key
+  - Tournaments may be required to pay fee based of amount of players/team
 
 ## What I would like to see in Standalone
 
