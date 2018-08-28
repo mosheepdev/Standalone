@@ -13,6 +13,7 @@ using namespace glm;
 
 #define LUA_LIB
 #include "lua.h"
+#include "lualib.h"
 
 class Game {
 // GUI (Window)
@@ -33,6 +34,14 @@ public:
     void Close() { _IsClosing = true; }
 private:
     bool _IsClosing = false;
+
+// LUA
+public:
+    bool InitLuaClient();
+    bool InitLuaServer();
+private:
+    lua_State *_LuaClient = nullptr;
+    lua_State *_LuaServer = nullptr;
 };
 
 

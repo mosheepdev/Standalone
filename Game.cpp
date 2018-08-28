@@ -3,6 +3,13 @@
 
 #include <iostream>
 
+extern "C"
+{
+#include <lua5.3/lua.h>
+#include <lua5.3/lualib.h>
+#include <lua5.3/lauxlib.h>
+};
+
 #include "AppConfiguration.h"
 
 using namespace std;
@@ -79,4 +86,18 @@ void Game::TickUpdate()
     }
 
     throw std::logic_error("Not Implemented");
+}
+
+bool Game::InitLuaClient()
+{
+    _LuaClient = luaL_newstate();
+
+    return true;
+}
+
+bool Game::InitLuaServer()
+{
+    _LuaServer = luaL_newstate();
+
+    return true;
 }
