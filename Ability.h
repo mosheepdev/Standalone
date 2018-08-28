@@ -44,6 +44,10 @@ public:
 private:
     int _Level = 0;
 
+// Texture
+public:
+    virtual string GetTexture();
+
 // Cast
 public:
     virtual void OnCast(vec3 position, vec3 direction, Unit unit);
@@ -53,9 +57,16 @@ public:
 // Cast Point
 public:
     float GetCastPoint() { return _CastPoint; }
-    void SetCastPoint(float seconds) { _CastPoint = max(0, seconds); }
+    void SetCastPoint(float seconds);
 private:
     float _CastPoint = 0.0f;
+
+// Channel
+public:
+    float GetChannelTime();
+    void SetChannelTime(float seconds);
+private:
+    float _ChannelTime = 0.0f;
 
 // Resources
 public:
@@ -101,18 +112,18 @@ private:
 
 // Basic Ability Info
 public:
-    float GetAbilityBaseDamage(int level);
-    float GetAbilityDamage(int level);
-    DamageType GetAbilityDamageType(int level);
-    DamageFlags GetAbilityDamageFlags(int level);
-    Team_Flags GetAbilityTargetTeam(int level);
-    TypeFilter GetAbilityTargetType(int level);
-    FlagFilter GetAbilityTargetFlags(int level);
-    AbilityTargetting GetAbilityTargetting(int level);
-    float GetAbilityBaseRange(int level);
-    float GetAbilityRange(int level);
-    float GetAbilityBaseRadius(int level);
-    float GetAbilityRadius(int level);
+    virtual float GetAbilityBaseDamage(int level);
+    virtual float GetAbilityDamage(int level);
+    virtual DamageType GetAbilityDamageType(int level);
+    virtual DamageFlags GetAbilityDamageFlags(int level);
+    virtual Team_Flags GetAbilityTargetTeam(int level);
+    virtual TypeFilter GetAbilityTargetType(int level);
+    virtual FlagFilter GetAbilityTargetFlags(int level);
+    virtual AbilityTargeting GetAbilityTargeting(int level);
+    virtual float GetAbilityBaseRange(int level);
+    virtual float GetAbilityRange(int level);
+    virtual float GetAbilityBaseRadius(int level);
+    virtual float GetAbilityRadius(int level);
     //TODO channel
     //TODO Toggle (Pressing the ability just toggles it)
     //TODO Autocast (Toggle but can still be casted)
@@ -125,7 +136,6 @@ public:
     //TODo Don't Cancel Channel (Can be cast while channeling)
     //TODo Don't Alert Target (Do not show in FoW as attacker)
     //TODO Don't Follow With Attack (Prevent automatic attacks after cast)
-    //TODO No Ability Upgrade
 };
 
 

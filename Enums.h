@@ -170,7 +170,7 @@ enum ModifierFlags : unsigned int
     MODIFIER_FLAG_ATTACK_UNABLE = 1 << 17
 };
 
-enum AbilityTargetting
+enum AbilityTargeting
 {
     ABILITY_TARGETTING_PASSIVE = 0,
     ABILITY_TARGETTING_NONE = 1 << 0,

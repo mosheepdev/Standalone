@@ -89,6 +89,12 @@ function Ability:CanUpgrade()
 end
 ```
 
+### Get Texture
+Get ability's current texture
+```
+string GetTexture()
+```
+
 ### On Cast
 Perform effect of the ability.
 
@@ -134,6 +140,48 @@ function Ability:PerformCast(position, direction, unit)
     
     -- At Cast Point
     self:Cast(position, direction, unit)
+end
+```
+
+### Get Cast Point
+Get time (in seconds) afte start of animation at which this ability should be cast.
+
+Can be changed by [`SetCastPoint(float)`](#Set_Cast_Point).
+```
+float GetCastPoint()
+```
+
+### Set Cast Point
+Get time (in seconds) afte start of animation at which this ability should be cast.
+The value is saved at start of the animation so it cannot trigger more then once.
+
+Can be retrieved by [`GetCastPoint()`](#Get_Cast_Point).
+```
+void SetCastPoint(float seconds)
+```
+
+### Get Channel Time
+Get channel time for the ability.
+```
+float GetChannelTime()
+```
+
+### Set Channel Time
+
+```
+void SetChannelTime(float seconds)
+```
+
+### Is Channel
+Utility function for channel abilities.
+Simple check of [`GetChannelTime()`](#Get_Channel_Time) being `= 0`.
+```
+bool IsChannel()
+```
+Implemented as:
+```lua
+function Ability:IsChannel()
+    return self:GetChannelTime() == 0
 end
 ```
 
@@ -485,7 +533,7 @@ function Ability:GetAbilityTargetFlags(level)
 end
 ```
 
-### Get Ability Targetting
+### Get Ability Targeting
 
 ```
 AbilityTargetting GetAbilityTargetting(int level)
