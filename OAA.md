@@ -2,7 +2,7 @@
 
 This is my attempt on creating Game Engine for OAA ([Open Angel Arena](https://github.com/OpenAngelArena/oaa/)).
 
-They decided on using Amazon's [Lumberyard](https://aws.amazon.com/lumberyard/) because it has native support for LUA (so you cannot modify as I did here or have any control on its version) and is said to be in C++ (which noone is using unless LUA is too slow for something).
+They decided on using Amazon's [Lumberyard](https://aws.amazon.com/lumberyard/) because it has native support for LUA (so you cannot modify as I did here or have any control on its version) and is said to be in C++ (which no-one is using unless LUA is too slow for something).
 I even think I have more documentation here than they have.
 
 ## Money
@@ -23,7 +23,7 @@ How to get as much of it from players?:
     - Chests with specified content (Hero items, GUIs, Announcers...)
     - 90% of weighted average of cost of its items
 - Bottlepass
-  - For tournaments (part of price pool)
+  - For tournaments (part of Price Pool)
   - Payed levels
   - Closed after 3/6/12 months
   - Challenges with rewards
