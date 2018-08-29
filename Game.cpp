@@ -84,6 +84,13 @@ void Game::TickUpdate()
 bool Game::InitLuaClient()
 {
     _LuaClient = luaL_newstate();
+    { // Open default libraries
+        luaopen_base(_LuaClient);
+        luaopen_math(_LuaClient);
+        luaopen_string(_LuaClient);
+        luaopen_utf8(_LuaClient);
+        luaopen_table(_LuaClient);
+    }
 
     return true;
 }
@@ -91,6 +98,13 @@ bool Game::InitLuaClient()
 bool Game::InitLuaServer()
 {
     _LuaServer = luaL_newstate();
+    { // Open default libraries
+        luaopen_base(_LuaServer);
+        luaopen_math(_LuaServer);
+        luaopen_string(_LuaServer);
+        luaopen_utf8(_LuaServer);
+        luaopen_table(_LuaServer);
+    }
 
     return true;
 }

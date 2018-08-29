@@ -1,9 +1,18 @@
 # Lua Api
 
-LUA 5.3
+LUA [5.3](https://www.lua.org/versions.html#5.3).5
+- [Official Manual](https://www.lua.org/manual/5.3/)
+- [Download](https://www.lua.org/ftp/lua-5.3.5.tar.gz) (`.tar.gz`)
+- [Readme](https://www.lua.org/manual/5.3/readme.html) ([Changes since 5.2](https://www.lua.org/manual/5.3/readme.html#changes))
+- [Online Source](https://www.lua.org/source/5.3/)
+
+Instances of LUA are separated for Client and Server.
 
 - [`Global`](Global/)
   - void Print(string msg)
+  - void print(string msg)
+  - bool IsClient()
+  - bool IsServer()
 - [`Game`](Game/)
 - [`Map`](Map/)
   - Map.GetCurrentMap() (Client Only)
@@ -29,7 +38,7 @@ LUA 5.3
   - [`Hero`](Hero/)
   - [`Boss`](Boss/)
 - [`Ability`](Ability/)
-- [`Item`](Item/)
+- [`Item`](Item/) extends [`Ability`](Ability/) 
 - [`Modifier`](Modifier/)
   - [`Modifier_Ability`](Modifier/Ability/)
   - [`Modifier_Item`](Modifier/Item/)
@@ -42,6 +51,7 @@ LUA 5.3
   - void Timers.Remove(int timerId)
 - [`Events`](Events/)
 - [`Math`](Math/)
+  - redirected to math.
 - [`Table`](Table/)
 - [`Regex`](Regex/)
   - bool Regex.IsMatch(string input, string pattern)
@@ -72,6 +82,13 @@ LUA 5.3
   - int CreateLinearProjectile(table projectileInfo, function onHit)
   - Vector3 GetProjectilePosition(int projectileId)
   - void DestroyProjectile(int projectileId)
+- [`SharedTable`](SharedTable/)
+  - void SharedTable.Set(string name, int key, object value)
+  - void SharedTable.Set(string name, string key, object value)
+  - void SharedTable.Remove(string name, int key) => :Set(name, key, nil)
+  - void SharedTable.Remove(string name, string key) => :Set(name, key, nil)
+  - object SharedTable.Get(string name, int key)
+  - object SharedTable.Get(string name, string key)
 
 ## Client Only
 - [`Gui`](Gui/)
