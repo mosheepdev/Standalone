@@ -4,6 +4,8 @@ Each and every Addon must contain this file.
 
 ## Examples
 
+Unranked, Ranked, Debug-only example can be found [here](Addon_Info.kv).
+
 ### Default
 
 ```
@@ -22,6 +24,7 @@ Each and every Addon must contain this file.
             "Map"                       "default"
             "Respect_Party"             "True" // Optional to false
             "Script_File"               "Adon.lua"
+            "Allowed_In_Debug"          "Yes" // Optional to yes 
         }
     }
 }
@@ -130,11 +133,20 @@ Specifies name of map/level to load players into.
 **Cannot contain non-ASCII characters.**
 
 ### Respect Party
-Set to `true` (or `True` or `TRUE`) for joining party will be matched into same team.
+Set to `true` (not case sensitive) for joining party will be matched into same team.
 
 When not possible
 - If joining directly to the lobby, it will try to keep the party in as less teams as possible
 - If joining from matchmaking, the lobby will be ignored
   - Cannot search when amount of players exceeds maximum number of players in any team.
 
-### Script_File 
+### Script File
+Initial script file to be called after starting the lobby.
+
+Relative path to Addon's directory.
+
+### Allowed In Debug
+Values can be (not case sensitive):
+- `Yes` or `True` = Can be played in Debug Mode
+- `No` or `False` = **Cannot** be played in Debug Mode
+- `Only` = Can **only** be played in Debug Mode

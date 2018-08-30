@@ -1,9 +1,9 @@
 "Addon_Info"
 {
-    "Name"                              "Addon Info Example"
+    "Name"                              "Addon Example"
     "Game_Modes"
     {
-        "Default"
+        "Unranked"
         {
             "Teams"
             {
@@ -11,8 +11,31 @@
                 "Demons"                "5"
             }
             "Map"                       "default"
-            "Respect_Party"             "True" // Optional to false
-            "Script_File"               "Addon.lua"
+            "Script_File"               "Addon_Unranked.lua"
+            "Allowed_In_Debug"          "Yes"
+        }
+        "Ranked"
+        {
+            "Teams"
+            {
+                "Angels"                "5"
+                "Demons"                "5"
+            }
+            "Map"                       "default"
+            "Respect_Party"             "True"
+            "Script_File"               "Addon_Ranked.lua"
+            "Allowed_In_Debug"          "No"
+        }
+        "Debug"
+        {
+            "Teams"
+            {
+                "Angels"                "5"
+                "Demons"                "5"
+            }
+            "Map"                       "test"
+            "Script_File"               "Addon_Test.lua"
+            "Allowed_In_Debug"          "Only"
         }
     }
 }
