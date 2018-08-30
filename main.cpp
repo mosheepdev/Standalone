@@ -6,9 +6,11 @@ using namespace std;
 #include "AppConfiguration.h"
 #include "GameClient.h"
 
+bool HasArg(int argc, char *argv[], char arg_short, string arg_long);
+
 int main(int argc, char *argv[])
 {
-    if(argc == 2 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0))
+    if(HasArg(argc, argv, 'v', "version"))
     {
         cout << APP_NAME << endl;
         cout << APP_VERSION << endl;
@@ -23,7 +25,7 @@ int main(int argc, char *argv[])
     cout << endl;
     cout << endl;
 
-    if(argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0))
+    if(HasArg(argc, argv, 'h', "help"))
     {
         cout << "Start new instance of the game." << endl;
         cout << "Only one instance can run at a time." << endl;
@@ -60,25 +62,40 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    bool startDedicatedServer = false;
-    {
-        for(int i = 1; i < argc; i++)
-            if(strcmp(argv[1], "-s") == 0 || strcmp(argv[1], "--server") == 0)
-                startDedicatedServer = true;
-    }
-
-    if(startDedicatedServer)
+    if(HasArg(argc, argv, 's', "server")) // Start dedicated server
     {
         throw std::logic_error("Not Implemented");
     }
-    else
+    else // Start client
     {
         GameClient *client = new GameClient();
 
         while (!client->IsClosing())
-        {
             client->Tick();
-        }
         return 0;
     }
+}
+
+bool HasArg(int argc, char *argv[], char arg_short, string arg_long)
+{
+    for(int i = 1; i < argc; i++)
+    {
+        char* arg = argv[i];
+        if(arg[0] != '-')
+            continue;
+        if(arg[1] == '\0') // Only 1 minus char
+            continue;
+        if(arg[1] == '-') // Long argument
+        {
+            if(strcmp(arg, ("--" + arg_long).c_str()) == 0)
+                return true;
+        }
+        else // Short argument
+        {
+            for(int j = 1; arg[j] != '\0'; j++)
+                if(arg[j] == arg_short)
+                    return true;
+        }
+    }
+    return false;
 }
