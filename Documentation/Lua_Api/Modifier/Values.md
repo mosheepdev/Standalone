@@ -7,11 +7,13 @@ Flat bonus to damage.
 ```
 int GetFlatBonusDamage()
 ```
+Default: `0`
 
 ### Get Percentage Bonus Damage
 ```
 float GetPercentageBonusDamage()
 ```
+Default: `0`
 - 0.0 = Do not modify
 - 100.0 = Double Damage
 
@@ -25,6 +27,7 @@ Each points give:
 ```
 int GetBonusStrength()
 ```
+Default: `0`
 
 ### Get Bonus Agility
 Each points give:
@@ -34,6 +37,7 @@ Each points give:
 ```
 int GetBonusAgility()
 ```
+Default: `0`
 
 ### Get Bonus Intelligence
 Each points give:
@@ -43,6 +47,7 @@ Each points give:
 ```
 int GetBonusIntelligence()
 ```
+Default: `0`
 
 ### Get Bonus Charisma
 Each points give:
@@ -52,6 +57,7 @@ Each points give:
 ```
 int GetBonusCharisma()
 ```
+Default: `0`
 
 ## Health
 
@@ -59,12 +65,14 @@ int GetBonusCharisma()
 ```
 int GetFlatHealthBonus()
 ```
+Default: `0`
 
 ### Get Percentage Health Bonus
 Increase Base Health (Original Health + from Strength) by this percentage. 
 ```
 float GetPercentageHealthBonus()
 ```
+Default: `0`
 
 ## Health Regeneration
 
@@ -72,11 +80,13 @@ float GetPercentageHealthBonus()
 ```
 float GetFlatBonusHealthRegeneration()
 ```
+Default: `0`
 
 ### Get Percentage Bonus Health Regeneration
 ```
 float GetPercentageBonusHealthRegeneration()
 ```
+Default: `0`
 
 ## Mana
 
@@ -84,12 +94,14 @@ float GetPercentageBonusHealthRegeneration()
 ```
 int GetFlatManaBonus()
 ```
+Default: `0`
 
 ### Get Percentage Mana Bonus
 Increase Base Mana (Original Mana + from Intelligence) by this percentage. 
 ```
 float GetPercentageManaBonus()
 ```
+Default: `0`
 
 ## Mana Regeneration
 
@@ -97,11 +109,13 @@ float GetPercentageManaBonus()
 ```
 float GetFlatBonusManaRegeneration()
 ```
+Default: `0`
 
 ### Get Percentage Bonus Mana Regeneration
 ```
 float GetPercentageBonusManaRegeneration()
 ```
+Default: `0`
 
 ## Armor (Physical Resistance)
 
@@ -111,6 +125,7 @@ Final value (from all modifiers) is floored.
 ```
 float GetBonusArmor()
 ```
+Default: `0`
 
 ## Magic Resistance
 
@@ -123,6 +138,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetBonusMagicResistance()
 ```
+Default: `0`
 
 ## Status Resistance
 
@@ -135,6 +151,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetBonusStatusResistance()
 ```
+Default: `0`
 
 ## Cooldown Reduction
 
@@ -147,6 +164,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetBonusCooldownReduction()
 ```
+Default: `0`
 
 ## Cast Range
 
@@ -154,6 +172,7 @@ float GetBonusCooldownReduction()
 ```
 float GetFlatBonusCastRange()
 ```
+Default: `0`
 
 ### Get Percentage Bonus Cast Range
 As percentage from -100.0 to 100.0.
@@ -164,6 +183,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetPercentageBonusCastRange()
 ```
+Default: `0`
 
 ## Movement Speed
 
@@ -171,6 +191,7 @@ float GetPercentageBonusCastRange()
 ```
 float GetFlatBonusMovementSpeed()
 ```
+Default: `0`
 
 ### Get Percentage Bonus Movement Speed
 As percentage from -100.0 to 100.0.
@@ -181,6 +202,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetPercentageBonusMovementSpeed()
 ```
+Default: `0`
 
 ## Attack Speed
 
@@ -188,6 +210,7 @@ float GetPercentageBonusMovementSpeed()
 ```
 float GetFlatBonusAttackSpeed()
 ```
+Default: `0`
 
 ### Get Percentage Bonus Attack Speed
 As percentage from -100.0 to 100.0.
@@ -198,6 +221,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetPercentageBonusAttackSpeed()
 ```
+Default: `0`
 
 ## Attack Range
 
@@ -205,3 +229,27 @@ float GetPercentageBonusAttackSpeed()
 ```
 int GetBonusAttackRange()
 ```
+Default: `0`
+
+## Attack Projectile
+
+### Get Projectile Particle
+```
+string GetProjectileParticle()
+```
+
+## Experience
+
+### Get Percentage Bonus Xp
+```
+float GetPercentageBonusXp()
+```
+Default: `0`
+
+## Gold
+
+### Get Percentage Bonus Gold
+```
+float GetPercentageBonusGold()
+```
+Default: `0`

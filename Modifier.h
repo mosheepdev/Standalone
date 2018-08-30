@@ -83,6 +83,14 @@ public:
 // Attack Projectile
 public:
     char* GetProjectileParticle();
+
+// XP / Experience
+public:
+    float GetPercentageBonusXp();
+
+// Gold
+public:
+    float GetPercentageBonusGold();
 };
 
 

@@ -17,8 +17,8 @@ private:
 public:
     void Tick()
     {
-        TickRender();
         TickUpdate();
+        TickRender();
     }
 private:
     void TickRender();

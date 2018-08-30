@@ -15,7 +15,7 @@ How to get as much of it from players?:
     - Parts of items which makes the full set
     - Can buy whole set or just an item (total price of items at about 120% to 140% of full-set price)
   - Ingame GUI
-  - Loading Screen
+  - Menu Backgrounds (+Loading Screen)
   - Map (and ambient models)
   - Announcers
   - Chests (Lootboxes)

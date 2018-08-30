@@ -32,7 +32,8 @@ private:
 public:
     vec3 GetPosition() { return _Position;  }
     vec3 GetAbsOrigin() { return GetPosition(); }
-    void Teleport(vec2 position);
+    void Teleport(vec2 position) { Teleport(vec3(position, 0.0)); }
+    void Teleport(vec3 position);
 private:
     vec3 _Position = vec3(0,0,0);
 
@@ -69,10 +70,23 @@ public:
     int GetLevel() { return _Level; }
     void SetLevel(int level);
     float GetCurrentXp() { return _LevelXp; }
+    float GetCurrentXpPercentage();
+    float ClearCurrentXp();
+    void SetCurrentXp(float xp)
+    {
+        ClearCurrentXp();
+        AddXp(xp, false);
+    }
+    float GetXpToNextLevel();
     float GetTotalXp() { return GetXpPerLevelTotal(_Level) + _LevelXp; }
     void SetTotalXp(float xp);
+    void SetTotalXp(float xp, bool affectedByModifiers);
+    void AddXp(float xp);
+    void AddXp(float xp, bool affectedByModifiers);
+    float GetPercentageBonusXp();
+    float GetXpAfterBonus(float xp) { return xp * (GetPercentageBonusXp() / 100.0f); }
 private:
-    int _Level = 0; // 1+
+    int _Level = 1; // 1+
     float _LevelXp = 0;
 
 
@@ -114,11 +128,11 @@ public:
         int min = GetBaseMinDamage();
         return min + (GetBaseMaxDamage() - min) / 2;
     }
-    int GetBonusDamage();
-    float GetBonusDamagePercent();
-    int GetTotalBonusDamage() { return (int)(GetBonusDamage() + GetBaseRealDamage() * (GetBonusDamagePercent() / 100.0f)); }
-    int GetTotalMinDamage() { return GetBaseMinDamage() + GetBonusDamage(); }
-    int GetTotalMaxDamage() { return GetBaseMaxDamage() + GetBonusDamage(); }
+    int GetFlatBonusDamage();
+    float GetPercentageBonusDamage();
+    int GetTotalBonusDamage() { return (int)(GetFlatBonusDamage() + GetBaseRealDamage() * (GetPercentageBonusDamage() / 100.0f)); }
+    int GetTotalMinDamage() { return GetBaseMinDamage() + GetFlatBonusDamage(); }
+    int GetTotalMaxDamage() { return GetBaseMaxDamage() + GetFlatBonusDamage(); }
     int GetTotalRealDamage()
     {
         int min = GetTotalMinDamage();

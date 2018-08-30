@@ -1,13 +1,16 @@
 #include <stdexcept>
 #include "Unit.h"
 
-Unit::Unit() {
+Unit::Unit()
+{
     _UnitId = _NextUnitId++;
 }
 
 int Unit::_NextUnitId = 1;
 
-void Unit::Teleport(vec2 position)
+//-----------------------------------------------------------------
+
+void Unit::Teleport(vec3 position)
 {
     throw std::logic_error("Not Implemented");
 }
@@ -50,12 +53,12 @@ void Unit::SetOriginalDamage(int min, int max)
     throw std::logic_error("Not Implemented");
 }
 
-int Unit::GetBonusDamage()
+int Unit::GetFlatBonusDamage()
 {
     throw std::logic_error("Not Implemented");
 }
 
-float Unit::GetBonusDamagePercent()
+float Unit::GetPercentageBonusDamage()
 {
     throw std::logic_error("Not Implemented");
 }
