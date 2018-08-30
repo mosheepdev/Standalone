@@ -9,7 +9,6 @@ LUA [5.3](https://www.lua.org/versions.html#5.3).5
 Instances of LUA are separated for Client and Server.
 
 - [`Global`](Global/)
-- [`Game`](Game/)
 - [`Map`](Map/)
   - Map.GetCurrentMap() (Client Only)
   - Map.GetCurrentMap(handle entity)

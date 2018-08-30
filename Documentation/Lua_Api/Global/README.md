@@ -14,6 +14,14 @@ void Print(string message)
 void print(string message)
 ```
 
+### Print Debug
+Same as [`Print(string)`](#Print) but has prefix to determine server and start time from beginning of the match.
+```
+void PrintDebug(string message)
+void printDebug(string message)
+void print_debug(string message)
+```
+
 ### Write
 Send message to Standard Output (Console).
 

@@ -4,7 +4,7 @@
 using namespace std;
 
 #include "AppConfiguration.h"
-#include "Game.h"
+#include "GameClient.h"
 
 int main(int argc, char *argv[])
 {
@@ -30,23 +30,20 @@ int main(int argc, char *argv[])
         cout << endl;
         cout << endl;
         cout << "Arguments:" << endl;
-        cout << "\t--help\t\t\tDisplay this help." << endl;
-        cout << "\t -h" << endl;
-        cout << "\t--version\t\t\tShow version info." << endl;
-        cout << "\t -v" << endl;
-        cout << "\t--debug\t\t\tStart in debug mode. This turns on debugging messages into console." << endl;
+        cout << "\t-h, --help\t\t\tDisplay this help." << endl;
+        cout << "\t-v, --version\t\t\tShow version info." << endl;
+        cout << endl;
+        cout << "\t-d, --debug\t\t\tStart in debug mode. This turns on debugging messages into console." << endl;
+        cout << "\t-s, --server\t\t\tStart as Dedicated Server (without OpenGL Frontend)" << endl;
         cout << "\t--language <name>\t\t\tChange game language." << endl;
-        cout << "\t--fullscreen\t\t\tStart in Fullscreen mode." << endl;
-        cout << "\t--windowed\t\t\tStart in Windowed mode." << endl;
+        cout << endl;
+        cout << "\t-f, --fullscreen\t\t\tStart in Fullscreen mode." << endl;
+        cout << "\t-w, --windowed\t\t\tStart in Windowed mode." << endl;
         cout << "\t--resolution <width> <height>\t\t\tForce window/fullscreen resolution to <width>x<height>." << endl;
-        cout << "\t--no-gui\t\t\tStart without OpenGL Frontend (for dedicated servers)" << endl;
-        cout << "\t--lobby <lobby_id>\t\t\tInstantly join specified lobby." << endl;
-        cout << "\t -l <lobby_id>" << endl;
-        cout << "\t--party <party_id>\t\t\tInstantly join specified party." << endl;
-        cout << "\t -p <party_id>" << endl;
-        cout << "\t--add-friend <friend_id>\t\t\tShow popup to add friend." << endl;
-        cout << "\t -f <friend_id>" << endl;
-        cout << "\t--host <game_id> <map> <dedicated> <settings>\t\t\tHost a new lobby. Set <dedicated> to TRUE if this player is not playing." << endl;
+        cout << endl;
+        cout << "\t--join_lobby <lobby_id>\t\t\tJoin specified lobby." << endl;
+        cout << "\t--join_lobby_pwd <lobby_id> <password>\t\t\tJoin specified lobby using password." << endl;
+        cout << "\t--join_party <party_id>\t\t\tJoin specified party." << endl;
         cout << endl;
         cout << endl;
         cout << "Libraries:" << endl;
@@ -63,13 +60,25 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    auto * game = new Game();
-
-    while(!game->IsClosing())
+    bool startDedicatedServer = false;
     {
-        game->TickRender();
-        game->TickUpdate();
+        for(int i = 1; i < argc; i++)
+            if(strcmp(argv[1], "-s") == 0 || strcmp(argv[1], "--server") == 0)
+                startDedicatedServer = true;
     }
 
-    return 0;
+    if(startDedicatedServer)
+    {
+        throw std::logic_error("Not Implemented");
+    }
+    else
+    {
+        GameClient *client = new GameClient();
+
+        while (!client->IsClosing())
+        {
+            client->Tick();
+        }
+        return 0;
+    }
 }

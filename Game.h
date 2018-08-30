@@ -1,6 +1,8 @@
 #ifndef STANDALONE_GAME_H
 #define STANDALONE_GAME_H
 
+#include <string>
+using namespace std;
 
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
@@ -12,34 +14,31 @@
 using namespace glm;
 
 #include "lua.hpp"
+#include "Player.h"
 
+// There can be one or two instances of this running at a same time.
+// Separating Client and Server
 class Game {
-// GUI (Window)
+
+// Client / Server
+// Only one of IsClient() or IsServer() can return true
 public:
-    bool InitGui();
-    bool HasGui() { return _SdlWindow != nullptr; }
-private:
-    SDL_Window* _SdlWindow = nullptr;
+    virtual bool IsClient() { return false; }
+    virtual Game* GetClient() { return nullptr; }
+    virtual bool IsServer() { return false; }
+    virtual bool IsDedicatedServer() { return false; }
+    virtual Player* GetHostingPlayer() { return nullptr; }
 
 // Ticks
 public:
-    void TickRender();
-    void TickUpdate();
-
-// Closing
-public:
-    bool IsClosing() { return _IsClosing; }
-    void Close() { _IsClosing = true; }
-private:
-    bool _IsClosing = false;
+    virtual void Tick() {}
 
 // LUA
 public:
-    bool InitLuaClient();
-    bool InitLuaServer();
-private:
-    lua_State *_LuaClient = nullptr;
-    lua_State *_LuaServer = nullptr;
+    virtual bool InitLua();
+    lua_State* GetLua() { return _Lua; }
+protected:
+    lua_State *_Lua = nullptr;
 };
 
 
