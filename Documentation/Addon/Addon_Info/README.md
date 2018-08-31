@@ -22,9 +22,11 @@ Unranked, Ranked, Debug-only example can be found [here](Addon_Info.kv).
                 "Demons"                "5"
             }
             "Map"                       "default"
-            "Respect_Party"             "True" // Optional to false
+            "Respect_Party"             "True" // Optional to "False"
             "Script_File"               "Adon.lua"
-            "Allowed_In_Debug"          "Yes" // Optional to yes 
+            "Allowed_In_Debug"          "Yes" // Optional to "Yes" 
+            "Twitch_Chat"               "Yes" // Optional to "No"
+            "Dedicated_Server"          "Yes" // Optional to "No"
         }
     }
 }
@@ -45,7 +47,7 @@ Unranked, Ranked, Debug-only example can be found [here](Addon_Info.kv).
                 "Demons"                "10"
             }
             "Map"                       "10v10"
-            "Respect_Party"             "True" // Optional to false
+            "Respect_Party"             "True"
         }
     }
 }
@@ -68,7 +70,7 @@ Unranked, Ranked, Debug-only example can be found [here](Addon_Info.kv).
                 "East"                  "5"
             }
             "Map"                       "5v5v5v5"
-            "Respect_Party"             "True" // Optional to false
+            "Respect_Party"             "True"
         }
     }
 }
@@ -89,7 +91,7 @@ Unranked, Ranked, Debug-only example can be found [here](Addon_Info.kv).
                 "Demons"                "5"
             }
             "Map"                       "1v10"
-            "Respect_Party"             "True" // Optional to false
+            "Respect_Party"             "True"
         }
     }
 }
@@ -133,7 +135,11 @@ Specifies name of map/level to load players into.
 **Cannot contain non-ASCII characters.**
 
 ### Respect Party
-Set to `true` (not case sensitive) for joining party will be matched into same team.
+Set to `True` for joining party will be matched into same team.
+
+Values can be (not case sensitive):
+- `Yes` or `True` = Keep party together
+- `No` or `False` = Ignore party (still will try to get the together but not require it)
 
 When not possible
 - If joining directly to the lobby, it will try to keep the party in as less teams as possible
@@ -150,3 +156,22 @@ Values can be (not case sensitive):
 - `Yes` or `True` = Can be played in Debug Mode
 - `No` or `False` = **Cannot** be played in Debug Mode
 - `Only` = Can **only** be played in Debug Mode
+
+### Twitch Chat
+Allows integration with Twitch.
+
+Requires host of the lobby to have Twitch Account linked with the game one.
+
+Values can be (not case sensitive):
+- `Yes` or `True` = Allows Twitch API to load for the mode (if available)
+- `No` or `False` = Do not allow Twitch API
+
+### Dedicated Servers
+Determine where to host the lobby.
+
+Values can be (not case sensitive):
+- `Require` or `Dedicated` = Can only be run on Dedicated Server 
+- `Yes` or `True` or `Both` = Can be run on both Local and Dedicated Server
+- `No` or `False` or `Local` = Can only be run on Local Server
+
+Note: When the Game Mode is set to Dedicated-only and does not have any Dedicated server available, the Game Mode cannot be hosted.
