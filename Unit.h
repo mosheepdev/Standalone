@@ -110,7 +110,7 @@ private:
 public:
     int GetAttributeDamage()
     {
-        Attribute attr = GetPrimaryAttribute();
+        Attribute attr = GetMainAttribute();
         if (attr == ATTRIBUTE_STRENGTH)
             return GetTotalStrengthAttribute();
         if (attr == ATTRIBUTE_AGILITY)
@@ -141,7 +141,7 @@ public:
 
 // Main Attributes
 public:
-    Attribute GetPrimaryAttribute() { return _MainAttribute; }
+    Attribute GetMainAttribute() { return _MainAttribute; }
     void SetMainAttribute(Attribute mainAttribute);
 private:
     Attribute _MainAttribute = ATTRIBUTE_STRENGTH;

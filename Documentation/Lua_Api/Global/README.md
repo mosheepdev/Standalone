@@ -8,14 +8,14 @@ All functions are static (does not require instance) because there is no instanc
 ### Print
 Send message to Standard Output (Console) and append New Line (`\n`) at the end.
 
-Use [`Write(string)`](#Write) instead for not adding `\n`.
+Use [`Write(string)`](#write) instead for not adding `\n`.
 ```
 void Print(string message)
 void print(string message)
 ```
 
 ### Print Debug
-Same as [`Print(string)`](#Print) but has prefix to determine server and start time from beginning of the match.
+Same as [`Print(string)`](#print) but has prefix to determine server and start time from beginning of the match.
 ```
 void PrintDebug(string message)
 void printDebug(string message)
@@ -25,16 +25,16 @@ void print_debug(string message)
 ### Write
 Send message to Standard Output (Console).
 
-Use [`Print(string)`](#Print) instead for adding `\n` to the end.
+Use [`Print(string)`](#print) instead for adding `\n` to the end.
 ```
 void Write(string message)
 void write(string message)
 ```
 
 ### Is Client
-Returns `true` if LUA Environment is running on client (has access to GUI and has control over a [`Player`](../Player))
+Returns `true` if LUA Environment is running on client (has access to GUI and has control over a [`Player`](../Player/README.md))
 
-To check for server, use [`IsServer()`](#Is_Server) instead of `!IsClient()`.
+To check for server, use [`IsServer()`](#is-server) instead of `!IsClient()`.
 ```
 bool IsClient()
 ```
@@ -43,9 +43,9 @@ bool IsClient()
 Returns `true` if LUA Environment is running on server (dedicated or client hosting a game).
 No access to GUI.
 
-To check for client, use [`IsClient()`](#Is_Client) instead of `!IsServer()`.
+To check for client, use [`IsClient()`](#is-client) instead of `!IsServer()`.
 
-To check for dedicated server, use [`IsDedicatedServer()`](#Is_Dedicated_Server).
+To check for dedicated server, use [`IsDedicatedServer()`](#is-dedicated-server).
 ```
 bool IsServer()
 ```
@@ -53,7 +53,7 @@ bool IsServer()
 ### Is Dedicated Server
 Check whenever this game is hosted on dedicated server (not at one of the clients)
 
-Returns false in case of [`IsServer()`](#Is_Server) returning false.
+Returns false in case of [`IsServer()`](#is-server) returning false.
 ```
 bool IsDedicatedServer()
 ```
@@ -62,7 +62,7 @@ bool IsDedicatedServer()
 Get handle to player hosting the game.
 Does not work for Dedicated Servers.
 
-Returns `nil` if [`IsDedicatedServer()`](#Is_Dedicated_Server)`== true`. 
+Returns `nil` if [`IsDedicatedServer()`](#is-dedicated-server)`== true`. 
 ```
 handle GetHostPlayer()
 ```
@@ -93,7 +93,7 @@ float GetDeltaTime()
 ### Get System Date
 Returns current system's date in format `yyyy/mm/dd` (4 digits of year, 2 digits of month, 2 digits of day).
 
-To get date at start of the match use [`GetMatchDate()`](#Get_Match_Date).
+To get date at start of the match use [`GetMatchDate()`](#get-match-date).
 ```
 string GetSystemDate()
 ```
@@ -102,7 +102,7 @@ string GetSystemDate()
 Returns current system's time in format `hh:mm:ss` (2 digits of hour, 2 digits of minutes, 2 digits of seconds).
 Uses 24-hours format.
 
-To get time at start of the match use [`GetMatchTime()`](#Get_Match_Time).
+To get time at start of the match use [`GetMatchTime()`](#get-match-time).
 ```
 string GetSystemTime()
 ```
@@ -128,7 +128,7 @@ Keys are:
   - `HoursAmPm` - same as `Hours` but 12-hours format
     - `= Hours % 12 == 0 ? 12 : Hours % 12`
 
-To get date and time at start of the match use [`GetMatchDateTime()`](#Get_Match_DateTime) (uses same structure)(uses same structure).
+To get date and time at start of the match use [`GetMatchDateTime()`](#get-match-datetime) (uses same structure)(uses same structure).
 ```
 table GetSystemDateTime()
 ```
@@ -136,7 +136,7 @@ table GetSystemDateTime()
 ### Get Match Date
 Returns system's date at start of the match in format `yyyy/mm/dd` (4 digits of year, 2 digits of month, 2 digits of day).
 
-For current date use [`GetSystemDate()`](#Get_System_Date).
+For current date use [`GetSystemDate()`](#get-system-date).
 ```
 string GetMatchDate()
 ```
@@ -145,7 +145,7 @@ string GetMatchDate()
 Returns system's time at start of the match in format `hh:mm:ss` (2 digits of hour, 2 digits of minutes, 2 digits of seconds).
 Uses 24-hours format.
 
-For current time use [`GetSystemTime()`](#Get_System_Time).
+For current time use [`GetSystemTime()`](#get-system-time).
 ```
 string GetMatchTime()
 ```
@@ -153,7 +153,7 @@ string GetMatchTime()
 ### Get Match DateTime
 Get system's date and time at beginning of the match.
 
-For current date and time use [`GetSystemDateTime()`](#Get_System_DateTime) (uses same structure).
+For current date and time use [`GetSystemDateTime()`](#get-system-datetime) (uses same structure).
 ```
 table GetMatchDateTime()
 ```

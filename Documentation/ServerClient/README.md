@@ -3,7 +3,7 @@
 ## Client
 - Runs GUI
 - Allows interactions
-- Owns 1 instance of [`Player`](../Lua_Api/Player)
+- Owns 1 instance of [`Player`](../Lua_Api/Player/README.md)
 
 ## Server
 

@@ -1,9 +1,9 @@
 # Documentation
 
-## [Lua API](Lua_Api/)
+## [Lua API](Lua_Api/README.md)
 Documentation an all [Lua](https://www.lua.org/) API.
 
-## [Gui](Gui/)
+## [Gui](Gui/README.md)
 Documentation on XML and CSS style GUI.
 
-## [Tutorials](Tutorials/)
+## [Tutorials](Tutorials/README.md)

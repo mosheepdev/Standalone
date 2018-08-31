@@ -7,41 +7,118 @@ They can still be called from Client but will have no effect.
 
 ### Summary
 
-- [Base Info](#Base_Info)
-  - [Get Unit ID](#Get_Unit_ID)
-- [Position](#Position)
-  - [Get Position](#Get_Position)
-  - [Teleport](#Teleport) (Set Position)
-- [Levels And Experience](#Levels_And_Experience)
-  - Max Level ([Get](#Get_Max_Level) +  [Set](#Set_Max_Level))
-  - XP Per Level ([Get](#Get_XP_Per_Level) + [Get Total](#Get_XP_Per_Level_Total) + [Set](#Set_XP_Per_Level))
-  - Level ([Get](#Get_Level) + [Set](#Set_Level))
-  - Current XP ([Get](#Get_Current_XP) + [Get Percentage](#Get_Current_XP_Percentage) + [Clear](#Clear_Current_XP) + [Set](#Set_Current_XP))
-  - [Get XP To Next Level](#Get_XP_To_Next_Level)
-  - Total XP ([Get](#Get_Total_XP) + [Set](#Set_Total_XP))
-  - [Add XP](#Add_XP)
-  - [Get Percentage Bonus XP](#Get_Percentage_Bonus_XP) (From Modifiers)
-  - [Get XP After Bonus](#Get_XP_After_Bonus) (Calculation Utility)
-- [Damage](#Damage)
-  - [Original Damage](#Original_Damage)
-    - [Min](#Get_Original_Min_Damage)
-    - [Max](#Get_Original_Max_Damage)
-    - [Real](#Get_Original_Real_Damage) (Average)
-    - [Set ](#Set_Original_Damage)
-  - [Attribute Damage](#Attribute_Damage)
-    - [Get](#Get_Attribute_Damage)
-  - [Base Damage](#Base_Damage)
-    - [Min](#Get_Base_Min_Damage)
-    - [Max](#Get_Base_Max_Damage)
-    - [Real](#Get_Base_Real_Damage) (Average)
-  - [Bonus Damage](#Bonus_Damage)
-    - [Flat](#Get_Flat_Bonus_Damage)
-    - [Percentage](#Get_Percentage_Bonus_Damage)
-    - [Total](#Get_Total_Bonus_Damage)
-  - [Total Damage](#Total_Damage)
-    - [Min](#Get_Total_Min_Damage)
-    - [Max](#Get_Total_Max_Damage)
-    - [Real](#Get_Total_Real_Damage) (Average)
+- [Base Info](#base-info)
+  - [Get Unit ID](#get-unit-id)
+- [Position](#position)
+  - [Get Position](#get-position)
+  - [Teleport](#teleport) (Set Position)
+- [Levels And Experience](#levels-and-experience)
+  - Max Level
+    - [Get](#get-max-level)
+    - [Set](#set-max-level)
+  - XP Per Level
+    - [Get](#get-xp-per-level)
+    - [Get Total](#get-xp-per-level-total)
+    - [Set](#set-xp-per-level)
+  - Level
+    - [Get](#get-level)
+    - [Set](#set-level)
+  - Current XP
+    - [Get](#get-current-xp)
+    - [Get Percentage](#get-current-xp-percentage)
+    - [Clear](#clear-current-xp)
+    - [Set](#set-current-xp))
+  - [Get XP To Next Level](#get-xp-to-next-level)
+  - Total XP
+    - [Get](#get-total-xp)
+    - [Set](#set-total-xp)
+  - [Add XP](#add-xp)
+  - [Get Percentage Bonus XP](#get-percentage-bonus-xp) (From Modifiers)
+  - [Get XP After Bonus](#get-xp-after-bonus) (Calculation Utility)
+- [Damage](#damage)
+  - [Original Damage](#original-damage)
+    - [Min](#get-original-min-damage)
+    - [Max](#get-original-max-damage)
+    - [Real](#get-original-real-damage) (Average)
+    - [Set ](#set-original-damage)
+  - [Attribute Damage](#attribute-damage)
+    - [Get](#get-attribute-damage)
+  - [Base Damage](#base-damage)
+    - [Min](#get-base-min-damage)
+    - [Max](#get-base-max-damage)
+    - [Real](#get-base-real-damage) (Average)
+  - [Bonus Damage](#bonus-damage)
+    - [Flat](#get-flat-bonus-damage)
+    - [Percentage](#get-percentage-bonus-damage)
+    - [Total](#get-total-bonus-damage)
+  - [Total Damage](#total-damage)
+    - [Min](#get-total-min-damage)
+    - [Max](#get-total-max-damage)
+    - [Real](#get-total-real-damage) (Average)
+- [Attributes](#attributes)
+  - [Main Attribute](#main-attribute)
+    - [Get](#get-main-attribute)
+    - [Set](#set-main-attribute)
+  - [Strength](#strength-attribute)
+    - [Original](#original-strength-attribute)
+      - [Get](#get-original-strength-attribute)
+      - [Set](#set-original-strength-attribute)
+    - [Grow](#Strength-attribute-grow)
+      - [Get](#get-Strength-attribute-grow)
+      - [Set](#set-Strength-attribute-grow)
+    - [Base](#get-base-Strength-attribute)
+    - [Bonus](#get-bonus-Strength-attribute)
+    - [Total](#get-total-Strength-attribute)
+  - [Agility](#agility-attribute)
+    - [Original](#original-agility-attribute)
+      - [Get](#get-original-agility-attribute)
+      - [Set](#set-original-agility-attribute)
+    - [Grow](#agility-attribute-grow)
+      - [Get](#get-agility-attribute-grow)
+      - [Set](#set-agility-attribute-grow)
+    - [Base](#get-base-agility-attribute)
+    - [Bonus](#get-bonus-agility-attribute)
+    - [Total](#get-total-agility-attribute)
+  - [Intelligence](#intelligence-attribute)
+    - [Original](#original-intelligence-attribute)
+      - [Get](#get-original-intelligence-attribute)
+      - [Set](#set-original-intelligence-attribute)
+    - [Grow](#intelligence-attribute-grow)
+      - [Get](#get-intelligence-attribute-grow)
+      - [Set](#set-intelligence-attribute-grow)
+    - [Base](#get-base-intelligence-attribute)
+    - [Bonus](#get-bonus-intelligence-attribute)
+    - [Total](#get-total-intelligence-attribute)
+  - [Charisma](#charisma-attribute)
+    - [Original](#original-charisma-attribute)
+      - [Get](#get-original-charisma-attribute)
+      - [Set](#set-original-charisma-attribute)
+    - [Grow](#charisma-attribute-grow)
+      - [Get](#get-charisma-attribute-grow)
+      - [Set](#set-charisma-attribute-grow)
+    - [Base](#get-base-charisma-attribute)
+    - [Bonus](#get-bonus-charisma-attribute)
+    - [Total](#get-total-charisma-attribute)
+- [Health](#health)
+  - [Pool](#health-pool)
+    - [Original](#original-health-pool)
+      - [Get](#get-original-health-pool)
+      - [Set](#set-original-health-pool)
+    - [Attribute](#attribute-health-pool)
+      - [Get](#get-attribute-health-pool)
+      - [Per Strength](#health-pool-per-strength)
+        - [Get](#get-health-pool-per-strength)
+        - [Set](#set-health-pool-per-strength)
+    - [Base](#get-base-health-pool)
+    - [Bonus](#bonus-health-pool)
+      - [Flat](#get-flat-bonus-health-pool)
+      - [Percentage](#get-percentage-bonus-health-pool)
+      - [Total](#get-bonus-health-pool)
+    - [Total](#get-total-health-pool)
+  - [Current](#current-health)
+    - ...
+  - [Regeneration](#health-regeneration)
+    - ...
 
 ### Base Info
 
@@ -128,7 +205,7 @@ Often used for `level=1` to allow unit to start at `level=1` instead of `level=0
 Forces Current XP to recalculate and can add 1 (or more) levels.
 
 Cannot lower level because level is stored as Current Level + XP.
-You can still store XP from [`GetTotalXp()`](#Get_Total_Xp) and the set it again using [`SetTotalXP(float, boolean)`](#Set_Total_XP) with 2nd parameter set to `false`.
+You can still store XP from [`GetTotalXp()`](#get-total-xp) and the set it again using [`SetTotalXP(float, boolean)`](#set-total-xp) with 2nd parameter set to `false`.
 
 **Server only**
 ```
@@ -176,9 +253,9 @@ end
 ```
 
 #### Clear Current XP
-Sets Current XP (retrievable from [`GetCurrentXp()`](#Get_Current_Xp)) to 0.
+Sets Current XP (retrievable from [`GetCurrentXp()`](#get-current-xp)) to 0.
 
-To set it to other value, use [`Set_Current_Xp(float)`](#Set_Current_Xp).
+To set it to other value, use [`Set_Current_Xp(float)`](#set-current-xp).
 
 **Server only**
 ```
@@ -299,13 +376,13 @@ end
 #### Get Percentage Bonus XP
 Retrieve and calculate total percentage bonus from all active modifiers on this unit.
 
-Uses value of [`Modifier:GetPercentageBonusXp`](../Modifier/Values.md#Get_Percentage_Bonus_Xp).
+Uses value of [`Modifier:GetPercentageBonusXp`](../Modifier/Values.md#get-percentage-bonus-xp).
 ```
-float GetPercentageBonusXp()
+float GetPercentageBonusXp()event
 ```
 
 #### Get XP After Bonus
-Utility function to get XP multiplied by [`GetPercentageBonusXp`](#Get_Percentage_Bonus_Xp).
+Utility function to get XP multiplied by [`GetPercentageBonusXp`](#get-percentage-bonus-xp).
 ```
 float GetXpAfterBonus(float xp)
 ```
@@ -332,7 +409,7 @@ int GetOriginalMaxDamage()
 ```
 
 ##### Get Original Real Damage
-Average value between [`GetOriginalMinDamage`](#Get_Original_Min_Damage) and [`GetOriginalMaxDamage`](#Get_Original_Max_Damage).
+Average value between [`GetOriginalMinDamage`](#get-original-min-damage) and [`GetOriginalMaxDamage`](#get-original-max-damage).
 
 Original Damage is damage defined in Unit's KV file.
 
@@ -349,7 +426,7 @@ end
 ```
 
 ##### Set Original Damage
-Set value for [`GetOriginalMinDamage`](#Get_Original_Min_Damage) and [`GetOriginalMaxDamage`](#Get_Original_Max_Damage).
+Set value for [`GetOriginalMinDamage`](#get-original-min-damage) and [`GetOriginalMaxDamage`](#get-original-max-damage).
 
 Original Damage is damage defined in Unit's KV file.
 
@@ -361,7 +438,7 @@ void SetOriginalDamage(int min, int max)
 #### Attribute Damage
 
 ##### Get Attribute Damage
-Get damage from [`GetPrimaryAttribute()`](#Get_Primary_Attribute).
+Get damage from [`GetMainAttribute()`](#get-main-attribute).
 
 This plus Original Damage makes Base Damage 
 

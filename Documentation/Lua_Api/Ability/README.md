@@ -16,7 +16,7 @@ int GetId()
 
 ### Get Name
 Codename of the ability.
-Used for adding the ability to [Unit](../Unit/), referencing it or translations.
+Used for adding the ability to [Unit](../Unit/README.md), referencing it or translations.
 
 **Should not be overloaded.** (no effect on C++ code)
 ```
@@ -34,7 +34,7 @@ int GetLevel()
 ```
 
 ### Is Learned
-Utility function which checks [`GetLevel()`](#Get_Level) for being `> 0`.
+Utility function which checks [`GetLevel()`](#get-level) for being `> 0`.
 
 **Should not be overloaded.** (no effect on C++ code)
 ```
@@ -53,7 +53,7 @@ Does not spend ability point.
 
 Returns `true` on success.
 
-To run code on upgrade, override [`OnUpgrade()`](#On_Upgrade). To determine whenever to show GUI selection, override [`CanBeUpgraded()`](#Can_Be_Upgraded).
+To run code on upgrade, override [`OnUpgrade()`](#on-upgrade). To determine whenever to show GUI selection, override [`CanBeUpgraded()`](#can-be-upgraded).
 
 **Should not be overloaded.** (no effect on C++ code)
 ```
@@ -61,7 +61,7 @@ bool Upgrade()
 ```
 
 ### On Upgrade
-Called from [`Upgrade()`](#Upgrade) to allow custom code on ability upgrade.
+Called from [`Upgrade()`](#upgrade) to allow custom code on ability upgrade.
 
 Return `true` if everything is OK.
 Return `false` (or `nil`) to prevent the ability to be upgraded.
@@ -113,7 +113,7 @@ May have different variants:
 ### Cast
 Perform cast of the ability without animation but still consume resources.
 
-To still perform animation, use [`PerformCast(vec3, vec3, Unit)`](#Perform_Cast)
+To still perform animation, use [`PerformCast(vec3, vec3, Unit)`](#perform-cast)
 ```
 void Cast()
 void Cast(vec3 position)
@@ -131,7 +131,7 @@ end
 ### Perform Cast
 Perform cast of the ability with animation and consume resources.
 
-To not perform animation, use [`Cast(vec3, vec3, Unit)`](#Cast)
+To not perform animation, use [`Cast(vec3, vec3, Unit)`](#cast)
 ```
 void PerformCast(vec3 position, vec3 direction, Unit unit)
 ```
@@ -174,7 +174,7 @@ end
 
 ### Is Channel
 Utility function for channel abilities.
-Simple check of [`GetChannelTime()`](#Get_Channel_Time) being `= 0`.
+Simple check of [`GetChannelTime()`](#get-channel-time) being `= 0`.
 ```
 bool IsChannel()
 bool IsChannel(int level)
@@ -199,7 +199,7 @@ The `level` parameter is same as `GetLevel()` at start of the ability (should no
 
 Value for `level = 0` is not defined and should not be called at any time (no cooldown required when the ability is not learned).
 
-Should not count with Cooldown Reduction because (in base implementation) is called from [`GetCooldown()`](#Get_Cooldown) where is modified by Cooldown Reduction.
+Should not count with Cooldown Reduction because (in base implementation) is called from [`GetCooldown()`](#get-cooldown) where is modified by Cooldown Reduction.
 ```
 float GetBaseCooldown(int level)
 ```
@@ -217,7 +217,7 @@ The `level` parameter is same as `GetLevel()` at start of the ability (should no
 Value for `level = 0` is not defined and should not be called at any time (no cooldown required when the ability is not learned).
 
 Base implementation counts with Cooldown Reduction.
-For custom implementation, don't forget to count with Cooldown Reduction or use [`GetBaseCooldown`](#Get_Base_Cooldown).
+For custom implementation, don't forget to count with Cooldown Reduction or use [`GetBaseCooldown`](#get-base-cooldown).
 ```
 float GetCooldown(int level)
 ```
@@ -245,7 +245,7 @@ end
 ### Get Current Cooldown (Remaining)
 Get remaining time of the cooldown.
 
-To change this value, use [`StartCooldown(float)`](#Start_Cooldown).
+To change this value, use [`StartCooldown(float)`](#start-cooldown).
 
 **Should not be overloaded.** (no effect on C++ code)
 ```
@@ -284,8 +284,8 @@ end
 ### Start Cooldown
 This function forces the ability to go on specified cooldown.
 
-Value can be above [`GetCooldown()`](#Get_Cooldown) but will be displayed as `100%` of the ability's cooldown (cannot go `>100%` visually).
-Displayed numeric value is affected by [`GetCurrentCooldownRemaining()`](#Get_Current_Cooldown_Remaining) which can be above [`GetCooldown()`](#Get_Cooldown) (for case of level-up of change in Cooldown Reduction). 
+Value can be above [`GetCooldown()`](#get-cooldown) but will be displayed as `100%` of the ability's cooldown (cannot go `>100%` visually).
+Displayed numeric value is affected by [`GetCurrentCooldownRemaining()`](#get-current-cooldown-remaining) which can be above [`GetCooldown()`](#get-cooldown) (for case of level-up of change in Cooldown Reduction). 
 
 **Should not be overloaded.** (no effect on C++ code)
 ```
@@ -410,7 +410,7 @@ end
 
 ### Get Value
 Get Ability's value for specified level.
-To get raw data, use [`GetValueRaw(string)`](#Get_Value_Raw). 
+To get raw data, use [`GetValueRaw(string)`](#get-value-raw). 
 
 **Should not be overloaded.** (no effect on C++ code)
 ```
@@ -422,8 +422,8 @@ Implemented as:
 function Ability:GetValue(key, level)
     level = level or self:GetLevel()
     
-    words = {}
-    for word in s:gmatch(ABILITY_VALUE_SEPARATOR) do
+    local words = {}
+    for word in self:GetValueRaw(key):gmatch(ABILITY_VALUE_SEPARATOR) do
         table.insert(words, word)
     end
     
@@ -557,7 +557,7 @@ end
 Maximum radius to cast a spell. 
 
 Not affecter by owner's Cast Range Increase.
-Affected version is [`GetAbilityCastRange(int)`](#Get_Ability_Cast_Range).
+Affected version is [`GetAbilityCastRange(int)`](#get-ability-cast-range).
 ```
 Team_Flags GetAbilityBaseCastRange(int level)
 ```
@@ -572,7 +572,7 @@ end
 Maximum radius to cast a spell. 
 
 Affected by owner's Cast Range Increase.
-Not affected version is [`GetAbilityBaseCastRange(int)`](#Get_Ability_Base_Cast_Range).
+Not affected version is [`GetAbilityBaseCastRange(int)`](#get-ability-base-cast-range).
 ```
 Team_Flags GetAbilityCastRange(int level)
 ```
@@ -587,7 +587,7 @@ end
 Radius of effect for AoE spells and auras.
 
 Not affected by owner's Radius Increase.
-Affected version is [`GetAbilityRadius(int)`](#Get_Ability_Radius).
+Affected version is [`GetAbilityRadius(int)`](#get-ability-radius).
 ```
 Team_Flags GetAbilityBaseRadius(int level)
 ```
@@ -602,7 +602,7 @@ end
 Radius of effect for AoE spells and auras.
 
 Affected by owner's Radius Increase.
-Not affected version is [`GetAbilityBaseRadius(int)`](#Get_Ability_Base_Radius).
+Not affected version is [`GetAbilityBaseRadius(int)`](#get-ability-base-radius).
 ```
 Team_Flags GetAbilityRadius(int level)
 ```
