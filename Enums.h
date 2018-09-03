@@ -183,4 +183,10 @@ enum AbilityTargeting
     ABILITY_TARGETTING_TREE = 1 << 6
 };
 
+enum AttackType
+{
+    ATTACK_TYPE_MELEE = 0,
+    ATTACK_TYPE_RANGED = 1
+};
+
 #endif //STANDALONE_HEADERS_H

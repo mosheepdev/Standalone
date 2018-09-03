@@ -84,7 +84,7 @@ Default: `0`
 
 ### Get Percentage Bonus Health Regeneration
 ```
-float GetPercentageBonusHealthRegeneration()
+float GetBonusPercentageHealthRegeneration()
 ```
 Default: `0`
 

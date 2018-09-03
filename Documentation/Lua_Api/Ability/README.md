@@ -609,6 +609,6 @@ Team_Flags GetAbilityRadius(int level)
 Implemented as:
 ```lua
 function Ability:GetAbilityRadius(level)
-    return self:GetOwner():GetTotalRadius(self:GetAbilityBaseRadius(level))
+    return self:GetOwner():GetTotalCastRadius(self:GetAbilityBaseRadius(level))
 end
 ```

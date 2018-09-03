@@ -5,6 +5,21 @@ This is my attempt on creating Game Engine for OAA ([Open Angel Arena](https://g
 They decided on using Amazon's [Lumberyard](https://aws.amazon.com/lumberyard/) because it has native support for LUA (so you cannot modify as I did here or have any control on its version) and is said to be in C++ (which no-one is using unless LUA is too slow for something).
 I even think I have more documentation here than they have.
 
+## Looking Into Future
+
+I want to see how far will I get before they will be finished.
+
+They have:
+- Full development team
+- (Officialy) AAA Game Engine - [Lumberyard](https://aws.amazon.com/lumberyard/)
+- Game Designer ([l34Um1](https://github.com/l34Um1))
+- Skilled C++ Developer ([chrisinajar](https://github.com/chrisinajar))
+
+I have:
+- Partial information about
+- Basic C++ knowledge
+- Low-level access (like [OpenGL](https://www.opengl.org/) instead of Game Engine Backend)
+
 ## Money
 
 The one big thing which moves the world.

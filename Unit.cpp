@@ -196,7 +196,7 @@ void Unit::SetCurrentHealth(float health)
     throw std::logic_error("Not Implemented Over Network");
 }
 
-void Unit::SetHealthPercentage(float percentage)
+void Unit::SetCurrentHealthPercentage(float percentage)
 {
     throw std::logic_error("Not Implemented");
 }
@@ -215,14 +215,14 @@ float Unit::GetBonusHealthRegeneration()
     throw std::logic_error("Not Implemented");
 }
 
-void Unit::SetPercentageHealthRegenerationAmplificationPerStrength(float percentageHealthRegenerationPerStrength)
+void Unit::SetPercentageHealthRegenerationPerStrength(float percentageHealthRegenerationPerStrength)
 {
-    _PercentageHealthRegenerationAmplificationPerStrength = percentageHealthRegenerationPerStrength;
+    _PercentageHealthRegenerationPerStrength = percentageHealthRegenerationPerStrength;
 
     throw std::logic_error("Not Implemented Over Network");
 }
 
-float Unit::GetPercentageBonusHealthRegeneration()
+float Unit::GetBonusPercentageHealthRegeneration()
 {
     throw std::logic_error("Not Implemented");
 }
@@ -454,14 +454,14 @@ float Unit::GetBonusCastRangeIncrease()
 
 //-----------------------------------------------------------------
 
-void Unit::SetBaseCastRangeAmplification(float castRangeAmplification)
+void Unit::SetOriginalCastRangePercentage(float castRangeAmplification)
 {
-    _BaseCastRangeAmplification = castRangeAmplification;
+    _OriginalCastRangePercentage = castRangeAmplification;
 
     throw std::logic_error("Not Implemented Over Network");
 }
 
-float Unit::GetBonusCastRangeAmplification()
+float Unit::GetBonusCastRangePercentage()
 {
     throw std::logic_error("Not Implemented");
 }
@@ -509,14 +509,14 @@ void Unit::SetAttackSpeedLimit(int min, int max)
 
 //-----------------------------------------------------------------
 
-void Unit::SetBaseAttackSpeedAmplification(float attackSpeedAmplification)
+void Unit::SetBaseAttackSpeedPercentage(float attackSpeedPercentage)
 {
-    _BaseAttackSpeedAmplification = attackSpeedAmplification;
+    _BaseAttackSpeedPercentage = attackSpeedPercentage;
 
     throw std::logic_error("Not Implemented Over Network");
 }
 
-float Unit::GetBonusAttackSpeedAmplification()
+float Unit::GetBonusAttackSpeedPercentage()
 {
     throw std::logic_error("Not Implemented");
 }
