@@ -263,10 +263,11 @@ public:
     float GetTotalHealthRegeneration() { return (GetPercentageTotalHealthRegeneration() / 100.0f) * GetFlatHealthRegeneration(); }
 
 // Damage
-    inline void TakeDamage(float amount) { TakeDamage(amount, DAMAGE_PURE, nullptr); }
-    inline void TakeDamage(float amount, DamageType type) { TakeDamage(amount, type, nullptr); }
-    inline void TakeDamage(float amount, DamageType type, Unit* damager) { TakeDamage(amount, type, nullptr, nullptr); }
-    void TakeDamage(float amount, DamageType type, Unit* damager, Ability* ability);
+    inline void TakeDamage(float amount) { TakeDamage(amount, DAMAGE_PURE); }
+    inline void TakeDamage(float amount, DamageType type) { TakeDamage(amount, type, DAMAGE_FLAGS_NONE); }
+    inline void TakeDamage(float amount, DamageType type, DamageFlags flags) { TakeDamage(amount, type, DAMAGE_FLAGS_NONE, nullptr); }
+    inline void TakeDamage(float amount, DamageType type, DamageFlags flags, Unit* damager) { TakeDamage(amount, type, flags, nullptr, nullptr); }
+    void TakeDamage(float amount, DamageType type, DamageFlags flags, Unit* damager, Ability* ability);
 
 // Heal
     inline void Heal(float amount) { Heal(amount, nullptr); }
@@ -329,6 +330,8 @@ public:
     void ConsumeMana(float amount);
 
 // All Damage Resistance
+public:
+    float GetDamageAfterAllReduction(float damage);
 //TODO
 
 // Armor + Physical Resistance
@@ -359,21 +362,21 @@ public:
 
 // Magic Resistance
 public:
-    float GetPercentageOriginalMagicResistance() { return _PercentageOriginalMagicResistance; }
-    void SetPercentageOriginalMagicResistance(float magicResistance);
+    float GetOriginalMagicResistance() { return _OriginalMagicResistance; }
+    void SetOriginalMagicResistance(float magicResistance);
 private:
-    float _PercentageOriginalMagicResistance = 20.00; // 20%
+    float _OriginalMagicResistance = 20.00; // 20%
 public:
-    float GetPercentageAttributeMagicResistance() { return (1 - pow(1 - _PercentageMagicResistancePerCharisma, (float)GetTotalCharismaAttribute())) * 100.0f; }
-    float GetPercentageMagicResistancePerCharisma() { return _PercentageMagicResistancePerCharisma * 100; }
-    void SetPercentageMagicResistancePerCharisma(float percentageMagicResistancePerCharisma);
+    float GetAttributeMagicResistance() { return (1 - pow(1 - _MagicResistancePerCharisma, (float)GetTotalCharismaAttribute())) * 100.0f; }
+    float GetMagicResistancePerCharisma() { return _MagicResistancePerCharisma * 100; }
+    void SetMagicResistancePerCharisma(float percentageMagicResistancePerCharisma);
 private:
-    float _PercentageMagicResistancePerCharisma = 0.20;// 0.20%
+    float _MagicResistancePerCharisma = 0.20;// 0.20%
 public:
-    float GetPercentageBaseMagicResistance() { return (1 - ((1 - GetPercentageOriginalMagicResistance()/100.0f) * (1 - GetPercentageAttributeMagicResistance()/100.0f))) * 100.0f; }
-    float GetPercentageBonusMagicResistance();
-    float GetTotalPercentageMagicResistance() { return (1 - ((1 - GetPercentageBaseMagicResistance()/100.0f) * (1 - GetPercentageBonusMagicResistance()/100.0f))) * 100.0f; }
-    float GetMagicDamageAfterReduction(float damage) { return damage * (1 - GetTotalPercentageMagicResistance()/100.0f); }
+    float GetBaseMagicResistance() { return (1 - ((1 - GetOriginalMagicResistance()/100.0f) * (1 - GetAttributeMagicResistance()/100.0f))) * 100.0f; }
+    float GetBonusMagicResistance();
+    float GetTotalMagicResistance() { return (1 - ((1 - GetBaseMagicResistance()/100.0f) * (1 - GetBonusMagicResistance()/100.0f))) * 100.0f; }
+    float GetMagicDamageAfterReduction(float damage) { return damage * (1 - GetTotalMagicResistance()/100.0f); }
 
 // Status Resistance
 public:
@@ -395,32 +398,32 @@ public:
 
 // Cooldown Reduction
 public:
-    float GetPercentageOriginalCooldownReduction() { return _PercentageOriginalCooldownReduction; }
-    void SetPercentageOriginalCooldownReduction(float percentageCooldownReduction);
+    float GetOriginalCooldownReduction() { return _OriginalCooldownReduction; }
+    void SetOriginalCooldownReduction(float percentageCooldownReduction);
 private:
-    float _PercentageOriginalCooldownReduction = 0; // 0.00%
+    float _OriginalCooldownReduction = 0; // 0.00%
 public:
-    float GetPercentageAttributeCooldownReduction() { return (1-pow(1-_PercentageCooldownReductionPerCharisma/100.0f, (float)GetTotalCharismaAttribute())) * 100; }
-    float GetPercentageCooldownReductionPerCharisma() { return _PercentageCooldownReductionPerCharisma; }
-    void SetPercentageCooldownReductionPerCharisma(float percentageCooldownReductionPerCharisma);
+    float GetAttributeCooldownReduction() { return (1-pow(1-_CooldownReductionPerCharisma/100.0f, (float)GetTotalCharismaAttribute())) * 100; }
+    float GetCooldownReductionPerCharisma() { return _CooldownReductionPerCharisma; }
+    void SetCooldownReductionPerCharisma(float cooldownReductionPerCharisma);
 private:
-    float _PercentageCooldownReductionPerCharisma = 0.10; // 0.10%
+    float _CooldownReductionPerCharisma = 0.10; // 0.10%
 public:
-    float GetBasePercentageCooldownReduction() { return (1 - ((1 - GetPercentageOriginalCooldownReduction()/100.0f) * (1 - GetPercentageAttributeCooldownReduction()/100.0f)))*100; }
-    float GetBonusPercentageCooldownReduction();
-    float GetTotalPercentageCooldownReduction() { return (1 - ((1 - GetBasePercentageCooldownReduction()/100.0f) * (1 - GetBonusPercentageCooldownReduction()/100.0f)))*100; }
-    float GetCooldown(float cooldown) { return cooldown * (GetTotalPercentageCooldownReduction() / 100.0f); }
+    float GetBaseCooldownReduction() { return (1 - ((1 - GetOriginalCooldownReduction()/100.0f) * (1 - GetAttributeCooldownReduction()/100.0f)))*100; }
+    float GetBonusCooldownReduction();
+    float GetTotalCooldownReduction() { return (1 - ((1 - GetBaseCooldownReduction()/100.0f) * (1 - GetBonusCooldownReduction()/100.0f)))*100; }
+    float GetCooldown(float cooldown) { return cooldown * (GetTotalCooldownReduction() / 100.0f); }
 
 // Manacost Reduction
 public:
     float GetPercentageOriginalManacostReduction() { return _PercentageOriginalManacostReduction; }
-    void SetPercentageOriginalManacostReduction(float percentageManacostReduction);
+    void SetPercentageOriginalManacostReduction(float manacostReduction);
 private:
     float _PercentageOriginalManacostReduction = 0; // 0.00%
 public:
     float GetPercentageAttributeManacostReduction() { return (1-pow(1-_PercentageManacostReductionPerCharisma/100.0f, (float)GetTotalCharismaAttribute())) * 100; }
     float GetPercentageManacostReductionPerCharisma() { return _PercentageManacostReductionPerCharisma; }
-    void SetPercentageManacostReductionPerCharisma(float percentageManacostReductionPerCharisma);
+    void SetPercentageManacostReductionPerCharisma(float manacostReductionPerCharisma);
 private:
     float _PercentageManacostReductionPerCharisma = 0.00;
 public:
@@ -431,32 +434,39 @@ public:
 
 // Goldcost Reduction
 public:
-    float GetPercentageOriginalGoldcostReduction() { return _PercentageOriginalGoldcostReduction; }
-    void SetPercentageOriginalGoldcostReduction(float percentageGoldcostReduction);
+    float GetOriginalGoldcostReduction() { return _originalGoldcostReduction; }
+    void SetOriginalGoldcostReduction(float goldcostReduction);
 private:
-    float _PercentageOriginalGoldcostReduction = 0; // 0.00%
+    float _originalGoldcostReduction = 0; // 0.00%
 public:
-    float GetPercentageAttributeGoldcostReduction() { return (1-pow(1-_PercentageGoldcostReductionPerCharisma/100.0f, (float)GetTotalCharismaAttribute())) * 100; }
-    float GetPercentageGoldcostReductionPerCharisma() { return _PercentageGoldcostReductionPerCharisma; }
-    void SetPercentageGoldcostReductionPerCharisma(float percentageGoldcostReductionPerCharisma);
+    float GetAttributeGoldcostReduction() { return (1-pow(1-_GoldcostReductionPerCharisma/100.0f, (float)GetTotalCharismaAttribute())) * 100; }
+    float GetGoldcostReductionPerCharisma() { return _GoldcostReductionPerCharisma; }
+    void SetGoldcostReductionPerCharisma(float goldcostReductionPerCharisma);
 private:
-    float _PercentageGoldcostReductionPerCharisma = 0.10; // 0.10%
+    float _GoldcostReductionPerCharisma = 0.10; // 0.10%
 public:
-    float GetBasePercentageGoldcostReduction() { return (1 - ((1 - GetPercentageOriginalGoldcostReduction()/100.0f) * (1 - GetPercentageAttributeGoldcostReduction()/100.0f)))*100; }
-    float GetBonusPercentageGoldcostReduction();
-    float GetTotalPercentageGoldcostReduction() { return (1 - ((1 - GetBasePercentageGoldcostReduction()/100.0f) * (1 - GetBonusPercentageGoldcostReduction()/100.0f)))*100; }
-    float GetGoldcost(float goldcost) { return goldcost * (GetTotalPercentageGoldcostReduction() / 100.0f); }
+    float GetBaseGoldcostReduction() { return (1 - ((1 - GetOriginalGoldcostReduction()/100.0f) * (1 - GetAttributeGoldcostReduction()/100.0f)))*100; }
+    float GetBonusGoldcostReduction();
+    float GetTotalGoldcostReduction() { return (1 - ((1 - GetBaseGoldcostReduction()/100.0f) * (1 - GetBonusGoldcostReduction()/100.0f)))*100; }
+    float GetGoldcost(float goldcost) { return goldcost * (GetTotalGoldcostReduction() / 100.0f); }
 
 // Spell Amplification
 public:
-    float GetPercentageBaseSpellAmplification() { return _PercentageBaseSpellAmplification; }
-    void SetPercentageBaseSpellAmplification(float percentageSpellAmplification);
+    float GetOriginalSpellAmplification() { return _OriginalSpellAmplification; }
+    void SetOriginalSpellAmplification(float spellAmplification);
 private:
-    float _PercentageBaseSpellAmplification = 1.0f;
+    float _OriginalSpellAmplification = 1.0f;
 public:
-    float GetPercentageBonusSpellAmplification();
-    float GetTotalPercentageSpellAmplification() { return GetPercentageBaseSpellAmplification() * GetPercentageBonusSpellAmplification() / 100.0f; }
-    float GetTotalDamageIncreasedBySpellAmplification(float damage) { return damage * (GetTotalPercentageSpellAmplification() / 100.0f); }
+    float GetAttributeSpellAmplification() { return 100 + GetSpellAmplificationPerIntelligence() * GetTotalIntelligenceAttribute(); }
+    float GetSpellAmplificationPerIntelligence() { return _SpellAmplificationPerIntelligence; }
+    void SetSpellAmplificationPerIntelligence(float spellAmplificationPerIntelligence);
+private:
+    float _SpellAmplificationPerIntelligence = 0.10; // 0.10%
+public:
+    float GetBaseSpellAmplification() { return GetOriginalSpellAmplification() * GetAttributeSpellAmplification() / 100.0f; }
+    float GetBonusSpellAmplification();
+    float GetTotalSpellAmplification() { return GetBaseSpellAmplification() * GetBonusSpellAmplification() / 100.0f; }
+    float GetDamageAfterSpellAmplification(float damage) { return damage * (GetTotalSpellAmplification() / 100.0f); }
 
 // Cast Range Increase
 public:
@@ -471,12 +481,12 @@ public:
 private:
     float _CastRangeIncreasePerCharisma = 1;
 public:
-    float GetBaseCastRangeIncrease() { return GetOriginalCastRangeIncrease() * GetAttributeCastRangeIncrease() / 100; }
+    float GetBaseCastRangeIncrease() { return GetOriginalCastRangeIncrease() * GetAttributeCastRangeIncrease() / 100.0f; }
     float GetBonusCastRangeIncrease();
-    // Without amplification!!!
-    float GetTotalCastRangeIncrease() { return GetBaseCastRangeIncrease() * GetBonusCastRangeIncrease() / 100; }
+    // Without percentage!!!
+    float GetTotalCastRangeIncrease() { return GetBaseCastRangeIncrease() * GetBonusCastRangeIncrease() / 100.0f; }
 
-// Cast Range Amplification
+// Cast Range Percentage
 public:
     float GetOriginalCastRangePercentage() { return _OriginalCastRangePercentage; }
     void SetOriginalCastRangePercentage(float castRangeAmplification);
@@ -500,14 +510,21 @@ public:
 
 // Cast Radius
 public:
-    float GetPercentageBaseCastRadius() { return _PercentageBaseCastRadius; }
-    void SetPercentageBaseCastRadius(float percentageCastRadius);
+    float GetOriginalCastRadiusPercentage() { return _OriginalCastRadiusPercentage; }
+    void SetOriginalCastRadiusPercentage(float castRadius);
 private:
-    float _PercentageBaseCastRadius = 1.0f;
+    float _OriginalCastRadiusPercentage = 100.0f;
 public:
-    float GetPercentageBonusCastRadius();
-    float GetTotalPercentageCastRadius() { return GetPercentageBaseCastRadius() * GetPercentageBonusCastRadius() / 100.0f; }
-    float GetTotalCastRadius(float radius) { return radius * (GetTotalPercentageCastRadius() / 100.0f) }
+    float GetAttributeCastRadiusPercentage() { return 100 + GetCastRadiusPercentagePerCharisma() * GetTotalCharismaAttribute(); }
+    float GetCastRadiusPercentagePerCharisma() { return _CastRadiusPercentagePerCharisma; }
+    void SetCastRadiusPercentagePerCharisma(float castRadiusPercentagePerCharisma);
+private:
+    float _CastRadiusPercentagePerCharisma = 0;
+public:
+    float GetBaseCastRadiusPercentage() { return GetOriginalCastRadiusPercentage() * GetAttributeCastRadiusPercentage() / 100.0f; }
+    float GetBonusCastRadiusPercentage();
+    float GetTotalCastRadiusPercentage() { return GetBaseCastRadiusPercentage() * GetBonusCastRadiusPercentage() / 100.0f; }
+    float GetTotalCastRadius(float radius) { return radius * (GetTotalCastRadiusPercentage() / 100.0f); }
 
 // Movement Speed Increase
 public:
@@ -547,7 +564,7 @@ public:
 
 // Movement Speed
 public:
-    float GetTotalmMovementSpeed() { return GetTotalMovementSpeedIncrease() * (GetTotalMovementSpeedPercentage() / 100.0f); }
+    float GetTotalMovementSpeed() { return GetTotalMovementSpeedIncrease() * (GetTotalMovementSpeedPercentage() / 100.0f); }
 
 // Attack Speed
 public:

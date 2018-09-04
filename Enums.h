@@ -106,11 +106,11 @@ enum PurgeType
 enum DamageFlags
 {
     DAMAGE_FLAGS_NONE = 0,
-    DAMAGE_FLAGS_NO_ARMOR,
-    DAMAGE_FLAGS_NO_MAGIC_RESIST,
-    DAMAGE_FLAGS_NO_DAMAGE_BLOCK,
-    DAMAGE_FLAGS_NON_LETHAL,
-    DAMAGE_FLAGS_REFLECTION,
+    DAMAGE_FLAGS_NO_ARMOR, // Ignore armor
+    DAMAGE_FLAGS_NO_MAGIC_RESIST, // Ignore magic resistance
+    DAMAGE_FLAGS_NO_DAMAGE_BLOCK, // Ignore damage block
+    DAMAGE_FLAGS_NON_LETHAL, // Cannot kill target
+    DAMAGE_FLAGS_REFLECTION, // Is reflection damage (cannot be reflected)
 };
 
 enum TypeFilter
@@ -125,10 +125,10 @@ enum FlagFilter
 
 enum FindOrder
 {
-    FIND_ORDER_ANY = 0,
+    FIND_ORDER_RANDOMIZED = 0,
     FIND_ORDER_CLOSEST = 1,
     FIND_ORDER_FARTHEST = 2,
-    FIND_ORDER_RANDOMIZED = 3
+    FIND_ORDER_ANY = 3, // Ordered by internal order
 };
 
 enum ModifierPriority
@@ -153,21 +153,23 @@ enum ModifierFlags : unsigned int
     MODIFIER_FLAG_STATUS_BREAK = 1 << 4, // No passives (abilities and items)
     MODIFIER_FLAG_STATUS_HIDDEN = 1 << 5, // Out of game - cannot be targeted
 
-    MODIFIER_FLAG_ABILITY_STOP_COOLDOWN = 1 << 6,
-    MODIFIER_FLAG_ABILITY_NO_COOLDOWN = 1 << 7,
-    MODIFIER_FLAG_ABILITY_NO_MANA = 1 << 8,
-    MODIFIER_FLAG_ABILITY_NO_GOLD = 1 << 9,
-    MODIFIER_FLAG_ABILITY_GLOBAL = 1 << 10,
+    MODIFIER_FLAG_ABILITY_STOP_COOLDOWN = 1 << 6, // No cooldown progress on abilities
+    MODIFIER_FLAG_ABILITY_NO_COOLDOWN = 1 << 7, // No ability cost cooldown
+    MODIFIER_FLAG_ABILITY_NO_MANA = 1 << 8, // No ability cost mana
+    MODIFIER_FLAG_ABILITY_NO_GOLD = 1 << 9, // No ability cost gold
 
-    MODIFIER_FLAG_IMMUNITY_MAGIC = 1 << 11,
-    MODIFIER_FLAG_IMMUNITY_PHYSICAL = 1 << 12,
-    MODIFIER_FLAG_IMMUNITY_ALL = 1 << 13,
+    MODIFIER_FLAG_IMMUNITY_MAGIC = 1 << 10, // Cannot take magic damage
+    MODIFIER_FLAG_IMMUNITY_PHYSICAL = 1 << 11, // Cannot take physical damage
+    MODIFIER_FLAG_IMMUNITY_PURE = 1 << 12, // Cannot take pure damage
+    MODIFIER_FLAG_IMMUNITY_ALL = 1 << 13, // Cannot take damage
+    MODIFIER_FLAG_IMMUNITY_DEATH = 1 << 14, // Cannot die
+    MODIFIER_FLAG_IMMUNITY_HEAL = 1 << 15, // Cannot be healed
 
-    MODIFIER_FLAG_INVISIBLE = 1 << 14,
-    MODIFIER_FLAG_INVISIBLE_RAW = 1 << 15,
+    MODIFIER_FLAG_INVISIBLE = 1 << 16, // Cannot be seen by enemies, can be revealed
+    MODIFIER_FLAG_INVISIBLE_RAW = 1 << 17, // Cannot be seen by enemies, cannot be revealed
 
-    MODIFIER_FLAG_ATTACK_GLOBAL = 1 << 16,
-    MODIFIER_FLAG_ATTACK_UNABLE = 1 << 17
+    MODIFIER_FLAG_ATTACK_GLOBAL = 1 << 18, // Has global attack
+    MODIFIER_FLAG_ATTACK_UNABLE = 1 << 19, // Cannot attack
 };
 
 enum AbilityTargeting

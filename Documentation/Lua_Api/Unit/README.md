@@ -26,7 +26,7 @@ They can still be called from Client but will have no effect.
 - [Resistance](#resistance)
   - [All](#all-resistance)
   - [Physical](#armor) (Armor)
-  - [Magical](#magical-resistance)
+  - [Magical](#magic-resistance)
 - [Reductions](#reductions)
 - [Attack](#attack)
   - [Speed](#attack-speed)
@@ -1258,7 +1258,21 @@ void TakeDamage(float amount, DamageType type, Unit* damager, Ability* ability =
             Server
         </td>
         <td></td>
-        <td></td>
+        <td>
+            Simple implementation (not real):
+            <pre lang="lua">function Unit:TakeDamage(amount, type)
+    if type == DAMAGE_PHYSICAL then
+        amount = self:GetPhysicalDamageAfterReduction(amount)
+    end
+    if type == DAMAGE_MAGICAL then
+        amount = self:GetMagicDamageAfterReduction(amount)
+    end
+    
+    amount = self:GetDamageAfterAllReduction(amount)
+    
+    self:SetCurrentHealth(self:GetCurrentHealth() - amount)
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -1728,7 +1742,7 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetPhysicalDamageAfterReduction(damage)
-    return damage * (1 - self:GetPercentagePhysicalDamageResistance() / 100.0f)
+    return damage * (1 - self:GetPercentagePhysicalDamageResistance() / 100.0)
 end</pre>
             <pre lang="lua">function Unit:GetPhysicalDamageAfterReduction(damage)
     return damage * self:GetReceivedPhysicalDamageMultiplier()
@@ -1737,7 +1751,7 @@ end</pre>
     </tr>
 </table>
 
-#### Magical Resistance
+#### Magic Resistance
 
 <table>
     <tr>
@@ -1748,7 +1762,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageOriginalMagicResistance()</pre>
+            <pre>float GetOriginalMagicResistance()</pre>
         </td>
         <td>
             Both
@@ -1758,7 +1772,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetPercentageOriginalMagicResistance(float magicResistance)</pre>
+            <pre>void SetOriginalMagicResistance(float magicResistance)</pre>
         </td>
         <td>
             Server
@@ -1768,21 +1782,21 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageAttributeMagicResistance()</pre>
+            <pre>float GetAttributeMagicResistance()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetPercentageBaseMagicResistance()
-   return (1 - math.pow(1 - self:GetPercentageMagicResistancePerCharisma(), self:GetTotalCharismaAttribute())) * 100.0f
+            <pre lang="lua">function Unit:GetBaseMagicResistance()
+   return (1 - math.pow(1 - self:GetMagicResistancePerCharisma(), self:GetTotalCharismaAttribute())) * 100.0
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageMagicResistancePerCharisma()</pre>
+            <pre>float GetMagicResistancePerCharisma()</pre>
         </td>
         <td>
             Both
@@ -1792,7 +1806,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetPercentageMagicResistancePerCharisma(float percentageMagicResistancePerCharisma)</pre>
+            <pre>void SetMagicResistancePerCharisma(float magicResistancePerCharisma)</pre>
         </td>
         <td>
             Server
@@ -1802,21 +1816,21 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageBaseMagicResistance()</pre>
+            <pre>float GetBaseMagicResistance()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetPercentageBaseMagicResistance()
-   return (1 - ((1 - self:GetPercentageOriginalMagicResistance() / 100.0f) * (1 - self:GetPercentageAttributeMagicResistance() / 100.0f))) * 100.0f
+            <pre lang="lua">function Unit:GetBaseMagicResistance()
+   return (1 - ((1 - self:GetOriginalMagicResistance() / 100.0) * (1 - self:GetAttributeMagicResistance() / 100.0))) * 100.0
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageBonusMagicResistance()</pre>
+            <pre>float GetBonusMagicResistance()</pre>
         </td>
         <td>
             Both
@@ -1826,15 +1840,15 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetTotalPercentageMagicResistance()</pre>
+            <pre>float GetTotalMagicResistance()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetTotalPercentageMagicResistance(damage)
-   return (1 - ((1 - self:GetPercentageBaseMagicResistance() / 100.0f) * (1 - self:GetPercentageBonusMagicResistance() / 100.0f))) * 100.0f
+            <pre lang="lua">function Unit:GetTotalMagicResistance(damage)
+   return (1 - ((1 - self:GetBaseMagicResistance() / 100.0) * (1 - self:GetBonusMagicResistance() / 100.0))) * 100.0
 end</pre>
         </td>
     </tr>
@@ -1848,7 +1862,7 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetMagicDamageAfterReduction(damage)
-   return damage * (1 - self:GetTotalPercentageMagicResistance() / 100.0f)
+   return damage * (1 - self:GetTotalMagicResistance() / 100.0)
 end</pre>
         </td>
     </tr>
@@ -1967,7 +1981,7 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetDurationAfterStatusResistance(duration)
-    return duration * (1 - self:GetTotalStatusResistance() / 100.0f) 
+    return duration * (1 - self:GetTotalStatusResistance() / 100.0) 
 end</pre>
         </td>
     </tr>
@@ -2052,7 +2066,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageBonusCooldownReduction()</pre>
+            <pre>float GetBonusCooldownReduction()</pre>
         </td>
         <td>
             Both
@@ -2062,15 +2076,15 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetTotalPercentageCooldownReduction()</pre>
+            <pre>float GetTotalCooldownReduction()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetTotalPercentageCooldownReduction()
-    return 1 - ((1 - self:GetBaseCooldownReduction()) * (1 - self:GetPercentageBonusCooldownReduction())) 
+            <pre lang="lua">function Unit:GetTotalCooldownReduction()
+    return 1 - ((1 - self:GetBaseCooldownReduction()) * (1 - self:GetBonusCooldownReduction())) 
 end</pre>
         </td>
     </tr>
@@ -2084,7 +2098,7 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetCooldown(cooldown)
-    return duration * (1 - self:GetTotalPercentageCooldownReduction() / 100.0f) 
+    return duration * (1 - self:GetTotalCooldownReduction() / 100.0) 
 end</pre>
         </td>
     </tr>
@@ -2168,7 +2182,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageBonusManacostReduction()</pre>
+            <pre>float GetBonusManacostReduction()</pre>
         </td>
         <td>
             Both
@@ -2178,15 +2192,15 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetTotalPercentageManacostReduction()</pre>
+            <pre>float GetTotalManacostReduction()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetTotalPercentageManacostReduction()
-    return 1 - ((1 - self:GetBaseManacostReduction()) * (1 - self:GetPercentageBonusManacostReduction())) 
+            <pre lang="lua">function Unit:GetTotalManacostReduction()
+    return 1 - ((1 - self:GetBaseManacostReduction()) * (1 - self:GetBonusManacostReduction())) 
 end</pre>
         </td>
     </tr>
@@ -2200,7 +2214,7 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetManacost(cooldown)
-    return duration * (1 - self:GetTotalPercentageManacostReduction() / 100.0f) 
+    return duration * (1 - self:GetTotalManacostReduction() / 100.0) 
 end</pre>
         </td>
     </tr>
@@ -2284,7 +2298,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetPercentageBonusGoldcostReduction()</pre>
+            <pre>float GetBonusGoldcostReduction()</pre>
         </td>
         <td>
             Both
@@ -2294,15 +2308,15 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetTotalPercentageGoldcostReduction()</pre>
+            <pre>float GetTotalGoldcostReduction()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetTotalPercentageGoldcostReduction()
-    return 1 - ((1 - self:GetBaseGoldcostReduction()) * (1 - self:GetPercentageBonusGoldcostReduction())) 
+            <pre lang="lua">function Unit:GetTotalGoldcostReduction()
+    return 1 - ((1 - self:GetBaseGoldcostReduction()) * (1 - self:GetBonusGoldcostReduction())) 
 end</pre>
         </td>
     </tr>
@@ -2316,7 +2330,7 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetGoldcost(cooldown)
-    return duration * (1 - self:GetTotalPercentageGoldcostReduction() / 100.0f) 
+    return duration * (1 - self:GetTotalGoldcostReduction() / 100.0) 
 end</pre>
         </td>
     </tr>
@@ -2333,13 +2347,109 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>float GetOriginalSpellAmplification()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalSpellAmplification(float spellAmplification)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeSpellAmplification()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeSpellAmplification()
+    return 100 + self:GetSpellAmplificationPerIntelligence() * self:GetTotalIntelligenceAttribute()
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetSpellAmplificationPerIntelligence()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetSpellAmplificationPerIntelligence(float spellAmplificationPerIntelligence)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseSpellAmplification()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseSpellAmplification()
+    return self:GetOriginalSpellAmplification() * self:GetAttributeSpellAmplification() / 100.0
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusSpellAmplification()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalSpellAmplification()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalSpellAmplification()
+    return self:GetBaseSpellAmplification() * self:GetBonusSpellAmplification() / 100.0
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetDamageAfterSpellAmplification(float damage)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetDamageAfterSpellAmplification(damage)
+    return damage * (self:GetTotalSpellAmplification() / 100.0)
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -2354,7 +2464,175 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>float GetOriginalCastRangeIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalCastRangeIncrease(float castRangeIncrease)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeCastRangeIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeCastRangeIncrease()
+    return self:GetAttributeCastRangeIncreasePerCharisma() * self:GetTotalCharismaAttribute()
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeCastRangeIncreasePerCharisma()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetAttributeCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseCastRangeIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseCastRangeIncrease()
+    return self:GetOriginalCastRangeIncrease() * self:GetAttributeCastRangeIncrease() / 100.0
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusCastRangeIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalCastRangeIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetOriginalCastRangePercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalCastRangePercentage(float castRangeAmplification)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeCastRangePercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetCastRangePercentagePerCharisma()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetCastRangePercentagePerCharisma(float castRangePercentagePerCharisma)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseCastRangePercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusCastRangePercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalCastRangePercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalCastRange(float castRange)</pre>
         </td>
         <td>
             Both
@@ -2375,7 +2653,87 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>float GetOriginalCastRadiusPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalCastRadiusPercentage(float castRadius)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeCastRadiusPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetCastRadiusPercentagePerCharisma()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetCastRadiusPercentagePerCharisma(float castRadiusPercentagePerCharisma)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseCastRadiusPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusCastRadiusPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalCastRadiusPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalCastRadius(float radius)</pre>
         </td>
         <td>
             Both
@@ -2396,7 +2754,167 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>float GetOriginalMovementSpeedIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalMovementSpeedIncrease(float castRangeIncrease)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeMovementSpeedIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeMovementSpeedIncreasePerCharisma()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetAttributeMovementSpeedIncreasePerCharisma(float castRangeIncreasePerCharisma)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseMovementSpeedIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusMovementSpeedIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalMovementSpeedIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetOriginalMovementSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalMovementSpeedPercentage(float castRangeAmplification)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeMovementSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetMovementSpeedPercentagePerCharisma()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetMovementSpeedPercentagePerCharisma(float movementSpeedPercentagePerCharisma)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseMovementSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusMovementSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalMovementSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalMovementSpeed()</pre>
         </td>
         <td>
             Both
@@ -2419,7 +2937,207 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>float GetOriginalAttackSpeed()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalAttackSpeed(float attackSpeed)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeAttackSpeed()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeAttackSpeedPerAgility()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetAttributeAttackSpeedPerAgility(float attackSpeedPerAgility)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseAttackSpeed()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusAttackSpeed()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalAttackSpeedWithoutPercentageIncrease()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetOriginalAttackSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalAttackSpeedPercentage(float attackSpeedPercentage)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttributeAttackSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttackSpeedPercentagePerCharisma()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetAttackSpeedPercentagePerCharisma(float attackSpeedPercentagePerCharisma)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBaseAttackSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusAttackSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalAttackSpeedPercentage()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalAttackSpeed()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>int GetMinAttackSpeedLimit()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>int GetMaxAttackSpeedLimit()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetAttackSpeedLimit(int min, int max)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalAttackSpeedInLimits()</pre>
         </td>
         <td>
             Both
@@ -2440,7 +3158,57 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>float GetBaseAttackTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetBaseAttackTime(float attackTime)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusAttackTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalAttackTimeWithoutAttackSpeed()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalAttackTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetAttacksPerSecond()</pre>
         </td>
         <td>
             Both
@@ -2461,7 +3229,37 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>float GetBaseAttackRange()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetBaseAttackRange(float attackRange)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetBonusAttackRange()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetTotalAttackRange()</pre>
         </td>
         <td>
             Both
@@ -2482,7 +3280,47 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre></pre>
+            <pre>AttackType GetOriginalAttackType()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetOriginalAttackType(AttackType attackType)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>AttackType GetAttackType()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsMelee()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsRanged()</pre>
         </td>
         <td>
             Both

@@ -477,7 +477,7 @@ float GetAbilityDamage(int level)
 Implemented as:
 ```lua
 function Ability:GetAbilityDamage(level)
-    return self:GetOwner():GetTotalDamageIncreasedBySpellAmplification(self:GetBaseAbilityDamage(level))
+    return self:GetOwner():GetDamageAfterSpellAmplification(self:GetBaseAbilityDamage(level))
 end
 ```
 
