@@ -9,7 +9,15 @@ That would provide easy support for modders because even the main game will be u
 
 Some things (2D GUI, Map Editor, Animations...) will take some time.
 
-Meanwhile, feel free to look into this project and take inspiration from it.   
+Also did some [Hero Concepts](Hero_Designs/README.md) but those are only ideas and need look of someone with experience in Game Design.
+
+Meanwhile, feel free to look into this project and take inspiration from it. 
+
+## Contributors
+
+This is currently Single-person project of [Abit Gray](https://github.com/AbitTheGray/).
+
+Any help is welcomed. 
 
 
 ## Important links
