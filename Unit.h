@@ -533,29 +533,29 @@ public:
 private:
     float _OriginalMovementSpeedIncrease = 0;
 public:
-    float GetAttributeMovementSpeedIncrease() { return GetAttributeMovementSpeedIncreasePerCharisma() * GetTotalCharismaAttribute(); }
-    float GetAttributeMovementSpeedIncreasePerCharisma() { return _MovementSpeedIncreasePerCharisma; }
-    void SetAttributeMovementSpeedIncreasePerCharisma(float castRangeIncreasePerCharisma);
+    float GetAttributeMovementSpeedIncrease() { return GetAttributeMovementSpeedIncreasePerAgility() * GetTotalAgilityAttribute(); }
+    float GetAttributeMovementSpeedIncreasePerAgility() { return _MovementSpeedIncreasePerAgility; }
+    void SetAttributeMovementSpeedIncreasePerAgility(float castRangeIncreasePerAgility);
 private:
-    float _MovementSpeedIncreasePerCharisma = 1;
+    float _MovementSpeedIncreasePerAgility = 1;
 public:
-    float GetBaseMovementSpeedIncrease() { return GetOriginalMovementSpeedIncrease() * GetAttributeMovementSpeedIncrease() / 100.0f; }
+    float GetBaseMovementSpeedIncrease() { return GetOriginalMovementSpeedIncrease() + GetAttributeMovementSpeedIncrease(); }
     float GetBonusMovementSpeedIncrease();
     // Without amplification!!!
-    float GetTotalMovementSpeedIncrease() { return GetBaseMovementSpeedIncrease() * GetBonusMovementSpeedIncrease() / 100.0f; }
+    float GetTotalMovementSpeedIncrease() { return GetBaseMovementSpeedIncrease() + GetBonusMovementSpeedIncrease(); }
 
 // Movement Speed Amplification
 public:
     float GetOriginalMovementSpeedPercentage() { return _OriginalMovementSpeedPercentage; }
-    void SetOriginalMovementSpeedPercentage(float castRangeAmplification);
+    void SetOriginalMovementSpeedPercentage(float movementSpeedAmplification);
 private:
     float _OriginalMovementSpeedPercentage = 100;
 public:
-    float GetAttributeMovementSpeedPercentage() { return 100 + GetMovementSpeedPercentagePerCharisma() * GetTotalCharismaAttribute(); }
-    float GetMovementSpeedPercentagePerCharisma() { return _MovementSpeedPercentagePerCharisma; }
-    void SetMovementSpeedPercentagePerCharisma(float movementSpeedPercentagePerCharisma);
+    float GetAttributeMovementSpeedPercentage() { return 100 + GetMovementSpeedPercentagePerAgility() * GetTotalAgilityAttribute(); }
+    float GetMovementSpeedPercentagePerAgility() { return _MovementSpeedPercentagePerAgility; }
+    void SetMovementSpeedPercentagePerAgility(float movementSpeedPercentagePerAgility);
 private:
-    float _MovementSpeedPercentagePerCharisma = 1;
+    float _MovementSpeedPercentagePerAgility = 0;
 public:
     float GetBaseMovementSpeedPercentage() { return GetOriginalMovementSpeedPercentage() * GetAttributeMovementSpeedPercentage() / 100.0f; }
     float GetBonusMovementSpeedPercentage();
@@ -590,11 +590,11 @@ public:
 private:
     float _OriginalAttackSpeedPercentage = 100.0f;
 public:
-    float GetAttributeAttackSpeedPercentage() { return 100 + GetAttackSpeedPercentagePerCharisma() * GetTotalCharismaAttribute(); }
-    float GetAttackSpeedPercentagePerCharisma() { return _AttackSpeedPercentagePerCharisma; }
-    void SetAttackSpeedPercentagePerCharisma(float attackSpeedPercentagePerCharisma);
+    float GetAttributeAttackSpeedPercentage() { return 100 + GetAttackSpeedPercentagePerAgility() * GetTotalAgilityAttribute(); }
+    float GetAttackSpeedPercentagePerAgility() { return _AttackSpeedPercentagePerAgility; }
+    void SetAttackSpeedPercentagePerAgility(float attackSpeedPercentagePerAgility);
 private:
-    float _AttackSpeedPercentagePerCharisma = 1;
+    float _AttackSpeedPercentagePerAgility = 0;
 public:
     float GetBaseAttackSpeedPercentage() { return GetOriginalAttackSpeedPercentage() * GetAttributeAttackSpeedPercentage() / 100.0f; }
     float GetBonusAttackSpeedPercentage();
@@ -630,7 +630,7 @@ private:
 public:
     float GetBonusAttackTime();
     float GetTotalAttackTimeWithoutAttackSpeed() { return GetBaseAttackTime() + GetBonusAttackTime(); }
-    float GetTotalAttackTime() { return GetTotalAttackTimeWithoutAttackSpeed() / ( GetTotalAttackSpeedInLimits() / 100 ); }
+    float GetTotalAttackTime() { return GetTotalAttackTimeWithoutAttackSpeed() / ( GetTotalAttackSpeedInLimits() / 100.0f ); }
     float GetAttacksPerSecond() { return 1 / GetTotalAttackTime(); }
 
 // Attack Range

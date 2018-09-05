@@ -2548,7 +2548,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalCastRangeIncrease()
+    return self:GetBaseCastRangeIncrease() * self:GetBonusCastRangeIncrease() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2578,7 +2582,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeCastRangePercentage()
+    return 100 + self:GetCastRangePercentagePerCharisma() * self:GetTotalCharismaAttribute()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2608,7 +2616,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseCastRangePercentage()
+    return self:GetOriginalCastRangePercentage() * self:GetAttributeCastRangePercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2628,7 +2640,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalCastRangePercentage()
+    return self:GetBaseCastRangePercentage() * self:GetBonusCastRangePercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2638,7 +2654,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalCastRange(castRange)
+    return (castRange + self:GetTotalCastRangeIncrease()) * (self:GetTotalCastRangePercentage() / 100)
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -2679,7 +2699,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeCastRadiusPercentage()
+    return 100 + self:GetCastRadiusPercentagePerCharisma() * self:GetTotalCharismaAttribute()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2709,7 +2733,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseCastRadiusPercentage()
+    return self:GetOriginalCastRadiusPercentage() * self:GetAttributeCastRadiusPercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2729,7 +2757,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalCastRadiusPercentage()
+    return self:GetBaseCastRadiusPercentage() * self:GetBonusCastRadiusPercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2739,7 +2771,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalCastRadius(radius)
+    return radius * (self:GetTotalCastRadiusPercentage() / 100.0f)
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -2780,11 +2816,15 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeMovementSpeedIncrease()
+    return self:GetAttributeMovementSpeedIncreasePerAgility() + self:GetTotalAgilityAttribute()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetAttributeMovementSpeedIncreasePerCharisma()</pre>
+            <pre>float GetAttributeMovementSpeedIncreasePerAgility()</pre>
         </td>
         <td>
             Both
@@ -2794,7 +2834,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetAttributeMovementSpeedIncreasePerCharisma(float castRangeIncreasePerCharisma)</pre>
+            <pre>void SetAttributeMovementSpeedIncreasePerAgility(float castRangeIncreasePerAgility)</pre>
         </td>
         <td>
             Server
@@ -2810,7 +2850,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseMovementSpeedIncrease()
+    return self:GetOriginalMovementSpeedIncrease() + self:GetAttributeMovementSpeedIncrease()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2830,7 +2874,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalMovementSpeedIncrease()
+    return self:GetBaseMovementSpeedIncrease() + self:GetBonusMovementSpeedIncrease()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2844,7 +2892,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalMovementSpeedPercentage(float castRangeAmplification)</pre>
+            <pre>void SetOriginalMovementSpeedPercentage(float movementSpeedAmplification)</pre>
         </td>
         <td>
             Server
@@ -2860,11 +2908,15 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeMovementSpeedPercentage()
+    return 100 + self:GetMovementSpeedPercentagePerAgility() * self:GetTotalAgilityAttribute()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetMovementSpeedPercentagePerCharisma()</pre>
+            <pre>float GetMovementSpeedPercentagePerAgility()</pre>
         </td>
         <td>
             Both
@@ -2874,7 +2926,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetMovementSpeedPercentagePerCharisma(float movementSpeedPercentagePerCharisma)</pre>
+            <pre>void SetMovementSpeedPercentagePerAgility(float movementSpeedPercentagePerAgility)</pre>
         </td>
         <td>
             Server
@@ -2890,7 +2942,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseMovementSpeedPercentage()
+    return self:GetOriginalMovementSpeedPercentage() * self:GetAttributeMovementSpeedPercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2910,7 +2966,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalMovementSpeedPercentage()
+    return self:GetBaseMovementSpeedPercentage() * self:GetBonusMovementSpeedPercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2920,7 +2980,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalMovementSpeed()
+    return self:GetTotalMovementSpeedIncrease() * self:GetTotalMovementSpeedPercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -2973,7 +3037,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeAttackSpeedPerAgility()
+    return self:GetTotalAgilityAttribute() * self:GetAttributeAttackSpeedPerAgility()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -2993,7 +3061,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseAttackSpeed()
+    return self:GetOriginalAttackSpeed() + self:GetAttributeAttackSpeed()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3013,7 +3085,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAttackSpeedWithoutPercentageIncrease()
+    return self:GetBaseAttackSpeed() + self:GetBonusAttackSpeed()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3043,11 +3119,15 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttributeAttackSpeedPercentage()
+    return 100 + self:GetAttackSpeedPercentagePerAgility() * self:GetTotalAgilityAttribute()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetAttackSpeedPercentagePerCharisma()</pre>
+            <pre>float GetAttackSpeedPercentagePerAgility()</pre>
         </td>
         <td>
             Both
@@ -3057,7 +3137,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetAttackSpeedPercentagePerCharisma(float attackSpeedPercentagePerCharisma)</pre>
+            <pre>void SetAttackSpeedPercentagePerAgility(float attackSpeedPercentagePerAgility)</pre>
         </td>
         <td>
             Server
@@ -3073,7 +3153,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseAttackSpeedPercentage()
+    return self:GetOriginalAttackSpeedPercentage() * self:GetAttributeAttackSpeedPercentage() / 100.0f
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3093,7 +3177,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAttackSpeedPercentage()
+    return self:GetBaseAttackSpeedPercentage() * (self:GetBonusAttackSpeedPercentage() / 100.0f)
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3103,7 +3191,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAttackSpeed()
+    return self:GetTotalAttackSpeedWithoutPercentageIncrease() * self:GetTotalAttackSpeedPercentage()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3143,7 +3235,18 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAttackSpeedInLimits()
+    local attackSpeed = self:GetTotalAttackSpeed();
+    if attackSpeed < self:GetMinAttackSpeedLimit() then
+        return self:GetMinAttackSpeedLimit();
+    end
+    if attackSpeed > self:GetMaxAttackSpeedLimit() then
+        return self:GetMaxAttackSpeedLimit();
+    end
+    return attackSpeed;
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -3194,7 +3297,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAttackTimeWithoutAttackSpeed()
+    return return self:GetBaseAttackTime() + self:GetBonusAttackTime()
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3204,7 +3311,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAttackTime()
+    return self:GetTotalAttackTimeWithoutAttackSpeed() / ( self:GetTotalAttackSpeedInLimits() / 100.0f )
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3214,7 +3325,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAttacksPerSecond()
+    return 1 / self:GetTotalAttackTime()
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -3265,7 +3380,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAttackRange()
+    return self:GetBaseAttackRange() + self:GetBonusAttackRange()
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -3293,7 +3412,7 @@ end</pre>
             <pre>void SetOriginalAttackType(AttackType attackType)</pre>
         </td>
         <td>
-            Both
+            Server
         </td>
         <td></td>
         <td></td>
@@ -3316,7 +3435,11 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:IsMelee()
+    return self:GetAttackType() == ATTACK_TYPE_MELEE
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -3326,6 +3449,10 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:IsRanged()
+    return self:GetAttackType() != ATTACK_TYPE_MELEE
+end</pre>
+        </td>
     </tr>
 </table>
