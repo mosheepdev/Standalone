@@ -527,7 +527,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetFlatBonusDamage()
     local damage = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetFlatBonusDamage then
             local m_damage = m:GetFlatBonusDamage()
             if m_damage then
@@ -550,7 +550,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetPercentageBonusDamage()
     local damage = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetPercentageBonusDamage then
             local m_damage = m:GetPercentageBonusDamage()
             if m_damage then
@@ -736,7 +736,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusStrengthAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetBonusStrength then
             local m_attribute = m:GetBonusStrength()
             if m_attribute then
@@ -842,7 +842,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusAgilityAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetBonusAgility then
             local m_attribute = m:GetBonusAgility()
             if m_attribute then
@@ -948,7 +948,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusIntelligenceAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetBonusIntelligence then
             local m_attribute = m:GetBonusIntelligence()
             if m_attribute then
@@ -1054,7 +1054,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusCharismaAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetBonusCharisma then
             local m_attribute = m:GetBonusCharisma()
             if m_attribute then
@@ -1168,7 +1168,7 @@ float ["HealthPoolPerStrength"].get</pre>
         <td>
             <pre lang="lua">function Unit:GetFlatBonusHealthPool()
     local pool = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetFlatHealthBonus then
             local m_pool = m:GetFlatHealthBonus()
             if m_pool then
@@ -1497,7 +1497,7 @@ float ["ManaPoolPerStrength"].get</pre>
         <td>
             <pre lang="lua">function Unit:GetFlatBonusManaPool()
     local pool = 0
-    for i,m in pairs(self:GetAllModifiers(false) do
+    for i,m in pairs(self:GetAllModifiers(false)) do
         if m and m.GetFlatManaBonus then
             local m_pool = m:GetFlatManaBonus()
             if m_pool then
