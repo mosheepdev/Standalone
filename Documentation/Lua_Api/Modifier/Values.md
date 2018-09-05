@@ -1,5 +1,21 @@
 # Modifier Values
 
+## Experience
+
+### Get Percentage Bonus Xp
+```
+float GetPercentageBonusXp()
+```
+Default: `nil` or `0`
+
+## Gold
+
+### Get Percentage Bonus Gold
+```
+float GetPercentageBonusGold()
+```
+Default: `nil` or `0`
+
 ## Damage
 
 ### Get Flat Bonus Damage
@@ -7,13 +23,13 @@ Flat bonus to damage.
 ```
 int GetFlatBonusDamage()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Percentage Bonus Damage
 ```
 float GetPercentageBonusDamage()
 ```
-Default: `0`
+Default: `nil` or `0`
 - 0.0 = Do not modify
 - 100.0 = Double Damage
 
@@ -27,7 +43,7 @@ Each points give:
 ```
 int GetBonusStrength()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Bonus Agility
 Each points give:
@@ -37,7 +53,7 @@ Each points give:
 ```
 int GetBonusAgility()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Bonus Intelligence
 Each points give:
@@ -47,7 +63,7 @@ Each points give:
 ```
 int GetBonusIntelligence()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Bonus Charisma
 Each points give:
@@ -57,7 +73,7 @@ Each points give:
 ```
 int GetBonusCharisma()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Health
 
@@ -65,14 +81,14 @@ Default: `0`
 ```
 int GetFlatHealthBonus()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Percentage Health Bonus
 Increase Base Health (Original Health + from Strength) by this percentage. 
 ```
 float GetPercentageHealthBonus()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Health Regeneration
 
@@ -80,13 +96,13 @@ Default: `0`
 ```
 float GetFlatBonusHealthRegeneration()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Percentage Bonus Health Regeneration
 ```
 float GetBonusPercentageHealthRegeneration()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Mana
 
@@ -94,14 +110,14 @@ Default: `0`
 ```
 int GetFlatManaBonus()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Percentage Mana Bonus
 Increase Base Mana (Original Mana + from Intelligence) by this percentage. 
 ```
 float GetPercentageManaBonus()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Mana Regeneration
 
@@ -109,13 +125,13 @@ Default: `0`
 ```
 float GetFlatBonusManaRegeneration()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Percentage Bonus Mana Regeneration
 ```
 float GetPercentageBonusManaRegeneration()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Armor (Physical Resistance)
 
@@ -125,7 +141,7 @@ Final value (from all modifiers) is floored.
 ```
 float GetBonusArmor()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Magic Resistance
 
@@ -138,7 +154,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetBonusMagicResistance()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Status Resistance
 
@@ -151,7 +167,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetBonusStatusResistance()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Cooldown Reduction
 
@@ -164,7 +180,19 @@ As percentage from -100.0 to 100.0.
 ```
 float GetBonusCooldownReduction()
 ```
-Default: `0`
+Default: `nil` or `0`
+
+## Manacost
+
+//////////////////////////////////
+
+## Goldcost
+
+//////////////////////////////////
+
+## Spell Amplification
+
+//////////////////////////////////
 
 ## Cast Range
 
@@ -183,7 +211,11 @@ As percentage from -100.0 to 100.0.
 ```
 float GetPercentageBonusCastRange()
 ```
-Default: `0`
+Default: `nil` or `0`
+
+## Cast Radius
+
+//////////////////////////////////
 
 ## Movement Speed
 
@@ -191,7 +223,7 @@ Default: `0`
 ```
 float GetFlatBonusMovementSpeed()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Percentage Bonus Movement Speed
 As percentage from -100.0 to 100.0.
@@ -202,7 +234,7 @@ As percentage from -100.0 to 100.0.
 ```
 float GetPercentageBonusMovementSpeed()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Attack Speed
 
@@ -210,7 +242,7 @@ Default: `0`
 ```
 float GetFlatBonusAttackSpeed()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ### Get Percentage Bonus Attack Speed
 As percentage from -100.0 to 100.0.
@@ -221,7 +253,11 @@ As percentage from -100.0 to 100.0.
 ```
 float GetPercentageBonusAttackSpeed()
 ```
-Default: `0`
+Default: `nil` or `0`
+
+## Attack Time
+
+//////////////////////////////////
 
 ## Attack Range
 
@@ -229,7 +265,7 @@ Default: `0`
 ```
 int GetBonusAttackRange()
 ```
-Default: `0`
+Default: `nil` or `0`
 
 ## Attack Projectile
 
@@ -237,19 +273,8 @@ Default: `0`
 ```
 string GetProjectileParticle()
 ```
+Default: `nil`
 
-## Experience
+## Attack Type
 
-### Get Percentage Bonus Xp
-```
-float GetPercentageBonusXp()
-```
-Default: `0`
-
-## Gold
-
-### Get Percentage Bonus Gold
-```
-float GetPercentageBonusGold()
-```
-Default: `0`
+//////////////////////////////////

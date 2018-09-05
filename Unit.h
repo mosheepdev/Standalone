@@ -9,6 +9,7 @@ class Unit;
 
 #include "Enums.h"
 #include "Ability.h"
+#include "Modifier.h"
 
 using namespace glm;
 
@@ -416,21 +417,21 @@ public:
 
 // Manacost Reduction
 public:
-    float GetPercentageOriginalManacostReduction() { return _PercentageOriginalManacostReduction; }
-    void SetPercentageOriginalManacostReduction(float manacostReduction);
+    float GetOriginalManacostReduction() { return _OriginalManacostReduction; }
+    void SetOriginalManacostReduction(float manacostReduction);
 private:
-    float _PercentageOriginalManacostReduction = 0; // 0.00%
+    float _OriginalManacostReduction = 0; // 0.00%
 public:
-    float GetPercentageAttributeManacostReduction() { return (1-pow(1-_PercentageManacostReductionPerCharisma/100.0f, (float)GetTotalCharismaAttribute())) * 100; }
-    float GetPercentageManacostReductionPerCharisma() { return _PercentageManacostReductionPerCharisma; }
-    void SetPercentageManacostReductionPerCharisma(float manacostReductionPerCharisma);
+    float GetAttributeManacostReduction() { return (1-pow(1-_ManacostReductionPerCharisma/100.0f, (float)GetTotalCharismaAttribute())) * 100; }
+    float GetManacostReductionPerCharisma() { return _ManacostReductionPerCharisma; }
+    void SetManacostReductionPerCharisma(float manacostReductionPerCharisma);
 private:
-    float _PercentageManacostReductionPerCharisma = 0.00;
+    float _ManacostReductionPerCharisma = 0.00;
 public:
-    float GetBasePercentageManacostReduction() { return (1 - ((1 - GetPercentageOriginalManacostReduction()/100.0f) * (1 - GetPercentageAttributeManacostReduction()/100.0f)))*100; }
-    float GetBonusPercentageManacostReduction();
-    float GetTotalPercentageManacostReduction() { return (1 - ((1 - GetBasePercentageManacostReduction()/100.0f) * (1 - GetBonusPercentageManacostReduction()/100.0f)))*100; }
-    float GetManacost(float manacost) { return manacost * (GetTotalPercentageManacostReduction() / 100.0f); }
+    float GetBaseManacostReduction() { return (1 - ((1 - GetOriginalManacostReduction()/100.0f) * (1 - GetAttributeManacostReduction()/100.0f)))*100; }
+    float GetBonusManacostReduction();
+    float GetTotalManacostReduction() { return (1 - ((1 - GetBaseManacostReduction()/100.0f) * (1 - GetBonusManacostReduction()/100.0f)))*100; }
+    float GetManacost(float manacost) { return manacost * (GetTotalManacostReduction() / 100.0f); }
 
 // Goldcost Reduction
 public:
@@ -475,9 +476,9 @@ public:
 private:
     float _OriginalCastRangeIncrease = 0;
 public:
-    float GetAttributeCastRangeIncrease() { return GetAttributeCastRangeIncreasePerCharisma() * GetTotalCharismaAttribute(); }
-    float GetAttributeCastRangeIncreasePerCharisma() { return _CastRangeIncreasePerCharisma; }
-    void SetAttributeCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma);
+    float GetAttributeCastRangeIncrease() { return GetCastRangeIncreasePerCharisma() * GetTotalCharismaAttribute(); }
+    float GetCastRangeIncreasePerCharisma() { return _CastRangeIncreasePerCharisma; }
+    void SetCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma);
 private:
     float _CastRangeIncreasePerCharisma = 1;
 public:
@@ -533,9 +534,9 @@ public:
 private:
     float _OriginalMovementSpeedIncrease = 0;
 public:
-    float GetAttributeMovementSpeedIncrease() { return GetAttributeMovementSpeedIncreasePerAgility() * GetTotalAgilityAttribute(); }
-    float GetAttributeMovementSpeedIncreasePerAgility() { return _MovementSpeedIncreasePerAgility; }
-    void SetAttributeMovementSpeedIncreasePerAgility(float castRangeIncreasePerAgility);
+    float GetAttributeMovementSpeedIncrease() { return GetMovementSpeedIncreasePerAgility() * GetTotalAgilityAttribute(); }
+    float GetMovementSpeedIncreasePerAgility() { return _MovementSpeedIncreasePerAgility; }
+    void SetMovementSpeedIncreasePerAgility(float castRangeIncreasePerAgility);
 private:
     float _MovementSpeedIncreasePerAgility = 1;
 public:
@@ -573,9 +574,9 @@ public:
 private:
     float _OriginalAttackSpeed = 100;
 public:
-    float GetAttributeAttackSpeed() { return GetTotalAgilityAttribute() * GetAttributeAttackSpeedPerAgility(); }
-    float GetAttributeAttackSpeedPerAgility() { return _AttackSpeedPerAgility; }
-    void SetAttributeAttackSpeedPerAgility(float attackSpeedPerAgility);
+    float GetAttributeAttackSpeed() { return GetTotalAgilityAttribute() * GetAttackSpeedPerAgility(); }
+    float GetAttackSpeedPerAgility() { return _AttackSpeedPerAgility; }
+    void SetAttackSpeedPerAgility(float attackSpeedPerAgility);
 private:
     float _AttackSpeedPerAgility = 1;
 public:
@@ -659,6 +660,12 @@ public:
 
 // Model Collision Size + Scale
 //TODO
+
+// Moifiers
+public:
+    Modifier* GetAllModifiers(int* count, bool onlyVisible = true);
+    Modifier* GetAllBuffs(int* count, bool onlyVisible = true);
+    Modifier* GetAllDebuffs(int* count, bool onlyVisible = true);
 
 };
 

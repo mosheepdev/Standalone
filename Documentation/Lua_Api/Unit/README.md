@@ -175,7 +175,7 @@ end</pre>
     <tr>
         <td>
             <pre>int GetLevel()
- int ["Level"].get</pre>
+int ["Level"].get</pre>
         </td>
         <td>
             Both
@@ -293,7 +293,7 @@ end</pre>
     <tr>
         <td>
             <pre>void SetTotalXp(float xp) 
-void ["TotalXp"].set = xp
+void ["TotalXp"].set = float xp
 void SetTotalXp(float xp, bool affectedByModifiers = false)</pre>
         </td>
         <td>
@@ -524,7 +524,20 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetFlatBonusDamage()
+    local damage = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetFlatBonusDamage then
+            local m_damage = m:GetFlatBonusDamage()
+            if m_damage then
+                damage = damage + m_damage
+            end
+        end
+    end
+    return damage
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -534,7 +547,20 @@ end</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetPercentageBonusDamage()
+    local damage = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetPercentageBonusDamage then
+            local m_damage = m:GetPercentageBonusDamage()
+            if m_damage then
+                damage = damage + m_damage
+            end
+        end
+    end
+    return damage
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -693,7 +719,11 @@ int ["StrengthAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseStrengthAttribute()
+    return self:GetOriginalStrengthAttribute() + math.floor( self:GetStrengthAttributeGrow() * self:GetLevel() )
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -703,7 +733,20 @@ int ["StrengthAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBonusStrengthAttribute()
+    local attribute = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetBonusStrength then
+            local m_attribute = m:GetBonusStrength()
+            if m_attribute then
+                attribute = attribute + m_attribute
+            end
+        end
+    end
+    return attribute
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -713,7 +756,11 @@ int ["StrengthAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalStrengthAttribute()
+    return self:GetBaseStrengthAttribute() + self:GetBonusStrengthAttribute()
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -778,7 +825,11 @@ int ["AgilityAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseAgilityAttribute()
+    return self:GetOriginalAgilityAttribute() + math.floor( self:GetAgilityAttributeGrow() * self:GetLevel() )
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -788,7 +839,20 @@ int ["AgilityAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBonusAgilityAttribute()
+    local attribute = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetBonusAgility then
+            local m_attribute = m:GetBonusAgility()
+            if m_attribute then
+                attribute = attribute + m_attribute
+            end
+        end
+    end
+    return attribute
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -798,7 +862,11 @@ int ["AgilityAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalAgilityAttribute()
+    return self:GetBaseAgilityAttribute() + self:GetBonusAgilityAttribute()
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -863,7 +931,11 @@ int ["IntelligenceAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseIntelligenceAttribute()
+    return self:GetOriginalIntelligenceAttribute() + math.floor( self:GetIntelligenceAttributeGrow() * self:GetLevel() )
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -873,7 +945,20 @@ int ["IntelligenceAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBonusIntelligenceAttribute()
+    local attribute = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetBonusIntelligence then
+            local m_attribute = m:GetBonusIntelligence()
+            if m_attribute then
+                attribute = attribute + m_attribute
+            end
+        end
+    end
+    return attribute
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -883,7 +968,11 @@ int ["IntelligenceAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalIntelligenceAttribute()
+    return self:GetBaseIntelligenceAttribute() + self:GetBonusIntelligenceAttribute()
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -948,7 +1037,11 @@ int ["CharismaAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBaseCharismaAttribute()
+    return self:GetOriginalCharismaAttribute() + math.floor( self:GetCharismaAttributeGrow() * self:GetLevel() )
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -958,7 +1051,20 @@ int ["CharismaAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetBonusCharismaAttribute()
+    local attribute = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetBonusCharisma then
+            local m_attribute = m:GetBonusCharisma()
+            if m_attribute then
+                attribute = attribute + m_attribute
+            end
+        end
+    end
+    return attribute
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -968,7 +1074,11 @@ int ["CharismaAttributeGrow"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetTotalCharismaAttribute()
+    return self:GetBaseCharismaAttribute() + self:GetBonusCharismaAttribute()
+end</pre>
+        </td>
     </tr>
 </table>
 
@@ -1055,7 +1165,20 @@ float ["HealthPoolPerStrength"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetFlatBonusHealthPool()
+    local pool = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetFlatHealthBonus then
+            local m_pool = m:GetFlatHealthBonus()
+            if m_pool then
+                pool = pool + m_pool
+            end
+        end
+    end
+    return pool
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -1371,7 +1494,20 @@ float ["ManaPoolPerStrength"].get</pre>
             Both
         </td>
         <td></td>
-        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetFlatBonusManaPool()
+    local pool = 0
+    for i,m in pairs(self:GetAllModifiers(false) do
+        if m and m.GetFlatManaBonus then
+            local m_pool = m:GetFlatManaBonus()
+            if m_pool then
+                pool = pool + m_pool
+            end
+        end
+    end
+    return pool
+end</pre>
+        </td>
     </tr>
     <tr>
         <td>
@@ -1618,7 +1754,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalArmor()</pre>
+            <pre>float GetOriginalArmor()
+float ["OriginalArmor"].get</pre>
         </td>
         <td>
             Both
@@ -1628,7 +1765,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalArmor(float armor)</pre>
+            <pre>void SetOriginalArmor(float armor)
+["OriginalArmor"].set = float armor</pre>
         </td>
         <td>
             Server
@@ -1652,7 +1790,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetArmorPerAgility()</pre>
+            <pre>float GetArmorPerAgility()
+float ["ArmorPerAgility"].get</pre>
         </td>
         <td>
             Both
@@ -1662,7 +1801,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetArmorPerAgility(float armorPerAgility)</pre>
+            <pre>void SetArmorPerAgility(float armorPerAgility)
+["ArmorPerAgility"].set = float armorPerAgility</pre>
         </td>
         <td>
             Server
@@ -1762,7 +1902,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalMagicResistance()</pre>
+            <pre>float GetOriginalMagicResistance()
+float ["OriginalMagicResistance"].get</pre>
         </td>
         <td>
             Both
@@ -1772,7 +1913,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalMagicResistance(float magicResistance)</pre>
+            <pre>void SetOriginalMagicResistance(float magicResistance)
+["OriginalMagicResistance"].set = float magicResistance</pre>
         </td>
         <td>
             Server
@@ -1796,7 +1938,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetMagicResistancePerCharisma()</pre>
+            <pre>float GetMagicResistancePerCharisma()
+float ["MagicResistancePerCharisma"].get</pre>
         </td>
         <td>
             Both
@@ -1806,7 +1949,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetMagicResistancePerCharisma(float magicResistancePerCharisma)</pre>
+            <pre>void SetMagicResistancePerCharisma(float magicResistancePerCharisma)
+["MagicResistancePerCharisma"].set = float magicResistancePerCharisma</pre>
         </td>
         <td>
             Server
@@ -1881,7 +2025,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalStatusResistance()</pre>
+            <pre>float GetOriginalStatusResistance()
+float ["OriginalStatusResistance"].get</pre>
         </td>
         <td>
             Both
@@ -1891,7 +2036,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalStatusResistance(float statusResistance)</pre>
+            <pre>void SetOriginalStatusResistance(float statusResistance)
+["OriginalStatusResistance"].set = float statusResistance</pre>
         </td>
         <td>
             Server
@@ -1915,7 +2061,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetStatusResistancePerStrength()</pre>
+            <pre>float GetStatusResistancePerStrength()
+float ["StatusResistancePerStrength"].get</pre>
         </td>
         <td>
             Both
@@ -1925,7 +2072,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetStatusResistancePerStrength(float statusResistancePerStrength)</pre>
+            <pre>void SetStatusResistancePerStrength(float statusResistancePerStrength)
+["StatusResistancePerStrength"].set = float statusResistancePerStrength</pre>
         </td>
         <td>
             Server
@@ -1998,7 +2146,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalCooldownReduction()</pre>
+            <pre>float GetOriginalCooldownReduction()
+float ["OriginalCooldownReduction"].get</pre>
         </td>
         <td>
             Both
@@ -2008,7 +2157,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalCooldownReduction(float statusResistance)</pre>
+            <pre>void SetOriginalCooldownReduction(float statusResistance)
+["OriginalCooldownReduction"].set = float statusResistance</pre>
         </td>
         <td>
             Server
@@ -2032,7 +2182,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetCooldownReductionPerCharisma()</pre>
+            <pre>float GetCooldownReductionPerCharisma()
+float ["CooldownReductionPerCharisma"].get</pre>
         </td>
         <td>
             Both
@@ -2042,7 +2193,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCooldownReductionPerCharisma(float statusResistancePerCharisma)</pre>
+            <pre>void SetCooldownReductionPerCharisma(float statusResistancePerCharisma)
+["CooldownReductionPerCharisma"].set = float statusResistancePerCharisma</pre>
         </td>
         <td>
             Server
@@ -2114,7 +2266,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalManacostReduction()</pre>
+            <pre>float GetOriginalManacostReduction()
+float ["OriginalManacostReduction"].get</pre>
         </td>
         <td>
             Both
@@ -2124,7 +2277,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalManacostReduction(float statusResistance)</pre>
+            <pre>void SetOriginalManacostReduction(float manacostReduction)
+float ["OriginalManacostReduction"].get</pre>
         </td>
         <td>
             Server
@@ -2148,7 +2302,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetManacostReductionPerCharisma()</pre>
+            <pre>float GetManacostReductionPerCharisma()
+float ["ManacostReductionPerCharisma"].get</pre>
         </td>
         <td>
             Both
@@ -2158,7 +2313,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetManacostReductionPerCharisma(float statusResistancePerCharisma)</pre>
+            <pre>void SetManacostReductionPerCharisma(float statusResistancePerCharisma)
+["ManacostReductionPerCharisma"].set = float statusResistancePerCharisma</pre>
         </td>
         <td>
             Server
@@ -2230,7 +2386,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalGoldcostReduction()</pre>
+            <pre>float GetOriginalGoldcostReduction()
+float ["OriginalGoldcostReduction"].get</pre>
         </td>
         <td>
             Both
@@ -2240,7 +2397,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalGoldcostReduction(float statusResistance)</pre>
+            <pre>void SetOriginalGoldcostReduction(float goldcostReduction)
+["OriginalGoldcostReduction"].set = float goldcostReduction</pre>
         </td>
         <td>
             Server
@@ -2264,7 +2422,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetGoldcostReductionPerCharisma()</pre>
+            <pre>float GetGoldcostReductionPerCharisma()
+float ["GoldcostReductionPerCharisma"].get</pre>
         </td>
         <td>
             Both
@@ -2274,7 +2433,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetGoldcostReductionPerCharisma(float statusResistancePerCharisma)</pre>
+            <pre>void SetGoldcostReductionPerCharisma(float statusResistancePerCharisma)
+["GoldcostReductionPerCharisma"].set = float statusResistancePerCharisma</pre>
         </td>
         <td>
             Server
@@ -2347,7 +2507,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalSpellAmplification()</pre>
+            <pre>float GetOriginalSpellAmplification()
+float ["OriginalSpellAmplification"].get</pre>
         </td>
         <td>
             Both
@@ -2357,7 +2518,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalSpellAmplification(float spellAmplification)</pre>
+            <pre>void SetOriginalSpellAmplification(float spellAmplification)
+["OriginalSpellAmplification"].set = float spellAmplification</pre>
         </td>
         <td>
             Server
@@ -2381,7 +2543,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetSpellAmplificationPerIntelligence()</pre>
+            <pre>float GetSpellAmplificationPerIntelligence()
+float ["SpellAmplificationPerIntelligence"].get</pre>
         </td>
         <td>
             Both
@@ -2391,7 +2554,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetSpellAmplificationPerIntelligence(float spellAmplificationPerIntelligence)</pre>
+            <pre>void SetSpellAmplificationPerIntelligence(float spellAmplificationPerIntelligence)
+["SpellAmplificationPerIntelligence"].set = float spellAmplificationPerIntelligence</pre>
         </td>
         <td>
             Server
@@ -2464,7 +2628,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalCastRangeIncrease()</pre>
+            <pre>float GetOriginalCastRangeIncrease()
+float ["OriginalCastRangeIncrease"].get</pre>
         </td>
         <td>
             Both
@@ -2474,7 +2639,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalCastRangeIncrease(float castRangeIncrease)</pre>
+            <pre>void SetOriginalCastRangeIncrease(float castRangeIncrease)
+["OriginalCastRangeIncrease"].set = float castRangeIncrease</pre>
         </td>
         <td>
             Server
@@ -2492,13 +2658,14 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetAttributeCastRangeIncrease()
-    return self:GetAttributeCastRangeIncreasePerCharisma() * self:GetTotalCharismaAttribute()
+    return self:GetCastRangeIncreasePerCharisma() * self:GetTotalCharismaAttribute()
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetAttributeCastRangeIncreasePerCharisma()</pre>
+            <pre>float GetCastRangeIncreasePerCharisma()
+float ["CastRangeIncreasePerCharisma"].get</pre>
         </td>
         <td>
             Both
@@ -2508,7 +2675,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetAttributeCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma)</pre>
+            <pre>void SetCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma)
+["CastRangeIncreasePerCharisma"].set = float castRangeIncreasePerCharisma</pre>
         </td>
         <td>
             Server
@@ -2556,7 +2724,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalCastRangePercentage()</pre>
+            <pre>float GetOriginalCastRangePercentage()
+float ["OriginalCastRangePercentage"].get</pre>
         </td>
         <td>
             Both
@@ -2566,7 +2735,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalCastRangePercentage(float castRangeAmplification)</pre>
+            <pre>void SetOriginalCastRangePercentage(float castRangeAmplification)
+["OriginalCastRangePercentage"].set = float castRangeAmplification</pre>
         </td>
         <td>
             Server
@@ -2590,7 +2760,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetCastRangePercentagePerCharisma()</pre>
+            <pre>float GetCastRangePercentagePerCharisma()
+float ["CastRangePercentagePerCharisma"].get</pre>
         </td>
         <td>
             Both
@@ -2600,7 +2771,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCastRangePercentagePerCharisma(float castRangePercentagePerCharisma)</pre>
+            <pre>void SetCastRangePercentagePerCharisma(float castRangePercentagePerCharisma)
+["CastRangePercentagePerCharisma"].set = float castRangePercentagePerCharisma</pre>
         </td>
         <td>
             Server
@@ -2673,7 +2845,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalCastRadiusPercentage()</pre>
+            <pre>float GetOriginalCastRadiusPercentage()
+float ["OriginalCastRadiusPercentage"].get</pre>
         </td>
         <td>
             Both
@@ -2683,7 +2856,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalCastRadiusPercentage(float castRadius)</pre>
+            <pre>void SetOriginalCastRadiusPercentage(float castRadius)
+["OriginalCastRadiusPercentage"].set = float castRadius</pre>
         </td>
         <td>
             Server
@@ -2707,7 +2881,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetCastRadiusPercentagePerCharisma()</pre>
+            <pre>float GetCastRadiusPercentagePerCharisma()
+float ["CastRadiusPercentagePerCharisma"].get</pre>
         </td>
         <td>
             Both
@@ -2717,7 +2892,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCastRadiusPercentagePerCharisma(float castRadiusPercentagePerCharisma)</pre>
+            <pre>void SetCastRadiusPercentagePerCharisma(float castRadiusPercentagePerCharisma)
+["CastRadiusPercentagePerCharisma"].set = float castRadiusPercentagePerCharisma</pre>
         </td>
         <td>
             Server
@@ -2790,7 +2966,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalMovementSpeedIncrease()</pre>
+            <pre>float GetOriginalMovementSpeedIncrease()
+float ["OriginalMovementSpeedIncrease"].get</pre>
         </td>
         <td>
             Both
@@ -2800,7 +2977,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalMovementSpeedIncrease(float castRangeIncrease)</pre>
+            <pre>void SetOriginalMovementSpeedIncrease(float castRangeIncrease)
+["OriginalMovementSpeedIncrease"].set = float castRangeIncrease</pre>
         </td>
         <td>
             Server
@@ -2818,13 +2996,14 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetAttributeMovementSpeedIncrease()
-    return self:GetAttributeMovementSpeedIncreasePerAgility() + self:GetTotalAgilityAttribute()
+    return self:GetMovementSpeedIncreasePerAgility() + self:GetTotalAgilityAttribute()
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetAttributeMovementSpeedIncreasePerAgility()</pre>
+            <pre>float GetMovementSpeedIncreasePerAgility()
+float ["MovementSpeedIncreasePerAgility"].get</pre>
         </td>
         <td>
             Both
@@ -2834,7 +3013,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetAttributeMovementSpeedIncreasePerAgility(float castRangeIncreasePerAgility)</pre>
+            <pre>void SetMovementSpeedIncreasePerAgility(float castRangeIncreasePerAgility)
+["MovementSpeedIncreasePerAgility"].set = float castRangeIncreasePerAgility</pre>
         </td>
         <td>
             Server
@@ -2882,7 +3062,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalMovementSpeedPercentage()</pre>
+            <pre>float GetOriginalMovementSpeedPercentage()
+float ["OriginalMovementSpeedPercentage"].get</pre>
         </td>
         <td>
             Both
@@ -2892,7 +3073,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalMovementSpeedPercentage(float movementSpeedAmplification)</pre>
+            <pre>void SetOriginalMovementSpeedPercentage(float movementSpeedAmplification)
+["OriginalMovementSpeedPercentage"].set = float movementSpeedAmplification</pre>
         </td>
         <td>
             Server
@@ -2916,7 +3098,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetMovementSpeedPercentagePerAgility()</pre>
+            <pre>float GetMovementSpeedPercentagePerAgility()
+float ["MovementSpeedPercentagePerAgility"].get</pre>
         </td>
         <td>
             Both
@@ -2926,7 +3109,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetMovementSpeedPercentagePerAgility(float movementSpeedPercentagePerAgility)</pre>
+            <pre>void SetMovementSpeedPercentagePerAgility(float movementSpeedPercentagePerAgility)
+["MovementSpeedPercentagePerAgility"].set = float movementSpeedPercentagePerAgility</pre>
         </td>
         <td>
             Server
@@ -3001,7 +3185,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalAttackSpeed()</pre>
+            <pre>float GetOriginalAttackSpeed()
+float ["OriginalAttackSpeed"].get</pre>
         </td>
         <td>
             Both
@@ -3011,7 +3196,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalAttackSpeed(float attackSpeed)</pre>
+            <pre>void SetOriginalAttackSpeed(float attackSpeed)
+["OriginalAttackSpeed"].set = float attackSpeed</pre>
         </td>
         <td>
             Server
@@ -3031,21 +3217,23 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetAttributeAttackSpeedPerAgility()</pre>
+            <pre>float GetAttackSpeedPerAgility()
+float ["AttackSpeedPerAgility"].get</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetAttributeAttackSpeedPerAgility()
-    return self:GetTotalAgilityAttribute() * self:GetAttributeAttackSpeedPerAgility()
+            <pre lang="lua">function Unit:GetAttackSpeedPerAgility()
+    return self:GetTotalAgilityAttribute() * self:GetAttackSpeedPerAgility()
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>void SetAttributeAttackSpeedPerAgility(float attackSpeedPerAgility)</pre>
+            <pre>void SetAttackSpeedPerAgility(float attackSpeedPerAgility)
+["AttackSpeedPerAgility"].set = float attackSpeedPerAgility</pre>
         </td>
         <td>
             Server
@@ -3093,7 +3281,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetOriginalAttackSpeedPercentage()</pre>
+            <pre>float GetOriginalAttackSpeedPercentage()
+float ["OriginalAttackSpeedPercentage"].get</pre>
         </td>
         <td>
             Both
@@ -3103,7 +3292,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalAttackSpeedPercentage(float attackSpeedPercentage)</pre>
+            <pre>void SetOriginalAttackSpeedPercentage(float attackSpeedPercentage)
+["OriginalAttackSpeedPercentage"].set = float attackSpeedPercentage</pre>
         </td>
         <td>
             Server
@@ -3127,7 +3317,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetAttackSpeedPercentagePerAgility()</pre>
+            <pre>float GetAttackSpeedPercentagePerAgility()
+float ["AttackSpeedPercentagePerAgility"].get</pre>
         </td>
         <td>
             Both
@@ -3137,7 +3328,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetAttackSpeedPercentagePerAgility(float attackSpeedPercentagePerAgility)</pre>
+            <pre>void SetAttackSpeedPercentagePerAgility(float attackSpeedPercentagePerAgility)
+["AttackSpeedPercentagePerAgility"].set = float attackSpeedPercentagePerAgility</pre>
         </td>
         <td>
             Server
@@ -3199,7 +3391,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>int GetMinAttackSpeedLimit()</pre>
+            <pre>int GetMinAttackSpeedLimit()
+int ["MinAttackSpeedLimit"].get</pre>
         </td>
         <td>
             Both
@@ -3209,7 +3402,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>int GetMaxAttackSpeedLimit()</pre>
+            <pre>int GetMaxAttackSpeedLimit()
+int ["MaxAttackSpeedLimit"].get</pre>
         </td>
         <td>
             Both
@@ -3219,7 +3413,9 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetAttackSpeedLimit(int min, int max)</pre>
+            <pre>void SetAttackSpeedLimit(int min, int max)
+["MinAttackSpeedLimit"].set = int limit
+["MaxAttackSpeedLimit"].set = int limit</pre>
         </td>
         <td>
             Server
@@ -3261,7 +3457,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetBaseAttackTime()</pre>
+            <pre>float GetBaseAttackTime()
+float ["BaseAttackTime"].get</pre>
         </td>
         <td>
             Both
@@ -3271,7 +3468,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetBaseAttackTime(float attackTime)</pre>
+            <pre>void SetBaseAttackTime(float attackTime)
+["BaseAttackTime"].set = float attackTime</pre>
         </td>
         <td>
             Server
@@ -3344,7 +3542,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>float GetBaseAttackRange()</pre>
+            <pre>float GetBaseAttackRange()
+float ["BaseAttackRange"].get</pre>
         </td>
         <td>
             Both
@@ -3354,7 +3553,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetBaseAttackRange(float attackRange)</pre>
+            <pre>void SetBaseAttackRange(float attackRange)
+["BaseAttackRange"].set = float attackRange</pre>
         </td>
         <td>
             Server
@@ -3399,7 +3599,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>AttackType GetOriginalAttackType()</pre>
+            <pre>AttackType GetOriginalAttackType()
+AttackType ["OriginalAttackType"].get</pre>
         </td>
         <td>
             Both
@@ -3409,7 +3610,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalAttackType(AttackType attackType)</pre>
+            <pre>void SetOriginalAttackType(AttackType attackType)
+["OriginalAttackType"].set = AttackType attackType</pre>
         </td>
         <td>
             Server
