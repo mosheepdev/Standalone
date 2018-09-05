@@ -6,154 +6,361 @@ All functions are static (does not require instance) because there is no instanc
 ## Functions
 
 ### Print
-Send message to Standard Output (Console) and append New Line (`\n`) at the end.
 
-Use [`Write(string)`](#write) instead for not adding `\n`.
-```
-void Print(string message)
-void print(string message)
-```
-
-### Print Debug
-Same as [`Print(string)`](#print) but has prefix to determine server and start time from beginning of the match.
-```
-void PrintDebug(string message)
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>void Print(string message)
+void print(string message)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Send message to Standard Output (Console) and append New Line (`\n`) at the end.<br>
+            <br>
+            Use `Write(string)` instead for not adding `\n`.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void PrintDebug(string message)
 void printDebug(string message)
-void print_debug(string message)
-```
+void print_debug(string message)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Same as `Print(string)` but has prefix to determine server and start time from beginning of the match.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void Write(string message)
+void write(string message)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Send message to Standard Output (Console).<br>
+            <br>
+            Use `Print(string)` instead for adding `\n` to the end.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsClient()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Returns `true` if LUA Environment is running on client (has access to GUI and has control over a [`Player`](../Player/README.md))<br>
+            <br>
+            To check for server, use `IsServer()` instead of `!IsClient()`.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsServer()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Returns `true` if LUA Environment is running on server (dedicated or client hosting a game).
+            No access to GUI.<br>
+            <br>
+            To check for client, use `IsClient()` instead of `!IsServer()`.<br>
+            <br>
+            To check for dedicated server, use `IsDedicatedServer()`.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsDedicatedServer()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Check whenever this game is hosted on dedicated server (not at one of the clients).<br>
+            <br>
+            Returns false in case of `IsServer()` returning false.
+        </td>
+        <td></td>
+    </tr>
+</table>
 
-### Write
-Send message to Standard Output (Console).
+### Host
 
-Use [`Print(string)`](#print) instead for adding `\n` to the end.
-```
-void Write(string message)
-void write(string message)
-```
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>handle GetHostPlayer()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get handle to player hosting the game.<br>
+            Does not work for Dedicated Servers.<br>
+            <br>
+            Returns `nil` if `IsDedicatedServer() == true`. 
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>string GetHostName()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get name of the host (server).<br>
+            <br>
+            For Dedicated Servers, returns their Human-friendly Codename.<br>
+            For Local games, returns name of the hosting player.
+        </td>
+        <td></td>
+    </tr>
+</table>
 
-### Is Client
-Returns `true` if LUA Environment is running on client (has access to GUI and has control over a [`Player`](../Player/README.md))
+### Match
 
-To check for server, use [`IsServer()`](#is-server) instead of `!IsClient()`.
-```
-bool IsClient()
-```
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>string GetMatchId()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get Unique ID of this match.<br>
+            <br>
+            Should be valid by Regex `^[a-zA-Z0-9_\-]+$` (at least 1 of those characters: numbers, letters, underscores, dash).
+        </td>
+        <td></td>
+    </tr>
+</table>
 
-### Is Server
-Returns `true` if LUA Environment is running on server (dedicated or client hosting a game).
-No access to GUI.
+### Date and Time
 
-To check for client, use [`IsClient()`](#is-client) instead of `!IsServer()`.
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetDeltaTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Total amount of seconds (usually `<1.0`) from start of previous tick.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>string GetSystemDate()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Returns current system's date in format `yyyy/mm/dd` (4 digits of year, 2 digits of month, 2 digits of day).<br>
+            <br>
+            To get date at start of the match use `GetMatchDate()`.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>string GetSystemTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Returns current system's time in format `hh:mm:ss` (2 digits of hour, 2 digits of minutes, 2 digits of seconds).<br>
+            Uses 24-hours format.<br>
+            <br>
+            To get time at start of the match use `GetMatchTime()`.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>table GetSystemDateTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Returns current systems' date and time stored in a single table.<br>
+            <br>
+            Keys are:
+            <ul>
+                <li>
+                    For Date
+                    <ul>
+                        <li>`Year`</li>
+                        <li>`Month`</li>
+                        <li>`MonthName`</li>
+                        <li>`Day`</li>
+                        <li>`DayOfWeek`</li>
+                    </ul>
+                </li>
+                <li>
+                    For Time
+                    <ul>
+                        <li>`Hours`</li>
+                        <li>`Minutes`</li>
+                        <li>`Seconds`</li>
+                        <li>`Milliseconds`</li>
+                        <li>
+                            `AmPm` - surfix for 12-hours format
+                            <ul>
+                                <li>`="AM"` for `Hours < 12`</li>
+                                <li>`="PM"` for `Hours >= 12`</li>
+                            </ul>
+                        </li>
+                        <li>
+                            `HoursAmPm` - same as `Hours` but 12-hours format
+                            <ul>
+                                <li>`= Hours % 12 == 0 ? 12 : Hours % 12`</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            To get date and time at start of the match use `GetMatchDateTime()` (uses same structure).
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>string GetMatchDate()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Returns system's date at start of the match in format `yyyy/mm/dd` (4 digits of year, 2 digits of month, 2 digits of day).</br>
+            <br>
+            For current date use `GetSystemDate()`.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>string GetMatchTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Returns system's time at start of the match in format `hh:mm:ss` (2 digits of hour, 2 digits of minutes, 2 digits of seconds).<br>
+            Uses 24-hours format.<br>
+            <br>
+            For current time use `GetSystemTime()`.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>table GetMatchDateTime()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get system's date and time at beginning of the match.<br>
+            <br>
+            For current date and time use `GetSystemDateTime()` (uses same structure).
+        </td>
+        <td></td>
+    </tr>
+</table>
 
-To check for dedicated server, use [`IsDedicatedServer()`](#is-dedicated-server).
-```
-bool IsServer()
-```
+### Script Init
 
-### Is Dedicated Server
-Check whenever this game is hosted on dedicated server (not at one of the clients)
+Instance retrieved by this is called `Dummy Instance` and should not be used for calling any function (should only define them).
 
-Returns false in case of [`IsServer()`](#is-server) returning false.
-```
-bool IsDedicatedServer()
-```
-
-### Get Host Player
-Get handle to player hosting the game.
-Does not work for Dedicated Servers.
-
-Returns `nil` if [`IsDedicatedServer()`](#is-dedicated-server)`== true`. 
-```
-handle GetHostPlayer()
-```
-
-### Get Host Name
-Get name of the host (server).
-
-For Dedicated Servers, returns their Human-friendly Codename.
-For Local games, returns name of the hosting player.
-```
-string GetHostName()
-```
-
-### Get Match Id
-Get Unique ID of this match.
-
-Should be valid by Regex `^[a-zA-Z0-9_\-]+$` (at least 1 of those characters: numbers, letters, underscores, dash).
-```
-string GetMatchId()
-```
-
-### Get Delta Time
-Total amount of seconds (usually `<1.0`) from start of previous tick.
-```
-float GetDeltaTime()
-```
-
-### Get System Date
-Returns current system's date in format `yyyy/mm/dd` (4 digits of year, 2 digits of month, 2 digits of day).
-
-To get date at start of the match use [`GetMatchDate()`](#get-match-date).
-```
-string GetSystemDate()
-```
-
-### Get System Time
-Returns current system's time in format `hh:mm:ss` (2 digits of hour, 2 digits of minutes, 2 digits of seconds).
-Uses 24-hours format.
-
-To get time at start of the match use [`GetMatchTime()`](#get-match-time).
-```
-string GetSystemTime()
-```
-
-### Get System DateTime
-Returns current systems' date and time stored in a single table.
-
-Keys are:
-- For Date
-  - `Year`
-  - `Month`
-  - `MonthName`
-  - `Day`
-  - `DayOfWeek`
-- For Time
-  - `Hours`
-  - `Minutes`
-  - `Seconds`
-  - `Milliseconds`
-  - `AmPm` - surfix for 12-hours format
-    - `="AM"` for `Hours < 12`
-    - `="PM"` for `Hours >= 12`
-  - `HoursAmPm` - same as `Hours` but 12-hours format
-    - `= Hours % 12 == 0 ? 12 : Hours % 12`
-
-To get date and time at start of the match use [`GetMatchDateTime()`](#get-match-datetime) (uses same structure)(uses same structure).
-```
-table GetSystemDateTime()
-```
-
-### Get Match Date
-Returns system's date at start of the match in format `yyyy/mm/dd` (4 digits of year, 2 digits of month, 2 digits of day).
-
-For current date use [`GetSystemDate()`](#get-system-date).
-```
-string GetMatchDate()
-```
-
-### Get Match Time
-Returns system's time at start of the match in format `hh:mm:ss` (2 digits of hour, 2 digits of minutes, 2 digits of seconds).
-Uses 24-hours format.
-
-For current time use [`GetSystemTime()`](#get-system-time).
-```
-string GetMatchTime()
-```
-
-### Get Match DateTime
-Get system's date and time at beginning of the match.
-
-For current date and time use [`GetSystemDateTime()`](#get-system-datetime) (uses same structure).
-```
-table GetMatchDateTime()
-```
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>table Ability(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get or create [Ability](../Ability/README.md) by its name.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>table Item(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get or create [Item](../Item/README.md) by its name.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>table Modifier(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get or create [Modifier](../Modifier/README.md) by its name.
+        </td>
+        <td></td>
+    </tr>
+</table>

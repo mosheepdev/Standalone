@@ -1,17 +1,17 @@
-item_crystalys = base(Item)
+local item = Item("crystalis")
 
 ------------------------------------------------------------------------------------------------------------------------
 
-function item_crystalys:GetBonusDamage()
+function item:GetBonusDamage()
     return self:GetValue("bonus_damage")
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-function item_crystalys:GetCriticalChance()
+function item:GetCriticalChance()
     return self:GetValue("critical_chance")
 end
 
-function item_crystalys:GetCriticalPercentage()
+function item:GetCriticalPercentage()
     return self:GetValue("critical_percentage")
 end

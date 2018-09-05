@@ -1,54 +1,53 @@
-item_eye_of_skadi = base(Item)
+local item = Item("Eye_of_Skadi")
 
 ------------------------------------------------------------------------------------------------------------------------
 
-function item_eye_of_skadi:GetPassiveModifier()
-    return "modifier_eye_of_skadi"
+function item:GetPassiveModifier()
+    return "Eye_of_Skadi"
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-function item_eye_of_skadi:OnAttackLanded(event)
-    event.target:AddNewModifier(self:GetOwner(), self, "modifier_eye_of_skadi_slow", {
-        slow = self:GetValue("slow"),
-        duration = self:GetValue("slow_duration") * event.target:GetStatusResistance()
-    })
+function item:OnAttackLanded(event)
+    local modifier = event.target:AddNewModifier("Eye_of_Skadi", self:GetOwner(), self)
+    modifier.slow = self:GetValue("slow")
+    modifier.duration = self:GetValue("slow_duration") * event.target:GetStatusResistance()
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-modifier_eye_of_skadi = base(Modifier) 
+local modifier = Modifier("eye_of_skadi")
 
 ------------------------------------------------------------------------------------------------------------------------
 
-function modifier_eye_of_skadi:GetBonusStrength()
+function modifier:GetBonusStrength()
     return self:GetValue("bonus_attribute_all")
 end
 
-function modifier_eye_of_skadi:GetBonusAgility()
+function modifier:GetBonusAgility()
     return self:GetValue("bonus_attribute_all")
 end
 
-function modifier_eye_of_skadi:GetBonusIntelligence()
+function modifier:GetBonusIntelligence()
     return self:GetValue("bonus_attribute_all")
 end
 
-function modifier_eye_of_skadi:GetBonusCharisma()
+function modifier:GetBonusCharisma()
     return self:GetValue("bonus_attribute_all")
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-function modifier_eye_of_skadi:GetProjectileParticle()
+function modifier:GetProjectileParticle()
     return "projectile/eye_of_skadi"
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-modifier_eye_of_skadi_slow = base(Modifier)
+local modifier_slow = Modifier("eye_of_skadi_slow")
 
 ------------------------------------------------------------------------------------------------------------------------
 
-function modifier_eye_of_skadi_slow:GetPercentageBonusMovementSpeed()
+function modifier_slow:GetPercentageBonusMovementSpeed()
     return self.slow
 end

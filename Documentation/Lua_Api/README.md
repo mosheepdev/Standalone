@@ -8,28 +8,41 @@ LUA [5.3](https://www.lua.org/versions.html#5.3).5
 
 Instances of LUA are separated for Client and Server.
 
+
+
+## API
+
+Only [`Ability`](Ability/README.md) (+[`Item`](Item/README.md)) and [`Modifier`](Modifier/README.md) (+ [`Modifier_Ability`](Modifier/Ability/README.md) and [`Modifier_Item`](Modifier/Item/README.md)) can be overloaded in LUA.
+
 - [`Global`](Global/README.md)
+  - Team_Flags GetTeamFlag(Team team)
+  - bool HasTeam(Team_Flags flags, Team team)
 - [`Map`](Map/README.md)
   - Map.GetCurrentMap() (Client Only)
   - Map.GetCurrentMap(handle entity)
   - Map.GetCurrentMap(int entityId)
   - Map.GetAllMaps()
 - [`Player`](Player/README.md)
-  - int GetGoldPerMinute()
-  - void SetGoldPerMinute(int gpm)
-  - int GetExperiencePerMinute()
-  - void SetExperiencePerMinute(int xmp)
-  - int GetTeam()
+  - Gold
+    - int GetGoldPerMinute()
+    - void SetGoldPerMinute(int gpm)
+  - Team GetTeam()
   - bool IsLocal()
-  - handle GetMainHero()
-  - table GetAllHeroes()
-  - table GetAllNonHeroUnits()
+  - Units
+    - Unit GetMainHero()
+    - Unit[] GetAllUnit()
+    - Unit[] GetAllHeroes()
+    - Unit[] GetAllNonHeroUnits()
   - string GetDisplayName()
-  - bool HasClan()
-  - string GetClanName()
-  - string GetClanTag() 
+  - Clan
+    - bool HasClan()
+    - string GetClanName()
+    - string GetClanTag()
   - bool IsVerifiedUser() -- Gave some money into the game
 - [`Unit`](Unit/README.md)
+  - XP
+    - int GetExperiencePerMinute()
+    - void SetExperiencePerMinute(int xmp)
   - [`Hero`](Hero/README.md)
   - [`Boss`](Boss/README.md)
 - [`Ability`](Ability/README.md)
@@ -77,7 +90,7 @@ Instances of LUA are separated for Client and Server.
   - int CreateLinearProjectile(table projectileInfo, function onHit)
   - Vector3 GetProjectilePosition(int projectileId)
   - void DestroyProjectile(int projectileId)
-- [`SharedTable`](SharedTable/README.md)
+- [`SharedTable`](SharedTable/README.md) = Data accessible from both Client and Server
   - void SharedTable.Set(string name, int key, object value)
   - void SharedTable.Set(string name, string key, object value)
   - void SharedTable.Remove(string name, int key) => :Set(name, key, nil)
@@ -104,5 +117,5 @@ Instances of LUA are separated for Client and Server.
     - Vector3 Normalized()
   - [`Vector4`](Vector4/README.md)
     - Vector4 Normalized()
-- [`QAngle`](QAngle/README.md) = Euler's Angles
+- [`QAngle`](QAngle/README.md) = Euler's Angles stored in `Vector3` (Pitch, Yaw, Roll)
 - [`Quaternion`](Quaternion/README.md)
