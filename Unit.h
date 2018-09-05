@@ -645,7 +645,7 @@ public:
 
 // Attack Type (Ranged / Melee)
 public:
-    AttackType GetOriginalAttackType() { return _OriginalAttackType }
+    AttackType GetOriginalAttackType() { return _OriginalAttackType; }
     void SetOriginalAttackType(AttackType attackType);
 private:
     AttackType _OriginalAttackType;
