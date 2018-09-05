@@ -6,11 +6,14 @@ class Unit;
 #include <glm/glm.hpp>
 #include <cmath>
 
+#include <vector>
+
 
 #include "Enums.h"
 #include "Ability.h"
 #include "Modifier.h"
 
+using namespace std;
 using namespace glm;
 
 class Unit
@@ -661,12 +664,38 @@ public:
 // Model Collision Size + Scale
 //TODO
 
-// Moifiers
+// Modifiers
 public:
-    Modifier* GetAllModifiers(int* count, bool onlyVisible = true);
-    Modifier* GetAllBuffs(int* count, bool onlyVisible = true);
-    Modifier* GetAllDebuffs(int* count, bool onlyVisible = true);
-
+    // Returns array of Modifier*
+    Modifier** GetAllModifiers(int* count)
+    {
+        *count = (int) _AllModifiers.size();
+        return &_AllModifiers[0];
+    }
+private:
+    std::vector<Modifier*> _AllModifiers;
+public:
+    Modifier* AddNewModifier(string name) { return AddNewModifier(name, nullptr); }
+    Modifier* AddNewModifier(string name, Unit* sourceUnit) { return AddNewModifier(name, nullptr, nullptr); }
+    Modifier* AddNewModifier(string name, Unit* sourceUnit, Ability* sourceAbility);
+public:
+    bool HasModifier(string name);
+    bool HasModifier(string name, Unit* sourceUnit);
+public:
+    int GetModifierCount(string name);
+    int GetModifierCount(string name, Unit* sourceUnit);
+    int GetModifierStackCount(string name);
+    int GetModifierStackCount(string name, Unit* sourceUnit);
+public:
+    Modifier* GetModifier(string name);
+    Modifier* GetModifier(string name, Unit* sourceUnit);
+public:
+    void RemoveModifier(Modifier* modifier);
+    int RemoveModifiers(string name);
+    int RemoveModifiers(string name, Unit* sourceUnit);
+    int RemoveModifiers(string name, Unit* sourceUnit, Ability* sourceAbility);
+public:
+    int PurgeModifiers(PurgeType purgeType);
 };
 
 

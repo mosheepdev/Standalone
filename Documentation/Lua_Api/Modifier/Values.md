@@ -8,14 +8,6 @@ float GetPercentageBonusXp()
 ```
 Default: `nil` or `0`
 
-## Gold
-
-### Get Percentage Bonus Gold
-```
-float GetPercentageBonusGold()
-```
-Default: `nil` or `0`
-
 ## Damage
 
 ### Get Flat Bonus Damage
@@ -278,3 +270,11 @@ Default: `nil`
 ## Attack Type
 
 //////////////////////////////////
+
+## Gold
+
+### Get Percentage Bonus Gold
+```
+float GetPercentageBonusGold()
+```
+Default: `nil` or `0`

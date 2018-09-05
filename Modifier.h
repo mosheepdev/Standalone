@@ -8,89 +8,96 @@ class Modifier;
 
 class Modifier {
 public:
-    int GetFlags();
-    ModifierPriority GetPriority();
+    virtual int GetFlags();
+
+public:
     Unit GetParent();
     Ability GetAbility();
 
-// Damage
 public:
-    int GetFlatBonusDamage();
-    float GetPercentageBonusDamage(); // + 100
-
-// Attributes
-public:
-    int GetBonusStrength();
-    int GetBonusAgility();
-    int GetBonusIntelligence();
-    int GetBonusCharisma();
-
-// Health
-public:
-    int GetFlatHealthBonus();
-    float GetPercentageHealthBonus();
-
-// Health Regen
-public:
-    float GetFlatBonusHealthRegeneration();
-    float GetPercentageBonusHealthRegeneration();
-
-// Mana
-public:
-    int GetFlatManaBonus();
-    float GetPercentageManaBonus();
-
-// Mana Regen
-public:
-    float GetFlatBonusManaRegeneration();
-    float GetPercentageBonusManaRegeneration();
-
-// Armor (Physical Resist)
-public:
-    float GetBonusArmor();
-
-// Magic Resistance
-public:
-    float GetBonusMagicResistance();
-
-// Status Resistance
-public:
-    float GetBonusStatusResistance();
-
-// Cooldown Reduction
-public:
-    float GetBonusCooldownReduction();
-
-// Cast Range
-public:
-    float GetFlatBonusCastRange();
-    float GetPercentageBonusCastRange();
-
-// Movement Speed
-public:
-    float GetFlatBonusMovementSpeed();
-    float GetPercentageBonusMovementSpeed();
-
-// Attack Speed
-public:
-    float GetFlatBonusAttackSpeed();
-    float GetPercentageBonusAttackSpeed();
-
-// Attack Range
-public:
-    int GetBonusAttackRange();
-
-// Attack Projectile
-public:
-    char* GetProjectileParticle();
+    virtual ModifierPriority GetPriority();
+    virtual PurgeType GetPurgeType();
+    virtual bool IsDebuff();
+    //TODO Duration
 
 // XP / Experience
 public:
-    float GetPercentageBonusXp();
+    virtual float GetPercentageBonusXp();
+
+// Damage
+public:
+    virtual int GetFlatBonusDamage();
+    virtual float GetPercentageBonusDamage();
+
+// Attributes
+public:
+    virtual int GetBonusStrength();
+    virtual int GetBonusAgility();
+    virtual int GetBonusIntelligence();
+    virtual int GetBonusCharisma();
+
+// Health
+public:
+    virtual int GetFlatHealthBonus();
+    virtual float GetPercentageHealthBonus();
+
+// Health Regen
+public:
+    virtual float GetFlatBonusHealthRegeneration();
+    virtual float GetPercentageBonusHealthRegeneration();
+
+// Mana
+public:
+    virtual int GetFlatManaBonus();
+    virtual float GetPercentageManaBonus();
+
+// Mana Regen
+public:
+    virtual float GetFlatBonusManaRegeneration();
+    virtual float GetPercentageBonusManaRegeneration();
+
+// Armor (Physical Resist)
+public:
+    virtual float GetBonusArmor();
+
+// Magic Resistance
+public:
+    virtual float GetBonusMagicResistance();
+
+// Status Resistance
+public:
+    virtual float GetBonusStatusResistance();
+
+// Cooldown Reduction
+public:
+    virtual float GetBonusCooldownReduction();
+
+// Cast Range
+public:
+    virtual float GetFlatBonusCastRange();
+    virtual float GetPercentageBonusCastRange();
+
+// Movement Speed
+public:
+    virtual float GetFlatBonusMovementSpeed();
+    virtual float GetPercentageBonusMovementSpeed();
+
+// Attack Speed
+public:
+    virtual float GetFlatBonusAttackSpeed();
+    virtual float GetPercentageBonusAttackSpeed();
+
+// Attack Range
+public:
+    virtual int GetBonusAttackRange();
+
+// Attack Projectile
+public:
+    virtual char* GetProjectileParticle();
 
 // Gold
 public:
-    float GetPercentageBonusGold();
+    virtual float GetPercentageBonusGold();
 };
 
 

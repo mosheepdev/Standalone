@@ -527,7 +527,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetFlatBonusDamage()
     local damage = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetFlatBonusDamage then
             local m_damage = m:GetFlatBonusDamage()
             if m_damage then
@@ -550,7 +550,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetPercentageBonusDamage()
     local damage = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetPercentageBonusDamage then
             local m_damage = m:GetPercentageBonusDamage()
             if m_damage then
@@ -736,7 +736,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusStrengthAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetBonusStrength then
             local m_attribute = m:GetBonusStrength()
             if m_attribute then
@@ -842,7 +842,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusAgilityAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetBonusAgility then
             local m_attribute = m:GetBonusAgility()
             if m_attribute then
@@ -948,7 +948,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusIntelligenceAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetBonusIntelligence then
             local m_attribute = m:GetBonusIntelligence()
             if m_attribute then
@@ -1054,7 +1054,7 @@ end</pre>
         <td>
             <pre lang="lua">function Unit:GetBonusCharismaAttribute()
     local attribute = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetBonusCharisma then
             local m_attribute = m:GetBonusCharisma()
             if m_attribute then
@@ -1168,7 +1168,7 @@ float ["HealthPoolPerStrength"].get</pre>
         <td>
             <pre lang="lua">function Unit:GetFlatBonusHealthPool()
     local pool = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetFlatHealthBonus then
             local m_pool = m:GetFlatHealthBonus()
             if m_pool then
@@ -1497,7 +1497,7 @@ float ["ManaPoolPerStrength"].get</pre>
         <td>
             <pre lang="lua">function Unit:GetFlatBonusManaPool()
     local pool = 0
-    for i,m in pairs(self:GetAllModifiers(false)) do
+    for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetFlatManaBonus then
             local m_pool = m:GetFlatManaBonus()
             if m_pool then
@@ -3656,5 +3656,170 @@ end</pre>
     return self:GetAttackType() != ATTACK_TYPE_MELEE
 end</pre>
         </td>
+    </tr>
+</table>
+
+### Modifiers
+
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>Modifier[] GetAllModifiers()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>Modifier[] GetAllBuffs()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAllBuffs()
+    local buffs = {}
+    for k,m in pairs(self:GetAllModifiers()) do
+        if m and ((not m.IsDebuff) or (not m.IsDebuff())) then
+            buffs:insert(m)
+        end
+    end
+    return buffs;
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>Modifier[] GetAllDebuffs()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td>
+            <pre lang="lua">function Unit:GetAllDebuffs()
+    local debuffs = {}
+    for k,m in pairs(self:GetAllModifiers()) do
+        if m and m.IsDebuff and m.IsDebuff() then
+            debuffs:insert(m)
+        end
+    end
+    return debuffs;
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>Modifier AddNewModifier(string name)
+Modifier AddNewModifier(string name, Unit sourceUnit)
+Modifier AddNewModifier(string name, Unit sourceUnit, Ability sourceAbility)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool HasModifier(string name)
+bool HasModifier(string name, Unit sourceUnit)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>int GetModifierCount(string name)
+int GetModifierCount(string name, Unit sourceUnit)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get amount of modifiers of specified name (and from specified Unit).
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>int GetModifierStackCount(string name)
+int GetModifierStackCount(string name, Unit sourceUnit)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get total amount of stacks from modifiers of specified name (and from specified Unit).<br>
+            <br>
+            Same as `GetModifierStackCount(...)` but summary of their stacks.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>Modifier GetModifier(string name)
+Modifier GetModifier(string name, Unit sourceUnit)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void RemoveModifier(Modifier modifier)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>int RemoveModifiers(string name)
+int RemoveModifiers(string name, Unit sourceUnit)
+int RemoveModifiers(string name, Unit sourceUnit, Ability sourceAbility)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td>
+            Remove modifiers by specified name (and source Unit + Ability).<br>
+            <br>
+            Returns amount of removed modifiers.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>int PurgeModifiers(PurgeType purgeType)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td>
+            Remove all modifiers which can be purged by `purgeType`.<br>
+            <br>
+            `PurgeType.None` does nothing.<br>
+            <br>
+            Returns amount of removed modifiers.
+        </td>
+        <td></td>
     </tr>
 </table>
