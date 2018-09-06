@@ -78,19 +78,6 @@ Note:
 
 #### Female Form
 
-Type: `Enemy Hero`
-
-Forces target hero to walk towards caster.
-
-| Key | Moba Value | Angel Arena Value |
-|-----|------------|-------------------|
-| Manacost | ? | ? |
-| Cooldown | 60 | 60 / 60 / 60 / 60 / 40 / 15 |
-| Cast Point | 0.4 | 0.4 |
-| Duration | 2 / 3 / 4 / 5 | 2 / 3 / 4 / 5 / 5 / 5 |
-
-#### Male Form
-
 Type: `Enemy or Neutral Creep`
 
 Gain control of a creep for limited duration.
@@ -105,6 +92,19 @@ Gain control of a creep for limited duration.
 Notes:
 - Cannot target Buildings, Bosses, Creep-Heroes or Heroes
 - Maximum of `2` units __without__ `Cooldown Reduction`
+
+#### Male Form
+
+Type: `Enemy Hero`
+
+Forces target hero to walk towards caster.
+
+| Key | Moba Value | Angel Arena Value |
+|-----|------------|-------------------|
+| Manacost | ? | ? |
+| Cooldown | 60 | 60 / 60 / 60 / 60 / 40 / 15 |
+| Cast Point | 0.4 | 0.4 |
+| Duration | 2 / 3 / 4 / 5 | 2 / 3 / 4 / 5 / 5 / 5 |
 
 ### Demon Wings
 
