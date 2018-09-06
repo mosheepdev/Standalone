@@ -217,10 +217,10 @@ float ["CurrentXpPercentage"].get</pre>
         <td>
             <pre lang="lua">function Unit:GetCurrentXpPercentage()
     local level = self:GetLevel()
-    if level == self:GetMaxLevel() then
+    if level >= self:GetMaxLevel() then
         return 100
     end
-    return (self:GetCurrentXp() / self:GetXpPerLevel(level)) / 100.0
+    return (self:GetCurrentXp() / self:GetXpPerLevel(level + 1)) / 100.0
 end</pre>
         </td>
     </tr>
@@ -1170,7 +1170,7 @@ float ["HealthPoolPerStrength"].get</pre>
     local pool = 0
     for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetFlatHealthBonus then
-            local m_pool = m:GetFlatHealthBonus()
+            local m_pool = m:GetFlatBonusHealth()
             if m_pool then
                 pool = pool + m_pool
             end
@@ -1499,7 +1499,7 @@ float ["ManaPoolPerStrength"].get</pre>
     local pool = 0
     for i,m in pairs(self:GetAllModifiers()) do
         if m and m.GetFlatManaBonus then
-            local m_pool = m:GetFlatManaBonus()
+            local m_pool = m:GetFlatBonusMana()
             if m_pool then
                 pool = pool + m_pool
             end

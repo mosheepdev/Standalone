@@ -74,23 +74,31 @@ public:
     int GetLevel() { return _Level; }
     void SetLevel(int level);
     float GetCurrentXp() { return _LevelXp; }
-    float GetCurrentXpPercentage();
+    float GetCurrentXpPercentage()
+    {
+        if(_Level >= _MaxLevel)
+            return 100;
+        return GetCurrentXp() / GetXpPerLevel(_Level + 1) / 100.0f;
+    }
     float ClearCurrentXp();
     void SetCurrentXp(float xp)
     {
         ClearCurrentXp();
         AddXp(xp, false);
     }
-    float GetXpToNextLevel();
+    float GetXpToNextLevel()
+    {
+        if(_Level >= _MaxLevel)
+            return 0;
+        return GetXpPerLevel(_Level + 1) - _LevelXp;
+    }
     float GetTotalXp() { return GetXpPerLevelTotal(_Level) + _LevelXp; }
-    void SetTotalXp(float xp);
-    void SetTotalXp(float xp, bool affectedByModifiers);
-    void AddXp(float xp);
-    void AddXp(float xp, bool affectedByModifiers);
+    void SetTotalXp(float xp, bool affectedByModifiers = false);
+    void AddXp(float xp, bool affectedByModifiers = true);
     float GetPercentageBonusXp();
     float GetXpAfterBonus(float xp) { return xp * (GetPercentageBonusXp() / 100.0f); }
 private:
-    int _Level = 1; // 1+
+    int _Level = 0; // 0+
     float _LevelXp = 0;
 
 
@@ -324,10 +332,10 @@ public:
 private:
     float _PercentageManaRegenerationAmplificationPerIntelligence = 2.00f; // 2.0%
 public:
-    float GetPercentageBonusManaRegeneration();
-    float GetPercentageTotalManaRegeneration() { return GetPercentageBonusManaRegeneration() + GetAttributePercentageManaRegeneration(); }
+    float GetBonusPercentageManaRegeneration();
+    float GetTotalPercentageManaRegeneration() { return GetBonusPercentageManaRegeneration() + GetAttributePercentageManaRegeneration(); }
 public:
-    float GetTotalManaRegeneration() { return (GetPercentageTotalManaRegeneration() / 100.0f) * GetTotalManaRegenerationWithoutAmplification(); }
+    float GetTotalManaRegeneration() { return (GetTotalPercentageManaRegeneration() / 100.0f) * GetTotalManaRegenerationWithoutAmplification(); }
 
 // Mana Manipulation
 public:
@@ -351,9 +359,9 @@ public:
 private:
     float _ArmorPerAgility = 0.20;
 public:
-    float GetBaseArmor() { return GetOriginalArmor() + GetAttributeArmor(); }
-    float GetBonusArmor();
-    float GetTotalArmor() { return GetBaseArmor() + GetBonusArmor(); }
+    int GetBaseArmor() { return GetOriginalArmor() + GetAttributeArmor(); }
+    int GetBonusArmor();
+    int GetTotalArmor() { return GetBaseArmor() + GetBonusArmor(); }
 
 public:
     float GetReceivedPhysicalDamageMultiplier()
@@ -361,7 +369,7 @@ public:
         float armor = GetTotalArmor();
         return 1 - (0.05f * armor / (1 + 0.05f * abs(armor)));
     }
-    float GetPercentagePhysicalDamageResistance() { return (1 - GetReceivedPhysicalDamageMultiplier()) * 100.0; }
+    float GetPercentagePhysicalDamageResistance() { return (1 - GetReceivedPhysicalDamageMultiplier()) * 100.0f; }
     float GetPhysicalDamageAfterReduction(float damage) { return damage * GetReceivedPhysicalDamageMultiplier(); } //{ return damage * (1 - GetPercentagePhysicalDamageResistance()/100.0f); }
 
 // Magic Resistance
@@ -474,19 +482,19 @@ public:
 
 // Cast Range Increase
 public:
-    float GetOriginalCastRangeIncrease() { return _OriginalCastRangeIncrease; }
-    void SetOriginalCastRangeIncrease(float castRangeIncrease);
+    int GetOriginalCastRangeIncrease() { return _OriginalCastRangeIncrease; }
+    void SetOriginalCastRangeIncrease(int castRangeIncrease);
 private:
-    float _OriginalCastRangeIncrease = 0;
+    int _OriginalCastRangeIncrease = 0;
 public:
-    float GetAttributeCastRangeIncrease() { return GetCastRangeIncreasePerCharisma() * GetTotalCharismaAttribute(); }
+    int GetAttributeCastRangeIncrease() { return GetCastRangeIncreasePerCharisma() * GetTotalCharismaAttribute(); }
     float GetCastRangeIncreasePerCharisma() { return _CastRangeIncreasePerCharisma; }
     void SetCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma);
 private:
     float _CastRangeIncreasePerCharisma = 1;
 public:
-    float GetBaseCastRangeIncrease() { return GetOriginalCastRangeIncrease() * GetAttributeCastRangeIncrease() / 100.0f; }
-    float GetBonusCastRangeIncrease();
+    int GetBaseCastRangeIncrease() { return GetOriginalCastRangeIncrease() * GetAttributeCastRangeIncrease() / 100.0f; }
+    int GetBonusCastRangeIncrease();
     // Without percentage!!!
     float GetTotalCastRangeIncrease() { return GetBaseCastRangeIncrease() * GetBonusCastRangeIncrease() / 100.0f; }
 
@@ -532,19 +540,19 @@ public:
 
 // Movement Speed Increase
 public:
-    float GetOriginalMovementSpeedIncrease() { return _OriginalMovementSpeedIncrease; }
-    void SetOriginalMovementSpeedIncrease(float castRangeIncrease);
+    int GetOriginalMovementSpeedIncrease() { return _OriginalMovementSpeedIncrease; }
+    void SetOriginalMovementSpeedIncrease(int castRangeIncrease);
 private:
-    float _OriginalMovementSpeedIncrease = 0;
+    int _OriginalMovementSpeedIncrease = 0;
 public:
-    float GetAttributeMovementSpeedIncrease() { return GetMovementSpeedIncreasePerAgility() * GetTotalAgilityAttribute(); }
+    int GetAttributeMovementSpeedIncrease() { return (int)(GetMovementSpeedIncreasePerAgility() * GetTotalAgilityAttribute()); }
     float GetMovementSpeedIncreasePerAgility() { return _MovementSpeedIncreasePerAgility; }
     void SetMovementSpeedIncreasePerAgility(float castRangeIncreasePerAgility);
 private:
     float _MovementSpeedIncreasePerAgility = 1;
 public:
-    float GetBaseMovementSpeedIncrease() { return GetOriginalMovementSpeedIncrease() + GetAttributeMovementSpeedIncrease(); }
-    float GetBonusMovementSpeedIncrease();
+    int GetBaseMovementSpeedIncrease() { return GetOriginalMovementSpeedIncrease() + GetAttributeMovementSpeedIncrease(); }
+    int GetBonusMovementSpeedIncrease();
     // Without amplification!!!
     float GetTotalMovementSpeedIncrease() { return GetBaseMovementSpeedIncrease() + GetBonusMovementSpeedIncrease(); }
 
@@ -572,20 +580,20 @@ public:
 
 // Attack Speed
 public:
-    float GetOriginalAttackSpeed() { return _OriginalAttackSpeed; }
-    void SetOriginalAttackSpeed(float attackSpeed);
+    int GetOriginalAttackSpeed() { return _OriginalAttackSpeed; }
+    void SetOriginalAttackSpeed(int attackSpeed);
 private:
-    float _OriginalAttackSpeed = 100;
+    int _OriginalAttackSpeed = 100;
 public:
-    float GetAttributeAttackSpeed() { return GetTotalAgilityAttribute() * GetAttackSpeedPerAgility(); }
+    int GetAttributeAttackSpeed() { return (int) (GetTotalAgilityAttribute() * GetAttackSpeedPerAgility()); }
     float GetAttackSpeedPerAgility() { return _AttackSpeedPerAgility; }
     void SetAttackSpeedPerAgility(float attackSpeedPerAgility);
 private:
     float _AttackSpeedPerAgility = 1;
 public:
-    float GetBaseAttackSpeed() { return GetOriginalAttackSpeed() + GetAttributeAttackSpeed(); }
-    float GetBonusAttackSpeed();
-    float GetTotalAttackSpeedWithoutPercentageIncrease() { return GetBaseAttackSpeed() + GetBonusAttackSpeed(); }
+    int GetBaseAttackSpeed() { return GetOriginalAttackSpeed() + GetAttributeAttackSpeed(); }
+    int GetBonusAttackSpeed();
+    int GetTotalAttackSpeedWithoutPercentageIncrease() { return GetBaseAttackSpeed() + GetBonusAttackSpeed(); }
 
 // Attack Speed Percentage
 public:
@@ -639,13 +647,13 @@ public:
 
 // Attack Range
 public:
-    float GetBaseAttackRange() { return _BaseAttackRange; }
-    void SetBaseAttackRange(float attackRange);
+    int GetBaseAttackRange() { return _BaseAttackRange; }
+    void SetBaseAttackRange(int attackRange);
 private:
-    float _BaseAttackRange = 100;
+    int _BaseAttackRange = 100;
 public:
-    float GetBonusAttackRange();
-    float GetTotalAttackRange() { return GetBaseAttackRange() + GetBonusAttackRange(); }
+    int GetBonusAttackRange();
+    int GetTotalAttackRange() { return GetBaseAttackRange() + GetBonusAttackRange(); }
 
 // Attack Type (Ranged / Melee)
 public:

@@ -38,8 +38,8 @@ public:
 
 // Health
 public:
-    virtual int GetFlatHealthBonus();
-    virtual float GetPercentageHealthBonus();
+    virtual int GetFlatBonusHealth();
+    virtual float GetPercentageBonusHealth();
 
 // Health Regen
 public:
@@ -48,8 +48,8 @@ public:
 
 // Mana
 public:
-    virtual int GetFlatManaBonus();
-    virtual float GetPercentageManaBonus();
+    virtual int GetFlatBonusMana();
+    virtual float GetPercentageBonusMana();
 
 // Mana Regen
 public:
@@ -58,7 +58,7 @@ public:
 
 // Armor (Physical Resist)
 public:
-    virtual float GetBonusArmor();
+    virtual int GetBonusArmor();
 
 // Magic Resistance
 public:

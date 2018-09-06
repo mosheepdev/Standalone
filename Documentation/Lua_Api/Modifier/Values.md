@@ -71,14 +71,14 @@ Default: `nil` or `0`
 
 ### Get Flat Health Bonus
 ```
-int GetFlatHealthBonus()
+int GetFlatBonusHealth()
 ```
 Default: `nil` or `0`
 
 ### Get Percentage Health Bonus
 Increase Base Health (Original Health + from Strength) by this percentage. 
 ```
-float GetPercentageHealthBonus()
+float GetPercentageBonusHealth()
 ```
 Default: `nil` or `0`
 
@@ -100,14 +100,14 @@ Default: `nil` or `0`
 
 ### Get Flat Mana Bonus
 ```
-int GetFlatManaBonus()
+int GetFlatBonusMana()
 ```
 Default: `nil` or `0`
 
 ### Get Percentage Mana Bonus
 Increase Base Mana (Original Mana + from Intelligence) by this percentage. 
 ```
-float GetPercentageManaBonus()
+float GetPercentageBonusMana()
 ```
 Default: `nil` or `0`
 
@@ -121,7 +121,7 @@ Default: `nil` or `0`
 
 ### Get Percentage Bonus Mana Regeneration
 ```
-float GetPercentageBonusManaRegeneration()
+float GetBonusPercentageManaRegeneration()
 ```
 Default: `nil` or `0`
 
