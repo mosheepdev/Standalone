@@ -53,3 +53,25 @@ Any help is welcomed.
 | --join_lobby &lt;lobby_id&gt;                   | Join specified lobby.                |
 | --join_lobby &lt;lobby_id&gt; &lt;password&gt;  | Join specified lobby using password. |
 | --join_party &lt;party_id&gt;                   | Join specified party.                |
+
+## Usage
+
+Is not in state where it can be run.
+
+### Compilation
+
+```
+
+```
+
+### Client
+
+```
+Standalone.exe
+```
+
+### Dedicated Server
+
+```
+Standalone.exe --server
+```
