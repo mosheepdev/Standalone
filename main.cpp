@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
     else // Start client
     {
         GameClient *client = new GameClient();
+        client->Init();
 
         while (!client->IsClosing())
             client->Tick();

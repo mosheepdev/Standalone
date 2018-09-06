@@ -9,6 +9,10 @@ public:
     GameClient();
     ~GameClient();
 
+// Init
+public:
+    void Init();
+
 // GUI (Window)
 public:
     bool HasGui() { return _SdlWindow != nullptr; }

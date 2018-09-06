@@ -7,15 +7,19 @@ using namespace std;
 
 GameClient::GameClient()
 {
-    InitGui();
-
-    // Lua last for custom libraries to be able to link the rest
-    InitLua();
 }
 
 GameClient::~GameClient()
 {
     lua_close(_Lua);
+}
+
+void GameClient::Init()
+{
+    InitGui();
+
+    // Lua last for custom libraries to be able to link the rest
+    InitLua();
 }
 
 bool GameClient::InitGui()

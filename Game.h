@@ -21,7 +21,11 @@ using namespace glm;
 
 // There can be one or two instances of this running at a same time.
 // Separating Client and Server
-class Game {
+class Game
+{
+// Init
+public:
+    virtual void Init() { InitLua(); }
 
 // Client / Server
 // Only one of IsClient() or IsServer() can return true
