@@ -58,6 +58,17 @@ void write(string message)</pre>
         </td>
         <td></td>
     </tr>
+</table>
+
+### Side
+
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
     <tr>
         <td>
             <pre>bool IsClient()</pre>
@@ -321,6 +332,7 @@ void write(string message)</pre>
 Can be considered constructors but returns same `Dummy Instance` for same `name`.
 
 `Dummy Instance` should not be used for calling any function (should only define them).
+Reason is that `Dummy Instance` has no `Owner` (`GetOwner() == nil`).
 
 <table>
     <tr>
@@ -363,6 +375,182 @@ Can be considered constructors but returns same `Dummy Instance` for same `name`
         <td>
             Get or create [Modifier](../Modifier/README.md) by its name.
         </td>
+        <td></td>
+    </tr>
+</table>
+
+### Linking
+
+`LinkAbility(...)` and `LinkItem(...)` should be called from `Addon.lua` (or other `"Script_File"` from [Addon_Info.kv](../../Addon/Addon_Info/README.md)). 
+
+If `path` ends with `.lua` it is considered a LUA Script.
+`path` ending by any other extension (`.kv` and `.txt` are preferred) is considered to be KV File storing values for it.
+
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkAbility(string name, string path)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkItem(string name, string path)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkModifier(string name, string path)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Can also be called in Ability's (or Item's) code.<br>
+            <br>
+            No need to call when the LUA file was already called - when Ability (or Item) share LUA file with their Modifiers.<br>
+            <br>
+            No nee for KeyValue files for Modifiers.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkUnit(string name, string path)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Cannot link LUA code - will print error into Console but throw no exception.
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+#### Default
+
+Those directories are linked by default.
+There is no other way to link directories.
+
+All directories below start from Addon's base directory.
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Directories</th>
+    </tr>
+    <tr>
+        <td>
+            Ability
+        </td>
+        <td>
+            <pre>/Scripts/Ability/*.lua
+/Scripts/Unit/*/Ability/*.lua
+/Scripts/Hero/*/Ability/*.lua
+/Scripts/Boss/*/Ability/*.lua</pre>
+            <pre>/KeyValue/Ability/*.kv
+/KeyValue/Ability/*.txt
+/KeyValue/Unit/*/Ability/*.kv
+/KeyValue/Unit/*/Ability/*.txt
+/KeyValue/Hero/*/Ability/*.kv
+/KeyValue/Hero/*/Ability/*.txt
+/KeyValue/Boss/*/Ability/*.kv
+/KeyValue/Boss/*/Ability/*.txt</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Item
+        </td>
+        <td>
+            <pre>/Scripts/Items/*.lua</pre>
+            <pre>/KeyValue/Items/*.kv
+/KeyValue/Items/*.txt</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Modifier
+        </td>
+        <td>
+            <pre>/Scripts/Modifier/*.lua</pre>
+            <pre>/KeyValue/Modifier/*.kv
+/KeyValue/Modifier/*.txt</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Unit
+        </td>
+        <td>
+            <pre>/KeyValue/Units/*.kv
+/KeyValue/Units/*.txt</pre>
+        </td>
+    </tr>
+</table>
+
+To link default abilities, items, modifiers and units, there are 2 groups of functions.
+
+All default abilities (and items) have their modifiers referenced (or even implemented) in respective LUA file.
+Therefore, `LinkDefault___Modifier(string)` and `LinkDefault___Modifiers()` will not link them.
+
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkDefaultMoba()
+void LinkDefaultMobaAbilities()
+void LinkDefaultMobaAbility(string name)
+void LinkDefaultMobaItems()
+void LinkDefaultMobaItem(string name)
+void LinkDefaultMobaModifiers()
+void LinkDefaultMobaModifier(string name)
+void LinkDefaultMobaUnits()
+void LinkDefaultMobaUnit(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkDefaultAngelArena()
+void LinkDefaultAngelArenaAbilities()
+void LinkDefaultAngelArenaAbility(string name)
+void LinkDefaultAngelArenaItems()
+void LinkDefaultAngelArenaItem(string name)
+void LinkDefaultAngelArenaModifier()
+void LinkDefaultAngelArenaModifier(string name)
+void LinkDefaultAngelArenaUnits()
+void LinkDefaultAngelArenaUnit(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
         <td></td>
     </tr>
 </table>

@@ -4,6 +4,9 @@
 #include <string>
 using namespace std;
 
+#include <map>
+#include <vector>
+
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
@@ -39,6 +42,31 @@ public:
     lua_State* GetLua() { return _Lua; }
 protected:
     lua_State *_Lua = nullptr;
+
+// Script Init + Register
+public:
+    bool TryGetAbility(string name, int *ref);
+    bool TryGetItem(string name, int *ref);
+    bool TryGetModifier(string name, int *ref);
+    int GetOrCreateAbility(string name);
+    int GetOrCreateItem(string name);
+    int GetOrCreateModifier(string name);
+private:
+    map<string, int> _LuaRef_Ability;
+    map<string, int> _LuaRef_Item;
+    map<string, int> _LuaRef_Modifier;
+
+// Linking
+private:
+    map<string, vector<string>> _AllAbilities;
+    map<string, vector<string>> _AllItems;
+    map<string, vector<string>> _AllModifiers;
+    map<string, vector<string>> _AllUnits;
+public:
+    void LinkAbility(string name, string path);
+    void LinkItem(string name, string path);
+    void LinkModifier(string name, string path);
+    void LinkUnit(string name, string path);
 };
 
 

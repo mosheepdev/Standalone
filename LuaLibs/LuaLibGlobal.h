@@ -45,6 +45,12 @@ public:
     int GetMatchTime(lua_State *Lua);
     int GetMatchDateTime(lua_State *Lua);
 
+// Script Init
+public:
+    int _Ability(lua_State *Lua);
+    int _Item(lua_State *Lua);
+    int _Modifier(lua_State *Lua);
+
 };
 
 

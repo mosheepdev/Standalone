@@ -7,6 +7,7 @@ using namespace std;
 LuaLibGlobal::LuaLibGlobal(Game* game) : _Game(game)
 {
 }
+//-----------------------------------------------------------------
 
 int LuaLibGlobal::Print(lua_State *Lua)
 {
@@ -43,6 +44,8 @@ int LuaLibGlobal::Write(lua_State *Lua)
     return 0;
 }
 
+//-----------------------------------------------------------------
+
 int LuaLibGlobal::IsClient(lua_State *Lua)
 {
     lua_pushboolean(Lua, _Game->IsClient());
@@ -60,6 +63,8 @@ int LuaLibGlobal::IsDedicatedServer(lua_State *Lua)
     lua_pushboolean(Lua, _Game->IsDedicatedServer());
     return 1;
 }
+
+//-----------------------------------------------------------------
 
 int LuaLibGlobal::GetHostPlayer(lua_State *Lua)
 {
@@ -81,11 +86,15 @@ int LuaLibGlobal::GetHostName(lua_State *Lua)
     return 1;
 }
 
+//-----------------------------------------------------------------
+
 int LuaLibGlobal::GetMatchId(lua_State *Lua)
 {
     //TODO Push string
     return 1;
 }
+
+//-----------------------------------------------------------------
 
 int LuaLibGlobal::GetDeltaTime(lua_State *Lua)
 {
@@ -129,3 +138,37 @@ int LuaLibGlobal::GetMatchDateTime(lua_State *Lua)
     return 1;
 }
 
+//-----------------------------------------------------------------
+
+int LuaLibGlobal::_Ability(lua_State *Lua)
+{
+    // 1st attribute, string
+    if(!lua_isstring(Lua, 1))
+        luaL_error(Lua, "This function requires 1 attribute 'name' of type 'string'.");
+    const char* name = lua_tostring(Lua, 1);
+
+    //TODO Push table
+    return 1;
+}
+
+int LuaLibGlobal::_Item(lua_State *Lua)
+{
+    // 1st attribute, string
+    if(!lua_isstring(Lua, 1))
+        luaL_error(Lua, "This function requires 1 attribute 'name' of type 'string'.");
+    const char* name = lua_tostring(Lua, 1);
+
+    //TODO Push table
+    return 1;
+}
+
+int LuaLibGlobal::_Modifier(lua_State *Lua)
+{
+    // 1st attribute, string
+    if(!lua_isstring(Lua, 1))
+        luaL_error(Lua, "This function requires 1 attribute 'name' of type 'string'.");
+    const char* name = lua_tostring(Lua, 1);
+
+    //TODO Push table
+    return 1;
+}

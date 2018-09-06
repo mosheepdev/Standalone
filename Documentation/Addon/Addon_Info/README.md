@@ -23,7 +23,7 @@ Unranked, Ranked, Debug-only example can be found [here](Addon_Info.kv).
             }
             "Map"                       "default"
             "Respect_Party"             "True" // Optional to "False"
-            "Script_File"               "Adon.lua"
+            "Script_File"               "Addon.lua"
             "Allowed_In_Debug"          "Yes" // Optional to "Yes" 
             "Twitch_Chat"               "Yes" // Optional to "No"
             "Dedicated_Server"          "Yes" // Optional to "No"

@@ -243,3 +243,138 @@ bool Game::InitLua()
 
     return true;
 }
+
+//-----------------------------------------------------------------
+
+//TODO move to utils
+bool iequals(const string& a, const string& b)
+{
+    return std::equal(a.begin(), a.end(),
+                      b.begin(), b.end(),
+                      [](char a, char b) {
+                          return tolower(a) == tolower(b);
+                      });
+}
+
+bool Game::TryGetAbility(string name, int *ref)
+{
+    for (std::map<string, int>::iterator it = _LuaRef_Ability.begin(); it != _LuaRef_Ability.end(); ++it)
+    {
+        if(iequals(name, (it->first)))
+        {
+            *ref = it->second;
+            return true;
+        }
+    }
+    *ref = LUA_NOREF;
+    return false;
+}
+
+bool Game::TryGetItem(string name, int *ref)
+{
+    for (std::map<string, int>::iterator it = _LuaRef_Item.begin(); it != _LuaRef_Item.end(); ++it)
+    {
+        if(iequals(name, (it->first)))
+        {
+            *ref = it->second;
+            return true;
+        }
+    }
+    *ref = LUA_NOREF;
+    return false;
+}
+
+bool Game::TryGetModifier(string name, int *ref)
+{
+    for (std::map<string, int>::iterator it = _LuaRef_Modifier.begin(); it != _LuaRef_Modifier.end(); ++it)
+    {
+        if(iequals(name, (it->first)))
+        {
+            *ref = it->second;
+            return true;
+        }
+    }
+    *ref = LUA_NOREF;
+    return false;
+}
+
+//-----------------------------------------------------------------
+
+int Game::GetOrCreateAbility(string name)
+{
+    int ref = 0;
+    if(TryGetAbility(name, &ref))
+        return ref;
+
+    lua_newtable(_Lua);
+
+    lua_pushstring(_Lua, "name");
+    lua_pushstring(_Lua, name.c_str());
+    lua_settable(_Lua, -3);
+
+    lua_pushstring(_Lua, "type");
+    lua_pushstring(_Lua, "ability");
+    lua_settable(_Lua, -3);
+
+    throw std::logic_error("Not Implemented");
+}
+
+int Game::GetOrCreateItem(string name)
+{
+    int ref = 0;
+    if(TryGetItem(name, &ref))
+        return ref;
+
+    lua_newtable(_Lua);
+
+    lua_pushstring(_Lua, "name");
+    lua_pushstring(_Lua, name.c_str());
+    lua_settable(_Lua, -3);
+
+    lua_pushstring(_Lua, "type");
+    lua_pushstring(_Lua, "item");
+    lua_settable(_Lua, -3);
+
+    throw std::logic_error("Not Implemented");
+}
+
+int Game::GetOrCreateModifier(string name)
+{
+    int ref = 0;
+    if(TryGetModifier(name, &ref))
+        return ref;
+
+    lua_newtable(_Lua);
+
+    lua_pushstring(_Lua, "name");
+    lua_pushstring(_Lua, name.c_str());
+    lua_settable(_Lua, -3);
+
+    lua_pushstring(_Lua, "type");
+    lua_pushstring(_Lua, "modifier");
+    lua_settable(_Lua, -3);
+
+    throw std::logic_error("Not Implemented");
+}
+
+//-----------------------------------------------------------------
+
+void Game::LinkAbility(string name, string path)
+{
+    throw std::logic_error("Not Implemented");
+}
+
+void Game::LinkItem(string name, string path)
+{
+    throw std::logic_error("Not Implemented");
+}
+
+void Game::LinkModifier(string name, string path)
+{
+    throw std::logic_error("Not Implemented");
+}
+
+void Game::LinkUnit(string name, string path)
+{
+    throw std::logic_error("Not Implemented");
+}
