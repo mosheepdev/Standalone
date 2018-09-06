@@ -1,41 +1,55 @@
 #ifndef STANDALONE_HEADERS_H
 #define STANDALONE_HEADERS_H
 
-enum DamageType
+#include <map>
+
+enum class DamageType
 {
-    DAMAGE_PURE = 0,
-    DAMAGE_PHYSICAL = 1,
-    DAMAGE_MAGICAL = 2
+    PURE,
+    PHYSICAL,
+    MAGICAL,
+    _COUNT
 };
 
-enum Attribute
+enum class DamageFlags
+{
+    NONE = 0,
+    NO_ARMOR, // Ignore armor
+    NO_MAGIC_RESIST, // Ignore magic resistance
+    NO_DAMAGE_BLOCK, // Ignore damage block
+    NON_LETHAL, // Cannot kill target
+    REFLECTION, // Is reflection damage (cannot be reflected)
+    _COUNT
+};
+
+enum class Attribute
 {
     // Health
     // Health Regeneration Amplification
     // Status Resistance
-    ATTRIBUTE_STRENGTH = 0,
+    STRENGTH,
     // Armor = Physical Resistance
     // Movement Speed
     // Attack Speed
-    ATTRIBUTE_AGILITY = 1,
+    AGILITY,
     // Mana
     // Mana Regeneration Amplification
     // Spell Amplification
-    ATTRIBUTE_INTELLIGENCE = 2,
+    INTELLIGENCE,
     // Cooldown Reduction
     // Cast Range Increase
     // Magic Resistance
-    ATTRIBUTE_CHARISMA = 3
+    CHARISMA,
+    _COUNT
 };
 
-enum Team : unsigned int
+enum class Team : unsigned int
 {
-    TEAM_NEUTRAL = 0,
-    TEAM_ANGELS = 1, // Radiant
-    TEAM_DEMONS = 2, // Dire
-    //TEAM_0 = TEAM_NEUTRAL, // Neutrals, better not provide for confusion
-    TEAM_1 = TEAM_ANGELS,
-    TEAM_2 = TEAM_DEMONS,
+    NEUTRAL = 0,
+    SPECTATOR = NEUTRAL, // Spectators are players assigned to Neutrals
+    //TEAM_0 = NEUTRAL, // Neutrals, better not provide for confusion
+    TEAM_1 = 1,
+    TEAM_2 = 2,
     TEAM_3 = 3,
     TEAM_4 = 4,
     TEAM_5 = 5,
@@ -58,59 +72,49 @@ enum Team : unsigned int
     TEAM_22 = 22,
     TEAM_23 = 23,
     TEAM_24 = 24,
-    TEAM_25 = 25
-    // must be < 32 for Team_Flags to be maximum of 1 << 31 to fit into int
+    TEAM_25 = 25,
+    _COUNT
+    // must be < 32 for TeamFlags to be maximum of 1 << 31 to fit into int
 };
 
-enum Team_Flags : unsigned int
+enum class TeamFlags : unsigned int
 {
-    TEAM_FILTER_ANY = 0,
-    TEAM_FILTER_NEUTRAL = 1 << TEAM_NEUTRAL,
-    TEAM_FILTER_ANGELS = 1 << TEAM_ANGELS,
-    TEAM_FILTER_DEMONS = 1 << TEAM_DEMONS,
-    TEAM_FILTER_1 = TEAM_FILTER_ANGELS,
-    TEAM_FILTER_2 = TEAM_FILTER_DEMONS,
-    TEAM_FILTER_3 = 1 << TEAM_3,
-    TEAM_FILTER_4 = 1 << TEAM_4,
-    TEAM_FILTER_5 = 1 << TEAM_5,
-    TEAM_FILTER_6 = 1 << TEAM_6,
-    TEAM_FILTER_7 = 1 << TEAM_7,
-    TEAM_FILTER_8 = 1 << TEAM_8,
-    TEAM_FILTER_9 = 1 << TEAM_9,
-    TEAM_FILTER_10 = 1 << TEAM_10,
-    TEAM_FILTER_11 = 1 << TEAM_11,
-    TEAM_FILTER_12 = 1 << TEAM_12,
-    TEAM_FILTER_13 = 1 << TEAM_13,
-    TEAM_FILTER_14 = 1 << TEAM_14,
-    TEAM_FILTER_15 = 1 << TEAM_15,
-    TEAM_FILTER_16 = 1 << TEAM_16,
-    TEAM_FILTER_17 = 1 << TEAM_17,
-    TEAM_FILTER_18 = 1 << TEAM_18,
-    TEAM_FILTER_19 = 1 << TEAM_19,
-    TEAM_FILTER_20 = 1 << TEAM_20,
-    TEAM_FILTER_21 = 1 << TEAM_21,
-    TEAM_FILTER_22 = 1 << TEAM_22,
-    TEAM_FILTER_23 = 1 << TEAM_23,
-    TEAM_FILTER_24 = 1 << TEAM_24,
-    TEAM_FILTER_25 = 1 << TEAM_25
+    ANY = 0xFFffFFff,
+    NEUTRAL = 1 << (unsigned int)Team::NEUTRAL,
+    TEAM_1 = 1 << (unsigned int)Team::TEAM_1,
+    TEAM_2 = 1 << (unsigned int)Team::TEAM_2,
+    TEAM_3 = 1 << (unsigned int)Team::TEAM_3,
+    TEAM_4 = 1 << (unsigned int)Team::TEAM_4,
+    TEAM_5 = 1 << (unsigned int)Team::TEAM_5,
+    TEAM_6 = 1 << (unsigned int)Team::TEAM_6,
+    TEAM_7 = 1 << (unsigned int)Team::TEAM_7,
+    TEAM_8 = 1 << (unsigned int)Team::TEAM_8,
+    TEAM_9 = 1 << (unsigned int)Team::TEAM_9,
+    TEAM_10 = 1 << (unsigned int)Team::TEAM_10,
+    TEAM_11 = 1 << (unsigned int)Team::TEAM_11,
+    TEAM_12 = 1 << (unsigned int)Team::TEAM_12,
+    TEAM_13 = 1 << (unsigned int)Team::TEAM_13,
+    TEAM_14 = 1 << (unsigned int)Team::TEAM_14,
+    TEAM_15 = 1 << (unsigned int)Team::TEAM_15,
+    TEAM_16 = 1 << (unsigned int)Team::TEAM_16,
+    TEAM_17 = 1 << (unsigned int)Team::TEAM_17,
+    TEAM_18 = 1 << (unsigned int)Team::TEAM_18,
+    TEAM_19 = 1 << (unsigned int)Team::TEAM_19,
+    TEAM_20 = 1 << (unsigned int)Team::TEAM_20,
+    TEAM_21 = 1 << (unsigned int)Team::TEAM_21,
+    TEAM_22 = 1 << (unsigned int)Team::TEAM_22,
+    TEAM_23 = 1 << (unsigned int)Team::TEAM_23,
+    TEAM_24 = 1 << (unsigned int)Team::TEAM_24,
+    TEAM_25 = 1 << (unsigned int)Team::TEAM_25,
 };
 
-enum PurgeType
+enum class PurgeType
 {
-    PURGE_NONE = 0,
-    PURGE_SOFT = 1,
-    PURGE_HARD = 2,
-    PURGE_RESPAWN = 3 // Some modifiers may not want to be purged but want to disappear on death
-};
-
-enum DamageFlags
-{
-    DAMAGE_FLAGS_NONE = 0,
-    DAMAGE_FLAGS_NO_ARMOR, // Ignore armor
-    DAMAGE_FLAGS_NO_MAGIC_RESIST, // Ignore magic resistance
-    DAMAGE_FLAGS_NO_DAMAGE_BLOCK, // Ignore damage block
-    DAMAGE_FLAGS_NON_LETHAL, // Cannot kill target
-    DAMAGE_FLAGS_REFLECTION, // Is reflection damage (cannot be reflected)
+    NONE,
+    SOFT,
+    HARD,
+    RESPAWN, // Some modifiers may not want to be purged but want to disappear on death
+    _COUNT
 };
 
 enum TypeFilter

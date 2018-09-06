@@ -159,7 +159,7 @@ DamageFlags Ability::GetAbilityDamageFlags(int level)
     throw std::logic_error("Not Implemented");
 }
 
-Team_Flags Ability::GetAbilityTargetTeam(int level)
+TeamFlags Ability::GetAbilityTargetTeam(int level)
 {
     throw std::logic_error("Not Implemented");
 }

@@ -117,7 +117,7 @@ public:
     virtual float GetAbilityDamage(int level);
     virtual DamageType GetAbilityDamageType(int level);
     virtual DamageFlags GetAbilityDamageFlags(int level);
-    virtual Team_Flags GetAbilityTargetTeam(int level);
+    virtual TeamFlags GetAbilityTargetTeam(int level);
     virtual TypeFilter GetAbilityTargetType(int level);
     virtual FlagFilter GetAbilityTargetFlags(int level);
     virtual AbilityTargeting GetAbilityTargeting(int level);

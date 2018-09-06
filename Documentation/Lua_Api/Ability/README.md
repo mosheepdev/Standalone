@@ -508,7 +508,7 @@ end
 ### Get Ability Target Team
 
 ```
-Team_Flags GetAbilityTargetTeam(int level)
+TeamFlags GetAbilityTargetTeam(int level)
 ```
 Implemented as:
 ```lua
@@ -559,7 +559,7 @@ Maximum radius to cast a spell.
 Not affecter by owner's Cast Range Increase.
 Affected version is [`GetAbilityCastRange(int)`](#get-ability-cast-range).
 ```
-Team_Flags GetAbilityBaseCastRange(int level)
+TeamFlags GetAbilityBaseCastRange(int level)
 ```
 Implemented as:
 ```lua
@@ -574,7 +574,7 @@ Maximum radius to cast a spell.
 Affected by owner's Cast Range Increase.
 Not affected version is [`GetAbilityBaseCastRange(int)`](#get-ability-base-cast-range).
 ```
-Team_Flags GetAbilityCastRange(int level)
+TeamFlags GetAbilityCastRange(int level)
 ```
 Implemented as:
 ```lua
@@ -589,7 +589,7 @@ Radius of effect for AoE spells and auras.
 Not affected by owner's Radius Increase.
 Affected version is [`GetAbilityRadius(int)`](#get-ability-radius).
 ```
-Team_Flags GetAbilityBaseRadius(int level)
+TeamFlags GetAbilityBaseRadius(int level)
 ```
 Implemented as:
 ```lua
@@ -604,7 +604,7 @@ Radius of effect for AoE spells and auras.
 Affected by owner's Radius Increase.
 Not affected version is [`GetAbilityBaseRadius(int)`](#get-ability-base-radius).
 ```
-Team_Flags GetAbilityRadius(int level)
+TeamFlags GetAbilityRadius(int level)
 ```
 Implemented as:
 ```lua

@@ -318,7 +318,9 @@ void write(string message)</pre>
 
 ### Script Init
 
-Instance retrieved by this is called `Dummy Instance` and should not be used for calling any function (should only define them).
+Can be considered constructors but returns same `Dummy Instance` for same `name`.
+
+`Dummy Instance` should not be used for calling any function (should only define them).
 
 <table>
     <tr>

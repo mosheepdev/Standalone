@@ -122,16 +122,19 @@ private:
 public:
     int GetAttributeDamage()
     {
-        Attribute attr = GetMainAttribute();
-        if (attr == ATTRIBUTE_STRENGTH)
-            return GetTotalStrengthAttribute();
-        if (attr == ATTRIBUTE_AGILITY)
-            return GetTotalAgilityAttribute();
-        if (attr == ATTRIBUTE_INTELLIGENCE)
-            return GetTotalIntelligenceAttribute();
-        if (attr == ATTRIBUTE_CHARISMA)
-            return GetTotalCharismaAttribute();
-        return 0;
+        switch(GetMainAttribute())
+        {
+            default:
+                return 0;
+            case Attribute::STRENGTH:
+                return GetTotalStrengthAttribute();
+            case Attribute::AGILITY:
+                return GetTotalAgilityAttribute();
+            case Attribute::INTELLIGENCE:
+                return GetTotalIntelligenceAttribute();
+            case Attribute::CHARISMA:
+                return GetTotalCharismaAttribute();
+        }
     }
     int GetBaseMinDamage() { return GetOriginalMinDamage() + GetAttributeDamage(); }
     int GetBaseMaxDamage() { return GetOriginalMaxDamage() + GetAttributeDamage(); }
@@ -156,7 +159,7 @@ public:
     Attribute GetMainAttribute() { return _MainAttribute; }
     void SetMainAttribute(Attribute mainAttribute);
 private:
-    Attribute _MainAttribute = ATTRIBUTE_STRENGTH;
+    Attribute _MainAttribute = Attribute::STRENGTH;
 
 // Attribute - Strength
 public:
@@ -275,9 +278,9 @@ public:
     float GetTotalHealthRegeneration() { return (GetPercentageTotalHealthRegeneration() / 100.0f) * GetFlatHealthRegeneration(); }
 
 // Damage
-    inline void TakeDamage(float amount) { TakeDamage(amount, DAMAGE_PURE); }
-    inline void TakeDamage(float amount, DamageType type) { TakeDamage(amount, type, DAMAGE_FLAGS_NONE); }
-    inline void TakeDamage(float amount, DamageType type, DamageFlags flags) { TakeDamage(amount, type, DAMAGE_FLAGS_NONE, nullptr); }
+    inline void TakeDamage(float amount) { TakeDamage(amount, DamageType::PURE); }
+    inline void TakeDamage(float amount, DamageType type) { TakeDamage(amount, type, DamageFlags::NONE); }
+    inline void TakeDamage(float amount, DamageType type, DamageFlags flags) { TakeDamage(amount, type, flags, nullptr); }
     inline void TakeDamage(float amount, DamageType type, DamageFlags flags, Unit* damager) { TakeDamage(amount, type, flags, nullptr, nullptr); }
     void TakeDamage(float amount, DamageType type, DamageFlags flags, Unit* damager, Ability* ability);
 

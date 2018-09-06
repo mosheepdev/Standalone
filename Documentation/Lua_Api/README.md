@@ -1,22 +1,25 @@
 # Lua Api
 
-LUA [5.3](https://www.lua.org/versions.html#5.3).5
+LUA [5.3](https://www.lua.org/versions.html#5.3).5 (Modifier)
 - [Official Manual](https://www.lua.org/manual/5.3/)
 - [Download](https://www.lua.org/ftp/lua-5.3.5.tar.gz) (`.tar.gz`)
 - [Readme](https://www.lua.org/manual/5.3/readme.html) ([Changes since 5.2](https://www.lua.org/manual/5.3/readme.html#changes))
 - [Online Source](https://www.lua.org/source/5.3/)
 
+Changes in LUA:
+- Tables start from 0
+
 Instances of LUA are separated for Client and Server.
-
-
 
 ## API
 
 Only [`Ability`](Ability/README.md) (+[`Item`](Item/README.md)) and [`Modifier`](Modifier/README.md) (+ [`Modifier_Ability`](Modifier/Ability/README.md) and [`Modifier_Item`](Modifier/Item/README.md)) can be overloaded in LUA.
 
+C++ [Enums](Enums/README.md) are implemented as global variables with unique name based on the enum name.
+
 - [`Global`](Global/README.md)
-  - Team_Flags GetTeamFlag(Team team)
-  - bool HasTeam(Team_Flags flags, Team team)
+  - TeamFlags GetTeamFlag(Team team)
+  - bool HasTeam(TeamFlags flags, Team team)
 - [`Map`](Map/README.md)
   - Map.GetCurrentMap() (Client Only)
   - Map.GetCurrentMap(handle entity)

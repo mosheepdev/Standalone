@@ -5,6 +5,9 @@
 
 class GameClient : Game
 {
+public:
+    GameClient();
+    ~GameClient();
 
 // GUI (Window)
 public:
@@ -30,6 +33,10 @@ public:
     void Close() { _IsClosing = true; }
 private:
     bool _IsClosing = false;
+
+// Lua
+public:
+    bool InitLua();
 };
 
 

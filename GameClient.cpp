@@ -5,6 +5,19 @@
 #include <iostream>
 using namespace std;
 
+GameClient::GameClient()
+{
+    InitGui();
+
+    // Lua last for custom libraries to be able to link the rest
+    InitLua();
+}
+
+GameClient::~GameClient()
+{
+    lua_close(_Lua);
+}
+
 bool GameClient::InitGui()
 {
     if(_SdlWindow != nullptr)
@@ -77,4 +90,13 @@ void GameClient::TickUpdate()
     }
 
     throw std::logic_error("Not Implemented");
+}
+
+bool GameClient::InitLua()
+{
+    if(!Game::InitLua())
+        return false;
+
+    //TODO custom libraries
+    return true;
 }
