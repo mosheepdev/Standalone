@@ -13,6 +13,39 @@
 - [Sniper](Sniper.md) (1 ability missing)
   - Long range shooting
   - AoE heal
+- Ice Shard
+  - Snow Leopard
+  - Feral
+  - Q
+    - ???
+  - W
+    - `Protective Jump`
+    - Jumps back `???` units
+    - Forced movement
+    - Provides invincibility frames
+    - Fixed distance and angle (always reverse of Forward Vector)
+  - E
+    - `Open Wounds`
+    - Passive
+    - Applies stacks to target
+    - Each stacks deal `???` additional PURE damage to the target
+    - Stack Damage is done in 1 instance after landing attack
+      - Before increasing
+    - Limited duration
+      - Adding a stack refreshes duration 
+  - R
+    - `Stealth Cat`
+    - Active
+    - Temporary Invisibility
+    - Increased Movement Speed
+    - When not seen by enemies
+      - Excluding neutrals
+      - Passive Component
+      - Gains `???` bonus damage
+        - For 1 attack
+        - This attack cannot miss
+
+## Intelligence
 - Mori
   - Creates ghost on death
     - Invisible
@@ -30,8 +63,6 @@
     - Does not leave corpse on death
       - Hero is `Hidden`
     - Shares `Passive` abilities with the hero
-
-## Intelligence
 
 ## Charisma
 - [Succubus](Succubus.md)
