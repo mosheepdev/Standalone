@@ -77,15 +77,18 @@ Talents:
 - `Cast Point` instead of channel
   - Does not go on cooldown when interrupted
 
-### ???
+### Military Ammo
 
-Type: ``
+Type: `Toggle`
+
+Some special ammo are... more effective then the others.
 
 | Key | Moba Value | Angel Arena Value |
 |-----|------------|-------------------|
-| Manacost | ? | ? |
-| Cooldown | ? | ? |
-| Cast Point | ? | ? |
+| Manacost | 10 | 10 |
+| Bonus Damage | 10 / 20 / 35 / 50 | 10 / 25 / 40 / 60 / 100 / 150 |
+
+Lore: `Dum Dum!`
 
 ### Long Barrel
 **__Ultimate__**
