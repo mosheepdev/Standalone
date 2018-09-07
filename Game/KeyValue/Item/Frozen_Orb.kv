@@ -1,0 +1,88 @@
+"Item"
+{
+    "Frozen_Orb"
+    {
+        "Script_File"                           "Item/Frozen_Orb.lua"
+
+        "Icon"
+        {
+            "1"                                 "Item/Frozen_Orb_1"
+            "2"                                 "Item/Frozen_Orb_2"
+            "3"                                 "Item/Frozen_Orb_3"
+            "4"                                 "Item/Frozen_Orb_4"
+            "5"                                 "Item/Frozen_Orb_5"
+        }
+
+        "Max_Level"                             "5"
+
+        "Recipes"
+        {
+            "1"
+            {
+                "1"                             "Ultimate_Orb,Ultimate_Orb,Slow_Orb"
+            }
+            "2"
+            {
+                "1"                             "Frozen_Orb:1,Core:1,Recipe_Frozen_Orb:1"
+                "2"                             "Frozen_Orb:1,Core:2,Recipe_Frozen_Orb:1"
+                "3"                             "Frozen_Orb:1,Core:3,Recipe_Frozen_Orb:1"
+                "4"                             "Frozen_Orb:1,Core:4,Recipe_Frozen_Orb:1"
+            }
+            "3"
+            {
+                "1"                             "Frozen_Orb:2,Core:2,Recipe_Frozen_Orb:2"
+                "2"                             "Frozen_Orb:2,Core:3,Recipe_Frozen_Orb:2"
+                "3"                             "Frozen_Orb:2,Core:4,Recipe_Frozen_Orb:2"
+            }
+            "4"
+            {
+                "1"                             "Frozen_Orb:3,Core:3,Recipe_Frozen_Orb:3"
+                "2"                             "Frozen_Orb:3,Core:4,Recipe_Frozen_Orb:3"
+            }
+            "5"
+            {
+                "1"                             "Frozen_Orb:4,Core:4,Recipe_Frozen_Orb:4"
+            }
+        }
+
+        "Values"
+        {
+            "Attributes_All"
+            {
+                "type"                          "INT"
+                "value"                         "10 20 30 50 70"
+            }
+            "Slow"
+            {
+                "type"                          "FLOAT"
+                "value"                         "10 20 30 40 50" // %
+            }
+            "Slow_duration"
+            {
+                "type"                          "FLOAT"
+                "value"                         "2" // seconds
+            }
+        }
+    }
+
+    "Recipe_Frozen_Orb"
+    {
+        "Icon"
+        {
+            "1"                                 "Item/Recipe_1"
+            "2"                                 "Item/Recipe_2"
+            "3"                                 "Item/Recipe_3"
+            "4"                                 "Item/Recipe_4"
+        }
+
+        "Max_Level"                             "5"
+
+        "Cost"
+        {
+            "1"                                 "1000"
+            "2"                                 "2500"
+            "3"                                 "8000"
+            "4"                                 "20000"
+        }
+    }
+}

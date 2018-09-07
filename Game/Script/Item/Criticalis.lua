@@ -1,17 +1,15 @@
-local item = Item("crystalis")
+local item = Item("Criticalis")
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function item:GetBonusDamage()
-    return self:GetValue("bonus_damage")
+    return self:GetValue("Bonus_Damage")
 end
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function item:GetCriticalChance()
-    return self:GetValue("critical_chance")
+    return self:GetValue("Critical_Chance")
 end
 
 function item:GetCriticalPercentage()
-    return self:GetValue("critical_percentage")
+    return self:GetValue("Critical_Percentage")
 end

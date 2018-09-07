@@ -32,8 +32,7 @@ function Minimap:Init()
                 local position = unit:GetPosition()
                 if position and
                     position.x >= min_x and position.x <= max_x and
-                    position.y >= min_y and position.y <= max_y
-                then
+                    position.y >= min_y and position.y <= max_y then
                     heroIcon["visible"] = true
                     heroIcon["position_x"] = (position.x - min_x) / size_x
                     heroIcon["position_y"] = (position.y - min_y) / size_y
@@ -55,9 +54,8 @@ function Minimap:Init()
             if unit then
                 local position = unit:GetPosition()
                 if position and
-                        position.x >= min_x and position.x <= max_x and
-                        position.y >= min_y and position.y <= max_y
-                then
+                    position.x >= min_x and position.x <= max_x and
+                    position.y >= min_y and position.y <= max_y then
                     -- Can exact position of the boss be seen by player's team?
                     local fullyVisible = (selfTeam == GAME_TEAM_SPECTATOR) or event.unit:CanBeSeenByTeam(self:GetPlayer():GetTeam())
 
@@ -93,7 +91,7 @@ function Minimap:OnHeroCreate(event)
     local selfTeam = self:GetPlayer():GetTeam()
 
     heroIcons[heroId] = Gui.CreateElement("Image", {
-        id = "minimap_icon_hero_"..heroId,
+        id = "minimap_icon_hero_" .. heroId,
         class = "minimap_icon_hero",
         color = hero:GetPlayerColor(),
         hero_id = heroId,
@@ -108,7 +106,7 @@ function Minimap:OnHeroDestroy(event)
     local heroId = event.unit:GetUnitId()
     local icon = heroIcons[heroId]
     if icon then
-       Table.Remove(heroIcons, heroId)
+        Table.Remove(heroIcons, heroId)
         Gui.Destroy(icon)
     end
 end
@@ -121,7 +119,7 @@ function Minimap:OnBossCreate(event)
     local boss = event.unit
     local bossId = boss:GetUnitId()
     bossIcons[bossId] = Gui.CreateElement("Image", {
-        id = "minimap_icon_boss_"..bossId,
+        id = "minimap_icon_boss_" .. bossId,
         class = "minimap_icon_boss",
         boss_id = bossId,
         boss_name = boss:GetUnitName(),
@@ -140,7 +138,6 @@ function Minimap:OnBossDestroy(event)
 end
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function Minimap:OnMinimapClick(event)
     if event.MouseButton == MOUSE_BUTTON_LEFT then
         --TODO move view
@@ -151,7 +148,6 @@ function Minimap:OnMinimapClick(event)
 end
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function Minimap:OnMinimapPing(event)
     if event.MouseButton == MOUSE_BUTTON_LEFT then
         --TODO normal ping

@@ -504,7 +504,8 @@ LUA_API int (lua_gethookmask)(lua_State *L);
 LUA_API int (lua_gethookcount)(lua_State *L);
 
 
-struct lua_Debug {
+struct lua_Debug
+{
     int event;
     const char *name;    /* (n) */
     const char *namewhat;    /* (n) 'global', 'local', 'field', 'method' */

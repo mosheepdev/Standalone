@@ -3,10 +3,12 @@
 #include "AppConfiguration.h"
 
 #include <iostream>
+
 using namespace std;
 
 #include "Lua/lua.hpp"
 #include "Enums.h"
+#include "Utils.h"
 
 bool Game::InitLua()
 {
@@ -25,65 +27,65 @@ bool Game::InitLua()
     {
         // Damage Type
         {
-            lua_pushinteger(_Lua, (int)DamageType::PURE);
+            lua_pushinteger(_Lua, (int) DamageType::PURE);
             lua_setglobal(_Lua, "DAMAGE_TYPE_PURE");
 
-            lua_pushinteger(_Lua, (int)DamageType::PHYSICAL);
+            lua_pushinteger(_Lua, (int) DamageType::PHYSICAL);
             lua_setglobal(_Lua, "DAMAGE_TYPE_PHYSICAL");
 
-            lua_pushinteger(_Lua, (int)DamageType::MAGICAL);
+            lua_pushinteger(_Lua, (int) DamageType::MAGICAL);
             lua_setglobal(_Lua, "DAMAGE_TYPE_MAGICAL");
-            lua_pushinteger(_Lua, (int)DamageType::MAGICAL);
+            lua_pushinteger(_Lua, (int) DamageType::MAGICAL);
             lua_setglobal(_Lua, "DAMAGE_TYPE_MAGIC");
 
-            lua_pushinteger(_Lua, (int)DamageType::_COUNT);
+            lua_pushinteger(_Lua, (int) DamageType::_COUNT);
             lua_setglobal(_Lua, "DAMAGE_TYPE__COUNT");
         }
         // Damage Flags
         {
-            lua_pushinteger(_Lua, (int)DamageFlags::NONE);
+            lua_pushinteger(_Lua, (int) DamageFlags::NONE);
             lua_setglobal(_Lua, "DAMAGE_FLAGS_NONE");
 
-            lua_pushinteger(_Lua, (int)DamageFlags::NO_ARMOR);
+            lua_pushinteger(_Lua, (int) DamageFlags::NO_ARMOR);
             lua_setglobal(_Lua, "DAMAGE_FLAGS_NO_ARMOR");
 
-            lua_pushinteger(_Lua, (int)DamageFlags::NO_MAGIC_RESIST);
+            lua_pushinteger(_Lua, (int) DamageFlags::NO_MAGIC_RESIST);
             lua_setglobal(_Lua, "DAMAGE_FLAGS_NO_MAGIC_RESIST");
 
-            lua_pushinteger(_Lua, (int)DamageFlags::NO_DAMAGE_BLOCK);
+            lua_pushinteger(_Lua, (int) DamageFlags::NO_DAMAGE_BLOCK);
             lua_setglobal(_Lua, "DAMAGE_FLAGS_NO_DAMAGE_BLOCK");
 
-            lua_pushinteger(_Lua, (int)DamageFlags::NON_LETHAL);
+            lua_pushinteger(_Lua, (int) DamageFlags::NON_LETHAL);
             lua_setglobal(_Lua, "DAMAGE_FLAGS_NON_LETHAL");
 
-            lua_pushinteger(_Lua, (int)DamageFlags::REFLECTION);
+            lua_pushinteger(_Lua, (int) DamageFlags::REFLECTION);
             lua_setglobal(_Lua, "DAMAGE_FLAGS_REFLECTION");
         }
         // Attribute
         {
-            lua_pushinteger(_Lua, (int)Attribute::STRENGTH);
+            lua_pushinteger(_Lua, (int) Attribute::STRENGTH);
             lua_setglobal(_Lua, "ATTRIBUTE_STRENGTH");
 
-            lua_pushinteger(_Lua, (int)Attribute::AGILITY);
+            lua_pushinteger(_Lua, (int) Attribute::AGILITY);
             lua_setglobal(_Lua, "ATTRIBUTE_AGILITY");
 
-            lua_pushinteger(_Lua, (int)Attribute::INTELLIGENCE);
+            lua_pushinteger(_Lua, (int) Attribute::INTELLIGENCE);
             lua_setglobal(_Lua, "ATTRIBUTE_INTELLIGENCE");
 
-            lua_pushinteger(_Lua, (int)Attribute::CHARISMA);
+            lua_pushinteger(_Lua, (int) Attribute::CHARISMA);
             lua_setglobal(_Lua, "ATTRIBUTE_CHARISMA");
 
-            lua_pushinteger(_Lua, (int)Attribute::_COUNT);
+            lua_pushinteger(_Lua, (int) Attribute::_COUNT);
             lua_setglobal(_Lua, "ATTRIBUTE__COUNT");
         }
         // Team + TeamFlags
         {
-            lua_pushinteger(_Lua, (int)Team::NEUTRAL);
+            lua_pushinteger(_Lua, (int) Team::NEUTRAL);
             lua_setglobal(_Lua, "TEAM_NEUTRAL");
-            lua_pushinteger(_Lua, (unsigned int)TeamFlags::NEUTRAL);
+            lua_pushinteger(_Lua, (unsigned int) TeamFlags::NEUTRAL);
             lua_setglobal(_Lua, "TEAMFLAGS_NEUTRAL");
 
-            lua_pushinteger(_Lua, (int)Team::SPECTATOR);
+            lua_pushinteger(_Lua, (int) Team::SPECTATOR);
             lua_setglobal(_Lua, "TEAM_SPECTATOR");
 
             // Numbers
@@ -214,7 +216,7 @@ bool Game::InitLua()
                 lua_setglobal(_Lua, "TEAMFLAGS_25");
             }
 
-            lua_pushinteger(_Lua, (int)Team::_COUNT);
+            lua_pushinteger(_Lua, (int) Team::_COUNT);
             lua_setglobal(_Lua, "TEAM__COUNT");
         }
         // Purge Type
@@ -246,21 +248,11 @@ bool Game::InitLua()
 
 //-----------------------------------------------------------------
 
-//TODO move to utils
-bool iequals(const string& a, const string& b)
-{
-    return std::equal(a.begin(), a.end(),
-                      b.begin(), b.end(),
-                      [](char a, char b) {
-                          return tolower(a) == tolower(b);
-                      });
-}
-
 bool Game::TryGetAbility(string name, int *ref)
 {
-    for (std::map<string, int>::iterator it = _LuaRef_Ability.begin(); it != _LuaRef_Ability.end(); ++it)
+    for(std::map<string, int>::iterator it = _LuaRef_Ability.begin(); it != _LuaRef_Ability.end(); ++it)
     {
-        if(iequals(name, (it->first)))
+        if(Utils::iequals(name, (it->first)))
         {
             *ref = it->second;
             return true;
@@ -272,9 +264,9 @@ bool Game::TryGetAbility(string name, int *ref)
 
 bool Game::TryGetItem(string name, int *ref)
 {
-    for (std::map<string, int>::iterator it = _LuaRef_Item.begin(); it != _LuaRef_Item.end(); ++it)
+    for(std::map<string, int>::iterator it = _LuaRef_Item.begin(); it != _LuaRef_Item.end(); ++it)
     {
-        if(iequals(name, (it->first)))
+        if(Utils::iequals(name, (it->first)))
         {
             *ref = it->second;
             return true;
@@ -286,9 +278,9 @@ bool Game::TryGetItem(string name, int *ref)
 
 bool Game::TryGetModifier(string name, int *ref)
 {
-    for (std::map<string, int>::iterator it = _LuaRef_Modifier.begin(); it != _LuaRef_Modifier.end(); ++it)
+    for(std::map<string, int>::iterator it = _LuaRef_Modifier.begin(); it != _LuaRef_Modifier.end(); ++it)
     {
-        if(iequals(name, (it->first)))
+        if(Utils::iequals(name, (it->first)))
         {
             *ref = it->second;
             return true;

@@ -27,19 +27,19 @@ enum class Attribute
     // Health
     // Health Regeneration Amplification
     // Status Resistance
-    STRENGTH,
+        STRENGTH,
     // Armor = Physical Resistance
     // Movement Speed
     // Attack Speed
-    AGILITY,
+        AGILITY,
     // Mana
     // Mana Regeneration Amplification
     // Spell Amplification
-    INTELLIGENCE,
+        INTELLIGENCE,
     // Cooldown Reduction
     // Cast Range Increase
     // Magic Resistance
-    CHARISMA,
+        CHARISMA,
     _COUNT
 };
 
@@ -48,7 +48,7 @@ enum class Team : unsigned int
     NEUTRAL = 0,
     SPECTATOR = NEUTRAL, // Spectators are players assigned to Neutrals
     //TEAM_0 = NEUTRAL, // Neutrals, better not provide for confusion
-    TEAM_1 = 1,
+        TEAM_1 = 1,
     TEAM_2 = 2,
     TEAM_3 = 3,
     TEAM_4 = 4,
@@ -80,32 +80,32 @@ enum class Team : unsigned int
 enum class TeamFlags : unsigned int
 {
     ANY = 0xFFffFFff,
-    NEUTRAL = 1 << (unsigned int)Team::NEUTRAL,
-    TEAM_1 = 1 << (unsigned int)Team::TEAM_1,
-    TEAM_2 = 1 << (unsigned int)Team::TEAM_2,
-    TEAM_3 = 1 << (unsigned int)Team::TEAM_3,
-    TEAM_4 = 1 << (unsigned int)Team::TEAM_4,
-    TEAM_5 = 1 << (unsigned int)Team::TEAM_5,
-    TEAM_6 = 1 << (unsigned int)Team::TEAM_6,
-    TEAM_7 = 1 << (unsigned int)Team::TEAM_7,
-    TEAM_8 = 1 << (unsigned int)Team::TEAM_8,
-    TEAM_9 = 1 << (unsigned int)Team::TEAM_9,
-    TEAM_10 = 1 << (unsigned int)Team::TEAM_10,
-    TEAM_11 = 1 << (unsigned int)Team::TEAM_11,
-    TEAM_12 = 1 << (unsigned int)Team::TEAM_12,
-    TEAM_13 = 1 << (unsigned int)Team::TEAM_13,
-    TEAM_14 = 1 << (unsigned int)Team::TEAM_14,
-    TEAM_15 = 1 << (unsigned int)Team::TEAM_15,
-    TEAM_16 = 1 << (unsigned int)Team::TEAM_16,
-    TEAM_17 = 1 << (unsigned int)Team::TEAM_17,
-    TEAM_18 = 1 << (unsigned int)Team::TEAM_18,
-    TEAM_19 = 1 << (unsigned int)Team::TEAM_19,
-    TEAM_20 = 1 << (unsigned int)Team::TEAM_20,
-    TEAM_21 = 1 << (unsigned int)Team::TEAM_21,
-    TEAM_22 = 1 << (unsigned int)Team::TEAM_22,
-    TEAM_23 = 1 << (unsigned int)Team::TEAM_23,
-    TEAM_24 = 1 << (unsigned int)Team::TEAM_24,
-    TEAM_25 = 1 << (unsigned int)Team::TEAM_25,
+    NEUTRAL = 1 << (unsigned int) Team::NEUTRAL,
+    TEAM_1 = 1 << (unsigned int) Team::TEAM_1,
+    TEAM_2 = 1 << (unsigned int) Team::TEAM_2,
+    TEAM_3 = 1 << (unsigned int) Team::TEAM_3,
+    TEAM_4 = 1 << (unsigned int) Team::TEAM_4,
+    TEAM_5 = 1 << (unsigned int) Team::TEAM_5,
+    TEAM_6 = 1 << (unsigned int) Team::TEAM_6,
+    TEAM_7 = 1 << (unsigned int) Team::TEAM_7,
+    TEAM_8 = 1 << (unsigned int) Team::TEAM_8,
+    TEAM_9 = 1 << (unsigned int) Team::TEAM_9,
+    TEAM_10 = 1 << (unsigned int) Team::TEAM_10,
+    TEAM_11 = 1 << (unsigned int) Team::TEAM_11,
+    TEAM_12 = 1 << (unsigned int) Team::TEAM_12,
+    TEAM_13 = 1 << (unsigned int) Team::TEAM_13,
+    TEAM_14 = 1 << (unsigned int) Team::TEAM_14,
+    TEAM_15 = 1 << (unsigned int) Team::TEAM_15,
+    TEAM_16 = 1 << (unsigned int) Team::TEAM_16,
+    TEAM_17 = 1 << (unsigned int) Team::TEAM_17,
+    TEAM_18 = 1 << (unsigned int) Team::TEAM_18,
+    TEAM_19 = 1 << (unsigned int) Team::TEAM_19,
+    TEAM_20 = 1 << (unsigned int) Team::TEAM_20,
+    TEAM_21 = 1 << (unsigned int) Team::TEAM_21,
+    TEAM_22 = 1 << (unsigned int) Team::TEAM_22,
+    TEAM_23 = 1 << (unsigned int) Team::TEAM_23,
+    TEAM_24 = 1 << (unsigned int) Team::TEAM_24,
+    TEAM_25 = 1 << (unsigned int) Team::TEAM_25,
 };
 
 enum class PurgeType
@@ -137,12 +137,12 @@ enum FindOrder
 
 enum ModifierPriority
 {
-    MODIFIER_PRIORITY_MINIMAL     = -3,
-    MODIFIER_PRIORITY_LOWEST      = -2,
-    MODIFIER_PRIORITY_LOW         = -1,
-    MODIFIER_PRIORITY_NORMAL      = 0, // Normal, should be default value
-    MODIFIER_PRIORITY_HIGH        = 1,
-    MODIFIER_PRIORITY_ULTRA       = 2,
+    MODIFIER_PRIORITY_MINIMAL = -3,
+    MODIFIER_PRIORITY_LOWEST = -2,
+    MODIFIER_PRIORITY_LOW = -1,
+    MODIFIER_PRIORITY_NORMAL = 0, // Normal, should be default value
+    MODIFIER_PRIORITY_HIGH = 1,
+    MODIFIER_PRIORITY_ULTRA = 2,
     MODIFIER_PRIORITY_SUPER_ULTRA = 3
 };
 

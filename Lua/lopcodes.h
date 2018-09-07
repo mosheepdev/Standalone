@@ -29,7 +29,8 @@
 ===========================================================================*/
 
 
-enum OpMode {
+enum OpMode
+{
     iABC,
     iABx,
     iAsBx,
@@ -169,11 +170,12 @@ enum OpMode {
 ** grep "ORDER OP" if you change these enums
 */
 
-typedef enum {
+typedef enum
+{
 /*----------------------------------------------------------------------
 name		args	description
 ------------------------------------------------------------------------*/
-            OP_MOVE,/*	A B	R(A) := R(B)					*/
+        OP_MOVE,/*	A B	R(A) := R(B)					*/
     OP_LOADK,/*	A Bx	R(A) := Kst(Bx)					*/
     OP_LOADKX,/*	A 	R(A) := Kst(extra arg)				*/
     OP_LOADBOOL,/*	A B C	R(A) := (Bool)B; if (C) pc++			*/
@@ -276,7 +278,8 @@ name		args	description
 ** bit 7: operator is a test (next instruction must be a jump)
 */
 
-enum OpArgMask {
+enum OpArgMask
+{
     OpArgN,  /* argument is not used */
     OpArgU,  /* argument is used */
     OpArgR,  /* argument is a register or a jump offset */

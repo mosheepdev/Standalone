@@ -65,13 +65,12 @@ int main(int argc, char *argv[])
     if(HasArg(argc, argv, 's', "server")) // Start dedicated server
     {
         throw std::logic_error("Not Implemented");
-    }
-    else // Start client
+    } else // Start client
     {
         GameClient *client = new GameClient();
         client->Init();
 
-        while (!client->IsClosing())
+        while(!client->IsClosing())
             client->Tick();
         return 0;
     }
@@ -81,7 +80,7 @@ bool HasArg(int argc, char *argv[], char arg_short, string arg_long)
 {
     for(int i = 1; i < argc; i++)
     {
-        char* arg = argv[i];
+        char *arg = argv[i];
         if(arg[0] != '-')
             continue;
         if(arg[1] == '\0') // Only 1 minus char
@@ -90,8 +89,7 @@ bool HasArg(int argc, char *argv[], char arg_short, string arg_long)
         {
             if(strcmp(arg, ("--" + arg_long).c_str()) == 0)
                 return true;
-        }
-        else // Short argument
+        } else // Short argument
         {
             for(int j = 1; arg[j] != '\0'; j++)
                 if(arg[j] == arg_short)

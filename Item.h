@@ -1,14 +1,15 @@
 #ifndef STANDALONE_ITEM_H
 #define STANDALONE_ITEM_H
 
-class Item;
-
 #include "Modifier.h"
+#include "Utils.h"
 
 class Item : Ability
 {
 public:
-    int GetLevel();
+    bool IsDropped() { return Utils::iequals(GetOwner()->GetName(), "dropped_item"); }
+
+    virtual string GetDroppedModel() { return "present"; }
 };
 
 

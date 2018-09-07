@@ -1,0 +1,88 @@
+"Item"
+{
+    "Criticalis"
+    {
+        "Script_File"                           "Item/Criticalis.lua"
+
+        "Icon"
+        {
+            "1"                                 "Item/Criticalis_1"
+            "2"                                 "Item/Criticalis_2"
+            "3"                                 "Item/Criticalis_3"
+            "4"                                 "Item/Criticalis_4"
+            "5"                                 "Item/Criticalis_5"
+        }
+
+        "Max_Level"                             "5"
+
+        "Recipes"
+        {
+            "1"
+            {
+                "1"                             "Longsword,Longsword"
+            }
+            "2"
+            {
+                "1"                             "Criticalis:1,Core:1,Recipe_Criticalis:1"
+                "2"                             "Criticalis:1,Core:2,Recipe_Criticalis:1"
+                "3"                             "Criticalis:1,Core:3,Recipe_Criticalis:1"
+                "4"                             "Criticalis:1,Core:4,Recipe_Criticalis:1"
+            }
+            "3"
+            {
+                "1"                             "Criticalis:2,Core:2,Recipe_Criticalis:2"
+                "2"                             "Criticalis:2,Core:3,Recipe_Criticalis:2"
+                "3"                             "Criticalis:2,Core:4,Recipe_Criticalis:2"
+            }
+            "4"
+            {
+                "1"                             "Criticalis:3,Core:3,Recipe_Criticalis:3"
+                "2"                             "Criticalis:3,Core:4,Recipe_Criticalis:3"
+            }
+            "5"
+            {
+                "1"                             "Criticalis:4,Core:4,Recipe_Criticalis:4"
+            }
+        }
+
+        "Values"
+        {
+            "Bonus_Damage"
+            {
+                "type"                          "INT"
+                "value"                         "15 30 50 75 100"
+            }
+            "Critical_Chance"
+            {
+                "type"                          "FLOAT"
+                "value"                         "25" // %
+            }
+            "Critical_Percentage"
+            {
+                "type"                          "FLOAT"
+                "value"                         "150 175 200 225 250" // %
+            }
+        }
+    }
+
+    "Recipe_Criticalis"
+    {
+        "Icon"
+        {
+            "1"                                 "Item/Recipe_1"
+            "2"                                 "Item/Recipe_2"
+            "3"                                 "Item/Recipe_3"
+            "4"                                 "Item/Recipe_4"
+        }
+
+        "Max_Level"                             "5"
+
+        "Cost"
+        {
+            "1"                                 "1000"
+            "2"                                 "2500"
+            "3"                                 "8000"
+            "4"                                 "20000"
+        }
+    }
+}

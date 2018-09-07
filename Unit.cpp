@@ -1,9 +1,8 @@
 #include <stdexcept>
 #include "Unit.h"
 
-Unit::Unit()
+Unit::Unit(string name) : _UnitId(_NextUnitId++), _Name(name)
 {
-    _UnitId = _NextUnitId++;
 }
 
 int Unit::_NextUnitId = 1;
@@ -13,7 +12,7 @@ int Unit::_NextUnitId = 1;
 float Unit::GetPercentageBonusXp()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -28,7 +27,7 @@ float Unit::GetPercentageBonusXp()
 int Unit::GetFlatBonusDamage()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -41,7 +40,7 @@ int Unit::GetFlatBonusDamage()
 float Unit::GetPercentageBonusDamage()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -56,7 +55,7 @@ float Unit::GetPercentageBonusDamage()
 int Unit::GetBonusStrengthAttribute()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -69,7 +68,7 @@ int Unit::GetBonusStrengthAttribute()
 int Unit::GetBonusAgilityAttribute()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -82,7 +81,7 @@ int Unit::GetBonusAgilityAttribute()
 int Unit::GetBonusIntelligenceAttribute()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -95,7 +94,7 @@ int Unit::GetBonusIntelligenceAttribute()
 int Unit::GetBonusCharismaAttribute()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -110,7 +109,7 @@ int Unit::GetBonusCharismaAttribute()
 int Unit::GetFlatBonusHealthPool()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -123,7 +122,7 @@ int Unit::GetFlatBonusHealthPool()
 float Unit::GetPercentageBonusHealthPool()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -138,7 +137,7 @@ float Unit::GetPercentageBonusHealthPool()
 float Unit::GetBonusHealthRegeneration()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -151,7 +150,7 @@ float Unit::GetBonusHealthRegeneration()
 float Unit::GetBonusPercentageHealthRegeneration()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -166,7 +165,7 @@ float Unit::GetBonusPercentageHealthRegeneration()
 int Unit::GetFlatBonusManaPool()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -179,7 +178,7 @@ int Unit::GetFlatBonusManaPool()
 float Unit::GetPercentageBonusManaPool()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -194,7 +193,7 @@ float Unit::GetPercentageBonusManaPool()
 float Unit::GetBonusManaRegeneration()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -207,7 +206,7 @@ float Unit::GetBonusManaRegeneration()
 float Unit::GetBonusPercentageManaRegeneration()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -222,7 +221,7 @@ float Unit::GetBonusPercentageManaRegeneration()
 int Unit::GetBonusArmor()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 0;
 
@@ -237,7 +236,7 @@ int Unit::GetBonusArmor()
 float Unit::GetBonusMagicResistance()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -252,7 +251,7 @@ float Unit::GetBonusMagicResistance()
 float Unit::GetBonusStatusResistance()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -267,7 +266,7 @@ float Unit::GetBonusStatusResistance()
 float Unit::GetBonusCooldownReduction()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -281,14 +280,14 @@ float Unit::GetBonusCooldownReduction()
 
 float Unit::GetBonusManacostReduction()
 {
-throw std::logic_error("Not Implemented");
+    throw std::logic_error("Not Implemented");
 }
 
 //-----------------------------------------------------------------
 
 float Unit::GetBonusGoldcostReduction()
 {
-throw std::logic_error("Not Implemented");
+    throw std::logic_error("Not Implemented");
 }
 
 //-----------------------------------------------------------------
@@ -303,7 +302,7 @@ float Unit::GetBonusSpellAmplification()
 int Unit::GetBonusCastRangeIncrease()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -316,7 +315,7 @@ int Unit::GetBonusCastRangeIncrease()
 float Unit::GetBonusCastRadiusPercentage()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -331,7 +330,7 @@ float Unit::GetBonusCastRadiusPercentage()
 int Unit::GetBonusMovementSpeedIncrease()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -344,7 +343,7 @@ int Unit::GetBonusMovementSpeedIncrease()
 float Unit::GetBonusMovementSpeedPercentage()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -359,7 +358,7 @@ float Unit::GetBonusMovementSpeedPercentage()
 int Unit::GetBonusAttackSpeed()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -372,7 +371,7 @@ int Unit::GetBonusAttackSpeed()
 float Unit::GetBonusAttackSpeedPercentage()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 
@@ -386,7 +385,7 @@ float Unit::GetBonusAttackSpeedPercentage()
 
 float Unit::GetBonusAttackTime()
 {
-throw std::logic_error("Not Implemented");
+    throw std::logic_error("Not Implemented");
 }
 
 //-----------------------------------------------------------------
@@ -394,7 +393,7 @@ throw std::logic_error("Not Implemented");
 int Unit::GetBonusAttackRange()
 {
     int modifierCount = 0;
-    Modifier** modifiers = GetAllModifiers(&modifierCount);
+    Modifier **modifiers = GetAllModifiers(&modifierCount);
     if(modifierCount == 0)
         return 100;
 

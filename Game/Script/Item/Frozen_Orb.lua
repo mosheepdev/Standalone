@@ -1,53 +1,48 @@
-local item = Item("Eye_of_Skadi")
+local item = Item("Frozen_Orb")
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function item:GetPassiveModifier()
-    return "Eye_of_Skadi"
+    return "Frozen_Orb"
 end
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function item:OnAttackLanded(event)
-    local modifier = event.target:AddNewModifier("Eye_of_Skadi", self:GetOwner(), self)
-    modifier.slow = self:GetValue("slow")
-    modifier.duration = self:GetValue("slow_duration") * event.target:GetStatusResistance()
+    local modifier = event.target:AddNewModifier("Frozen_Orb", self:GetOwner(), self)
+    modifier.slow = self:GetValue("Slow")
+    modifier.duration = self:GetValue("Slow_Duration") * event.target:GetStatusResistance()
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-local modifier = Modifier("eye_of_skadi")
+local modifier = Modifier("Frozen_Orb")
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function modifier:GetBonusStrength()
-    return self:GetValue("bonus_attribute_all")
+    return self:GetValue("Attributes_All")
 end
 
 function modifier:GetBonusAgility()
-    return self:GetValue("bonus_attribute_all")
+    return self:GetValue("Attributes_All")
 end
 
 function modifier:GetBonusIntelligence()
-    return self:GetValue("bonus_attribute_all")
+    return self:GetValue("Attributes_All")
 end
 
 function modifier:GetBonusCharisma()
-    return self:GetValue("bonus_attribute_all")
+    return self:GetValue("Attributes_All")
 end
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function modifier:GetProjectileParticle()
-    return "projectile/eye_of_skadi"
+    return "projectile/Frozen_Orb"
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-local modifier_slow = Modifier("eye_of_skadi_slow")
+local modifier_slow = Modifier("Frozen_Orb_slow")
 
 ------------------------------------------------------------------------------------------------------------------------
-
 function modifier_slow:GetPercentageBonusMovementSpeed()
     return self.slow
 end

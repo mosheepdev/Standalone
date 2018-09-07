@@ -23,7 +23,8 @@
 /*
 ** grep "ORDER OPR" if you change these enums  (ORDER OP)
 */
-typedef enum BinOpr {
+typedef enum BinOpr
+{
     OPR_ADD,
     OPR_SUB,
     OPR_MUL,
@@ -49,7 +50,8 @@ typedef enum BinOpr {
 } BinOpr;
 
 
-typedef enum UnOpr {
+typedef enum UnOpr
+{
     OPR_MINUS,
     OPR_BNOT,
     OPR_NOT,

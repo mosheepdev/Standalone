@@ -2,6 +2,7 @@
 #define STANDALONE_GAME_H
 
 #include <string>
+
 using namespace std;
 
 #include <map>
@@ -14,6 +15,7 @@ using namespace std;
 
 // Include GLM
 #include <glm/glm.hpp>
+
 using namespace glm;
 
 #include "lua.hpp"
@@ -31,10 +33,14 @@ public:
 // Only one of IsClient() or IsServer() can return true
 public:
     virtual bool IsClient() { return false; }
-    virtual Game* GetClient() { return nullptr; }
+
+    virtual Game *GetClient() { return nullptr; }
+
     virtual bool IsServer() { return false; }
+
     virtual bool IsDedicatedServer() { return false; }
-    virtual Player* GetHostingPlayer() { return nullptr; }
+
+    virtual Player *GetHostingPlayer() { return nullptr; }
 
 // Ticks
 public:
@@ -43,18 +49,26 @@ public:
 // LUA
 public:
     virtual bool InitLua();
-    lua_State* GetLua() { return _Lua; }
+
+    lua_State *GetLua() { return _Lua; }
+
 protected:
     lua_State *_Lua = nullptr;
 
 // Script Init + Register
 public:
     bool TryGetAbility(string name, int *ref);
+
     bool TryGetItem(string name, int *ref);
+
     bool TryGetModifier(string name, int *ref);
+
     int GetOrCreateAbility(string name);
+
     int GetOrCreateItem(string name);
+
     int GetOrCreateModifier(string name);
+
 private:
     map<string, int> _LuaRef_Ability;
     map<string, int> _LuaRef_Item;
@@ -68,8 +82,11 @@ private:
     map<string, vector<string>> _AllUnits;
 public:
     void LinkAbility(string name, string path);
+
     void LinkItem(string name, string path);
+
     void LinkModifier(string name, string path);
+
     void LinkUnit(string name, string path);
 };
 

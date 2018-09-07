@@ -6,17 +6,21 @@ class Modifier;
 #include "Enums.h"
 #include "Unit.h"
 
-class Modifier {
+class Modifier
+{
 public:
     virtual int GetFlags();
 
 public:
     Unit GetParent();
+
     Ability GetAbility();
 
 public:
     virtual ModifierPriority GetPriority();
+
     virtual PurgeType GetPurgeType();
+
     virtual bool IsDebuff();
     //TODO Duration
 
@@ -27,33 +31,41 @@ public:
 // Damage
 public:
     virtual int GetFlatBonusDamage();
+
     virtual float GetPercentageBonusDamage();
 
 // Attributes
 public:
     virtual int GetBonusStrength();
+
     virtual int GetBonusAgility();
+
     virtual int GetBonusIntelligence();
+
     virtual int GetBonusCharisma();
 
 // Health
 public:
     virtual int GetFlatBonusHealth();
+
     virtual float GetPercentageBonusHealth();
 
 // Health Regen
 public:
     virtual float GetFlatBonusHealthRegeneration();
+
     virtual float GetPercentageBonusHealthRegeneration();
 
 // Mana
 public:
     virtual int GetFlatBonusMana();
+
     virtual float GetPercentageBonusMana();
 
 // Mana Regen
 public:
     virtual float GetFlatBonusManaRegeneration();
+
     virtual float GetPercentageBonusManaRegeneration();
 
 // Armor (Physical Resist)
@@ -75,16 +87,19 @@ public:
 // Cast Range
 public:
     virtual float GetFlatBonusCastRange();
+
     virtual float GetPercentageBonusCastRange();
 
 // Movement Speed
 public:
     virtual float GetFlatBonusMovementSpeed();
+
     virtual float GetPercentageBonusMovementSpeed();
 
 // Attack Speed
 public:
     virtual float GetFlatBonusAttackSpeed();
+
     virtual float GetPercentageBonusAttackSpeed();
 
 // Attack Range
@@ -93,7 +108,7 @@ public:
 
 // Attack Projectile
 public:
-    virtual char* GetProjectileParticle();
+    virtual char *GetProjectileParticle();
 
 // Gold
 public:

@@ -7,6 +7,7 @@ class GameClient : Game
 {
 public:
     GameClient();
+
     ~GameClient();
 
 // Init
@@ -16,9 +17,11 @@ public:
 // GUI (Window)
 public:
     bool HasGui() { return _SdlWindow != nullptr; }
+
 private:
     bool InitGui();
-    SDL_Window* _SdlWindow = nullptr;
+
+    SDL_Window *_SdlWindow = nullptr;
 
 // Tick
 public:
@@ -27,14 +30,18 @@ public:
         TickUpdate();
         TickRender();
     }
+
 private:
     void TickRender();
+
     void TickUpdate();
 
 // Closing
 public:
     bool IsClosing() { return _IsClosing; }
+
     void Close() { _IsClosing = true; }
+
 private:
     bool _IsClosing = false;
 
