@@ -36,9 +36,9 @@ Provides vision on hit target (no `True Sight`) as passive component.
 
 | Key | Moba Value | Angel Arena Value |
 |-----|------------|-------------------|
-| Manacost | ? | ? |
+| Manacost | 50 / 60 / 70 / 80 | 50 / 60 / 70 / 80 / 90 / 100 |
 | Cooldown | 30.0 | 30.0 / 30.0 / 30.0 / 30.0 / 20.0 / 10.0 |
-| Cast Range | `Vision` | `Vision` |
+| Cast Range | `Global` | `Global` |
 | Cast Point | 0 | 0 |
 | Duration | 5.0 / 10.0 / 20.0 / 30.0 | 10.0 / 20.0 / 30.0 / 40.0 / 50.0 / 60.0 |
 | Vision After Hit Duration | 0.8 | 0.8 |
@@ -63,13 +63,13 @@ Total heal is calculated and is split between all affected units.
 
 |     Key     |   Moba Value   | Angel Arena Value |
 |-------------|----------------|-------------------|
-| Manacost | ? | ? |
-| Cooldown | ? | ? |
+| Manacost | 120 | 100 / 110 / 120 / 130 / 160 / 200 |
+| Cooldown | 45 | 45 |
 | Cast Point | 0.2 | 0.2 |
+| Cast Radius | 200 | 200 |
 | Channel Time | 1.0 | 1.0 |
 | Heal | 2.5% / 5% / 7.5% / 10% | 2% / 4% / 6% / 8% / 12% / 15%  |
 | Min Heal * | 100 / 200 / 300 / 400 | 100 / 200 / 300 / 400 / 600 / 800 |
-| Radius | 200 | 200 |
 
 `*` Affected by `Spell Amplification`
 
