@@ -3808,7 +3808,8 @@ int RemoveModifiers(string name, Unit sourceUnit, Ability sourceAbility)</pre>
     </tr>
     <tr>
         <td>
-            <pre>int PurgeModifiers(PurgeType purgeType)</pre>
+            <pre>int PurgeModifiers(PurgeType purgeType)
+int PurgeModifiers(PurgeType purgeType, bool debuff, bool buff)</pre>
         </td>
         <td>
             Server

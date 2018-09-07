@@ -7,6 +7,20 @@ Wields dagger in main hand and whip in offhand (in male form whip in main hand a
 
 ## Lore
 
+## Appearance
+
+- 2 horns
+- Hooves
+- Invisible Wings
+  - Visible while E is active
+
+### Colors
+- Red = Skin
+- Black = Clothing
+- Gold = Tattoos
+
+`Skin` and `Clothing` colors are swapped when in Male form.
+
 ## Attributes
 
 |  Attribute   | Original | Grow |

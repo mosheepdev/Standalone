@@ -1,9 +1,12 @@
 # Hero Designs
 
 ## Strength
-- Skeleton King
+- Undead Queen
+  - Sex: `Female`
+  - Skeleton with pieces of flash
   - Summons skeletons
 - [Riders of Apocalypse](Riders_of_Apocalypse.md)
+  - Sex: 4x `Male`
   - 4 heroes
   - Each with different abilities
   - Shared items
@@ -11,9 +14,11 @@
 
 ## Agility
 - [Sniper](Sniper.md) (1 ability missing)
+  - Sex: `Female`
   - Long range shooting
   - AoE heal
 - Ice Shard
+  - Sex: `Female`
   - Snow Leopard
   - Feral
   - Q
@@ -47,6 +52,7 @@
 
 ## Intelligence
 - Mori
+  - Sex: `Other`
   - Creates ghost on death
     - Invisible
       - Can be revealed
@@ -63,8 +69,19 @@
     - Does not leave corpse on death
       - Hero is `Hidden`
     - Shares `Passive` abilities with the hero
+- Plague Doctor
+  - Sex: `Male`
+  - Abilities
+    - Single-target heal with soft dispell
+    - AoE damage over time
 
 ## Charisma
 - [Succubus](Succubus.md)
+  - Sex: `Female` + `Male`
   - Ranged and Melee form
   - Different (versions) abilities based on form
+- Sun Lord
+  - Sex: `Male`
+  - Abilities
+    - Global heal
+    - Hard Dispell
