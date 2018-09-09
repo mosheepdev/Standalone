@@ -66,8 +66,10 @@ Attributes:
       - ``
         - ?
     - E
-      - ``
-        - ?
+      - `Presence of Death`
+        - Aura, Enemy Unit
+        - Percentage damage based on unit's maximum health
+        - If unit dies under effect of this aura, the unit looses X points of strength and this hero gains them
     - R
       - `Memento Mori`
         - Creates ghost on death
@@ -85,23 +87,35 @@ Attributes:
             - Hero respawns on position of the ghost (replaces it)
           - Does not leave corpse on death
             - Hero is `Hidden` and moving with the ghost
-        - Increases damage per dead enemy
+        - Increases Attack Damage per dead enemy
 - Plague Doctor
   - Sex: `Male`
+  - Doctor but also tool of the Plague
+  - Appearance
+    - White Plague Doctor mask
+    - Top Hat
+    - Long Coat
+    - Cosmetics
+      - Crow Set
   - Abilities
     - Q
       - ``
         - ?
     - W
-      - ``
-        - ?
+      - `The Doctor`
+        - Single Unit Target
+        - Heal
+        - Soft dispell
+        - Lore: `Trust me, I am the Doctor.`
     - E
       - ``
         - ?
     - R
-      - ``
-        - Single-target heal with soft dispell
-        - AoE damage over time
+      - `Plague`
+        - Single Unit Target
+        - Damage over time
+        - Applies same Damage Debuff on all hit (damaged) units
+        - Base Damage + Damage Increase per unit around
 - ??
   - Sex: `???`
 - ??
