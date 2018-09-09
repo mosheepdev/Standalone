@@ -114,52 +114,14 @@ Attributes:
   - Sex: `Female` + `Male`
   - Ranged and Melee form
   - Different (versions) abilities based on form
-- Sun Lord
+- [Sun Lord](Sun_Lord.md)
   - Sex: `Male`
-  - Abilities
-    - Q
-      - `Solar Explosion`
-        - Point target
-        - Small AoE Stun
-        - Higher Cast Point
-    - W
-      - `Sun Ray`
-        - Skillshot
-        - Durection target ("Laser")
-        - Higher Cast Point
-        - Very fast projectile
-    - E
-      - `Burning Light`
-        - AoE aroud units hit by his abilities
-          - Except original target
-        - Slow?
-    - R
-      - `Shining Hope`
-        - Global heal
-        - Hard Dispell
-        - Affects heroes, hero-creep, building
-- Black Jack
+  - Skilshots
+  - Healer
+- [Black Jack](Black_Jack.md)
   - Sex: `Male`
   - Ranged
-  - Abilities
-    - Q
-      - `Snake Eyes`
-        - Damage over time
-        - Damage is based on target's primary attribute
-        - If the unit dies during the effect, it looses the attribute and Black Jack gains it as his own (same attribute)
-    - W
-      - `Bluf`
-        - Creates X illusions in predefined shape
-        - Appears instead of one random illusion
-    - E
-      - `Experienced Player`
-        - Increases vision range
-        - Flying vision
-    - R
-      - `Joker`
-        - Reduces all incomming damage by X percent
-        - Provides high status resistance
-        - Purges on cast (Hard Dispell)
+  - Randomized
 - ??
   - Sex: `???`
 - ??
