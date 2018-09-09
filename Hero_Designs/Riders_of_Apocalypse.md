@@ -25,11 +25,14 @@ Riders are:
 | Charisma     |    12    | 1.3  |
 
 
-|  Attribute   | Moba Value | Angel Arena Value |
-|--------------|------------|-------------------|
-| Attack Range |    150     |        150        |
-| Vision       | 1600 / 800 |     1600 / 800    |
-| Damage       |  19 - 25   |      19 - 25      |
+|    Attribute     | Moba Value | Angel Arena Value |
+|------------------|------------|-------------------|
+| Attack Range     |    150     |        150        |
+| Vision           | 1600 / 800 |     1600 / 800    |
+| Damage           |  19 - 25   |      19 - 25      |
+| Base Attack Time |    1.7     |        1.7        |
+| Movement Speed   |    280     |        280        |
+| Original Armor   |     -1     |         -1        |
 
 ## War Abilities
 

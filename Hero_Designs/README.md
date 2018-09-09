@@ -27,10 +27,10 @@ Attributes:
   - Sex: `???`
 
 ## Agility
-- [Sniper](Sniper.md) (1 ability missing)
+- [Sniper](Sniper.md)
   - Sex: `Female`
   - Long range shooting
-  - AoE heal
+  - AoE heal split between all hit allies
 - [Ice Shard](Ice_Shard.md)
   - Sex: `Female`
   - Feral Snow Leopard
@@ -85,6 +85,7 @@ Attributes:
             - Hero respawns on position of the ghost (replaces it)
           - Does not leave corpse on death
             - Hero is `Hidden` and moving with the ghost
+        - Increases damage per dead enemy
 - Plague Doctor
   - Sex: `Male`
   - Abilities

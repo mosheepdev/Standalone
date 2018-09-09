@@ -19,11 +19,14 @@ Dwarf wielding big hammer.
 | Charisma     |    11    | 1.7  |
 
 
-|  Attribute   | Moba Value | Angel Arena Value |
-|--------------|------------|-------------------|
-| Attack Range |    150     |        150        |
-| Vision       | 1600 / 800 |     1600 / 800    |
-| Damage       |  25 - 29   |      25 - 29      |
+|    Attribute     | Moba Value | Angel Arena Value |
+|------------------|------------|-------------------|
+| Attack Range     |    150     |        150        |
+| Vision           | 1600 / 800 |     1600 / 800    |
+| Damage           |  25 - 29   |      25 - 29      |
+| Base Attack Time |    1.7     |        1.7        |
+| Movement Speed   |    285     |        285        |
+| Original Armor   |      0     |          0        |
 
 ## Abilities
 

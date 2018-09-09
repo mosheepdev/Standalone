@@ -21,11 +21,14 @@ Uses her hands as weapons.
 | Charisma     |    10    | 1.0  |
 
 
-|  Attribute   | Moba Value | Angel Arena Value |
-|--------------|------------|-------------------|
-| Attack Range |    100     |        100        |
-| Vision       | 1200 / 800 |     1200 / 800    |
-| Damage       |  20 - 21   |      20 - 21      |
+|    Attribute     | Moba Value | Angel Arena Value |
+|------------------|------------|-------------------|
+| Attack Range     |    100     |        100        |
+| Vision           | 1200 / 800 |     1200 / 800    |
+| Damage           |  20 - 21   |      20 - 21      |
+| Base Attack Time |    1.7     |        1.7        |
+| Movement Speed   |    295     |        295        |
+| Original Armor   |      2     |          2        |
 
 ## Abilities
 

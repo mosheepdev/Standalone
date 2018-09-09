@@ -34,11 +34,14 @@ Wields dagger in main hand and whip in offhand (in male form whip in main hand a
 | Charisma     |    27    | 2.8  |
 
 
-|  Attribute   | Moba Value | Angel Arena Value |
-|--------------|------------|-------------------|
-| Attack Range |    600     |        600        |
-| Vision       | 1600 / 800 |     1600 / 800    |
-| Damage       |  23 - 29   |      23 - 29      |
+|    Attribute     | Moba Value | Angel Arena Value |
+|------------------|------------|-------------------|
+| Attack Range     |    600     |        600        |
+| Vision           | 1600 / 800 |     1600 / 800    |
+| Damage           |  23 - 29   |      23 - 29      |
+| Base Attack Time |    1.6     |        1.6        |
+| Movement Speed   |    305     |        305        |
+| Original Armor   |   -0.5     |       -0.5        |
 
 ## Abilities
 

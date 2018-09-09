@@ -1,4 +1,4 @@
-# Dwarf
+# Ice Shard
 
 ## Info
 Sex: `Female`
@@ -19,11 +19,14 @@ Cute feral [Snow Leopard](https://en.wikipedia.org/wiki/Snow_leopard).
 | Charisma     |    13    | 1.7  |
 
 
-|  Attribute   | Moba Value | Angel Arena Value |
-|--------------|------------|-------------------|
-| Attack Range |    150     |        150        |
-| Vision       | 1600 / 800 |     1600 / 800    |
-| Damage       |  25 - 31   |      25 - 31      |
+|    Attribute     | Moba Value | Angel Arena Value |
+|------------------|------------|-------------------|
+| Attack Range     |    150     |        150        |
+| Vision           | 1600 / 800 |     1600 / 800    |
+| Damage           |  25 - 31   |      25 - 31      |
+| Base Attack Time |    1.7     |        1.7        |
+| Movement Speed   |    300     |        300        |
+| Original Armor   |      1     |          1        |
 
 ## Abilities
 
