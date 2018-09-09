@@ -22,6 +22,7 @@ Cute feral [Snow Leopard](https://en.wikipedia.org/wiki/Snow_leopard).
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    150     |        150        |
+| Attack Type      |   Melee    |       Melee       |
 | Vision           | 1600 / 800 |     1600 / 800    |
 | Damage           |  25 - 31   |      25 - 31      |
 | Base Attack Time |    1.7     |        1.7        |

@@ -2,60 +2,73 @@
 
 For Alpha phase of the game, there should be 5 heroes per each attribute (20 total).
 
+## By Attribute
+
 Attributes:
 - Strength = tank or defensive carry/support, often melee
 - Agility = full agro (high attack speed) carry
 - Intelligence = strong casters
 - Charisma = defensive casters, fast casters
 
-## Strength
+### Strength
 - [Undead Queen](Undead_Queen.md)
-  - Sex: `Female`
-  - Summons skeletons
 - [Riders of Apocalypse](Riders_of_Apocalypse.md)
-  - Sex: 4x `Male`
-  - 4 heroes
-  - Each with different abilities
-  - Shared items
-    - Shared cooldown
 - [Dwarf](Dwarf.md)
-  - Sex: `Male`
-  - Big Hammer
-- ??
-  - Sex: `???`
-- ??
-  - Sex: `???`
 
-## Agility
+### Agility
 - [Sniper](Sniper.md)
-  - Sex: `Female`
-  - Long range shooting
-  - AoE heal split between all hit allies
 - [Ice Shard](Ice_Shard.md)
-  - Sex: `Female`
-  - Feral Snow Leopard
-  - Sneaky Keep-Attacking Carry
 - Harpy
-  - Sex: `Female`
-  - Abilities
-    - Q
-      - ``
-        - ?
-    - W
-      - ``
-        - ?
-    - E
-      - ``
-        - ?
-    - R
-      - ``
-        - ?
-- ??
-  - Sex: `???`
-- ??
-  - Sex: `???`
 
-## Intelligence
+### Intelligence
+- Mori
+- Plague Doctor
+
+### Charisma
+- [Succubus](Succubus.md)
+- [Sun Lord](Sun_Lord.md)
+- [Black Jack](Black_Jack.md)
+
+## By Attack Type
+
+### Melee
+- [Undead Queen](Undead_Queen.md)
+- [Riders of Apocalypse](Riders_of_Apocalypse.md)
+- [Dwarf](Dwarf.md)
+- [Ice Shard](Ice_Shard.md)
+- Harpy
+- Plague Doctor
+- [Succubus](Succubus.md) (With Ultimate)
+
+### Ranged
+- [Sniper](Sniper.md)
+- Mori
+- [Succubus](Succubus.md) (Without Ultimate)
+- [Sun Lord](Sun_Lord.md)
+- [Black Jack](Black_Jack.md)
+
+## By Sex
+
+### Male
+- [Riders of Apocalypse](Riders_of_Apocalypse.md)
+- [Dwarf](Dwarf.md)
+- Plague Doctor
+- [Succubus](Succubus.md) (Without Ultimate)
+- [Sun Lord](Sun_Lord.md)
+- [Black Jack](Black_Jack.md)
+
+### Female
+- [Undead Queen](Undead_Queen.md)
+- [Sniper](Sniper.md)
+- [Ice Shard](Ice_Shard.md)
+- Harpy
+- [Succubus](Succubus.md) (With Ultimate)
+
+### Other
+- Mori
+
+## Ideas
+
 - Mori
   - Sex: `Other`
   - Abilities
@@ -116,27 +129,3 @@ Attributes:
         - Damage over time
         - Applies same Damage Debuff on all hit (damaged) units
         - Base Damage + Damage Increase per unit around
-- ??
-  - Sex: `???`
-- ??
-  - Sex: `???`
-- ??
-  - Sex: `???`
-
-## Charisma
-- [Succubus](Succubus.md)
-  - Sex: `Female` + `Male`
-  - Ranged and Melee form
-  - Different (versions) abilities based on form
-- [Sun Lord](Sun_Lord.md)
-  - Sex: `Male`
-  - Skilshots
-  - Healer
-- [Black Jack](Black_Jack.md)
-  - Sex: `Male`
-  - Ranged
-  - Randomized
-- ??
-  - Sex: `???`
-- ??
-  - Sex: `???`

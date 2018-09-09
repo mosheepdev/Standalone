@@ -20,6 +20,7 @@ Sex: `Male`
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    600     |        600        |
+| Attack Type      |   Ranged   |       Ranged      |
 | Vision           | 1600 / 800 |     1600 / 800    |
 | Damage           |  19 - 27   |      19 - 27      |
 | Base Attack Time |    1.7     |        1.7        |

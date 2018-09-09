@@ -23,6 +23,7 @@ Those caught in can be moved in time.
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    800     |        800        |
+| Attack Type      |   Ranged   |       Ranged      |
 | Vision           | 1600 / 800 |     1600 / 800    |
 | Damage           |  32 - 34   |      32 - 34      |
 | Base Attack Time |    1.9     |        1.9        |

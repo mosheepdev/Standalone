@@ -22,6 +22,7 @@ Wears black suit.
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    400     |        400        |
+| Attack Type      |   Ranged   |       Ranged      |
 | Vision           | 1600 / 800 |     1600 / 800    |
 | Damage           |  21 - 31   |      21 - 31      |
 | Base Attack Time |    1.5     |        1.5        |

@@ -28,6 +28,7 @@ Riders are:
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    150     |        150        |
+| Attack Type      |   Melee    |       Melee       |
 | Vision           | 1600 / 800 |     1600 / 800    |
 | Damage           |  19 - 25   |      19 - 25      |
 | Base Attack Time |    1.7     |        1.7        |

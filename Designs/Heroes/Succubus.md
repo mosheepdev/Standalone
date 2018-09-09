@@ -37,6 +37,7 @@ Wields dagger in main hand and whip in offhand (in male form whip in main hand a
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    600     |        600        |
+| Attack Type      |   Ranged   |       Ranged      |
 | Vision           | 1600 / 800 |     1600 / 800    |
 | Damage           |  23 - 29   |      23 - 29      |
 | Base Attack Time |    1.6     |        1.6        |

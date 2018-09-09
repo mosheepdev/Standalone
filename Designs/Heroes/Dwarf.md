@@ -22,6 +22,7 @@ Dwarf wielding big hammer.
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    150     |        150        |
+| Attack Type      |   Melee    |       Melee       |
 | Vision           | 1600 / 800 |     1600 / 800    |
 | Damage           |  25 - 29   |      25 - 29      |
 | Base Attack Time |    1.7     |        1.7        |

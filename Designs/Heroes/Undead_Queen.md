@@ -24,6 +24,7 @@ Uses her hands as weapons.
 |    Attribute     | Moba Value | Angel Arena Value |
 |------------------|------------|-------------------|
 | Attack Range     |    100     |        100        |
+| Attack Type      |   Melee    |       Melee       |
 | Vision           | 1200 / 800 |     1200 / 800    |
 | Damage           |  20 - 21   |      20 - 21      |
 | Base Attack Time |    1.7     |        1.7        |
