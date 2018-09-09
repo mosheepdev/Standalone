@@ -1,6 +1,7 @@
 # Succubus
 
 ## Info
+Sex: `Female` + `Male`
 Sexy female demon with human appearance. Can change own sex to male when needed.
 
 Wields dagger in main hand and whip in offhand (in male form whip in main hand and empty offhand). 
@@ -22,6 +23,8 @@ Wields dagger in main hand and whip in offhand (in male form whip in main hand a
 `Skin` and `Clothing` colors are swapped when in Male form.
 
 ## Attributes
+
+**Charisma**
 
 |  Attribute   | Original | Grow |
 |--------------|----------|------|

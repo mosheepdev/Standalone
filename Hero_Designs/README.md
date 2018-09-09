@@ -9,75 +9,18 @@ Attributes:
 - Charisma = defensive casters, fast casters
 
 ## Strength
-- Undead Queen
+- [Undead Queen](Undead_Queen.md)
   - Sex: `Female`
-  - Skeleton with pieces of flash
-  - No weapon or claws
-  - Abilities
-    - Q
-      - `Mortality`
-        - Single Target
-        - Decreases target's Attack Speed (Flat)
-        - When killed, killer also gets the debuff (Hero only)
-          - Removed on her respawn
-    - W
-      - `Cold Touch`
-        - On attack
-          - Passive
-        - Movement Slow
-        - Attack Speed Bonus
-        - Fixed Amount Lifesteal
-          - Not dependent on damage dealt
-          - Benefits from attack speed instead of Damage (DPS)
-    - E
-      - `Loyalty`
-        - Gains charges for each killed unit
-          - Until X
-          - Killed by her or her units
-        - Summons skeletons
-          - Can be controlled
-    - R
-      - `Visit from Greaves`
-        - Small AoE
-        - Root + Silence
-        - Deals damage over time
-        - Animation
-          - Hands from ground holding and tearing
+  - Summons skeletons
 - [Riders of Apocalypse](Riders_of_Apocalypse.md)
   - Sex: 4x `Male`
   - 4 heroes
   - Each with different abilities
   - Shared items
     - Shared cooldown
-- Dwarf
+- [Dwarf](Dwarf.md)
   - Sex: `Male`
   - Big Hammer
-  - Abilities:
-    - Q
-      - ``
-        - Point target
-        - Movement
-        - AoE
-          - Instant attack on all (enemy) targets
-            - Can cleave!
-            - Always procs `E`
-    - W
-      - `Dwarf Gear`
-        - Passive
-        - Bonus armor and (some) damage
-    - E
-      - `Hammer Bash`
-        - Chance to bash
-        - The bash deals bonus damage
-        - Cooldown (to prevent permabash)
-    - R
-      - `Boom Stick`
-        - Animation
-          - Light up a small bomb
-          - Push the bomb into pistol
-          - Fire the pistol (pushes the hero back few units)
-        - Long-range AoE damage
-        - Charges
 - ??
   - Sex: `???`
 - ??
@@ -88,43 +31,25 @@ Attributes:
   - Sex: `Female`
   - Long range shooting
   - AoE heal
-- Ice Shard
+- [Ice Shard](Ice_Shard.md)
   - Sex: `Female`
-  - Snow Leopard
-  - Feral
-  - Abilities
-    - Q
-      - `Scared Jump`
-      - Jumps back `???` units
-      - Forced movement
-      - Provides invincibility frames
-      - Fixed distance and angle (always reverse of Forward Vector)
-    - W
-      - `Thrill of Hunt`
-      - Cast aura
-      - Provides attack speed and lifesteal to self and all allied units around
-    - E
-      - `Bleeding Wounds`
-      - Passive
-      - Applies stacks to target
-      - Each stacks deal `???` additional PURE damage to the target
-      - Stack Damage is done in 1 instance after landing attack
-        - Before increasing
-      - Limited duration
-        - Adding a stack refreshes duration 
-    - R
-      - `Stealthy Cat`
-      - Active
-      - Temporary Invisibility
-      - When not seen by enemies
-        - Excluding neutrals
-        - Passive Component
-        - Gains `???` bonus damage
-          - For 1 attack
-          - This attack cannot miss
-      - Increased Movement Speed
+  - Feral Snow Leopard
+  - Sneaky Keep-Attacking Carry
 - Harpy
   - Sex: `Female`
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - ``
+        - ?
 - ??
   - Sex: `???`
 - ??
@@ -134,22 +59,32 @@ Attributes:
 - Mori
   - Sex: `Other`
   - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
     - R
-      - Creates ghost on death
-        - Invisible
-          - Can be revealed
-        - Untargettable
-        - Invincible
-        - Cannot attack
-        - No items
-        - Respawn ability
-          - Goes on cooldown
-            - Same as hero's respawn time
-            - Not affected by `Cooldown Reduction`
-          - Must be cast for the hero to respawn
-          - Hero respawns on position of the ghost (replaces it)
-        - Does not leave corpse on death
-          - Hero is `Hidden` and moving with the ghost
+      - `Memento Mori`
+        - Creates ghost on death
+          - Invisible
+            - Can be revealed
+          - Untargettable
+          - Invincible
+          - Cannot attack
+          - No items
+          - Respawn ability
+            - Goes on cooldown
+              - Same as hero's respawn time
+              - Not affected by `Cooldown Reduction`
+            - Must be cast for the hero to respawn
+            - Hero respawns on position of the ghost (replaces it)
+          - Does not leave corpse on death
+            - Hero is `Hidden` and moving with the ghost
 - Plague Doctor
   - Sex: `Male`
   - Abilities

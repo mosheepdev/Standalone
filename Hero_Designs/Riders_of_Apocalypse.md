@@ -1,6 +1,7 @@
 # Riders of Apocalypse
 
 ## Info
+Sex: `Male`
 
 All riders share same attributes but has different main attribute (2 agility and 2 strength).
 
@@ -13,6 +14,8 @@ Riders are:
 ## Lore
 
 ## Attributes
+
+**Strength** (+Agility)
 
 |  Attribute   | Original | Grow |
 |--------------|----------|------|

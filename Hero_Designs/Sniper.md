@@ -1,6 +1,7 @@
 # Sniper
 
 ## Info
+Sex: `Female`
 
 ## Lore
 
@@ -8,6 +9,8 @@ During great war, even Time can be damaged.
 Those caught in can be moved in time.
 
 ## Attributes
+
+**Agility**
 
 |  Attribute   | Original | Grow |
 |--------------|----------|------|
@@ -52,7 +55,6 @@ Notes:
 
 Talents:
 - Can target buildings
-
 
 ### Medical Training
 
