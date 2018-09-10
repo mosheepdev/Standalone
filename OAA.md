@@ -20,6 +20,12 @@ I have:
 - Basic C++ knowledge
 - Low-level access (like [OpenGL](https://www.opengl.org/) instead of Game Engine Backend)
 
+## Important Links
+
+- [Open Angel Arena](https://github.com/OpenAngelArena/oaa/)
+- [Thinking Bottle](https://thinkingbottle.com)
+- [Lumberyard](https://aws.amazon.com/lumberyard/)
+
 ## Money
 
 The one big thing which moves the world.
@@ -79,7 +85,7 @@ Even when you consider Hero Rotation:
 When you look at my WIP documentation here, there is a lot of functions which cannot be overloaded in LUA because they will not have effect on C++ code.
 But those are marked by bold text saying `Should not be overloaded. (no effect on C++ code)`.
 
-Reason for this are either utility functions (calculating [`GetCurrentCooldownPercentage()`](Documentation/Lua_Api/Ability/README.md#Get_Current_Cooldown_Percentage)) or functions interacting directly with internal mechanics ([`GetOwner()`](Documentation/Lua_Api/Ability/README.md#Get_Owner) or [`GetCurrentCooldownRemaining()`](Documentation/Lua_Api/Ability/README.md#Get_Current_Cooldown_Remaining)).
+Reason for this are either utility functions (calculating `GetCurrentCooldownPercentage()`) or functions interacting directly with internal mechanics (`GetOwner()` or `GetCurrentCooldownRemaining()`).
 Using overloaded versions of those functions could cause instabilities in game.
 
 Some of abilities even have `Implemented as` block to show their base (default) implementation.

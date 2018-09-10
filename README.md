@@ -14,9 +14,11 @@ I would expect first community-made game be a Moba (DotA = [Defense of the Ancie
 That means I need to make one myself.
 
 Concepts:
- - [Heroes](Designs/Hero/README.md)
  - [Items](Designs/Item/README.md)
- - [Bosses](Designs/Boss/README.md)
+ - Units
+   - [Creeps](Designs/Creep/README.md)
+   - [Heroes](Designs/Hero/README.md)
+   - [Bosses](Designs/Boss/README.md)
 
 ## Open Angel Arena
 
@@ -34,12 +36,11 @@ Any help is welcomed.
 
 ## Important links
 
-- [Standalone Documentation](Documentation/README.md)
-
-
-- [Open Angel Arena](https://github.com/OpenAngelArena/oaa/)
-- [Thinking Bottle](https://thinkingbottle.com)
-- [Lumberyard](https://aws.amazon.com/lumberyard/)
+- [Documentation](Documentation/README.md)
+  - [LUA API](Documentation/Lua_Api/README.md)
+  - [Tutorial](Documentation/Tutorials/README.md)
+  - [Mechanics](Documentation/Mechanics/README.md)
+- [Designs](Designs/README.md)
 
 
 ## Libraries
