@@ -4,6 +4,16 @@
 
 ## Lore
 
+## Statistics
+
+| Key | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 |
+|-----|--------|--------|--------|--------|--------|
+| Health | 6,000 | 10,000 | 20,000 | 50,000 | 100,000 |
+| Mana | `None`
+| All Damage Resistance | 0% | 0% | 5% | 5% | 10% |
+| Armor | 10 | 20 | 50 | 75 | 100 |
+| Magic Resistance | 0% |
+
 ## Abilities
 
 ### Dynamite
