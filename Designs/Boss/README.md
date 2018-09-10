@@ -10,7 +10,7 @@ Bosses are strong enemies which provide [Cores](../Item/Core.md) for whole team.
 
 # Tier 2
 
-- ?
+- [Miner](Miner.md)
 - ?
 - ?
 
