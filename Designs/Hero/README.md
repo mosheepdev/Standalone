@@ -14,6 +14,7 @@ Attributes:
 - [Undead Queen](Undead_Queen.md)
 - [Riders of Apocalypse](Riders_of_Apocalypse.md)
 - [Dwarf](Dwarf.md)
+- Baby Dragon
 
 ### Agility
 - [Sniper](Sniper.md)
@@ -23,6 +24,8 @@ Attributes:
 ### Intelligence
 - Mori
 - Plague Doctor
+- Ancient Dragon
+- Wyvern
 
 ### Charisma
 - [Succubus](Succubus.md)
@@ -35,6 +38,7 @@ Attributes:
 - [Undead Queen](Undead_Queen.md)
 - [Riders of Apocalypse](Riders_of_Apocalypse.md)
 - [Dwarf](Dwarf.md)
+- Baby Dragon
 - [Ice Shard](Ice_Shard.md)
 - Harpy
 - Plague Doctor
@@ -43,11 +47,16 @@ Attributes:
 ### Ranged
 - [Sniper](Sniper.md)
 - Mori
+- Ancient Dragon
 - [Succubus](Succubus.md) (Without Ultimate)
 - [Sun Lord](Sun_Lord.md)
 - [Black Jack](Black_Jack.md)
 
 ## By Sex
+
+- Baby Dragon
+- Ancient Dragon
+- Wyvern
 
 ### Male
 - [Riders of Apocalypse](Riders_of_Apocalypse.md)
@@ -129,3 +138,48 @@ Attributes:
         - Damage over time
         - Applies same Damage Debuff on all hit (damaged) units
         - Base Damage + Damage Increase per unit around
+- Baby Dragon
+  - Sex: `???`
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - ``
+        - ?
+- Ancient Dragon
+  - Sex: `???`
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - ``
+        - ?
+- Wyvern
+  - Sex: `Female`
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - ``
+        - ?

@@ -5,6 +5,8 @@ Sex: `Male`
 
 Dwarf wielding big hammer.
 
+Used to be killing Dragons in past.
+
 ## Lore
 
 ## Attributes

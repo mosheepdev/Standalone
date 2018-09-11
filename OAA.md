@@ -11,14 +11,21 @@ I want to see how far will I get before they will be finished.
 
 They have:
 - Full development team
+  - Payed
+  - Full-time job
 - (Officialy) AAA Game Engine - [Lumberyard](https://aws.amazon.com/lumberyard/)
 - Game Designer ([l34Um1](https://github.com/l34Um1))
 - Skilled C++ Developer ([chrisinajar](https://github.com/chrisinajar))
+  - Baumi also said they have 3 programmers in total
 
 I have:
-- Partial information about
+- Idea
 - Basic C++ knowledge
+  - A lot of API knowledge
+  - Core Development Experience
 - Low-level access (like [OpenGL](https://www.opengl.org/) instead of Game Engine Backend)
+- 2 Friends helping with design
+- Chance to get someone to make at least models
 
 ## Important Links
 

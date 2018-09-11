@@ -2,14 +2,20 @@
 
 Items are buyable things which provide bonuses to their wielders.
 
+Effect of same items **does not stack** until stated otherwise.
+A lot of effects (Health Bonus, Damage Bonus, Armor, Attributes...) from same type of items always stacks.
+Most items with active effect go on cooldown on all types when used.
+
 ## Defensive
 
 ### Basic
 
 - Buckler
   - Damage Block
+  - *Stacks*
 - Chainmail
   - Armor
+  - *Stacks*
 - Cape of Apprentice
   - Magic Resistance
 - ?
@@ -21,29 +27,37 @@ Items are buyable things which provide bonuses to their wielders.
 - Dragon Shield
   - Damage Block
   - Health Regeneration
+  - *Stacks*
+  - Made of Dragon Egg Shell (Empty)
 - Tower Shield
   - Damage Block
   - Armor
+  - *Stacks*
 - Platemail
   - Armor
   - Health
+  - *Stacks*
 - ?
-  - Flat damage to attacker
+  - Flat damage to attacker on hit
   - Armor
+  - *Stacks*, separated instances
 - ?
   - Damage Reflection
   - Health
+  - *Stacks*, separated instances
 - ?
   - Magic Resistance
   - Mana Regeneration
+  - *Stacks*
 - ?
   - Single Target (ally or self)
   - Hard Dispell
-  - Temporary percentage 
+  - Temporary percentage Incoming Damage Reduction
 - ?
   - Self
-  - Temporary 100% Status Resistance
-  - 50% - 100% Magic Resistance
+  - Temporary
+    - 100% Status Resistance
+    - 50% - 100% Magic Resistance
   - Soft Dispell
 - ?
   - Self
@@ -52,6 +66,8 @@ Items are buyable things which provide bonuses to their wielders.
 - ?
   - Health
   - Percentage Health Regeneration
+- ?
+  - Prevents critical hits
 
 ## Offensive
 
@@ -69,34 +85,42 @@ Items are buyable things which provide bonuses to their wielders.
 
 - Criticalis
   - Critical Hits
+  - *Stacks*, Works separated, highest Critical Damage wins
 - Skull Crasher
   - Bash Chance
 - ?
   - Armor Reduction
+  - Does not stack on target from multiple attackers
 - ?
   - Higher-chance Critical Hits
+  - *Stacks*, Works separated, highest Critical Damage wins
 - Excalibur
   - Damage
   - Minor Attack Speed Slow on hit
+  - *Stacks*
 - ?
   - Releases jumping lighting
   - Attack Speed
+  - *Stacks*, separated chances
 - ?
  - Cleave
+  - *Stacks*, separated instances
 - ?
-  - Chance to soft dispell on target 
+  - Chance to soft dispell on target
+  - *Stacks*, separated chances 
 - ?
   - Attack Speed
   - Movement Speed
 - ?
   - Active
-  - Maximum Attack Speed for `X` seconds or `Y` attacks
+  - Maximum Attack Speed for `X` seconds or `Y` attacks 
 
 ## Utility
 
 ### Basic
 
 - ?
+  - Reveals Invisible Enemies in AoE
 - ?
 - ?
 - ?
@@ -112,20 +136,35 @@ Items are buyable things which provide bonuses to their wielders.
   - Single Target
   - Increases / Decreases target's Armor
 - Crystalic Smoke
+  - Point Target
   - AoE Magic Resistance Reduction
 - Shining Shard
-  - AoE Damage around owner
+  - Aura Damage around owner
+  - Based on distance
 - ?
   - AoE Attack Speed and Movement Speed around owner
+  - Can be activated to temporary increase the bonus
+  - Should work both for and against gankers
 - ?
-  - AoE Armor and Health Regeneration around owner
+  - Aura Armor and Health Regeneration
 - ?
-  - AoE Lifesteal
+  - Aura Lifesteal
 - ?
   - Lifesteal
   - Can be toggled to provide extreme lifesteal for temporary duration
 - ?
-  - Disarm
+  - Single Target Disarm
+  - Increases Minimum Attack Speed to 100
+- ?
+  - Point Target
+  - High Cast Range
+  - AoE Invisibility Reveal
+- ?
+  - Gains charges for every dying Hero (or Boss) around (only 1 item around can gain it)
+  - Charges can be used for Health Regeneration (Allies) or Damage Over Time (Enemies)
+  - Upgraded version can gain charge after `X` killed creeps
+- ?
+  - Summons 2 units (Melee + Ranged)
 
 ## Caster
 
@@ -141,6 +180,7 @@ Items are buyable things which provide bonuses to their wielders.
 - Eye of God
   - Increases Cast Range
   - Slightly increases Spell Amplification
+  - Active: Place temporary ward
 - ?
   - Cooldown Reduction
   - Some Manacost Reduction
@@ -157,37 +197,55 @@ Items are buyable things which provide bonuses to their wielders.
 - ?
 - ?
 
+## Consumable
+
+All consumable items are considered "Basic" and cannot be upgraded (by other items or [Cores](Core.md)).
+
+- ?
+  - Health Regeneration
+- ?
+  - Mana Regeneration
+- ?
+  - Instant Health
+- ?
+  - Instant Mana
+- ?
+  - Vision Ward
+- ?
+  - Reveal Ward
+
 ## Attribute
 
-Those items work same way as `Basic` above
+Those items work same way as `Basic` above.
+Used in recipes but cannot be upgraded with [Cores](Core.md).
 
 ### Strength
 
-- ? (+2)
+- ? (+3) `120`
 - ? (+5)
 - ? (+10)
 
 ### Agility
 
-- ? (+2)
+- ? (+3) `120`
 - ? (+5)
 - ? (+10)
 
 ### Intelligence
 
-- ? (+2)
+- ? (+3) `120`
 - ? (+5)
 - ? (+10)
 
 ### Charisma
 
-- ? (+2)
+- ? (+3) `120`
 - ? (+5)
 - ? (+10)
 
 ### All
 
-- ? (+1)
+- ? (+1) `90`
 - ? (+5)
 - ? (+10)
 
