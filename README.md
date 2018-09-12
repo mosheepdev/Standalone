@@ -1,10 +1,20 @@
 # Standalone
 
+**DEVELOPMENT HALTED**
+
+Reason is that I am working alone on this with minimum help while Thinking Bottle has full team of ` !@#$%^ `.
+
+I spend far too much time on this and it will result in nothing.
+At least I learned how to work with LUA.
+
+I am not saying that I will not return to this... but I won't.
+
+---
+
 I am making this as versatile as possible while keeping base mechanics in C++ code.
 That would provide easy support for modders because even the main game (games) will be using the same API and be scripted in LUA.
 
 Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
-
 
 ## Games
 
