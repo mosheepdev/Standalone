@@ -163,8 +163,8 @@ public:
                 return GetTotalAgilityAttribute();
             case Attribute::INTELLIGENCE:
                 return GetTotalIntelligenceAttribute();
-            case Attribute::CHARISMA:
-                return GetTotalCharismaAttribute();
+            case Attribute::WILL:
+                return GetTotalWillAttribute();
         }
     }
 
@@ -269,27 +269,27 @@ public:
 
     int GetTotalIntelligenceAttribute() { return GetBaseIntelligenceAttribute() + GetBonusIntelligenceAttribute(); }
 
-// Attribute - Charisma
+// Attribute - Will
 public:
-    int GetOriginalCharismaAttribute() { return _OriginalCharismaAttribute; }
+    int GetOriginalWillAttribute() { return _OriginalWillAttribute; }
 
-    void SetOriginalCharismaAttribute(int attribute);
+    void SetOriginalWillAttribute(int attribute);
 
 private:
-    int _OriginalCharismaAttribute = 0;
+    int _OriginalWillAttribute = 0;
 public:
-    float GetCharismaAttributeGrow() { return _CharismaAttributeGrow; }
+    float GetWillAttributeGrow() { return _WillAttributeGrow; }
 
-    void SetCharismaAttributeGrow(float attributeGrow);
+    void SetWillAttributeGrow(float attributeGrow);
 
 private:
-    float _CharismaAttributeGrow = 1.0;
+    float _WillAttributeGrow = 1.0;
 public:
-    int GetBaseCharismaAttribute() { return GetOriginalCharismaAttribute() + (int) (GetCharismaAttributeGrow() * GetLevel()); }
+    int GetBaseWillAttribute() { return GetOriginalWillAttribute() + (int) (GetWillAttributeGrow() * GetLevel()); }
 
-    int GetBonusCharismaAttribute();
+    int GetBonusWillAttribute();
 
-    int GetTotalCharismaAttribute() { return GetBaseCharismaAttribute() + GetBonusCharismaAttribute(); }
+    int GetTotalWillAttribute() { return GetBaseWillAttribute() + GetBonusWillAttribute(); }
 
 
 // Health Pool
@@ -501,14 +501,14 @@ public:
 private:
     float _OriginalMagicResistance = 20.00; // 20%
 public:
-    float GetAttributeMagicResistance() { return (1 - pow(1 - _MagicResistancePerCharisma, (float) GetTotalCharismaAttribute())) * 100.0f; }
+    float GetAttributeMagicResistance() { return (1 - pow(1 - _MagicResistancePerWill, (float) GetTotalWillAttribute())) * 100.0f; }
 
-    float GetMagicResistancePerCharisma() { return _MagicResistancePerCharisma * 100; }
+    float GetMagicResistancePerWill() { return _MagicResistancePerWill * 100; }
 
-    void SetMagicResistancePerCharisma(float percentageMagicResistancePerCharisma);
+    void SetMagicResistancePerWill(float percentageMagicResistancePerWill);
 
 private:
-    float _MagicResistancePerCharisma = 0.20;// 0.20%
+    float _MagicResistancePerWill = 0.20;// 0.20%
 public:
     float GetBaseMagicResistance() { return (1 - ((1 - GetOriginalMagicResistance() / 100.0f) * (1 - GetAttributeMagicResistance() / 100.0f))) * 100.0f; }
 
@@ -553,14 +553,14 @@ public:
 private:
     float _OriginalCooldownReduction = 0; // 0.00%
 public:
-    float GetAttributeCooldownReduction() { return (1 - pow(1 - _CooldownReductionPerCharisma / 100.0f, (float) GetTotalCharismaAttribute())) * 100; }
+    float GetAttributeCooldownReduction() { return (1 - pow(1 - _CooldownReductionPerWill / 100.0f, (float) GetTotalWillAttribute())) * 100; }
 
-    float GetCooldownReductionPerCharisma() { return _CooldownReductionPerCharisma; }
+    float GetCooldownReductionPerWill() { return _CooldownReductionPerWill; }
 
-    void SetCooldownReductionPerCharisma(float cooldownReductionPerCharisma);
+    void SetCooldownReductionPerWill(float cooldownReductionPerWill);
 
 private:
-    float _CooldownReductionPerCharisma = 0.10; // 0.10%
+    float _CooldownReductionPerWill = 0.10; // 0.10%
 public:
     float GetBaseCooldownReduction() { return (1 - ((1 - GetOriginalCooldownReduction() / 100.0f) * (1 - GetAttributeCooldownReduction() / 100.0f))) * 100; }
 
@@ -579,14 +579,14 @@ public:
 private:
     float _OriginalManacostReduction = 0; // 0.00%
 public:
-    float GetAttributeManacostReduction() { return (1 - pow(1 - _ManacostReductionPerCharisma / 100.0f, (float) GetTotalCharismaAttribute())) * 100; }
+    float GetAttributeManacostReduction() { return (1 - pow(1 - _ManacostReductionPerWill / 100.0f, (float) GetTotalWillAttribute())) * 100; }
 
-    float GetManacostReductionPerCharisma() { return _ManacostReductionPerCharisma; }
+    float GetManacostReductionPerWill() { return _ManacostReductionPerWill; }
 
-    void SetManacostReductionPerCharisma(float manacostReductionPerCharisma);
+    void SetManacostReductionPerWill(float manacostReductionPerWill);
 
 private:
-    float _ManacostReductionPerCharisma = 0.00;
+    float _ManacostReductionPerWill = 0.00;
 public:
     float GetBaseManacostReduction() { return (1 - ((1 - GetOriginalManacostReduction() / 100.0f) * (1 - GetAttributeManacostReduction() / 100.0f))) * 100; }
 
@@ -605,14 +605,14 @@ public:
 private:
     float _originalGoldcostReduction = 0; // 0.00%
 public:
-    float GetAttributeGoldcostReduction() { return (1 - pow(1 - _GoldcostReductionPerCharisma / 100.0f, (float) GetTotalCharismaAttribute())) * 100; }
+    float GetAttributeGoldcostReduction() { return (1 - pow(1 - _GoldcostReductionPerWill / 100.0f, (float) GetTotalWillAttribute())) * 100; }
 
-    float GetGoldcostReductionPerCharisma() { return _GoldcostReductionPerCharisma; }
+    float GetGoldcostReductionPerWill() { return _GoldcostReductionPerWill; }
 
-    void SetGoldcostReductionPerCharisma(float goldcostReductionPerCharisma);
+    void SetGoldcostReductionPerWill(float goldcostReductionPerWill);
 
 private:
-    float _GoldcostReductionPerCharisma = 0.10; // 0.10%
+    float _GoldcostReductionPerWill = 0.10; // 0.10%
 public:
     float GetBaseGoldcostReduction() { return (1 - ((1 - GetOriginalGoldcostReduction() / 100.0f) * (1 - GetAttributeGoldcostReduction() / 100.0f))) * 100; }
 
@@ -657,14 +657,14 @@ public:
 private:
     int _OriginalCastRangeIncrease = 0;
 public:
-    int GetAttributeCastRangeIncrease() { return GetCastRangeIncreasePerCharisma() * GetTotalCharismaAttribute(); }
+    int GetAttributeCastRangeIncrease() { return GetCastRangeIncreasePerWill() * GetTotalWillAttribute(); }
 
-    float GetCastRangeIncreasePerCharisma() { return _CastRangeIncreasePerCharisma; }
+    float GetCastRangeIncreasePerWill() { return _CastRangeIncreasePerWill; }
 
-    void SetCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma);
+    void SetCastRangeIncreasePerWill(float castRangeIncreasePerWill);
 
 private:
-    float _CastRangeIncreasePerCharisma = 1;
+    float _CastRangeIncreasePerWill = 1;
 public:
     int GetBaseCastRangeIncrease() { return GetOriginalCastRangeIncrease() * GetAttributeCastRangeIncrease() / 100.0f; }
 
@@ -682,14 +682,14 @@ public:
 private:
     float _OriginalCastRangePercentage = 100;
 public:
-    float GetAttributeCastRangePercentage() { return 100 + GetCastRangePercentagePerCharisma() * GetTotalCharismaAttribute(); }
+    float GetAttributeCastRangePercentage() { return 100 + GetCastRangePercentagePerWill() * GetTotalWillAttribute(); }
 
-    float GetCastRangePercentagePerCharisma() { return _CastRangePercentagePerCharisma; }
+    float GetCastRangePercentagePerWill() { return _CastRangePercentagePerWill; }
 
-    void SetCastRangePercentagePerCharisma(float castRangePercentagePerCharisma);
+    void SetCastRangePercentagePerWill(float castRangePercentagePerWill);
 
 private:
-    float _CastRangePercentagePerCharisma = 0;
+    float _CastRangePercentagePerWill = 0;
 public:
     float GetBaseCastRangePercentage() { return GetOriginalCastRangePercentage() * GetAttributeCastRangePercentage() / 100.0f; }
 
@@ -711,14 +711,14 @@ public:
 private:
     float _OriginalCastRadiusPercentage = 100.0f;
 public:
-    float GetAttributeCastRadiusPercentage() { return 100 + GetCastRadiusPercentagePerCharisma() * GetTotalCharismaAttribute(); }
+    float GetAttributeCastRadiusPercentage() { return 100 + GetCastRadiusPercentagePerWill() * GetTotalWillAttribute(); }
 
-    float GetCastRadiusPercentagePerCharisma() { return _CastRadiusPercentagePerCharisma; }
+    float GetCastRadiusPercentagePerWill() { return _CastRadiusPercentagePerWill; }
 
-    void SetCastRadiusPercentagePerCharisma(float castRadiusPercentagePerCharisma);
+    void SetCastRadiusPercentagePerWill(float castRadiusPercentagePerWill);
 
 private:
-    float _CastRadiusPercentagePerCharisma = 0;
+    float _CastRadiusPercentagePerWill = 0;
 public:
     float GetBaseCastRadiusPercentage() { return GetOriginalCastRadiusPercentage() * GetAttributeCastRadiusPercentage() / 100.0f; }
 

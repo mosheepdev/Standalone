@@ -39,7 +39,7 @@ enum class Attribute
     // Cooldown Reduction
     // Cast Range Increase
     // Magic Resistance
-        CHARISMA,
+        WILL,
     _COUNT
 };
 

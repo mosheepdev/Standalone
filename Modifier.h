@@ -42,7 +42,7 @@ public:
 
     virtual int GetBonusIntelligence();
 
-    virtual int GetBonusCharisma();
+    virtual int GetBonusWill();
 
 // Health
 public:

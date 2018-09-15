@@ -29,7 +29,7 @@ function modifier:GetBonusIntelligence()
     return self:GetValue("Attributes_All")
 end
 
-function modifier:GetBonusCharisma()
+function modifier:GetBonusWill()
     return self:GetValue("Attributes_All")
 end
 

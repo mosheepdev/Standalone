@@ -20,11 +20,11 @@ Per `1` Intelligence:
 - `2.00%` Mana Regeneration Amplification (`1 - (1-0.0200) ^ Intelligence`)
 - `0.10%` Spell Amplification (`1 - (1-0.0010) ^ Intelligence`, both Damage and Healing)
 
-### Charisma
-Per `1` Charisma:
-- `1` Cast Range (`1 * Charisma`)
-- `0.20%` Magic Resistance (`1 - (1-0.0020) ^ Charisma`)
-- `0.10%` Cooldown Reduction (`1 - (1-0.0010) ^ Charisma`)
+### Will
+Per `1` Will:
+- `1` Cast Range (`1 * Will`)
+- `0.20%` Magic Resistance (`1 - (1-0.0020) ^ Will`)
+- `0.10%` Cooldown Reduction (`1 - (1-0.0010) ^ Will`)
 
 ## Effect on Gameplay
 
@@ -35,9 +35,9 @@ This attribute provides base damage equal to its value.
 ### Defence
 - **Strength** (Health + Status Resistance)
 - Agility (**Armor**)
-- Charisma (**Magic Resistance**)
+- Will (**Magic Resistance**)
 
 ### Offence
 - Agility (**Attack Speed** + Movement)
 - **Intelligence** (Mana + Spell Amplification)
-- Charisma (Cast Range + Cooldown Reduction)
+- Will (Cast Range + Cooldown Reduction)

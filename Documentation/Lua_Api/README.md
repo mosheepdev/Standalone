@@ -61,9 +61,8 @@ C++ [Enums](Enums/README.md) are implemented as global variables with unique nam
   - void Timers.RemoveAll()
   - void Timers.Remove(int timerId)
 - [`Events`](Events/README.md)
-- [`Math`](Math/README.md)
-  - redirected to math.
-- [`Table`](Table/README.md)
+- [`Math`](https://www.lua.org/manual/5.3/manual.html#6.7)
+- [`Table`](https://www.lua.org/manual/5.3/manual.html#6.6)
 - [`Regex`](Regex/README.md)
   - bool Regex.IsMatch(string input, string pattern)
   - table Regex.Split(string input, string pattern)
@@ -110,15 +109,42 @@ C++ [Enums](Enums/README.md) are implemented as global variables with unique nam
 
 ## Server Only
 - [`Http`](Http/README.md)
-  - Send(string url, table parametersGet, table parametersPost)
+  - Request(string url, table parametersGet, table parametersPost)
 
 ## Storage
 - Vectors
   - [`Vector2`](Vector2/README.md)
+    - float Length()
     - Vector2 Normalized()
+    - Vector2 *(Vector2 v, float mult)
+    - Vector2 +(Vector2 v1, Vector2 v2)
+    - float .x
+    - float ["x"]
+    - float .y
+    - float ["y"]
   - [`Vector3`](Vector3/README.md)
+    - float Length()
     - Vector3 Normalized()
+    - Vector3 *(Vector3 v, float mult)
+    - Vector3 +(Vector3 v1, Vector3 v2)
+    - float .x
+    - float ["x"]
+    - float .y
+    - float ["y"]
+    - float .z
+    - float ["z"]
   - [`Vector4`](Vector4/README.md)
+    - float Length()
     - Vector4 Normalized()
+    - Vector4 *(Vector4 v, float mult)
+    - Vector4 +(Vector4 v1, Vector4 v2)
+    - float .x
+    - float ["x"]
+    - float .y
+    - float ["y"]
+    - float .z
+    - float ["z"]
+    - float .w
+    - float ["w"]
 - [`QAngle`](QAngle/README.md) = Euler's Angles stored in `Vector3` (Pitch, Yaw, Roll)
 - [`Quaternion`](Quaternion/README.md)

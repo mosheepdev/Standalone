@@ -14,7 +14,7 @@ They can still be called from Client but will have no effect.
   - [Strength](#strength)
   - [Agility](#agility)
   - [Intelligence](#intelligence)
-  - [Charisma](#charisma)
+  - [Will](#will)
 - [Health](#health)
   - [Pool](#health-pool)
   - [Regeneration](#health-regeneration)
@@ -976,7 +976,7 @@ end</pre>
     </tr>
 </table>
 
-#### Charisma
+#### Will
 
 <table>
     <tr>
@@ -987,8 +987,8 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>int GetOriginalCharismaAttribute()
-int ["OriginalCharismaAttribute"].get</pre>
+            <pre>int GetOriginalWillAttribute()
+int ["OriginalWillAttribute"].get</pre>
         </td>
         <td>
             Both
@@ -998,8 +998,8 @@ int ["OriginalCharismaAttribute"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetOriginalCharismaAttribute(int attribute)
-["OriginalCharismaAttribute"].set = int attribute</pre>
+            <pre>void SetOriginalWillAttribute(int attribute)
+["OriginalWillAttribute"].set = int attribute</pre>
         </td>
         <td>
             Server
@@ -1009,8 +1009,8 @@ int ["OriginalCharismaAttribute"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>int GetCharismaAttributeGrow()
-int ["CharismaAttributeGrow"].get</pre>
+            <pre>int GetWillAttributeGrow()
+int ["WillAttributeGrow"].get</pre>
         </td>
         <td>
             Both
@@ -1020,8 +1020,8 @@ int ["CharismaAttributeGrow"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCharismaAttributeGrow(float attributeGrow)
-["CharismaAttributeGrow"].set = float attributeGrow</pre>
+            <pre>void SetWillAttributeGrow(float attributeGrow)
+["WillAttributeGrow"].set = float attributeGrow</pre>
         </td>
         <td>
             Server
@@ -1031,32 +1031,32 @@ int ["CharismaAttributeGrow"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void GetBaseCharismaAttribute()</pre>
+            <pre>void GetBaseWillAttribute()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetBaseCharismaAttribute()
-    return self:GetOriginalCharismaAttribute() + math.floor( self:GetCharismaAttributeGrow() * self:GetLevel() )
+            <pre lang="lua">function Unit:GetBaseWillAttribute()
+    return self:GetOriginalWillAttribute() + math.floor( self:GetWillAttributeGrow() * self:GetLevel() )
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>void GetBonusCharismaAttribute()</pre>
+            <pre>void GetBonusWillAttribute()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetBonusCharismaAttribute()
+            <pre lang="lua">function Unit:GetBonusWillAttribute()
     local attribute = 0
     for i,m in pairs(self:GetAllModifiers()) do
-        if m and m.GetBonusCharisma then
-            local m_attribute = m:GetBonusCharisma()
+        if m and m.GetBonusWill then
+            local m_attribute = m:GetBonusWill()
             if m_attribute then
                 attribute = attribute + m_attribute
             end
@@ -1068,15 +1068,15 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>void GetTotalCharismaAttribute()</pre>
+            <pre>void GetTotalWillAttribute()</pre>
         </td>
         <td>
             Both
         </td>
         <td></td>
         <td>
-            <pre lang="lua">function Unit:GetTotalCharismaAttribute()
-    return self:GetBaseCharismaAttribute() + self:GetBonusCharismaAttribute()
+            <pre lang="lua">function Unit:GetTotalWillAttribute()
+    return self:GetBaseWillAttribute() + self:GetBonusWillAttribute()
 end</pre>
         </td>
     </tr>
@@ -1932,14 +1932,14 @@ float ["OriginalMagicResistance"].get</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetBaseMagicResistance()
-   return (1 - math.pow(1 - self:GetMagicResistancePerCharisma(), self:GetTotalCharismaAttribute())) * 100.0
+   return (1 - math.pow(1 - self:GetMagicResistancePerWill(), self:GetTotalWillAttribute())) * 100.0
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetMagicResistancePerCharisma()
-float ["MagicResistancePerCharisma"].get</pre>
+            <pre>float GetMagicResistancePerWill()
+float ["MagicResistancePerWill"].get</pre>
         </td>
         <td>
             Both
@@ -1949,8 +1949,8 @@ float ["MagicResistancePerCharisma"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetMagicResistancePerCharisma(float magicResistancePerCharisma)
-["MagicResistancePerCharisma"].set = float magicResistancePerCharisma</pre>
+            <pre>void SetMagicResistancePerWill(float magicResistancePerWill)
+["MagicResistancePerWill"].set = float magicResistancePerWill</pre>
         </td>
         <td>
             Server
@@ -2176,14 +2176,14 @@ float ["OriginalCooldownReduction"].get</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetBaseCooldownReduction()
-    return (1 - pow(1 - self:GetCooldownReductionPerCharisma(), self:GetTotalCharismaAttribute())) * 100 
+    return (1 - pow(1 - self:GetCooldownReductionPerWill(), self:GetTotalWillAttribute())) * 100 
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetCooldownReductionPerCharisma()
-float ["CooldownReductionPerCharisma"].get</pre>
+            <pre>float GetCooldownReductionPerWill()
+float ["CooldownReductionPerWill"].get</pre>
         </td>
         <td>
             Both
@@ -2193,8 +2193,8 @@ float ["CooldownReductionPerCharisma"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCooldownReductionPerCharisma(float statusResistancePerCharisma)
-["CooldownReductionPerCharisma"].set = float statusResistancePerCharisma</pre>
+            <pre>void SetCooldownReductionPerWill(float statusResistancePerWill)
+["CooldownReductionPerWill"].set = float statusResistancePerWill</pre>
         </td>
         <td>
             Server
@@ -2296,14 +2296,14 @@ float ["OriginalManacostReduction"].get</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetBaseManacostReduction()
-    return (1 - pow(1 - self:GetManacostReductionPerCharisma(), self:GetTotalCharismaAttribute())) * 100 
+    return (1 - pow(1 - self:GetManacostReductionPerWill(), self:GetTotalWillAttribute())) * 100 
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetManacostReductionPerCharisma()
-float ["ManacostReductionPerCharisma"].get</pre>
+            <pre>float GetManacostReductionPerWill()
+float ["ManacostReductionPerWill"].get</pre>
         </td>
         <td>
             Both
@@ -2313,8 +2313,8 @@ float ["ManacostReductionPerCharisma"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetManacostReductionPerCharisma(float statusResistancePerCharisma)
-["ManacostReductionPerCharisma"].set = float statusResistancePerCharisma</pre>
+            <pre>void SetManacostReductionPerWill(float statusResistancePerWill)
+["ManacostReductionPerWill"].set = float statusResistancePerWill</pre>
         </td>
         <td>
             Server
@@ -2416,14 +2416,14 @@ float ["OriginalGoldcostReduction"].get</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetBaseGoldcostReduction()
-    return (1 - pow(1 - self:GetGoldcostReductionPerCharisma(), self:GetTotalCharismaAttribute())) * 100 
+    return (1 - pow(1 - self:GetGoldcostReductionPerWill(), self:GetTotalWillAttribute())) * 100 
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetGoldcostReductionPerCharisma()
-float ["GoldcostReductionPerCharisma"].get</pre>
+            <pre>float GetGoldcostReductionPerWill()
+float ["GoldcostReductionPerWill"].get</pre>
         </td>
         <td>
             Both
@@ -2433,8 +2433,8 @@ float ["GoldcostReductionPerCharisma"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetGoldcostReductionPerCharisma(float statusResistancePerCharisma)
-["GoldcostReductionPerCharisma"].set = float statusResistancePerCharisma</pre>
+            <pre>void SetGoldcostReductionPerWill(float statusResistancePerWill)
+["GoldcostReductionPerWill"].set = float statusResistancePerWill</pre>
         </td>
         <td>
             Server
@@ -2658,14 +2658,14 @@ float ["OriginalCastRangeIncrease"].get</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetAttributeCastRangeIncrease()
-    return self:GetCastRangeIncreasePerCharisma() * self:GetTotalCharismaAttribute()
+    return self:GetCastRangeIncreasePerWill() * self:GetTotalWillAttribute()
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetCastRangeIncreasePerCharisma()
-float ["CastRangeIncreasePerCharisma"].get</pre>
+            <pre>float GetCastRangeIncreasePerWill()
+float ["CastRangeIncreasePerWill"].get</pre>
         </td>
         <td>
             Both
@@ -2675,8 +2675,8 @@ float ["CastRangeIncreasePerCharisma"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCastRangeIncreasePerCharisma(float castRangeIncreasePerCharisma)
-["CastRangeIncreasePerCharisma"].set = float castRangeIncreasePerCharisma</pre>
+            <pre>void SetCastRangeIncreasePerWill(float castRangeIncreasePerWill)
+["CastRangeIncreasePerWill"].set = float castRangeIncreasePerWill</pre>
         </td>
         <td>
             Server
@@ -2754,14 +2754,14 @@ float ["OriginalCastRangePercentage"].get</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetAttributeCastRangePercentage()
-    return 100 + self:GetCastRangePercentagePerCharisma() * self:GetTotalCharismaAttribute()
+    return 100 + self:GetCastRangePercentagePerWill() * self:GetTotalWillAttribute()
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetCastRangePercentagePerCharisma()
-float ["CastRangePercentagePerCharisma"].get</pre>
+            <pre>float GetCastRangePercentagePerWill()
+float ["CastRangePercentagePerWill"].get</pre>
         </td>
         <td>
             Both
@@ -2771,8 +2771,8 @@ float ["CastRangePercentagePerCharisma"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCastRangePercentagePerCharisma(float castRangePercentagePerCharisma)
-["CastRangePercentagePerCharisma"].set = float castRangePercentagePerCharisma</pre>
+            <pre>void SetCastRangePercentagePerWill(float castRangePercentagePerWill)
+["CastRangePercentagePerWill"].set = float castRangePercentagePerWill</pre>
         </td>
         <td>
             Server
@@ -2875,14 +2875,14 @@ float ["OriginalCastRadiusPercentage"].get</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:GetAttributeCastRadiusPercentage()
-    return 100 + self:GetCastRadiusPercentagePerCharisma() * self:GetTotalCharismaAttribute()
+    return 100 + self:GetCastRadiusPercentagePerWill() * self:GetTotalWillAttribute()
 end</pre>
         </td>
     </tr>
     <tr>
         <td>
-            <pre>float GetCastRadiusPercentagePerCharisma()
-float ["CastRadiusPercentagePerCharisma"].get</pre>
+            <pre>float GetCastRadiusPercentagePerWill()
+float ["CastRadiusPercentagePerWill"].get</pre>
         </td>
         <td>
             Both
@@ -2892,8 +2892,8 @@ float ["CastRadiusPercentagePerCharisma"].get</pre>
     </tr>
     <tr>
         <td>
-            <pre>void SetCastRadiusPercentagePerCharisma(float castRadiusPercentagePerCharisma)
-["CastRadiusPercentagePerCharisma"].set = float castRadiusPercentagePerCharisma</pre>
+            <pre>void SetCastRadiusPercentagePerWill(float castRadiusPercentagePerWill)
+["CastRadiusPercentagePerWill"].set = float castRadiusPercentagePerWill</pre>
         </td>
         <td>
             Server

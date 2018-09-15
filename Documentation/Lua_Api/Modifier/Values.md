@@ -57,13 +57,13 @@ int GetBonusIntelligence()
 ```
 Default: `nil` or `0`
 
-### Get Bonus Charisma
+### Get Bonus Will
 Each points give:
 - 1 Cast Range Increase
 - 0.20% Magic Resistance
 - 0.10% Cooldown Reduction
 ```
-int GetBonusCharisma()
+int GetBonusWill()
 ```
 Default: `nil` or `0`
 

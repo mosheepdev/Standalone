@@ -72,8 +72,8 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) Attribute::INTELLIGENCE);
             lua_setglobal(_Lua, "ATTRIBUTE_INTELLIGENCE");
 
-            lua_pushinteger(_Lua, (int) Attribute::CHARISMA);
-            lua_setglobal(_Lua, "ATTRIBUTE_CHARISMA");
+            lua_pushinteger(_Lua, (int) Attribute::WILL);
+            lua_setglobal(_Lua, "ATTRIBUTE_WILL");
 
             lua_pushinteger(_Lua, (int) Attribute::_COUNT);
             lua_setglobal(_Lua, "ATTRIBUTE__COUNT");
@@ -240,7 +240,11 @@ bool Game::InitLua()
 
     // Open custom libraries
     {
-
+        // Math
+        {
+            lua_getglobal(_Lua, "math");
+            lua_setglobal(_Lua, "Math");
+        }
     }
 
     return true;

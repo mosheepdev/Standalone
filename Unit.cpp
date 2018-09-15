@@ -91,7 +91,7 @@ int Unit::GetBonusIntelligenceAttribute()
     return bonus;
 }
 
-int Unit::GetBonusCharismaAttribute()
+int Unit::GetBonusWillAttribute()
 {
     int modifierCount = 0;
     Modifier **modifiers = GetAllModifiers(&modifierCount);
@@ -100,7 +100,7 @@ int Unit::GetBonusCharismaAttribute()
 
     int bonus = 0;
     for(int i = 0; i < modifierCount; i++)
-        bonus += modifiers[i]->GetBonusCharisma();
+        bonus += modifiers[i]->GetBonusWill();
     return bonus;
 }
 

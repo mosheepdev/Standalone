@@ -2,8 +2,8 @@
 
 Items are buyable things which provide bonuses to their wielders.
 
-Effect of same items **does not stack** until stated otherwise.
-A lot of effects (Health Bonus, Damage Bonus, Armor, Attributes...) from same type of items always stacks.
+Special effects of same items **does not stack** until stated otherwise (like critics).
+
 Most items with active effect go on cooldown on all types when used.
 
 ## Defensive
@@ -12,10 +12,8 @@ Most items with active effect go on cooldown on all types when used.
 
 - Buckler
   - Damage Block
-  - *Stacks*
 - Chainmail
   - Armor
-  - *Stacks*
 - Cape of Apprentice
   - Magic Resistance
 - ?
@@ -27,28 +25,25 @@ Most items with active effect go on cooldown on all types when used.
 - Dragon Shield
   - Damage Block
   - Health Regeneration
-  - *Stacks*
   - Made of Dragon Egg Shell (Empty)
 - Tower Shield
   - Damage Block
   - Armor
-  - *Stacks*
 - Platemail
   - Armor
   - Health
-  - *Stacks*
 - ?
   - Flat damage to attacker on hit
+    - Separated instances
   - Armor
-  - *Stacks*, separated instances
 - ?
-  - Damage Reflection
+  - Damage Reflection when active
+    - Only 1 Instance
+    - Limited by cooldown
   - Health
-  - *Stacks*, separated instances
 - ?
   - Magic Resistance
   - Mana Regeneration
-  - *Stacks*
 - ?
   - Single Target (ally or self)
   - Hard Dispell
@@ -85,7 +80,7 @@ Most items with active effect go on cooldown on all types when used.
 
 - Criticalis
   - Critical Hits
-  - *Stacks*, Works separated, highest Critical Damage wins
+  - Works separated, highest Critical Damage wins
 - Skull Crasher
   - Bash Chance
 - ?
@@ -93,24 +88,25 @@ Most items with active effect go on cooldown on all types when used.
   - Does not stack on target from multiple attackers
 - ?
   - Higher-chance Critical Hits
-  - *Stacks*, Works separated, highest Critical Damage wins
+  - Works separated, highest Critical Damage wins
 - Excalibur
   - Damage
   - Minor Attack Speed Slow on hit
-  - *Stacks*
+    - Only 1 instance of the slow 
 - ?
   - Releases jumping lighting
+    - Separated chances for each item
   - Attack Speed
-  - *Stacks*, separated chances
 - ?
  - Cleave
-  - *Stacks*, separated instances
+  - Separated damage instances for each item
 - ?
   - Chance to soft dispell on target
-  - *Stacks*, separated chances 
+    - Also deals pure damage
+  - Separated chances, only 1 proc
 - ?
-  - Attack Speed
-  - Movement Speed
+  - Flat Attack Speed
+  - Flat Movement Speed (Stacks)
 - ?
   - Active
   - Maximum Attack Speed for `X` seconds or `Y` attacks 
@@ -211,8 +207,12 @@ All consumable items are considered "Basic" and cannot be upgraded (by other ite
   - Instant Mana
 - ?
   - Vision Ward
+  - Limited Duration
 - ?
   - Reveal Ward
+  - Limited Duration
+- ?
+  - Temporary AoE Reveal Debuff
 
 ## Attribute
 
@@ -222,32 +222,37 @@ Used in recipes but cannot be upgraded with [Cores](Core.md).
 ### Strength
 
 - ? (+3) `120`
-- ? (+5)
-- ? (+10)
+- ? (+5) `450`
+- ? (+10) `1,000`
+- ? (+25) `2,650`
 
 ### Agility
 
 - ? (+3) `120`
-- ? (+5)
-- ? (+10)
+- ? (+5) `450`
+- ? (+10) `1,000`
+- ? (+25) `2,650`
 
 ### Intelligence
 
 - ? (+3) `120`
-- ? (+5)
-- ? (+10)
+- ? (+5) `450`
+- ? (+10) `1,000`
+- ? (+25) `2,650`
 
-### Charisma
+### Will
 
 - ? (+3) `120`
-- ? (+5)
-- ? (+10)
+- ? (+5) `450`
+- ? (+10) `1,000`
+- ? (+25) `2,650`
 
 ### All
 
 - ? (+1) `90`
-- ? (+5)
-- ? (+10)
+- ? (+5) `1,00`
+- ? (+10) `3,250`
+- ? (+25) `7,100`
 
 ## Special
 

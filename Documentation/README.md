@@ -6,6 +6,8 @@ Documentation an all [Lua](https://www.lua.org/) API.
 ## [Gui](Gui/README.md)
 Documentation on XML and CSS style GUI.
 
+## [Mechanics](Mechanics/README.md)
+
 ## [Tutorials](Tutorials/README.md)
 
 ## Integration

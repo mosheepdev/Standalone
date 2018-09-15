@@ -51,3 +51,14 @@
   - Boss
   - Building
 - Tree
+
+## Levels
+
+| Type | Levels |
+|------|:------:|
+| Hero - Normal | 6 |
+| Hero - Ultimate | 4 |
+| Boss | 5 |
+| Creep | 1 |
+
+Required levels for Hero Abilities are at [Levels](Levels.md) page.

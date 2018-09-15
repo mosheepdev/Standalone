@@ -505,10 +505,10 @@ All directories below start from Addon's base directory.
     </tr>
 </table>
 
-To link default abilities, items, modifiers and units, there are 2 groups of functions.
+To link default abilities, items, modifiers and units, use functions below.
 
 All default abilities (and items) have their modifiers referenced (or even implemented) in respective LUA file.
-Therefore, `LinkDefault___Modifier(string)` and `LinkDefault___Modifiers()` will not link them.
+Therefore, `LinkDefaultModifier(string)` and `LinkDefaultModifiers()` will not link them.
 
 <table>
     <tr>
@@ -519,15 +519,7 @@ Therefore, `LinkDefault___Modifier(string)` and `LinkDefault___Modifiers()` will
     </tr>
     <tr>
         <td>
-            <pre>void LinkDefaultMoba()
-void LinkDefaultMobaAbilities()
-void LinkDefaultMobaAbility(string name)
-void LinkDefaultMobaItems()
-void LinkDefaultMobaItem(string name)
-void LinkDefaultMobaModifiers()
-void LinkDefaultMobaModifier(string name)
-void LinkDefaultMobaUnits()
-void LinkDefaultMobaUnit(string name)</pre>
+            <pre>void LinkDefault()</pre>
         </td>
         <td>
             Both
@@ -537,15 +529,41 @@ void LinkDefaultMobaUnit(string name)</pre>
     </tr>
     <tr>
         <td>
-            <pre>void LinkDefaultAngelArena()
-void LinkDefaultAngelArenaAbilities()
-void LinkDefaultAngelArenaAbility(string name)
-void LinkDefaultAngelArenaItems()
-void LinkDefaultAngelArenaItem(string name)
-void LinkDefaultAngelArenaModifier()
-void LinkDefaultAngelArenaModifier(string name)
-void LinkDefaultAngelArenaUnits()
-void LinkDefaultAngelArenaUnit(string name)</pre>
+            <pre>void LinkDefaultAbilities()
+void LinkDefaultAbility(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkDefaultItems()
+void LinkDefaultItem(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkDefaultModifiers()
+void LinkDefaultModifier(string name)</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LinkDefaultUnits()
+void LinkDefaultUnit(string name)</pre>
         </td>
         <td>
             Both

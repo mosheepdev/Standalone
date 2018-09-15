@@ -2,12 +2,16 @@
 
 **DEVELOPMENT HALTED**
 
-Reason is that I am working alone on this with minimum help while Thinking Bottle has full team of ` !@#$%^ `.
+I spend far too much time on this and what will be the result?
 
-I spend far too much time on this and it will result in nothing.
-At least I learned how to work with LUA.
 
-I am not saying that I will not return to this... but I won't.
+
+Because of lack of better project, I am continuing on this.
+Maybe rework the original idea of this project?
+
+Next days will decide.
+
+I will keep this as "halted" until I decide future of this project.
 
 ---
 

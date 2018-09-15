@@ -7,7 +7,7 @@
 ## Statistics
 
 | Key | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 |
-|-----|--------|--------|--------|--------|--------|
+|-----|:------:|:------:|:------:|:------:|:------:|
 | Health | 6,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | Mana | `None`
 | All Damage Resistance | 0% | 0% | 5% | 5% | 10% |
@@ -27,7 +27,7 @@ Can deal damage to self and allies.
 Dynamite
 
 | Key | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 |
-|-----|--------|--------|--------|--------|--------|
+|-----|:------:|:------:|:------:|:------:|:------:|
 | Cooldown | 10 |
 | Air Time | 0.2 |
 | Delay | 0.5 | 0.5 | 0.4 | 0.2 | 0 |
@@ -38,7 +38,7 @@ Dynamite
 Falling Rocks
 
 | Key | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 |
-|-----|--------|--------|--------|--------|--------|
+|-----|:------:|:------:|:------:|:------:|:------:|
 | Delay | 2 |
 | Falling Radius | 500 |
 | Falling Duration | 2 | 4 | 6 | 8 | 10 |
@@ -56,7 +56,18 @@ Chance to push hit enemy back and deal additional `Physical` damage.
 Hit enemies can still act during the push.
 
 | Key | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 |
-|-----|--------|--------|--------|--------|--------|
+|-----|:------:|:------:|:------:|:------:|:------:|
 | Chance | 10% | 20% | 35% | 50% | 75% |
 | Distance | 200 |
 | Bonus Damage | 50 | 100 | 200 | 300 | 500 |
+
+### Mining Experience
+
+When hit by a targeted spell, gains Magic Resistance, Status Resistance and Armor.
+
+| Key | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 |
+|-----|:------:|:------:|:------:|:------:|:------:|
+| Duration | 4 |
+| Magic Resistance | 10% | 20% | 30% | 40% | 50% |
+| Status Resistance | 10% | 20% | 30% | 40% | 50% |
+| Armor | 15 | 30 | 75 | 120 | 200 |
