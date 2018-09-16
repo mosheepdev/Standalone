@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#include "Lua/lua.hpp"
+#include <lua5.3/lua.hpp>
 #include "Enums.h"
 #include "Utils.h"
 

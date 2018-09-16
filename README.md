@@ -43,7 +43,6 @@ This project is made by small group of friends.
 Any help is welcomed.
 Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
 
-
 ## Important links
 
 - [Documentation](Documentation/README.md)
@@ -59,7 +58,7 @@ Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
 - [OpenGL](https://www.opengl.org/) - 3D Rendering
 - [GLEW](http://glew.sourceforge.net/) - OpenGL Extension Wrangler
 - [GLM](https://glm.g-truc.net/) - OpenGL Mathematics
-- [LUA](https://www.lua.org/) - Scripting Language (Modified)
+- [LUA](https://www.lua.org/) 5.3 - Scripting Language
 
 ## Command-Line Arguments
 
