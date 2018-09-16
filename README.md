@@ -15,7 +15,7 @@ Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
 ## Game Modes
 
 - Moba ([DotA](https://en.wikipedia.org/wiki/Defense_of_the_Ancients))
-- Arena (Similar to [Warcraft 3](https://en.wikipedia.org/wiki/Warcraft_III:_Reign_of_Chaos)' [Angel Arena](https://gaming-tools.com/warcraft-3/angel-arena/))
+- Arena (Similar to [Warcraft 3](https://en.wikipedia.org/wiki/Warcraft_III:_Reign_of_Chaos)'s [Angel Arena](https://gaming-tools.com/warcraft-3/angel-arena/))
 
 ## Concepts
 - [Items](Designs/Item/README.md)
@@ -28,11 +28,13 @@ Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
 
 | Name | Progress | Priority |
 |------|---------:|:--------:|
-| English  |   0% |   High   |
+| English  |  WIP |   High   |
 | Czech    |   0% |  Normal  |
 | Russian  |   0% |   Low    |
 | Japanese |   0% |   Low    |
 | Chinese  |   0% |   Low    |
+
+Czech has `Normal` priority instead of `Low` because we can do that one ourselves.
 
 ## Contributors
 
