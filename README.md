@@ -41,6 +41,16 @@ Because I (Abit Gray) did not get into [Thinking Bottle](https://www.thinkingbot
 
 My view at OAA itself and their ideas about Standalone is at [`OAA.md`](OAA.md). 
 
+## Languages
+
+| Name | Progress | Priority |
+|------|---------:|:--------:|
+| English  |   0% |   High   |
+| Czech    |   0% |  Normal  |
+| Russian  |   0% |   Low    |
+| Japanese |   0% |   Low    |
+| Chinese  |   0% |   Low    |
+
 ## Contributors
 
 This is currently Single-person project of [Abit Gray](https://github.com/AbitTheGray/).
