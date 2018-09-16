@@ -1,0 +1,13 @@
+"Ability"
+{
+    "Hero"
+    {
+        "Mori"
+        {
+            "Moment_Before_Death"
+            {
+                "Name"                          "Moment Before Death"
+            }
+        }
+    }
+}

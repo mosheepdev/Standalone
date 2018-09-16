@@ -11,16 +11,16 @@ void Events.RegisterListener(Modifier modifier, string eventName, function callb
 ```
 void Callback(table event)
 ```
-`event` will alway contain `.name` equal to `eventName`
+`event` will __always__ contain `.name` equal to `eventName`
 
 #### Usage
 ```lua
-Events.RegisterListener(self, "game.start", function(event) print("Game Start") end)
+Events.RegisterListener(self, "Game.Start", function(event) print("Game Started") end)
 
 function OnGameEnd(event)
-    print("Game End") 
+    print("Game Ended") 
 end
-Events.RegisterListener(self, "game.end", OnGameEnd)
+Events.RegisterListener(self, "Game.End", OnGameEnd)
 ```
 
 ### Call Event
@@ -31,7 +31,7 @@ void Events.CallEvent(string eventName, table eventData)
 
 #### Usage
 ```lua
-Events.CallEvent("custom.tick", {})
+Events.CallEvent("Custom.Tick", {})
 ```
 
 ### Remove All Listeners
@@ -48,43 +48,43 @@ void Events.RemoveAllListeners(Modifier modifier, string eventName)
 ```lua
 Events.RemoveAllListeners(self)
 
-Events.RemoveAllListeners(self, "game.start")
+Events.RemoveAllListeners(self, "Game.Start")
 ```
 
 ## All Default Events
 
 - **game**
-  - `game.start`
-  - `game.end`
+  - `Game.Start`
+  - `Game.End`
     - `float time` = total time in seconds of the game
-  - `game.tick` = may have different tick rate on client and server
+  - `Game.Tick` = may have different tick rate on client and server
 - **unit**
-  - `unit.create` = unit created but not yet spawned
+  - `Unit.Create` = unit created but not yet spawned
     - `Unit unit`
-  - `unit.spawn` = unit spawned
+  - `Unit.Spawn` = unit spawned
     - `Unit unit`
-  - `unit.death` = unit died
+  - `Unit.Death` = unit died
     - `Unit unit`
     - `Unit killerUnit`
-  - `unit.cast.start` = unit started casting an ability
+  - `Unit.Cast.Start` = unit started casting an ability
     - `Unit unit`
     - `Ability ability`
     - `vec3 targetPosition`
     - `vec3 direction`
     - `Unit targetUnit`
-  - `unit.cast.end` = unit casted ability
+  - `Unit.Cast.End` = unit casted ability
     - `Unit unit`
     - `Ability ability`
     - `vec3 targetPosition`
     - `vec3 direction`
     - `Unit targetUnit`
-  - `unit.cast.channel.start` = unit started channeling
+  - `Unit.Cast.Channel.Start` = unit started channeling
     - `Unit unit`
     - `Ability ability`
     - `vec3 targetPosition`
     - `vec3 direction`
     - `Unit targetUnit`
-  - `unit.cast.channel.end` = unit ended channeling
+  - `Unit.Cast.Channel.End` = unit ended channeling
     - `Unit unit`
     - `Ability ability`
     - `vec3 targetPosition`
@@ -93,19 +93,19 @@ Events.RemoveAllListeners(self, "game.start")
     - `float elapsedDuration`
     - `bool fullDuration` = false if stopped by user or other interrupt
 - **hero**
-  - all from **unit** but replace `unit.` by `hero.`
-  - `hero.intentory.change`
+  - all from **unit** but replace `Unit.` by `Hero.`
+  - `Hero.Intentory.Change`
     - `Unit unit`
-  - `hero.intentory.drop` = on item drop
+  - `Hero.Intentory.Drop` = on item drop
     - `Unit unit`
     - `Item item`
 - **boss**
-  - all from **unit** but replace `unit.` by `hero.`
+  - all from **unit** but replace `Unit.` by `Boss.`
 - hero_picking
-  - `hero_picking.select`
+  - `Hero_Picking.Select`
     - `string heroName` = unit name of the selected hero
-  - `hero_picking.pick`
+  - `Hero_Picking.Pick`
     - `string heroName` = unit name of the selected hero
     - `bool random` = `true` if hero was assigned by random (either by RANDOM button or time-out) 
-  - `hero_picking.ban`
+  - `Hero_Picking.Ban`
     - `string heroName` = unit name of the banned hero

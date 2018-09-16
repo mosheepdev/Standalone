@@ -1,0 +1,13 @@
+"Ability"
+{
+    "Hero"
+    {
+        "Sniper"
+        {
+            "Military_Ammo"
+            {
+                "Name"                          "Military Ammo"
+            }
+        }
+    }
+}

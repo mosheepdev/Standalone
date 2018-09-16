@@ -20,16 +20,16 @@ Those caught in can be moved in time.
 | Will         |    13    | 1.7  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    800     |
-| Attack Type      |   Ranged   |
-| Projectile Speed |  Instant   |
-| Vision           | 1600 / 800 |
-| Damage           |  32 - 34   |
-| Base Attack Time |    1.9     |
-| Movement Speed   |    280     |
-| Original Armor   |      0     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     800     |
+| Attack Type      |    Ranged   |
+| Projectile Speed |   Instant   |
+| Vision           | 1,600 / 800 |
+| Damage           |   32 - 34   |
+| Base Attack Time |     1.9     |
+| Movement Speed   |     280     |
+| Original Armor   |      0      |
 
 ## Abilities
 
@@ -55,11 +55,7 @@ Notes:
 - Can target:
   - Creeps
   - Neutrals
-  - Bosses
 - Has same `Cast Range` as hero's current `Vision Range`
-
-Talents:
-- Can target buildings
 
 ### Medical Training
 
@@ -92,7 +88,7 @@ Some special ammo are... more effective then the others.
 
 | Key | Value |
 |-----|:-----:|
-| Manacost | 10 |
+| Manacost | 25 |
 | Bonus Damage | 10 / 25 / 35 / 60 / 100 / 160 |
 
 Lore: `Dum Dum!`
@@ -123,6 +119,6 @@ Notes:
 | 10 | ? | ? |
 | 15 | ? | ? |
 | 20 | ? | ? |
-| 25 | ? | ? |
-| 30 | ? | ? |
+| 25 | +200 `Long Barrel` Increase | +100 `Military Ammo` Damage |
+| 30 | `Mark` can target Bosses and Buildings | ? |
 

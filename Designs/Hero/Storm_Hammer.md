@@ -21,16 +21,16 @@ Used to be killing Dragons in past.
 | Will         |    11    | 1.7  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    150     |
-| Attack Type      |   Melee    |
-| Projectile Speed |     -      |
-| Vision           | 1600 / 800 |
-| Damage           |  25 - 29   |
-| Base Attack Time |    1.7     |
-| Movement Speed   |    285     |
-| Original Armor   |      0     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     150     |
+| Attack Type      |    Melee    |
+| Projectile Speed |      -      |
+| Vision           | 1,600 / 800 |
+| Damage           |   25 - 29   |
+| Base Attack Time |     1.7     |
+| Movement Speed   |     285     |
+| Original Armor   |      0      |
 
 ## Abilities
 

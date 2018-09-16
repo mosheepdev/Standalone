@@ -11,10 +11,71 @@
                 "Demons"                "5"
             }
             "Map"                       "Moba"
-            "Script_File"               "Addon_Moba_Unranked.lua"
+            "Script_File"               "Addon_Unranked.lua"
             "Allowed_In_Debug"          "Yes"
             "Twitch_Chat"               "Yes"
             "Dedicated_Server"          "No"
+
+            Options
+            {
+                "Allow_Cheats"
+                {
+                    "Default"           "No"
+                    "Type"              "Boolean"
+                }
+
+                "Gold_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+                "Experience_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+            }
+        }
+        "Moba - 10v10"
+        {
+            "Teams"
+            {
+                "Angels"                "10"
+                "Demons"                "10"
+            }
+            "Map"                       "Moba_10v10"
+            "Script_File"               "Addon_Unranked.lua"
+            "Allowed_In_Debug"          "Yes"
+            "Twitch_Chat"               "Yes"
+            "Dedicated_Server"          "No"
+
+            Options
+            {
+                "Allow_Cheats"
+                {
+                    "Default"           "No"
+                    "Type"              "Boolean"
+                }
+
+                "Gold_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+                "Experience_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+            }
         }
         "Moba - Ranked"
         {
@@ -25,64 +86,195 @@
             }
             "Map"                       "Moba"
             "Respect_Party"             "True"
-            "Script_File"               "Addon_Moba_Ranked.lua"
+            "Script_File"               "Addon_Ranked.lua"
             "Allowed_In_Debug"          "No"
             "Twitch_Chat"               "No"
             "Dedicated_Server"          "Require"
-        }
-        "Moba - Debug"
-        {
-            "Teams"
-            {
-                "Angels"                "5"
-                "Demons"                "5"
-            }
-            "Map"                       "Test_Moba"
-            "Script_File"               "Addon_Moba_Test.lua"
-            "Allowed_In_Debug"          "Only"
-            "Twitch_Chat"               "No"
-            "Dedicated_Server"          "No"
+
+            "Allow_Cheats"              "No"
+
+            "Gold_Multiplier"           "100"
+            "Experience_Multiplier"     "100"
         }
 
-        "AA - Unranked"
+        "Arena - Unranked"
         {
             "Teams"
             {
                 "Angels"                "5"
                 "Demons"                "5"
             }
-            "Map"                       "Aa"
-            "Script_File"               "Addon_AA_Unranked.lua"
+            "Map"                       "Arena"
+            "Script_File"               "Addon_Unranked.lua"
             "Allowed_In_Debug"          "Yes"
             "Twitch_Chat"               "Yes"
             "Dedicated_Server"          "No"
+
+            Options
+            {
+                "Allow_Cheats"
+                {
+                    "Default"           "No"
+                    "Type"              "Boolean"
+                }
+
+                "Kill_Limit"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "300"
+                }
+                "Kill_Limit_Increase"
+                {
+                    "Default"           "10"
+                    "Type"              "Integer"
+                    "Min"               "1"
+                    "Max"               "50"
+                }
+
+                "Gold_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+                "Experience_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+            }
         }
-        "AA - Ranked"
+        "Arena - 10v10"
+        {
+            "Teams"
+            {
+                "Angels"                "10"
+                "Demons"                "10"
+            }
+            "Map"                       "Arena_10v10"
+            "Script_File"               "Addon_Unranked.lua"
+            "Allowed_In_Debug"          "Yes"
+            "Twitch_Chat"               "Yes"
+            "Dedicated_Server"          "No"
+
+            Options
+            {
+                "Allow_Cheats"
+                {
+                    "Default"           "No"
+                    "Type"              "Boolean"
+                }
+
+                "Kill_Limit"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "300"
+                }
+                "Kill_Limit_Increase"
+                {
+                    "Default"           "10"
+                    "Type"              "Integer"
+                    "Min"               "1"
+                    "Max"               "50"
+                }
+
+                "Gold_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+                "Experience_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+            }
+        }
+        "Arena - Ranked"
         {
             "Teams"
             {
                 "Angels"                "5"
                 "Demons"                "5"
             }
-            "Map"                       "Aa"
+            "Map"                       "Arena"
             "Respect_Party"             "True"
-            "Script_File"               "Addon_AA_Ranked.lua"
+            "Script_File"               "Addon_Ranked.lua"
             "Allowed_In_Debug"          "No"
             "Twitch_Chat"               "No"
             "Dedicated_Server"          "Require"
+
+            "Allow_Cheats"              "No"
+
+            "Kill_Limit"                "100"
+            "Kill_Limit_Increase"       "10"
+
+            "Gold_Multiplier"           "100"
+            "Experience_Multiplier"     "100"
         }
-        "AA - Debug"
+
+        "Test Map"
         {
             "Teams"
             {
                 "Angels"                "5"
                 "Demons"                "5"
             }
-            "Map"                       "Test_Aa"
-            "Script_File"               "Addon_AA_Test.lua"
+            "Map"                       "Test"
+            "Script_File"               "Addon_Test.lua"
             "Allowed_In_Debug"          "Only"
             "Twitch_Chat"               "No"
             "Dedicated_Server"          "No"
+
+            Options
+            {
+                "Allow_Cheats"
+                {
+                    "Default"           "No"
+                    "Type"              "Boolean"
+                }
+
+                "Kill_Limit"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "300"
+                }
+                "Kill_Limit_Increase"
+                {
+                    "Default"           "10"
+                    "Type"              "Integer"
+                    "Min"               "1"
+                    "Max"               "50"
+                }
+
+                "Gold_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+                "Experience_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+            }
         }
     }
 }

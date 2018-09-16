@@ -19,16 +19,16 @@ Cute feral [Snow Leopard](https://en.wikipedia.org/wiki/Snow_leopard).
 | Will         |    13    | 1.7  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    150     |
-| Attack Type      |   Melee    |
-| Projectile Speed |     -      |
-| Vision           | 1600 / 800 |
-| Damage           |  25 - 31   |
-| Base Attack Time |    1.7     |
-| Movement Speed   |    300     |
-| Original Armor   |      1     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     150     |
+| Attack Type      |    Melee    |
+| Projectile Speed |      -      |
+| Vision           | 1,600 / 800 |
+| Damage           |   25 - 31   |
+| Base Attack Time |     1.7     |
+| Movement Speed   |     300     |
+| Original Armor   |      1      |
 
 ## Abilities
 

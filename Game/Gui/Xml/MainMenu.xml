@@ -1,9 +1,10 @@
-<Gui scriptClass="MainMenu" styleFile="MainMenu.css">
-    <!-- Button to start OAA -->
-    <Button id="button_play_oaa" tabIndex="0" text="translate/gui_play_oaa" onClick="PlayOaa()"/>
+<Gui ScriptClass="MainMenu" StyleFile="MainMenu.css">
+    <!-- Button to start Arena -->
+    <Button Id="Button_Play_Arena" TabIndex="0" Text="Gui.Play." OnClick="PlayArena()"/>
+    <Button Id="Button_Play_Moba" TabIndex="0" Text="Gui.Play." OnClick="PlayMoba()"/>
 
     <!-- Chat window -->
-    <Chat id="chat" tabIndex="1"/>
+    <Chat Id="Chat" TabIndex="1"/>
 
     <!-- Information about current user -->
     <Panel>

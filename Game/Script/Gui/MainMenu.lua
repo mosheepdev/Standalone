@@ -1,4 +1,4 @@
-MainMenu = class(Gui)
+local MainMenu = Gui("MainMenu")
 
 function MainMenu:Init()
 end

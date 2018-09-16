@@ -34,15 +34,15 @@ Wields dagger in main hand and whip in offhand (in male form whip in main hand a
 | Will         |    27    | 2.8  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    600     |
-| Attack Type      |   Ranged   |
-| Vision           | 1600 / 800 |
-| Damage           |  23 - 29   |
-| Base Attack Time |    1.6     |
-| Movement Speed   |    305     |
-| Original Armor   |   -0.5     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     600     |
+| Attack Type      |    Ranged   |
+| Vision           | 1,600 / 800 |
+| Damage           |   23 - 29   |
+| Base Attack Time |     1.6     |
+| Movement Speed   |     305     |
+| Original Armor   |    -0.5     |
 
 ## Abilities
 

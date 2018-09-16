@@ -19,16 +19,16 @@ Evolves over time
 | Will         |    19    | 1.5  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    150     |
-| Attack Type      |   Melee    |
-| Projectile Speed |     -      |
-| Vision           | 1600 / 800 |
-| Damage           |  19 - 25   |
-| Base Attack Time |    1.8     |
-| Movement Speed   |    285     |
-| Original Armor   |     2      |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     150     |
+| Attack Type      |    Melee    |
+| Projectile Speed |      -      |
+| Vision           | 1,600 / 800 |
+| Damage           |   19 - 25   |
+| Base Attack Time |     1.8     |
+| Movement Speed   |     285     |
+| Original Armor   |      2      |
 
 ## Abilities
 

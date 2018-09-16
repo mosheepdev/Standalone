@@ -19,16 +19,16 @@ Sex: `Male`
 | Will         |    17    | 1.6  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    120     |
-| Attack Type      |   Melee    |
-| Projectile Speed |     -      |
-| Vision           | 1400 / 700 |
-| Damage           |  31 - 34   |
-| Base Attack Time |    1.7     |
-| Movement Speed   |    280     |
-| Original Armor   |     0      |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     120     |
+| Attack Type      |    Melee    |
+| Projectile Speed |      -      |
+| Vision           | 1,400 / 700 |
+| Damage           |   31 - 34   |
+| Base Attack Time |     1.7     |
+| Movement Speed   |     280     |
+| Original Armor   |      0      |
 
 ## Abilities
 

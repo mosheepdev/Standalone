@@ -1,0 +1,13 @@
+"Ability"
+{
+    "Hero"
+    {
+        "Sniper"
+        {
+            "Mark"
+            {
+                "Name"                          "Mark"
+            }
+        }
+    }
+}

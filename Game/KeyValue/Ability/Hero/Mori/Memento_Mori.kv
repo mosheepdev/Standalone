@@ -3,23 +3,64 @@
     "Memento_Mori"
     {
         "Script_File"                   "Ability/Hero/Mori/Memento_Mori.lua"
-        "Max_Level"                     "3"
+        "Max_Level"                     "4"
         "Levels"
         {
             "1"                         "6"
             "2"                         "12"
             "3"                         "18"
+            "4"                         "28"
         }
 
         "Ability_Type"                  "Ultimate"
 
         "Values"
         {
-            "Respawn_Time_Percentage"   "75"
+            "Hero_Bonus"                "10 20 30 40"
+            "Boss_Bonus"                "20 40 70 100"
+            "Creep_Bonus"               "1 1 2 3"
+            "Bonus_Duration"            "30"
 
-            "Ghost_Movement_Speed"      "100 200 300"
-            "Ghost_Vision_Day"          "800 1000 1200"
-            "Ghost_Vision_Night"        "800 1000 1200"
+            "Ally_Shared_Percentage"    "50"
+
+            "Ghost_Movement_Speed"      "100 200 300 400"
+            "Ghost_Vision_Day"          "800 1000 1200 1400"
+            "Ghost_Vision_Night"        "800 1000 1200 1400"
+        }
+    }
+
+    "Memento_Mori_Respawn"
+    {
+        "Script_File"                   "Ability/Hero/Mori/Memento_Mori_Respawn.lua"
+        "Max_Level"                     "1"
+        "Levels"
+        {
+            "1"                         "0"
+        }
+
+        "Ability_Type"                  "Normal"
+
+        "Values"
+        {
+            "Cast_Point"                "0.5"
+        }
+    }
+
+    "Memento_Mori_Call_of_Home"
+    {
+        "Script_File"                   "Ability/Hero/Mori/Memento_Mori_Call_of_Home.lua"
+        "Max_Level"                     "1"
+        "Levels"
+        {
+            "1"                         "0"
+        }
+
+        "Ability_Type"                  "Normal"
+
+        "Values"
+        {
+            "Cast_Point"                "0.5"
+            "Cast_Point"                "4"
         }
     }
 }

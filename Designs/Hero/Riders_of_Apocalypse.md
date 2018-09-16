@@ -25,16 +25,16 @@ Riders are:
 | Will         |    12    | 1.3  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    150     |
-| Attack Type      |   Melee    |
-| Projectile Speed |     -      |
-| Vision           | 1600 / 800 |
-| Damage           |  19 - 25   |
-| Base Attack Time |    1.7     |
-| Movement Speed   |    280     |
-| Original Armor   |     -1     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     150     |
+| Attack Type      |    Melee    |
+| Projectile Speed |      -      |
+| Vision           | 1,600 / 800 |
+| Damage           |   19 - 25   |
+| Base Attack Time |     1.7     |
+| Movement Speed   |     280     |
+| Original Armor   |     -1      |
 
 ## War Abilities
 

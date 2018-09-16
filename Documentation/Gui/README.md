@@ -4,18 +4,18 @@
 
 ### Gui
 ```xml
-<Gui scriptClass="" styleFile="">
+<Gui ScriptClass="" StyleFile="">
 
 </Gui>
 ```
 Root element. Do not use it anywhere else.
 
-Can have attributes `scriptClass` and `styleFile` to define interaction scripts and appearance.
+Can have attributes `ScriptClass` and `StyleFile` to define interaction scripts and appearance.
 This can also be extended by `<Script />` and `<Style />` elements.
 
 ### Script
 ```xml
-<Script scriptClass="" />
+<Script ScriptClass="" />
 ```
 Add LUA script file to affect whole functionality.
 
@@ -23,7 +23,7 @@ All child nodes are ignored.
 
 ### Style
 ```xml
-<Style styleFile="" />
+<Style StyleFile="" />
 ```
 Add CSS file to affect whole design.
 
@@ -40,6 +40,21 @@ Equivalent to HTML's `div`.
 ### Button
 
 ### Text
+
+### Numeric
+```xml
+<Numeric Decimal="0" Min="0" Max="10" Step="1" Value="0"/>
+```
+
+### Slider
+```xml
+<Slider Decimal="0" Min="0" Max="10" Step="1" Value="0" />
+```
+
+### Double Slider
+```xml
+<DoubleSlider Decimal="0" Min="0" Max="10" Step="1" LeftValue="0" RightValue="10" />
+```
 
 ### Image
 

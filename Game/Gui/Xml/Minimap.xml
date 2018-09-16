@@ -1,6 +1,6 @@
-<Gui scriptClass="Minimap" styleFile="Minimap.css">
-    <Panel id="minimap" OnClick="OnMinimapClick" OnPing="OnMinimapPing">
-        <Image id="minimap_background" src="Minimap.png"/>
-        <Panel id="minimap_icons"/>
+<Gui ScriptClass="Minimap" StyleFile="Minimap.css">
+    <Panel Id="Minimap" OnClick="OnMinimapClick" OnPing="OnMinimapPing">
+        <Image Id="Minimap_Background" Src="Minimap.png"/>
+        <Panel Id="Minimap_Icons"/>
     </Panel>
 </Gui>

@@ -1,0 +1,13 @@
+"Ability"
+{
+    "Hero"
+    {
+        "Sniper"
+        {
+            "Medical_Training"
+            {
+                "Name"                          "Medical Training"
+            }
+        }
+    }
+}

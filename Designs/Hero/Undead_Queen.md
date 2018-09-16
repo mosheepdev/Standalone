@@ -21,15 +21,15 @@ Uses her hands as weapons.
 | Will     |    10    | 1.0  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    100     |
-| Attack Type      |   Melee    |
-| Vision           | 1200 / 800 |
-| Damage           |  20 - 21   |
-| Base Attack Time |    1.7     |
-| Movement Speed   |    295     |
-| Original Armor   |      2     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     100     |
+| Attack Type      |    Melee    |
+| Vision           | 1,200 / 800 |
+| Damage           |   20 - 21   |
+| Base Attack Time |     1.7     |
+| Movement Speed   |     295     |
+| Original Armor   |      2      |
 
 ## Abilities
 

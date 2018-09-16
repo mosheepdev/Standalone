@@ -27,16 +27,16 @@ Cosmetics:
 | Will         |    19    | 2.4  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    640     |
-| Attack Type      |   Ranged   |
-| Projectile Speed |   1,000    |
-| Vision           | 1600 / 800 |
-| Damage           |  17 - 19   |
-| Base Attack Time |    1.7     |
-| Movement Speed   |    285     |
-| Original Armor   |   -1.5     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     640     |
+| Attack Type      |    Ranged   |
+| Projectile Speed |    1,000    |
+| Vision           | 1,600 / 800 |
+| Damage           |   17 - 19   |
+| Base Attack Time |     1.7     |
+| Movement Speed   |     285     |
+| Original Armor   |    -1.5     |
 
 ## Abilities
 

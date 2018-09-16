@@ -19,16 +19,16 @@ Wears black suit.
 | Will         |    29    | 2.7  |
 
 
-|    Attribute     |   Value    |
-|------------------|:----------:|
-| Attack Range     |    400     |
-| Attack Type      |   Ranged   |
-| Projectile Speed |    600     |
-| Vision           | 1600 / 800 |
-| Damage           |  21 - 31   |
-| Base Attack Time |    1.5     |
-| Movement Speed   |    310     |
-| Original Armor   |     -2     |
+|    Attribute     |    Value    |
+|------------------|:-----------:|
+| Attack Range     |     400     |
+| Attack Type      |    Ranged   |
+| Projectile Speed |     600     |
+| Vision           | 1,600 / 800 |
+| Damage           |   21 - 31   |
+| Base Attack Time |     1.5     |
+| Movement Speed   |     310     |
+| Original Armor   |     -2      |
 
 ## Abilities
 

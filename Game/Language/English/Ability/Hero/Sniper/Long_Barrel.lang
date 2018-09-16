@@ -1,0 +1,13 @@
+"Ability"
+{
+    "Hero"
+    {
+        "Sniper"
+        {
+            "Long_Barrel"
+            {
+                "Name"                          "Long Barrel"
+            }
+        }
+    }
+}
