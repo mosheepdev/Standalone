@@ -1,45 +1,28 @@
 # Standalone
 
-**DEVELOPMENT HALTED**
+Versatile Game and Custom-game Engine written in [C++](https://en.wikipedia.org/wiki/C%2B%2B).
 
-I spend far too much time on this and what will be the result?
+All game logic (official and custom) is scripted in [LUA](https://www.lua.org/).
+
+This started as own implementation of OAA ([Open Angel Arena](https://github.com/OpenAngelArena/oaa/)) from [Thinking Bottle](https://www.thinkingbottle.com/).
+Started from same idea but this project is going different route from them.
+They have money for development and do it for money. That is not what this projects aims to.
 
 
-
-Because of lack of better project, I am continuing on this.
-Maybe rework the original idea of this project?
-
-Next days will decide.
-
-I will keep this as "halted" until I decide future of this project.
-
----
-
-I am making this as versatile as possible while keeping base mechanics in C++ code.
-That would provide easy support for modders because even the main game (games) will be using the same API and be scripted in LUA.
-
+Still **Work-In-Progress**.
 Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
 
-## Games
+## Game Modes
 
-Because this started as Angel Arena engine, there will be a game for it.
+- Moba ([DotA](https://en.wikipedia.org/wiki/Defense_of_the_Ancients))
+- Arena (Similar to [Warcraft 3](https://en.wikipedia.org/wiki/Warcraft_III:_Reign_of_Chaos)' [Angel Arena](https://gaming-tools.com/warcraft-3/angel-arena/))
 
-I would expect first community-made game be a Moba (DotA = [Defense of the Ancients](https://en.wikipedia.org/wiki/Defense_of_the_Ancients)).
-That means I need to make one myself.
-
-Concepts:
- - [Items](Designs/Item/README.md)
- - Units
-   - [Creeps](Designs/Creep/README.md)
-   - [Heroes](Designs/Hero/README.md)
-   - [Bosses](Designs/Boss/README.md)
-
-## Open Angel Arena
-
-At first, this was my attempt on creating Game Engine for OAA ([Open Angel Arena](https://github.com/OpenAngelArena/oaa/)).
-Because I (Abit Gray) did not get into [Thinking Bottle](https://www.thinkingbottle.com/) Team and before this will be in working stage (`Alpha`), they will have their own at least at same stage.
-
-My view at OAA itself and their ideas about Standalone is at [`OAA.md`](OAA.md). 
+## Concepts
+- [Items](Designs/Item/README.md)
+- Units
+  - [Creeps](Designs/Creep/README.md)
+  - [Heroes](Designs/Hero/README.md)
+  - [Bosses](Designs/Boss/README.md)
 
 ## Languages
 
@@ -53,9 +36,10 @@ My view at OAA itself and their ideas about Standalone is at [`OAA.md`](OAA.md).
 
 ## Contributors
 
-This is currently Single-person project of [Abit Gray](https://github.com/AbitTheGray/).
+This project is made by small group of friends.
 
-Any help is welcomed. 
+Any help is welcomed.
+Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
 
 
 ## Important links
@@ -93,13 +77,14 @@ Any help is welcomed.
 
 ## Usage
 
-Is not in state where it can be run.
+Not even in `Alpha` state yet.
 
 ### Compilation
 
 ```
-
+cmake CMakeLists.txt
 ```
+Is is recommended to compile from [CLion](https://www.jetbrains.com/clion/).
 
 ### Client
 

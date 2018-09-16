@@ -73,6 +73,8 @@ All units attacking the debuffed unit gain:
 | Flat Lifesteal | 10 / 20 / 35 / 60 / 80 / 100 |
 | Attack Speed Bonus | 10 / 20 / 30 / 40 / 55 / 70 |
 | Movement Speed Bonus | 5% / 10% / 15% / 20% / 30% / 40% |
+| Buff Duration | ? |
+| Debuff Duration | ? |
 
 Notes:
 - Does not affect buildings
@@ -91,6 +93,7 @@ A charge is gained for each unit killed by her or unit under her control.
 | Cooldown | ? |
 | Summon Range | 200 |
 | Maximum Skeletons | 2 / 4 / 6 / 8 / 8 / 8 |
+| Summon Duration | ? |
 
 Skeleton Statistics
 
@@ -115,9 +118,11 @@ Note:
 ### Visit from Graves
 **__Ultimate__**
 
-Type: `Enemy Units in AoE`
+Type: `Point AoE`, `Enemy Units`
 
 Calls already dead back to life to keep enemies in place and tear them apart.
+
+Applies Root and Silence to all enemy units in target AoE.
 
 | Key | Value |
 |-----|:-----:|

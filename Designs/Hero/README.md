@@ -1,8 +1,9 @@
 # Hero Designs
 
-For Alpha phase of the game, there should be 5 heroes per each attribute (20 total).
+Ideas for heroes.
+Not all heroes will be available in `Alpha` stage.
 
-| Name | Main Attribute | Attack Type | Sex | Race | Position | Type |
+| Name | Main [Attribute](../../Documentation/Mechanics/Attributes.md) | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:--------------:|:-----------:|:---:|:----:|:--------:|:----:|
 | [Storm Hammer](Storm_Hammer.md) | Strength | ˨ | ♂ | Dwarf | Carry | Auto-Attack |
 | [Undead Queen](Undead_Queen.md) | Strength | ˨ | ♀ | Elf | Tank | Auto-Attack + Summon |
@@ -15,12 +16,13 @@ For Alpha phase of the game, there should be 5 heroes per each attribute (20 tot
 | [Sniper](Sniper.md) | Agility | ⟿ | ♀ | Elf | Carry | Auto-Attack |
 | Hunter | Agility | ˨ | ♂ | Human | Ganker | Auto-Attack + Utility |
 | Water Elemental | Agility | ˨ | ⚪ | Spirit *(Water)* | Carry | Auto-Attack |
+| WereBear | Agility | ˨ | ♂ | Dwarf + Animal | ??? | Auto-Attack + Self-Transformation |
 | | | | |
+| Elemental Mage | Intelligence | ⟿ | ⚪ | Elf | Support | Heal + Utility |
 | [Mori](Mori.md) | Intelligence | ˨ | ⚪ | Spirit *(Death)* | Carry | Auto-Attack |
 | [Plague Doctor](Plague_Doctor.md) | Intelligence | ⟿ | ♂ | Human | Support | Heal + DoT |
 | Wyvern | Intelligence | ⟿ | ♀ | Wyvern | Utility | Spam |
 | ??? | Intelligence | ⟿ | ♀ | Demon | Ganker | Nuke |
-| Elemental Mage | Intelligence | ⟿ | ⚪ | Elf | Support | Heal + Utility |
 | | | | |
 | Ancient Dragon | Will | ⟿ | ♂ | Dragon | Support | Nuker |
 | [Black Jack](Black_Jack.md) | Will | ⟿ | ♂ | Human | Utility Damager | Auto-Attack + Nuke Spell |
@@ -106,7 +108,7 @@ For Alpha phase of the game, there should be 5 heroes per each attribute (20 tot
         - Centered on the hero
         - Pulls all hit units into center
         - Deals pure percentage damage
-- Wyvern
+- WereBear
   - Abilities
     - Q
       - ``
@@ -119,7 +121,9 @@ For Alpha phase of the game, there should be 5 heroes per each attribute (20 tot
         - ?
     - R
       - ``
-        - ?
+        - Passive
+        - Effect during night
+        - Transforms into bear
 - Elemental Mage
   - Q + W + E is 1 spell buffing hero or abilities
     - When 1 is leveled-up, rest is too
@@ -147,6 +151,20 @@ For Alpha phase of the game, there should be 5 heroes per each attribute (20 tot
       - ``
         - ?
     - F
+      - ``
+        - ?
+    - R
+      - ``
+        - ?
+- Wyvern
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
       - ``
         - ?
     - R

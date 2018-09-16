@@ -74,6 +74,7 @@ When unit dies under this effect, looses 1 `Strength` + 1 `Intelligence` and thi
 | Key | Value |
 |-----|:-----:|
 | Damage of Max Health | 0.5% / 1.0% / 1.5% / 2.0% / 2.8% / 3.8% |
+| Radius | ? |
 | Strength Loss | 1 |
 | Intelligence Loss | 1 |
 

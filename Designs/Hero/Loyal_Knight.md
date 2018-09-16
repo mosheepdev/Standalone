@@ -49,14 +49,14 @@ Punches enemy with a shield.
 
 ### Sharp Blade
 
-Type: `Toggle Aura`
+Type: `Toggle Aura`, `Allied Heroes`
 
 
 
 | Key | Value |
 |-----|:-----:|
-| Bonus Damage | ? |
 | Damage Bonus | ? |
+| Radius | ? |
 
 ### Heavy Armor
 
