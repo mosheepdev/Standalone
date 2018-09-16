@@ -416,6 +416,8 @@ To get raw data, use [`GetValueRaw(string)`](#get-value-raw).
 ```
 string GetValue(string key)
 string GetValue(string key, int level)
+string GetValue(string key, string type)
+string GetValue(string key, string type, int level)
 ```
 Implemented as:
 ```lua
