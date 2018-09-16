@@ -63,19 +63,20 @@ Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
 
 ## Command-Line Arguments
 
-|                     Argument                    |               Description            |
-|-------------------------------------------------|--------------------------------------|
-| -h, --help                                      | Display help.                        |
-| -v, --version                                   | Show version info.                   |
-| -d, --debug                                     | Start in debug mode.                 |
-| -s, --server                                    | Start as Dedicated Server.           |
-| --language &lt;name&gt;                         | Start in specified language.         |
-| -f, --fullscreen                                | Start client in Fullscreen mode.     |
-| -w, --windowed                                  | Start client in Windowed mode.       |
-| --resolution &lt;width&gt; &lt;height&gt;       | Start client in Windowed mode.       |
-| --join_lobby &lt;lobby_id&gt;                   | Join specified lobby.                |
-| --join_lobby &lt;lobby_id&gt; &lt;password&gt;  | Join specified lobby using password. |
-| --join_party &lt;party_id&gt;                   | Join specified party.                |
+|                     Argument                    | Description |
+|-------------------------------------------------|-------------|
+| -h, --help                                      | Display help.
+| -v, --version                                   | Show version info.
+| -d, --debug                                     | Start in debug mode.
+| -s, --server                                    | Start as Dedicated Server.
+| --language &lt;name&gt;                         | Start in specified language.
+| -f, --fullscreen                                | Start client in Fullscreen mode.
+| -w, --windowed                                  | Start client in Windowed mode.
+| --resolution &lt;width&gt; &lt;height&gt;       | Start client in Windowed mode.
+| --join_lobby &lt;lobby_id&gt;                   | Join specified lobby.
+| --join_lobby &lt;lobby_id&gt; &lt;password&gt;  | Join specified lobby using password.
+| --join_party &lt;party_id&gt;                   | Join specified party.
+| -e, --editor                                    | Starts [Editor](Documentation/Editor/README.md).
 
 ## Usage
 
