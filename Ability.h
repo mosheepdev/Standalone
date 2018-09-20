@@ -45,6 +45,8 @@ public:
 
     bool IsLearned() { return _Level > 0; }
 
+    virtual int GetMaxLevel();
+
     bool Upgrade();
 
     virtual bool OnUpgrade();
