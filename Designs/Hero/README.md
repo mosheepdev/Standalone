@@ -3,6 +3,8 @@
 Ideas for heroes.
 Not all heroes will be available in `Alpha` stage.
 
+20 heroes (5 per attribute) will be selected for `Alpha` stage and testing. More heroes will be added later.
+
 | Name | Main [Attribute](../../Documentation/Mechanics/Attributes.md) | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:--------------:|:-----------:|:---:|:----:|:--------:|:----:|
 | [Storm Hammer](Storm_Hammer.md) | Strength | ˨ | ♂ | Dwarf | Carry | Auto-Attack |
@@ -199,16 +201,60 @@ Not all heroes will be available in `Alpha` stage.
       - ``
         - ?
     - W
-      - ``
-        - ?
+      - `Life in Wood`
+        - Channeled
+        - Tree Target
+        - Consume tree to teleport to target tree
+        - Short Cast Range
     - E
       - ``
         - ?
     - R
       - ``
         - ?
+- Flag Bearer
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - `Charge`
+        - Directional
+        - Rectangle
+          - Line start
+        - Stun
+        - AoE Damage
+- Phoenix
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - `Sun Burn`
+        - Toggle
+        - AoE Damage
+        - Deals damage to caster
+    - R
+      - `Living Flame`
+        - Passive
+        - High Cooldown
+        - Revives after death
+        - Deals AoE stun and damage (explosion) on revive
+        
+## Ability Ideas
+
+- Botany Bay
+- Morality
 
 ## Think About
 - Detection spells
-- Change from 20 Heroes (5+5+5+5) to 24 (6+6+6+6) or 28 (7+7+7+7)
 - Rework [Riders of Apocalypse](Riders_of_Apocalypse.md)
