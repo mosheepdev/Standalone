@@ -309,6 +309,38 @@ Not all heroes will be available in `Alpha` stage.
     - R
       - ``
         - ?
+- Living Armor
+  - `Strength`
+  - High Attack Time (2.0)
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - `Possesion`
+        - Single Target
+          - Allied unit, Neutral creep
+          - Links to target
+            - Moves along with the unit
+          - Can control creeps
+          - Does not work on bosses
+          - Higher-level creep on talent
+        -  Passive
+          - Takes 50% of damage to the target
+            - Can be increased to 75% by talent
+            - Takes 100% of damage on creeps
+          - Shares Attack Type (Melee / Ranged) with the host
+            - While on creep, deals attack for the creep and then self
+            - On hero, attack is independent on the host
+              - Can be changed by talent to also attack with the hero 
+    - R
+      - `Symbiosis`
+        - Health regeneration
+        - Armor
+        - All health gain (health regen + heal) is also applied to the host (percentage?)
         
 ## Ability Ideas
 
