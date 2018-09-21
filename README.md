@@ -26,15 +26,19 @@ Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
 
 ## Languages
 
-| Name | Progress | Priority |
-|------|---------:|:--------:|
-| English  |  WIP |   High   |
-| Czech    |   0% |  Normal  |
-| Russian  |   0% |   Low    |
-| Japanese |   0% |   Low    |
-| Chinese  |   0% |   Low    |
+|   Name   | Text | Voice | Priority |
+|----------|-----:|------:|:--------:|
+| English  |  WIP |    0% |   High   |
+| Czech    |   0% |   -   |  Normal  |
+| Russian  |   0% |   -   |   Low    |
+| Japanese |   0% |   -   |   Low    |
+| Chinese  |   0% |   -   |   Low    |
 
 Czech has `Normal` priority instead of `Low` because we can do that one ourselves.
+
+We do not have translators for `Russian`, `Japanese` or `Chinese`.
+
+Voice language is currently planned only `English`.
 
 ## Contributors
 
@@ -58,7 +62,7 @@ Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
 - [OpenGL](https://www.opengl.org/) - 3D Rendering
 - [GLEW](http://glew.sourceforge.net/) - OpenGL Extension Wrangler
 - [GLM](https://glm.g-truc.net/) - OpenGL Mathematics
-- [LUA](https://www.lua.org/) 5.3 - Scripting Language
+- [LUA](https://www.lua.org/) 5.3 - Scripting Language ([Manual](https://www.lua.org/manual/5.3/) + [Source](https://www.lua.org/source/5.3/))
 
 ## Command-Line Arguments
 
