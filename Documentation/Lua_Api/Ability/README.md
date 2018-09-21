@@ -346,7 +346,7 @@ float GetCastPoint(int level)</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Get time (in seconds) after start of animation at which this ability should be cast.
@@ -366,7 +366,7 @@ float GetChannelTime(int level)</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Get channel time for the ability.
@@ -386,7 +386,7 @@ bool IsChannel(int level)</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Utility function for channel abilities.<br/>
@@ -446,7 +446,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Get cooldown time for specified level of the ability.<br/>
@@ -470,7 +470,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Get cooldown time for specified level of the ability after Cooldown Reduction.<br/>
@@ -581,7 +581,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -598,7 +598,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -615,7 +615,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
         </td>
@@ -633,7 +633,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
         </td>
@@ -740,7 +740,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -847,7 +847,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -864,7 +864,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -881,7 +881,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -898,7 +898,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -915,7 +915,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -932,7 +932,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -949,7 +949,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -966,7 +966,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td></td>
         <td>
@@ -983,7 +983,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Maximum radius to cast a spell.<br/> 
@@ -1005,7 +1005,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Maximum radius to cast a spell.<br/> 
@@ -1027,7 +1027,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Radius of effect for AoE spells and auras.<br/>
@@ -1049,7 +1049,7 @@ end</pre>
             Both
         </td>
         <td>
-            No
+            Yes
         </td>
         <td>
             Radius of effect for AoE spells and auras.<br/>
