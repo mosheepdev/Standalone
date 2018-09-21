@@ -193,6 +193,36 @@ Most items with active effect go on cooldown on all types when used.
 - ?
 - ?
 
+## Support
+
+Those items are for supports to get some gold.
+
+Should give minimal or no bonus for carries.
+
+### Basic
+
+- ?
+  - Provides 1 gold per killed unit around
+  - Only triggers on units killed by allies
+  - Used to build **all** support items
+
+### Upgrade
+
+- Bloody Gold
+  - Gain stack for attacking enemy
+  - Maximum stack limit
+  - Loose all stack after attacking creep
+    - Get bonus gold based on amount of landed hits
+- Rusted Coin
+  - Provides percentage of gold from creeps killed around
+    - Only creeps killed by allies
+    - Bonus gold is split equally between all afected heroes equiped with this item
+      - Done using invisible aura on all enemy creeps
+      - Can have more stacks of the aura
+      - Each "caster" of the aura (with same team as killer) get 1/stacks (stacks from the team) gold (percentage defined on the item)
+- ?
+  - 
+
 ## Consumable
 
 All consumable items are considered "Basic" and cannot be upgraded (by other items or [Cores](Core.md)).

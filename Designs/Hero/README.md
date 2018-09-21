@@ -50,6 +50,7 @@ Not all heroes will be available in `Alpha` stage.
 ## Ideas
 
 - Earth Elemental
+  - `Strength`
   - Abilities
     - Q
       - ``
@@ -64,6 +65,7 @@ Not all heroes will be available in `Alpha` stage.
       - ``
         - ?
 - Hunter
+  - `Agility`
   - Abilities
     - Q
       - ``
@@ -91,6 +93,7 @@ Not all heroes will be available in `Alpha` stage.
         - High AoE
         - Centered on the hero
 - Water Elemental
+  - `Agility`
   - Abilities
     - Q
       - ``
@@ -111,6 +114,7 @@ Not all heroes will be available in `Alpha` stage.
         - Pulls all hit units into center
         - Deals pure percentage damage
 - WereBear
+  - `Agility`
   - Abilities
     - Q
       - ``
@@ -127,6 +131,7 @@ Not all heroes will be available in `Alpha` stage.
         - Effect during night
         - Transforms into bear
 - Elemental Mage
+  - `Intelligence`
   - Q + W + E is 1 spell buffing hero or abilities
     - When 1 is leveled-up, rest is too
   - Abilities
@@ -159,6 +164,7 @@ Not all heroes will be available in `Alpha` stage.
       - ``
         - ?
 - Wyvern
+  - `Intelligence`
   - Abilities
     - Q
       - ``
@@ -173,6 +179,7 @@ Not all heroes will be available in `Alpha` stage.
       - ``
         - ?
 - Ancient Dragon
+  - `Will`
   - Abilities
     - Q
       - `Firebreath`
@@ -196,6 +203,7 @@ Not all heroes will be available in `Alpha` stage.
         - Silence + Disarm
         - All damage on the target is amplified by `X` percent
 - Spirit of The Forest
+  - `Will`
   - Abilities
     - Q
       - ``
@@ -213,6 +221,7 @@ Not all heroes will be available in `Alpha` stage.
       - ``
         - ?
 - Flag Bearer
+  - `Agility`
   - Abilities
     - Q
       - ``
@@ -232,6 +241,7 @@ Not all heroes will be available in `Alpha` stage.
         - Stun
         - AoE Damage
 - Phoenix
+  - `Strength`
   - Abilities
     - Q
       - ``
@@ -252,6 +262,53 @@ Not all heroes will be available in `Alpha` stage.
         - High Cooldown
         - Revives after death
         - Deals AoE stun and damage (explosion) on revive
+- Logan
+  - `Intelligence`
+  - Wears big hat
+  - Abilities
+    - Q
+      - `Soul Arrow`
+        - Single Target
+        - Enemy Unit
+        - `Soul Catch` charges increase Damage and add Movement Slow 
+    - W
+      - `Magic Shield`
+        - Active
+        - Gain damage absorption based on current mana
+        - Percentage manacost
+        - `Soul Catch` charges deal damage back to attacker
+        - Does not consume charges on cast but on attack land
+    - E
+      - `Soul Catch`
+        - Passive
+          - Gives charge for every killed unit around
+          - Heroes give more charges
+          - Does not need to kill them himself
+          - Has upper limit
+          - In case of multiple instances of this ability, only one (closest) gain stacks
+        - Toggle
+          - While active, other abilities consume stacks to increase their power
+    - R
+      - `Soul Spear`
+        - Direction Point
+        - Skillshot
+        - Deals damage to all hit units
+        - Stun based on `Soul Catch` charges
+- Dark Lord
+  - `???`
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - ``
+        - ?
         
 ## Ability Ideas
 
