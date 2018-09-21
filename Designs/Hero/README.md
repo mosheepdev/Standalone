@@ -16,7 +16,7 @@ Not all heroes will be available in `Alpha` stage.
 | [Harpy](Harpy.md) | Agility | ˨ | ♀ | Demon | Carry | Auto-Attack |
 | [Ice Shard](Ice_Shard.md) | Agility | ˨ | ♀ | Animal | Ganker | Auto-Attack |
 | [Sniper](Sniper.md) | Agility | ⟿ | ♀ | Elf | Carry | Auto-Attack |
-| Hunter | Agility | ˨ | ♂ | Human | Ganker | Auto-Attack + Utility |
+| Hunter | Agility | ˨ | ♂ | Human | Ganker, Semi-Carry | Auto-Attack + Utility + Summon |
 | Water Elemental | Agility | ˨ | ⚪ | Spirit *(Water)* | Carry | Auto-Attack |
 | WereBear | Agility | ˨ | ♂ | Dwarf + Animal | ??? | Auto-Attack + Self-Transformation |
 | | | | |
@@ -26,7 +26,7 @@ Not all heroes will be available in `Alpha` stage.
 | Wyvern | Intelligence | ⟿ | ♀ | Wyvern | Utility | Spam |
 | ??? | Intelligence | ⟿ | ♀ | Demon | Ganker | Nuke |
 | | | | |
-| Ancient Dragon | Will | ⟿ | ♂ | Dragon | Support | Nuker |
+| Ancient Dragon | Will | ⟿ | ♂ | Dragon | Support + Offlane | DoT Nuker |
 | [Black Jack](Black_Jack.md) | Will | ⟿ | ♂ | Human | Utility Damager | Auto-Attack + Nuke Spell |
 | Spirit of The Forest | Will | ˨ | ⚪ | Spirit *(Nature)* | Utility | Summon + Heal |
 | [Succubus](Succubus.md) | Will | ⟿ + ˨ | ⚥ | Demon | Carry | Auto-Attack + Utility Cast |
@@ -53,66 +53,96 @@ Not all heroes will be available in `Alpha` stage.
   - `Strength`
   - Abilities
     - Q
-      - ``
-        - ?
+      - `Rock Throw`
+        - Point AoE
+        - Stun
+        - Physical Damage
     - W
-      - ``
-        - ?
+      - `Earth Spike`
+        - Direction Point
+        - High Cast Point
+        - Fast Skillshot
+        - Stuns all hit targets
     - E
-      - ``
-        - ?
+      - `Rolling Stones`
+        - Point
+        - Mini-Stun and physical damage hit unit
+        - Stops on hogh ground hit
+          - Can go up and down stairs
     - R
-      - ``
-        - ?
+      - `Earthquake`
+        - Self AoE
+        - Channel
+        - Pure Damage
+        - If the target is inside for too long, gets rooted
+          - For small duration
+          - Keeps refreshing if it stays inside
+          - Soft Dispell 
 - Hunter
   - `Agility`
   - Abilities
     - Q
-      - ``
-        - ?
-    - W
       - `Trap`
         - Point
         - Small Cast Range
-        - Setup Time
+        - High(er) Cast Point
         - Invisible
         - Smaller activation radius
         - Unlimited amount and duration
         - When activated
           - Roots hit targets
           - Deals physical damage
+    - W
+      - `Hunter's Mark`
+        - Single Target
+        - High(er) Cast Range
+        - All attacks on the target has guaranteed critical hit
     - E
       - `Hunting Hound`
-        - Summon wolf
+        - Summon Dire Wolf
+          - Melee
+          - Limited Time
+          - High Movement Speed
+          - Same Day and Night Vision
     - R
       - `Tracking`
         - Active
         - High Cast Point
         - Applies debuff on all units around
           - Provides Vision (only on the unit) and Reveal
+          - Affects invisible units (in lower range)
         - High AoE
         - Centered on the hero
 - Water Elemental
   - `Agility`
   - Abilities
     - Q
-      - ``
-        - ?
-    - W
-      - ``
-        - ?
-    - E
       - `Wave`
+        - Point
         - Dash
         - Deals magic damage to hit units
         - Invincible during the dash
+        - Talent: Attack all hit units
+    - W
+      - `Liquid State`
+        - Passive
+        - Increases Damage
+        - Provides Status Resistance
+    - E
+      - `Splash!`
+        - Passive
+        - Splash Damage
+          - Up to 100% (with talent?)
+        - Small AoE
     - R
       - `Whirpool`
         - Active
         - AoE
         - Centered on the hero
-        - Pulls all hit units into center
-        - Deals pure percentage damage
+        - Pulls all hit enemy units into center
+        - Deals Percentage Pure Damage
+          - Based on target's maximum Health
+        - Disappears for the duration
 - WereBear
   - `Agility`
   - Abilities
@@ -157,12 +187,18 @@ Not all heroes will be available in `Alpha` stage.
     - D
       - ``
         - ?
+        - Element: Water
     - F
-      - ``
-        - ?
+      - `Air Force`
+        - Vector Unit
+        - Enemy Unit
+        - Element: Air
+        - Pushes target unit in direction
     - R
-      - ``
-        - ?
+      - `One Step Closer`
+        - Single Target
+        - Element: Death
+        - Massive DoT
 - Wyvern
   - `Intelligence`
   - Abilities
@@ -183,25 +219,34 @@ Not all heroes will be available in `Alpha` stage.
   - Abilities
     - Q
       - `Firebreath`
-        - Conus AoE
-        - DoT Debuff
-          - `Burn`
-          - Deals magic damage
-        - DoT AoE Damage
+        - Direction
+        - Cone AoE
+        - AoE Damage
           - `Fire Burn`
           - Only in the area
           - Deals pure damage
+          - Applies DoT Debuff on hit targets
+        - DoT Debuff
+          - `Burn`
+          - Deals magic damage
     - W
       - `Liquid Fire`
-        - ?
+        - Auto-Attack
+        - Has Cooldown
+        - Applies DoT on hit target and units around
+          - Works on buildings
     - E
-      - `Dragon Scales`
-        - Armor
+      - `Burning Hearth`
+        - Toggle
+        - Self AoE
+        - Damage based on Health Regeneration
     - R
       - `Forgotten`
         - Single Target
-        - Silence + Disarm
+        - Silence
         - All damage on the target is amplified by `X` percent
+        - Short Duration
+        - Lower Cooldown
 - Spirit of The Forest
   - `Will`
   - Abilities
@@ -210,36 +255,58 @@ Not all heroes will be available in `Alpha` stage.
         - ?
     - W
       - `Life in Wood`
-        - Channeled
+        - Channel or high Cast Point
         - Tree Target
         - Consume tree to teleport to target tree
-        - Short Cast Range
     - E
-      - ``
-        - ?
+      - `Living Armor`
+        - Unit Target
+        - Higher Cast Range
+        - Provides Health Regeneration and Armor
     - R
-      - ``
-        - ?
+      - `Leshy`
+        - Point
+        - Higher Summon
+          - Has abilities?
+          - Hero-Creep?
 - Flag Bearer
   - `Agility`
   - Abilities
     - Q
-      - ``
-        - ?
+      - `Leading Charge`
+        - Enemy Unit
+        - Charge to the unit
+          - Fast forced movement
+        - Creates illusion on other side of hit unit
+          - After hit
+          - Limited lifetime
     - W
-      - ``
-        - ?
+      - `Call to Battle`
+        - Active Aura
+        - Increases Attack Speed
+        - Affects Illusions
+        - Does not stack with self
+        - Illusions gain active (Aura) buff
+          - Illusions can share the effect too but only when created while the ability is active
+          - Have same duration as remaining time when created
     - E
       - `Pierce Attack`
         - Passive
         - Chance to ignore targets armor on attack
+        - Works on illusions
     - R
       - `Wave Charge`
         - Directional
         - Rectangle
           - Line start
-        - Stun
-        - AoE Damage
+          - Illusion to sides of caster
+            - Invincible, Untargetable
+              - Take 0% damage
+            - Deal 100% damage
+            - Die if caster dies
+        - Instant attack on hit units
+          - Effect from all illusions
+          - Can be hit by multiple illusions (2?) 
 - Phoenix
   - `Strength`
   - Abilities
@@ -262,6 +329,8 @@ Not all heroes will be available in `Alpha` stage.
         - High Cooldown
         - Revives after death
         - Deals AoE stun and damage (explosion) on revive
+        - Talent: Creates "Flame Ghost" from death heroes (Enemy or Ally)
+          - Controlled by Phoenix, not the dying unit
 - Logan
   - `Intelligence`
   - Wears big hat
@@ -295,7 +364,8 @@ Not all heroes will be available in `Alpha` stage.
         - Deals damage to all hit units
         - Stun based on `Soul Catch` charges
 - Dark Lord
-  - `???`
+  - `Will`
+  - Elf
   - Abilities
     - Q
       - ``
@@ -304,8 +374,11 @@ Not all heroes will be available in `Alpha` stage.
       - ``
         - ?
     - E
-      - ``
-        - ?
+      - `Fog of Shadows`
+        - Point AoE
+        - Silence
+        - Movement Slow
+        - DoT
     - R
       - ``
         - ?
