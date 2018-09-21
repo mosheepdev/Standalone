@@ -7,31 +7,35 @@ Not all heroes will be available in `Alpha` stage.
 
 | Name | Main [Attribute](../../Documentation/Mechanics/Attributes.md) | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:--------------:|:-----------:|:---:|:----:|:--------:|:----:|
+| Earth Elemental | Strength | ˨ | ⚪ | Spirit *(Earth)* | Support | Tank |
+| Living Armor | Strength | ˨ (+ ⟿) | ⚪ | Other | Support | Auto-Attack + Utility |
+| [Loyal Knight](Loyal_Knight.md) | Strength | ˨ | ♂ | Human | Tank | Tank + Utility |
+| Phoenix | Strength | ⟿ | ⚪ | Spirit *(Fire)* | Semi-Carry | Tank + Utility |
 | [Storm Hammer](Storm_Hammer.md) | Strength | ˨ | ♂ | Dwarf | Carry | Auto-Attack |
 | [Undead Queen](Undead_Queen.md) | Strength | ˨ | ♀ | Elf | Tank | Auto-Attack + Summon |
 | [Young Dragon](Young_Dragon.md) | Strength | ˨ | ⚪ | Dragon | Tank | Protection + Heal |
-| [Loyal Knight](Loyal_Knight.md) | Strength | ˨ | ♂ | Human | Tank | Tank + Utility |
-| Earth Elemental | Strength | ˨ | ⚪ | Spirit *(Earth)* | Support | Tank |
-| | | | |
+| &nbsp;
+| Flag Bearer | Agility | ˨ | ♂ | Human | Carry | Auto-Attack |
 | [Harpy](Harpy.md) | Agility | ˨ | ♀ | Demon | Carry | Auto-Attack |
+| Hunter | Agility | ˨ | ♂ | Human | Ganker, Semi-Carry | Auto-Attack + Utility + Summon |
 | [Ice Shard](Ice_Shard.md) | Agility | ˨ | ♀ | Animal | Ganker | Auto-Attack |
 | [Sniper](Sniper.md) | Agility | ⟿ | ♀ | Elf | Carry | Auto-Attack |
-| Hunter | Agility | ˨ | ♂ | Human | Ganker, Semi-Carry | Auto-Attack + Utility + Summon |
 | Water Elemental | Agility | ˨ | ⚪ | Spirit *(Water)* | Carry | Auto-Attack |
 | WereBear | Agility | ˨ | ♂ | Dwarf + Animal | ??? | Auto-Attack + Self-Transformation |
-| | | | |
+| &nbsp;
 | Elemental Mage | Intelligence | ⟿ | ⚪ | Elf | Support | Heal + Utility |
+| Logan | Intelligence | ⟿ | ♂ | Human | Ganker | Nuke |
 | [Mori](Mori.md) | Intelligence | ˨ | ⚪ | Spirit *(Death)* | Carry | Auto-Attack |
 | [Plague Doctor](Plague_Doctor.md) | Intelligence | ⟿ | ♂ | Human | Support | Heal + DoT |
 | Wyvern | Intelligence | ⟿ | ♀ | Wyvern | Utility | Spam |
-| ??? | Intelligence | ⟿ | ♀ | Demon | Ganker | Nuke |
-| | | | |
+| &nbsp;
 | Ancient Dragon | Will | ⟿ | ♂ | Dragon | Support + Offlane | DoT Nuker |
 | [Black Jack](Black_Jack.md) | Will | ⟿ | ♂ | Human | Utility Damager | Auto-Attack + Nuke Spell |
+| Dark Lord | Will | ⟿ | ♂ | Elf | Ganker | Nuker |
 | Spirit of The Forest | Will | ˨ | ⚪ | Spirit *(Nature)* | Utility | Summon + Heal |
 | [Succubus](Succubus.md) | Will | ⟿ + ˨ | ⚥ | Demon | Carry | Auto-Attack + Utility Cast |
 | [Sun Lord](Sun_Lord.md) | Will | ⟿ | ♂ | Elf | Support Nuker | Skill Cast |
-| | | | |
+| &nbsp;
 | ~~[Riders of Apocalypse](Riders_of_Apocalypse.md)~~ | Strength + Agility | ˨ | ♂ | Ganker | Auto-Attack | Carry + Ganker |
 
 ## Attributes
