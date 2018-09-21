@@ -221,10 +221,11 @@ Not all heroes will be available in `Alpha` stage.
       - ``
         - ?
     - E
-      - ``
-        - ?
+      - `Pierce Attack`
+        - Passive
+        - Chance to ignore targets armor on attack
     - R
-      - `Charge`
+      - `Wave Charge`
         - Directional
         - Rectangle
           - Line start
@@ -243,6 +244,8 @@ Not all heroes will be available in `Alpha` stage.
         - Toggle
         - AoE Damage
         - Deals damage to caster
+        - Damage based on maximum health of caster
+        - Can deny self
     - R
       - `Living Flame`
         - Passive
