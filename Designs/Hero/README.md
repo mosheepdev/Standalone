@@ -314,11 +314,21 @@ Not all heroes will be available in `Alpha` stage.
   - High Attack Time (2.0)
   - Abilities
     - Q
-      - ``
-        - ?
+      - `Acid Spit`
+        - Direction cone
+        - Decreases target armor and Movement Slow (minor)
+        - Minor DoT on hit
+        - Acid
     - W
-      - ``
-        - ?
+      - `Strong Grab`
+        - Single Target
+        - Small Cast Range
+          - Equal to Attack Range on Melee Units
+        - Channel
+        - Target is stunned while channeling
+        - Pulls target towards self
+        - If distance exceeds Cast Range, the channel is interrupted
+        - Increases channel time with level of this ability
     - E
       - `Possesion`
         - Single Target
@@ -328,14 +338,20 @@ Not all heroes will be available in `Alpha` stage.
           - Can control creeps
           - Does not work on bosses
           - Higher-level creep on talent
-        -  Passive
+          - Drops from host when host dies or goes into Hide (hidden from map)
+            - Does not interrupt channels
+        - Passive
           - Takes 50% of damage to the target
             - Can be increased to 75% by talent
             - Takes 100% of damage on creeps
-          - Shares Attack Type (Melee / Ranged) with the host
+          - Shares Attack Type (Melee / Ranged) with the host (and Attack Range)
             - While on creep, deals attack for the creep and then self
             - On hero, attack is independent on the host
-              - Can be changed by talent to also attack with the hero 
+              - Talent: Always attacks with host
+            - Talent: Gets host's Base Attack Time as own (until dropping or permanently?)
+          - Shares invisibility with the target
+            - Goes invisible if the host is
+            - Does not provide invisibility to the host
     - R
       - `Symbiosis`
         - Health regeneration
