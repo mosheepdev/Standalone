@@ -1,4 +1,4 @@
-# Harpy
+# Living Armor
 
 ## Info
 Sex: `Other`
