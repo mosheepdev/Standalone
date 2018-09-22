@@ -15,7 +15,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 | Name | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:-----------:|:---:|:----:|:--------:|:----:|
 | ✓ Earth Elemental | ˨ | ⚪ | Spirit *(Earth)* | Support | Disable |
-| Living Armor | ˨ (⟿) | ⚪ | Other | Support | Auto-Attack + Utility |
+| [Living Armor](Living_Armor.md) | ˨ (⟿) | ⚪ | Other | Support | Auto-Attack + Utility |
 | ✓ [Loyal Knight](Loyal_Knight.md) | ˨ | ♂ | Human | Tank | Tank + Utility |
 | Phoenix | ⟿ | ⚪ | Spirit *(Fire)* | Semi-Carry | Tank + Utility |
 | ✓ [Storm Hammer](Storm_Hammer.md) | ˨ | ♂ | Dwarf | Carry | Auto-Attack |
@@ -405,54 +405,6 @@ Heroes considered for `Alpha` stage have `✓` before their name.
     - R
       - ``
         - ?
-- Living Armor
-  - `Strength`
-  - High Attack Time (2.0)
-  - Abilities
-    - Q
-      - `Acid Spit`
-        - Direction cone
-        - Decreases target armor and Movement Slow (minor)
-        - Minor DoT on hit
-        - Acid
-    - W
-      - `Strong Grab`
-        - Single Target
-        - Small Cast Range
-          - Equal to Attack Range on Melee Units
-        - Channel
-        - Target is stunned while channeling
-        - Pulls target towards self
-        - If distance exceeds Cast Range, the channel is interrupted
-        - Increases channel time with level of this ability
-    - E
-      - `Possesion`
-        - Single Target
-          - Allied unit, Neutral creep
-          - Links to target
-            - Moves along with the unit
-          - Can control creeps
-          - Does not work on bosses
-          - Higher-level creep on talent
-          - Drops from host when host dies or goes into Hide (hidden from map)
-            - Does not interrupt channels
-        - Passive
-          - Takes 50% of damage to the target
-            - Can be increased to 75% by talent
-            - Takes 100% of damage on creeps
-          - Shares Attack Type (Melee / Ranged) with the host (and Attack Range)
-            - While on creep, deals attack for the creep and then self
-            - On hero, attack is independent on the host
-              - Talent: Always attacks with host
-            - Talent: Gets host's Base Attack Time as own (until dropping or permanently?)
-          - Shares invisibility with the target
-            - Goes invisible if the host is
-            - Does not provide invisibility to the host
-    - R
-      - `Symbiosis`
-        - Health regeneration
-        - Armor
-        - All health gain (health regen + heal) is also applied to the host (percentage?)
         
 ## Ability Ideas
 
