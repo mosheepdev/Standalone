@@ -30,7 +30,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 |------|:-----------:|:---:|:----:|:--------:|:----:|
 | ✓ Flag Bearer | ˨ | ♂ | Human | Carry | Auto-Attack |
 | ✓ [Harpy](Harpy.md) | ˨ | ♀ | Demon | Carry | Auto-Attack |
-| Hunter | ˨ | ♂ | Human | Ganker, Semi-Carry | Auto-Attack + Utility + Summon |
+| [Hunter](Hunter.md) | ˨ | ♂ | Human | Ganker, Semi-Carry | Auto-Attack + Utility + Summon |
 | ✓ [Ice Shard](Ice_Shard.md) | ˨ | ♀ | Animal | Ganker | Auto-Attack |
 | ✓ [Sniper](Sniper.md) | ⟿ | ♀ | Elf | Carry | Auto-Attack |
 | Water Elemental | ˨ | ⚪ | Spirit *(Water)* | Carry | Auto-Attack + Disable |
@@ -101,41 +101,6 @@ Heroes considered for `Alpha` stage have `✓` before their name.
           - For small duration
           - Keeps refreshing if it stays inside
           - Soft Dispell 
-- Hunter
-  - `Agility`
-  - Abilities
-    - Q
-      - `Trap`
-        - Point
-        - Small Cast Range
-        - High(er) Cast Point
-        - Invisible
-        - Smaller activation radius
-        - Unlimited amount and duration
-        - When activated
-          - Roots hit targets
-          - Deals physical damage
-    - W
-      - `Hunter's Mark`
-        - Single Target
-        - High(er) Cast Range
-        - All attacks on the target has guaranteed critical hit
-    - E
-      - `Hunting Hound`
-        - Summon Dire Wolf
-          - Melee
-          - Limited Time
-          - High Movement Speed
-          - Same Day and Night Vision
-    - R
-      - `Tracking`
-        - Active
-        - High Cast Point
-        - Applies debuff on all units around
-          - Provides Vision (only on the unit) and Reveal
-          - Affects invisible units (in lower range)
-        - High AoE
-        - Centered on the hero
 - Water Elemental
   - `Agility`
   - Abilities
