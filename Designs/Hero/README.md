@@ -14,7 +14,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 
 | Name | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:-----------:|:---:|:----:|:--------:|:----:|
-| ✓ Earth Elemental | ˨ | ⚪ | Spirit *(Earth)* | Support | Disable |
+| ✓ [Earth Elemental](Earth_Elemental.md) | ˨ | ⚪ | Spirit *(Earth)* | Support | Disable |
 | [Living Armor](Living_Armor.md) | ˨ (⟿) | ⚪ | Other | Support | Auto-Attack + Utility |
 | ✓ [Loyal Knight](Loyal_Knight.md) | ˨ | ♂ | Human | Tank | Tank + Utility |
 | Phoenix | ⟿ | ⚪ | Spirit *(Fire)* | Semi-Carry | Tank + Utility |
@@ -72,35 +72,6 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 
 ## Ideas
 
-- Earth Elemental
-  - `Strength`
-  - Abilities
-    - Q
-      - `Rock Throw`
-        - Point AoE
-        - Stun
-        - Physical Damage
-    - W
-      - `Earth Spike`
-        - Direction Point
-        - High Cast Point
-        - Fast Skillshot
-        - Stuns all hit targets
-    - E
-      - `Rolling Stones`
-        - Point
-        - Mini-Stun and physical damage hit unit
-        - Stops on hogh ground hit
-          - Can go up and down stairs
-    - R
-      - `Earthquake`
-        - Self AoE
-        - Channel
-        - Pure Damage
-        - If the target is inside for too long, gets rooted
-          - For small duration
-          - Keeps refreshing if it stays inside
-          - Soft Dispell 
 - Water Elemental
   - `Agility`
   - Abilities
@@ -375,6 +346,9 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 
 - Botany Bay
 - Morality
+  - Aura
+  - Increases Ally Attack Damage
+  - Decreases Enemy Attack Damage
 
 ## Think About
 - Detection spells
