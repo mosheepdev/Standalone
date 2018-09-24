@@ -18,7 +18,7 @@ using namespace std;
 
 using namespace glm;
 
-#include "lua.hpp"
+#include <lua5.3/lua.hpp>
 #include "Player.h"
 
 // There can be one or two instances of this running at a same time.
