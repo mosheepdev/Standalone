@@ -349,7 +349,19 @@ Heroes considered for `Alpha` stage have `✓` before their name.
   - Aura
   - Increases Ally Attack Damage
   - Decreases Enemy Attack Damage
+- Electric Fists
+  - Random target next to original one takes 100% damage
+  - Dealt as Physical Damage, not Instant Attack
+- Friendly Fire
+  - Passive
+  - Allows attacking allies
+  - Attacks to allies heal them
+  - Scaling
+    - Increasing damage-to-heal
+    - 100% damage-to-heal and decreasing percentage-of-damage-to-self 
 
 ## Think About
 - Detection spells
-- Rework [Riders of Apocalypse](Riders_of_Apocalypse.md)
+- Rework some heroes
+  - [Riders of Apocalypse](Riders_of_Apocalypse.md)
+  - [Black Jack](Black_Jack.md)
