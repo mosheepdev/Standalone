@@ -17,8 +17,8 @@
 | Magic Resistance | 0% |
 | Movement Speed | 350 |
 | Base Attack Time | 2.0 |
-| Attack Speed | 100 | 150 | 200 | 250 | 300 |
-| Attack Time | 2.0 | 1.5 | 1.0 | 0.8 | 0.66 |
+| Attack Speed | 100 | 110 | 120 | 130 | 140 |
+| Attack Time | 2.0 | 1.81 | 1.66 | 1.53 | 1.42 |
 | Attack Type | `Melee` |
 | Damage | 150 | 250 | 450 | 700 | 1100 |
 

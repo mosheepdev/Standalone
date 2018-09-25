@@ -5,14 +5,14 @@ Bosses are strong enemies which provide [Cores](../Item/Core.md) for whole team.
 # Tier 1
 
 - [Abyssal](Abyssal.md) (Bash)
-- Big B (Cleave)
+- Twins (Dual Boss)
 - ? (Cast)
 
 # Tier 2
 
 - [Miner](Miner.md) (Map Control)
 - [Alpha Wolf](Alpha_Wolf.md) (Summon)
-- ?
+- [Big B] (Cleave)
 
 # Tier 3
 

@@ -50,6 +50,10 @@ Calls for help from the pack.
 | Cooldown | 10 |
 | Manacost | 100 |
 | Summoned Wolf Count | 2 | 3 | 4 | 5 | 6 |
+| Summon Limit | 4 | 6 | 8 | 10 | 12 |
+
+Notes:
+- Cannot be used when already owning `Summon Limit` wolves
 
 Wolf Statistics
 
