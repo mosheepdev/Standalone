@@ -32,11 +32,11 @@ Most items with active effect go on cooldown on all types when used.
 - Platemail
   - Armor
   - Health
-- ?
+- Armor of Thorns
   - Flat damage to attacker on hit
     - Separated instances
   - Armor
-- ?
+- Spikemail
   - Damage Reflection when active
     - Only 1 Instance
     - Limited by cooldown
@@ -71,6 +71,7 @@ Most items with active effect go on cooldown on all types when used.
 - Vibrating Stone
   - Attack Speed
 - ?
+  - Minor Lifesteal
 - ?
 - ?
 - ?
@@ -80,20 +81,22 @@ Most items with active effect go on cooldown on all types when used.
 
 - Criticalis
   - Critical Hits
+  - Low change, High damage
+  - Works separated, highest Critical Damage wins
+- ?
+  - Critical Hits
+  - High change, Low damage
   - Works separated, highest Critical Damage wins
 - Skull Crasher
   - Bash Chance
 - ?
   - Armor Reduction
   - Does not stack on target from multiple attackers
-- ?
-  - Higher-chance Critical Hits
-  - Works separated, highest Critical Damage wins
 - Excalibur
   - Damage
   - Minor Attack Speed Slow on hit
     - Only 1 instance of the slow 
-- ?
+- Mjolnir
   - Releases jumping lighting
     - Separated chances for each item
   - Attack Speed
@@ -103,13 +106,24 @@ Most items with active effect go on cooldown on all types when used.
 - ?
   - Chance to soft dispell on target
     - Also deals pure damage
-  - Separated chances, only 1 proc
+  - Separated chances
+    - Only 1 can trigger on each attack
 - ?
   - Flat Attack Speed
   - Flat Movement Speed (Stacks)
 - ?
   - Active
-  - Maximum Attack Speed for `X` seconds or `Y` attacks 
+  - Maximum Attack Speed for `X` seconds or `Y` attacks
+- Rusty Blade
+  - Toggle
+  - Decreases damage to 50%
+  - Deals 60-100% damage as DoT
+- Curved Blade
+  - Increases damage
+  - Deals part of the damage back to the attacker
+    - Works even on critical hits
+- ?
+  - Lifesteal
 
 ## Utility
 
@@ -216,12 +230,15 @@ Should give minimal or no bonus for carries.
 - Rusted Coin
   - Provides percentage of gold from creeps killed around
     - Only creeps killed by allies
-    - Bonus gold is split equally between all afected heroes equiped with this item
+    - Bonus gold is split equally between all affected heroes equipped with this item
       - Done using invisible aura on all enemy creeps
       - Can have more stacks of the aura
       - Each "caster" of the aura (with same team as killer) get 1/stacks (stacks from the team) gold (percentage defined on the item)
 - ?
-  - 
+  - Allied Hero Target
+  - Increases GPM based on time the hero was not attacked
+    - Attacks in duels does not count
+    - Has upper limit
 
 ## Consumable
 

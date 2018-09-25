@@ -365,3 +365,6 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 - Rework some heroes
   - [Riders of Apocalypse](Riders_of_Apocalypse.md)
   - [Black Jack](Black_Jack.md)
+- Mechanical (multi-unit) hero
+- Good heal / buff support
+- Late-game carry

@@ -12,7 +12,7 @@ Bosses are strong enemies which provide [Cores](../Item/Core.md) for whole team.
 
 - [Miner](Miner.md)
 - ?
-- ?
+- Wolf Pack
 
 # Tier 3
 
