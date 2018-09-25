@@ -99,6 +99,10 @@ Not even in `Alpha` state yet.
 
 ### Compilation
 
+```bash
+apt install -y liblua5.3-dev libsdl2-dev libglew-dev libglm-dev
+```
+
 ```
 cmake CMakeLists.txt
 ```
