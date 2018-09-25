@@ -15,7 +15,19 @@ Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
 ## Game Modes
 
 - Moba ([DotA](https://en.wikipedia.org/wiki/Defense_of_the_Ancients))
+  - 5v5
+    - Ranked
+    - Unranked
+  - 10v10
+    - Unranked
 - Arena (Similar to [Warcraft 3](https://en.wikipedia.org/wiki/Warcraft_III:_Reign_of_Chaos)'s [Angel Arena](https://gaming-tools.com/warcraft-3/angel-arena/))
+  - 5v5
+    - Ranked
+    - Unranked
+    - Boss Battle
+  - 10v10
+    - Unranked
+- Boss Battle
 
 ## Concepts
 - [Items](Designs/Item/README.md)

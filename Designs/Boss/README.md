@@ -4,15 +4,15 @@ Bosses are strong enemies which provide [Cores](../Item/Core.md) for whole team.
 
 # Tier 1
 
-- Abyssal (Basher)
-- ?
-- ?
+- [Abyssal](Abyssal.md) (Bash)
+- Big B (Cleave)
+- ? (Cast)
 
 # Tier 2
 
-- [Miner](Miner.md)
+- [Miner](Miner.md) (Map Control)
+- [Alpha Wolf](Alpha_Wolf.md) (Summon)
 - ?
-- Wolf Pack
 
 # Tier 3
 
@@ -21,8 +21,8 @@ Bosses are strong enemies which provide [Cores](../Item/Core.md) for whole team.
 
 # Tier 4
 
-- ?
-- ?
+- Storyteller (Map Control, Cast)
+- Cancer (Damage)
 
 # Tier 5
 

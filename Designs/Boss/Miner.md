@@ -9,10 +9,18 @@
 | Key | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 |
 |-----|:------:|:------:|:------:|:------:|:------:|
 | Health | 6,000 | 10,000 | 20,000 | 50,000 | 100,000 |
-| Mana | `None`
+| Health Regeneration | 50 |
+| Mana | `None` |
+| Mana Regeneration | `None` |
 | All Damage Resistance | 0% | 0% | 5% | 5% | 10% |
 | Armor | 10 | 20 | 50 | 75 | 100 |
 | Magic Resistance | 0% |
+| Movement Speed | 350 |
+| Base Attack Time | 2.0 |
+| Attack Speed | 100 | 150 | 200 | 250 | 300 |
+| Attack Time | 2.0 | 1.5 | 1.0 | 0.8 | 0.66 |
+| Attack Type | `Melee` |
+| Damage | 150 | 250 | 450 | 700 | 1100 |
 
 ## Abilities
 
@@ -51,6 +59,8 @@ Falling Rocks
 
 ### Pickaxe
 
+Target: `Passive`
+
 Chance to push hit enemy back and deal additional `Physical` damage.
 
 Hit enemies can still act during the push.
@@ -62,6 +72,8 @@ Hit enemies can still act during the push.
 | Bonus Damage | 50 | 100 | 200 | 300 | 500 |
 
 ### Mining Experience
+
+Target: `Passive`
 
 When hit by a targeted spell, gains Magic Resistance, Status Resistance and Armor.
 
