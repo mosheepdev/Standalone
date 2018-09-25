@@ -70,7 +70,7 @@ Most items with active effect go on cooldown on all types when used.
 
 - Vibrating Stone
   - Attack Speed
-- ?
+- Soul Capture
   - Minor Lifesteal
 - ?
 - ?
@@ -83,7 +83,7 @@ Most items with active effect go on cooldown on all types when used.
   - Critical Hits
   - Low change, High damage
   - Works separated, highest Critical Damage wins
-- ?
+- Sharpenzer
   - Critical Hits
   - High change, Low damage
   - Works separated, highest Critical Damage wins
