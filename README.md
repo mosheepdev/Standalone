@@ -24,7 +24,6 @@ Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
   - 5v5
     - Ranked
     - Unranked
-    - Boss Battle
   - 10v10
     - Unranked
 - Boss Battle
