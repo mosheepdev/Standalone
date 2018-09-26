@@ -1,6 +1,8 @@
 #include "LuaLibGlobal.h"
 
 #include <iostream>
+#include <ctime>
+#include <sstream>
 
 using namespace std;
 
@@ -103,18 +105,66 @@ int LuaLibGlobal::GetDeltaTime(lua_State *Lua)
 
 int LuaLibGlobal::GetSystemDate(lua_State *Lua)
 {
-    //TODO Push string
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    std::ostringstream stringStream;
+    // Year
+    stringStream << ltm->tm_year;
+    stringStream << "/";
+    // Month
+    if(ltm->tm_mon < 10)
+        stringStream << "0" << ltm->tm_mon;
+    else
+        stringStream << ltm->tm_mon;
+    stringStream << "/";
+    // Day
+    if(ltm->tm_mday < 10)
+        stringStream << "0" << ltm->tm_mday;
+    else
+        stringStream << ltm->tm_mday;
+
+    string str = stringStream.str();
+
+    lua_pushstring(Lua, str.c_str());// yyyy/MM/ss
     return 1;
 }
 
 int LuaLibGlobal::GetSystemTime(lua_State *Lua)
 {
-    //TODO Push string
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    std::ostringstream stringStream;
+    // Hour
+    if(ltm->tm_hour < 10)
+        stringStream << "0" << ltm->tm_hour;
+    else
+        stringStream << ltm->tm_mon;
+    stringStream << ":";
+    // Minutes
+    if(ltm->tm_min < 10)
+        stringStream << "0" << ltm->tm_min;
+    else
+        stringStream << ltm->tm_min;
+    stringStream << ":";
+    // Seconds
+    if(ltm->tm_sec < 10)
+        stringStream << "0" << ltm->tm_sec;
+    else
+        stringStream << ltm->tm_sec;
+
+    string str = stringStream.str();
+
+    lua_pushstring(Lua, str.c_str());// hh:mm:ss
     return 1;
 }
 
 int LuaLibGlobal::GetSystemDateTime(lua_State *Lua)
 {
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
     //TODO Push table
     return 1;
 }
