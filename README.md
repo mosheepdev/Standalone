@@ -2,15 +2,34 @@
 
 Versatile Game and Custom-game Engine written in [C++](https://en.wikipedia.org/wiki/C%2B%2B).
 
-All game logic (official and custom) is scripted in [LUA](https://www.lua.org/).
+All game logic (both official and custom) is scripted in [LUA](https://www.lua.org/).
+
+## Work-in-Progress
+
+This project is not done yet but is being worked-on.
+
+Game Engine has multiple parts:
+- Client
+- Dedicated Server
+- Editor
+
+There is currently only 1 programmer working on all of this.
+
+Any help is welcomed.
+Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
+
+## Contributors
+
+- [Abit Gray](https://github.com/AbitTheGray/)
+- Snowflake Gray
+- Haxxepod
+
+## Origins
 
 This started as own implementation of OAA ([Open Angel Arena](https://github.com/OpenAngelArena/oaa/)) from [Thinking Bottle](https://www.thinkingbottle.com/).
+
 Started from same idea but this project is going different route from them.
 They have money for development and do it for money. That is not what this projects aims to.
-
-
-Still **Work-In-Progress**.
-Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
 
 ## Game Modes
 
@@ -28,13 +47,6 @@ Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
     - Unranked
 - Boss Battle
 
-## Concepts
-- [Items](Designs/Item/README.md)
-- Units
-  - [Creeps](Designs/Creep/README.md)
-  - [Heroes](Designs/Hero/README.md)
-  - [Bosses](Designs/Boss/README.md)
-
 ## Languages
 
 |   Name   | Text | Voice | Priority |
@@ -45,27 +57,11 @@ Some things (2D GUI, Map Editor, Animations...) will take some time to be done.
 | Japanese |   0% |   -   |   Low    |
 | Chinese  |   0% |   -   |   Low    |
 
-Czech has `Normal` priority instead of `Low` because we can do that one ourselves.
+Czech has `Normal` priority instead of `Low` because we can do that one with our dev team.
 
-We do not have translators for `Russian`, `Japanese` or `Chinese`.
+We do not have translators for `Russian`, `Japanese` and `Chinese`.
 
 Voice language is currently planned only `English`.
-
-## Contributors
-
-This project is made by small group of friends.
-
-Any help is welcomed.
-Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
-
-## Important links
-
-- [Documentation](Documentation/README.md)
-  - [LUA API](Documentation/Lua_Api/README.md)
-  - [Tutorial](Documentation/Tutorials/README.md)
-  - [Mechanics](Documentation/Mechanics/README.md)
-- [Designs](Designs/README.md)
-
 
 ## Libraries
 
@@ -98,23 +94,34 @@ Not even in `Alpha` state yet.
 
 ### Compilation
 
+Required libraries
 ```bash
+apt install -y build-essential
 apt install -y liblua5.3-dev libsdl2-dev libglew-dev libglm-dev
 ```
 
-```
+Compile
+```bash
 cmake CMakeLists.txt
 ```
 Is is recommended to compile from [CLion](https://www.jetbrains.com/clion/).
 
-### Client
+### Run
 
-```
-Standalone.exe
+#### Client
+
+```bash
+./Standalone.exe
 ```
 
-### Dedicated Server
+#### Editor
 
+```bash
+./Standalone.exe --editor
 ```
-Standalone.exe --server
+
+#### Dedicated Server
+
+```bash
+./Standalone.exe --server
 ```
