@@ -377,6 +377,18 @@ Reason is that `Dummy Instance` has no `Owner` (`GetOwner() == nil`).
         </td>
         <td></td>
     </tr>
+    <tr>
+        <td>
+            <pre>table Gui(string name)</pre>
+        </td>
+        <td>
+            Client
+        </td>
+        <td>
+            Get or create [Gui](../Gui/README.md) by its name.
+        </td>
+        <td></td>
+    </tr>
 </table>
 
 ### Linking

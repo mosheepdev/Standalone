@@ -16,6 +16,9 @@ function Minimap:Init()
     self.minimap_panel["Max_X"] = self.minimap_panel["Max_X"] or 0
     self.minimap_panel["Max_Y"] = self.minimap_panel["Max_Y"] or 0
 
+    self.heroIcons = {}
+    self.bossIcons = {}
+
     -- Position update Timer
     Timers.CreateTimer(0.25, function()
         local min_x = self.minimap_panel.min_x
@@ -26,7 +29,7 @@ function Minimap:Init()
         local size_y = max_y - min_y
 
         -- Update position of heroes on minimap
-        for unitId, heroIcon in pairs(heroIcons) do
+        for unitId, heroIcon in pairs(self.heroIcons) do
             local unit = Map.Current.FindUnitById(unitId)
             if unit then
                 local position = unit:GetPosition()
@@ -49,7 +52,7 @@ function Minimap:Init()
         end
 
         -- Update position of bosses on minimap
-        for unitId, bossIcon in pairs(bossIcons) do
+        for unitId, bossIcon in pairs(self.bossIcons) do
             local unit = Map.Current.FindUnitById(unitId)
             if unit then
                 local position = unit:GetPosition()
@@ -81,8 +84,6 @@ end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-local heroIcons = {}
-
 function Minimap:OnHeroCreate(event)
     local hero = event.unit
     local heroId = hero:GetUnitId()
@@ -90,7 +91,7 @@ function Minimap:OnHeroCreate(event)
     local heroTeam = hero:GetTeam()
     local selfTeam = self:GetPlayer():GetTeam()
 
-    heroIcons[heroId] = Gui.CreateElement("Image", {
+    self.heroIcons[heroId] = Gui.CreateElement("Image", {
         id = "Minimap_Icon_Hero_" .. heroId,
         class = "Minimap_Icon_Hero",
         color = hero:GetPlayerColor(),
@@ -104,21 +105,19 @@ end
 
 function Minimap:OnHeroDestroy(event)
     local heroId = event.unit:GetUnitId()
-    local icon = heroIcons[heroId]
+    local icon = self.heroIcons[heroId]
     if icon then
-        Table.Remove(heroIcons, heroId)
+        Table.Remove(self.heroIcons, heroId)
         Gui.Destroy(icon)
     end
 end
 
 ------------------------------------------------------------------------------------------------------------------------
 
-local bossIcons = {}
-
 function Minimap:OnBossCreate(event)
     local boss = event.unit
     local bossId = boss:GetUnitId()
-    bossIcons[bossId] = Gui.CreateElement("Image", {
+    self.bossIcons[bossId] = Gui.CreateElement("Image", {
         id = "Ninimap_Icon_Boss_" .. bossId,
         class = "Minimap_Icon_Boss",
         boss_id = bossId,
@@ -130,9 +129,9 @@ end
 
 function Minimap:OnBossDestroy(event)
     local bossId = event.unit:GetUnitId()
-    local icon = heroIcons[bossId]
+    local icon = self.bossIcons[bossId]
     if icon then
-        Table.Remove(heroIcons, bossId)
+        Table.Remove(self.bossIcons, bossId)
         Gui.Destroy(icon)
     end
 end

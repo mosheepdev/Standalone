@@ -10,7 +10,20 @@ Instances of LUA are separated for Client and Server.
 
 ## API
 
-Only [`Ability`](Ability/README.md) (+[`Item`](Item/README.md)) and [`Modifier`](Modifier/README.md) (+ [`Modifier_Ability`](Modifier/Ability/README.md) and [`Modifier_Item`](Modifier/Item/README.md)) can be overloaded in LUA.
+Only those can be overloaded in LUA:
+ 
+- [`Ability`](Ability/README.md)
+  - [`Item`](Item/README.md)
+- [`Modifier`](Modifier/README.md)
+  - [`Modifier_Ability`](Modifier/Ability/README.md)
+  - [`Modifier_Item`](Modifier/Item/README.md)
+- [`Gui`](Gui/README.md)
+
+Functions / variables are called in order:
+
+- LUA Instance (current instance of the ability)
+- LUA Definition (the one using `Ability("...")` or similar, base instance)
+- C++ Core (value defined in C++, often "dummy value" or default behavior)
 
 C++ [Enums](Enums/README.md) are implemented as global variables with unique name based on the enum name.
 
