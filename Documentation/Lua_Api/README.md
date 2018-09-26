@@ -18,14 +18,21 @@ C++ [Enums](Enums/README.md) are implemented as global variables with unique nam
   - TeamFlags GetTeamFlag(Team team)
   - bool HasTeam(TeamFlags flags, Team team)
 - [`Map`](Map/README.md)
-  - Map.GetCurrentMap() (Client Only)
-  - Map.GetCurrentMap(handle entity)
-  - Map.GetCurrentMap(int entityId)
+  - Current Map (Client Only)
+    - Map.GetCurrentMap()
+    - Map ["CurrentMap"]
+  - Map for Entity
+    - Map.GetMapFor(handle entity)
+    - Map.GetMapFor(int entityId)
+  - Map.GetMap(string name)
   - Map.GetAllMaps()
+  - Map.LoadMap(string name)
+  - Map.UnloadMap(string name)
 - [`Player`](Player/README.md)
   - Gold
     - int GetGoldPerMinute()
     - void SetGoldPerMinute(int gpm)
+    - int ["GPM"]
   - Team GetTeam()
   - bool IsLocal()
   - Units
@@ -33,12 +40,15 @@ C++ [Enums](Enums/README.md) are implemented as global variables with unique nam
     - Unit[] GetAllUnit()
     - Unit[] GetAllHeroes()
     - Unit[] GetAllNonHeroUnits()
-  - string GetDisplayName()
+  - long GetUserId() -- Global database-based ID of the user/player, does not change
+  - string GetName() -- User-defined name of the player
+  - string GetDisplayName() -- [ GetClanTag() ] GetName()
   - Clan
     - bool HasClan()
     - string GetClanName()
-    - string GetClanTag()
-  - bool IsVerifiedUser() -- Gave some money into the game
+    - string GetClanTag() -- Prefix before name
+  - bool IsPaidUser() -- Gave some money into the game
+  - bool IsTrustedUser() -- Was marked by developers as trust-worthy
 - [`Unit`](Unit/README.md)
   - XP
     - int GetExperiencePerMinute()
@@ -60,9 +70,6 @@ C++ [Enums](Enums/README.md) are implemented as global variables with unique nam
 - [`Events`](Events/README.md)
 - [`Math`](https://www.lua.org/manual/5.3/manual.html#6.7)
 - [`Table`](https://www.lua.org/manual/5.3/manual.html#6.6)
-- [`Regex`](Regex/README.md)
-  - bool Regex.IsMatch(string input, string pattern)
-  - table Regex.Split(string input, string pattern)
 - [`Bit`](Bit/README.md)
   - int Bit.BinOr(int num0, int num1)
   - int Bit.BinAnd(int num0, int num1)
