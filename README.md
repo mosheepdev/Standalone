@@ -46,6 +46,7 @@ They have money for development and do it for money. That is not what this proje
   - 10v10
     - Unranked
 - Boss Battle
+  - 5v5
 
 ## Languages
 
@@ -94,13 +95,13 @@ Not even in `Alpha` state yet.
 
 ### Compilation
 
-Required libraries
+#### Required libraries
 ```bash
 apt install -y build-essential
 apt install -y liblua5.3-dev libsdl2-dev libglew-dev libglm-dev
 ```
 
-Compile
+#### Compile
 ```bash
 cmake CMakeLists.txt
 ```
