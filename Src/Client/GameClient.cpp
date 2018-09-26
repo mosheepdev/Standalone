@@ -1,6 +1,6 @@
 #include "GameClient.h"
 
-#include "AppConfiguration.h"
+#include "../AppConfiguration.h"
 
 #include <iostream>
 

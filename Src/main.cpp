@@ -4,7 +4,7 @@
 using namespace std;
 
 #include "AppConfiguration.h"
-#include "GameClient.h"
+#include "Client/GameClient.h"
 
 bool HasArg(int argc, char *argv[], char arg_short, string arg_long);
 
@@ -35,10 +35,11 @@ int main(int argc, char *argv[])
         cout << "\t-h, --help\t\t\tDisplay this help." << endl;
         cout << "\t-v, --version\t\t\tShow version info." << endl;
         cout << endl;
-        cout << "\t-d, --debug\t\t\tStart in debug mode. This turns on debugging messages into console." << endl;
+        cout << "\t-e, --editor\t\t\tStart Editor Tools." << endl;
         cout << "\t-s, --server\t\t\tStart as Dedicated Server (without OpenGL Frontend)" << endl;
-        cout << "\t--language <name>\t\t\tChange game language." << endl;
         cout << endl;
+        cout << "\t-d, --debug\t\t\tStart in debug mode. This turns on debugging messages into console." << endl;
+        cout << "\t--language <name>\t\t\tChange game language." << endl;
         cout << "\t-f, --fullscreen\t\t\tStart in Fullscreen mode." << endl;
         cout << "\t-w, --windowed\t\t\tStart in Windowed mode." << endl;
         cout << "\t--resolution <width> <height>\t\t\tForce window/fullscreen resolution to <width>x<height>." << endl;
@@ -65,7 +66,12 @@ int main(int argc, char *argv[])
     if(HasArg(argc, argv, 's', "server")) // Start dedicated server
     {
         throw std::logic_error("Not Implemented");
-    } else // Start client
+    }
+    else if(HasArg(argc, argv, 'e', "editor")) // Start Editor Tools
+    {
+
+    }
+    else // Start client
     {
         GameClient *client = new GameClient();
         client->Init();

@@ -1,7 +1,7 @@
 #ifndef STANDALONE_GAMECLIENT_H
 #define STANDALONE_GAMECLIENT_H
 
-#include "Game.h"
+#include "../Game.h"
 
 class GameClient : Game
 {

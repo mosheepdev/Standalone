@@ -78,8 +78,9 @@ Voice language is currently planned only `English`.
 |-------------------------------------------------|-------------|
 | -h, --help                                      | Display help.
 | -v, --version                                   | Show version info.
-| -d, --debug                                     | Start in debug mode.
+| -e, --editor                                    | Starts [Editor Tools](Documentation/Editor/README.md).
 | -s, --server                                    | Start as Dedicated Server.
+| -d, --debug                                     | Start in debug mode.
 | --language &lt;name&gt;                         | Start in specified language.
 | -f, --fullscreen                                | Start client in Fullscreen mode.
 | -w, --windowed                                  | Start client in Windowed mode.
@@ -87,7 +88,6 @@ Voice language is currently planned only `English`.
 | --join_lobby &lt;lobby_id&gt;                   | Join specified lobby.
 | --join_lobby &lt;lobby_id&gt; &lt;password&gt;  | Join specified lobby using password.
 | --join_party &lt;party_id&gt;                   | Join specified party.
-| -e, --editor                                    | Starts [Editor](Documentation/Editor/README.md).
 
 ## Usage
 
