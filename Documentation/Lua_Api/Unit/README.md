@@ -9,6 +9,8 @@ They can still be called from Client but will have no effect.
 
 - [Base Info](#base-info)
 - [Position](#position)
+- [Rotation](#rotation)
+- [Unit Type](#unit-type)
 - [Levels And Experience](#levels-and-experience)
 - [Attributes](#attributes)
   - [Strength](#strength)
@@ -28,6 +30,14 @@ They can still be called from Client but will have no effect.
   - [Physical](#armor) (Armor)
   - [Magical](#magic-resistance)
 - [Reductions](#reductions)
+  - [Status Resistance](#status-resistance)
+  - [Cooldown Reduction](#cooldown-reduction)
+  - [Manacost Reduction](#manacost-reduction)
+  - [Goldcost Reduction](#goldcost-reduction)
+  - [Spell Amplification](#spell-amplification)
+  - [Cast Range](#cast-range)
+  - [Cast Radius](#cast-radius)
+  - [Movement Speed](#movement-speed)
 - [Attack](#attack)
   - [Speed](#attack-speed)
   - [Time](#attack-time)
@@ -70,7 +80,6 @@ int ["UnitId"].get</pre>
     <tr>
         <td>
             <pre>Vector3 GetPosition()
-Vector3 GetAbsOrigin()
 Vector3 ["Position"].get</pre>
         </td>
         <td>
@@ -89,6 +98,246 @@ void Teleport(vec3 position)
         </td>
         <td>Server</td>
         <td>Teleport this entity to target point.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void Teleport(Map map, vec2 position)
+void Teleport(Map map, vec3 position)</pre>
+        </td>
+        <td>Server</td>
+        <td>Teleport this entity to target point on specified map.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>Map GetMap()</pre>
+        </td>
+        <td>Both</td>
+        <td>Get map on which is this entity.</td>
+        <td></td>
+    </tr>
+</table>
+
+### Rotation
+
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetRotationRad()
+float ["Rotation"].get</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get unit's current rotation in radians.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>float GetRotationDeg()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Get unit's current rotation in degrees.
+        </td>
+        <td>
+            <pre lang="lua">function Unit:GetRotationDeg()
+    return self:GetRotationRad() / Math.pi() * 180
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetRotationRad(float radians)
+["Rotation"].set = float radians</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td>
+            Set unit's current rotation in radians.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetRotationDeg(float degree)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td>
+            Get unit's current rotation in degrees.
+        </td>
+        <td>
+            <pre lang="lua">function Unit:SetRotationDeg(degree)
+    self:SetRotationRad(degree / 180 * Math.pi())
+end</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void LookAt(vec2 position)
+void LookAt(vec3 position)
+void LookAt(float x, float y)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td>
+            Utility function to rotate the unit towards target position.
+        </td>
+        <td>
+            <pre lang="lua">function Unit:LookAt(position)
+    self:SetRotationRad(Math.Atan(position.xy - self:GetPosition().xy))
+end</pre>
+            <pre lang="lua">function Unit:LookAt(x, y)
+    self:LookAt(Vector2(x, y))
+end</pre>
+            This is not "real" LUA implementation because LUA does not support function overload.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>vec2 GetForward()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Vector pointing in direction of the unit.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>vec2 GetBack()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Vector pointing in reverse direction of the unit.<br/>
+            This is 180° of <code>GetForward()</code>.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>vec2 GetRight()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Vector pointing in right direction of the unit.<br/>
+            This is 90° right of <code>GetForward()</code>.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>vec2 GetLeft()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td>
+            Vector pointing in left direction of the unit.<br/>
+            This is 90° left (270° right) of <code>GetForward()</code> or 180° of <code>GetRight()</code>.
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+### Unit Type
+
+<table>
+    <tr>
+        <th>Definition</th>
+        <th>Side</th>
+        <th>Description</th>
+        <th>Implemented as</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>UnitType GetUnitType()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsCreep()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsHero()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsHeroCreep()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsBoss()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>bool IsBuilding()</pre>
+        </td>
+        <td>
+            Both
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <pre>void SetUnitType(UnitType unitType)</pre>
+        </td>
+        <td>
+            Server
+        </td>
+        <td></td>
         <td></td>
     </tr>
 </table>
@@ -158,17 +407,17 @@ end</pre>
             Server
         </td>
         <td>
-            Set experience needed to reach level `level` from lower level (`level - 1`).<br>
+            Set experience needed to reach level <code>level</code> from lower level (<code>level - 1</code>).<br>
             <br>
-            `level <= 0` returns `0`.<br>
+            <code>level <= 0</code> returns <code>0</code>.<br>
             <br>
-            Value of `0` means as soon as the player gets to `level-1`, he also gains `level`.<br>
-            Often used for `level=1` to allow unit to start at `level=1` instead of `level=0`.<br>
+            Value of <code>0</code> means as soon as the player gets to <code>level-1</code>, he also gains <code>level</code>.<br>
+            Often used for <code>level=1</code> to allow unit to start at <code>level=1</code> instead of <code>level=0</code>.<br>
             <br>
             Forces Current XP to recalculate and can add 1 (or more) levels.<br>
             Cannot lower level because level is stored as Current Level + XP.<br>
             <br>
-            To recalculate full XP, use `GetTotalXp()`, call this and then `SetTotalXP(float, boolean)` with 2nd parameter set to `false`.
+            To recalculate full XP, use <code>GetTotalXp()</code>, call this and then <code>SetTotalXP(float, boolean)</code> with 2nd parameter set to <code>false</code>.
         </td>
         <td></td>
     </tr>
@@ -232,9 +481,9 @@ end</pre>
             Server
         </td>
         <td>
-            Sets Current XP (retrievable from `GetCurrentXp()`) to 0.<br>
+            Sets Current XP (retrievable from <code>GetCurrentXp()</code>) to <code>0</code>.<br>
             <br>
-            To set it to other value, use `Set_Current_Xp(float)`.
+            To set it to other value, use <code>Set_Current_Xp(float)</code>.
         </td>
         <td></td>
     </tr>
@@ -304,7 +553,7 @@ void SetTotalXp(float xp, bool affectedByModifiers = false)</pre>
             <br>
             Always recalculates level.<br>
             <br>
-            If second attribute (`affectedByModifiers`) is present and value is `true` (or can be converted to it), the `xp` value is multiplied by Percentage Bonus XP.
+            If second attribute (<code>affectedByModifiers</code>) is present and value is <code>true</code> (or can be converted to it), the <code>xp</code> value is multiplied by Percentage Bonus XP.
         </td>
         <td></td>
     </tr>
@@ -319,7 +568,7 @@ float AddXp(float xp, bool affectedByModifiers = true)</pre>
         <td>
             Add (give) XP to the unit.<br>
             <br>
-            Second parameter (defaults to `true`) determines whenever the `xp` should be affected by percentage XP increase from modifiers.<br>
+            Second parameter (defaults to <code>true</code>) determines whenever the <code>xp</code> should be affected by percentage XP increase from modifiers.<br>
             <br>
             Return value are remaining XPs without the increase from modifiers.
         </td>
@@ -369,7 +618,7 @@ end</pre>
         <td>
             Retrieve and calculate total percentage bonus from all active modifiers on this unit.<br>
             <br>
-            Uses value of [`Modifier:GetPercentageBonusXp`](../Modifier/README.md).
+            Uses value of <code>Modifier:GetPercentageBonusXp</code>.
         </td>
         <td></td>
     </tr>
@@ -381,7 +630,7 @@ end</pre>
             Both
         </td>
         <td>
-            Utility function to get XP multiplied by `GetPercentageBonusXp`.
+            Utility function to get XP multiplied by <code>GetPercentageBonusXp</code>.
         </td>
         <td>
             <pre lang="lua">function Unit:GetXpAfterBonus(xp)
@@ -432,7 +681,7 @@ end</pre>
             Both
         </td>
         <td>
-            Average value between `GetOriginalMinDamage()` and `GetOriginalMaxDamage()`.<br>
+            Average value between <code>GetOriginalMinDamage()</code> and <code>GetOriginalMaxDamage()</code>.<br>
             <br>
             Original Damage is damage defined in Unit's KV file.<br>
             <br>
@@ -453,7 +702,7 @@ end</pre>
             Server
         </td>
         <td>
-            Set value for `GetOriginalMinDamage()` and `GetOriginalMaxDamage()`.<br>
+            Set value for <code>GetOriginalMinDamage()</code> and <code>GetOriginalMaxDamage()</code>.<br>
             <br>
             Original Damage is damage defined in Unit's KV file.
         </td>
@@ -467,7 +716,7 @@ end</pre>
             Both
         </td>
         <td>
-            Get damage from `GetMainAttribute()`.<br>
+            Get damage from <code>GetMainAttribute()</code>.<br>
             <br>
             This plus Original Damage makes Base Damage.
         </td>
@@ -3653,7 +3902,7 @@ end</pre>
         <td></td>
         <td>
             <pre lang="lua">function Unit:IsRanged()
-    return self:GetAttackType() != ATTACK_TYPE_MELEE
+    return self:GetAttackType() == ATTACK_TYPE_RANGED
 end</pre>
         </td>
     </tr>
@@ -3765,7 +4014,7 @@ int GetModifierStackCount(string name, Unit sourceUnit)</pre>
         <td>
             Get total amount of stacks from modifiers of specified name (and from specified Unit).<br>
             <br>
-            Same as `GetModifierStackCount(...)` but summary of their stacks.
+            Same as <code>GetModifierStackCount(...)</code> but summary of their stacks.
         </td>
         <td></td>
     </tr>
@@ -3815,9 +4064,9 @@ int PurgeModifiers(PurgeType purgeType, bool debuff, bool buff)</pre>
             Server
         </td>
         <td>
-            Remove all modifiers which can be purged by `purgeType`.<br>
+            Remove all modifiers which can be purged by <code>purgeType</code>.<br>
             <br>
-            `PurgeType.None` does nothing.<br>
+            <code>PurgeType.None</code> does nothing.<br>
             <br>
             Returns amount of removed modifiers.
         </td>

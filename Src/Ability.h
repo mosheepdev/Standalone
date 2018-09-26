@@ -160,7 +160,7 @@ public:
 
     virtual TeamFlags GetAbilityTargetTeam(int level);
 
-    virtual TypeFilter GetAbilityTargetType(int level);
+    virtual UnitTypeFlag GetAbilityTargetType(int level);
 
     virtual FlagFilter GetAbilityTargetFlags(int level);
 

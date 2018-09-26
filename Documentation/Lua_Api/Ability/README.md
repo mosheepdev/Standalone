@@ -926,7 +926,7 @@ end</pre>
     </tr>
     <tr>
         <td>
-            <pre>TypeFilter GetAbilityTargetType(int level)</pre>
+            <pre>UnitTypeFlag GetAbilityTargetType(int level)</pre>
         </td>
         <td>
             Both

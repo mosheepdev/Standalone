@@ -117,82 +117,96 @@ enum class PurgeType
     _COUNT
 };
 
-enum TypeFilter
+enum class FlagFilter
 {
 
 };
 
-enum FlagFilter
+enum class FindOrder
 {
-
+    RANDOMIZED = 0,
+    CLOSEST = 1,
+    FARTHEST = 2,
+    ANY = 3, // Ordered by internal order
 };
 
-enum FindOrder
+enum class ModifierPriority
 {
-    FIND_ORDER_RANDOMIZED = 0,
-    FIND_ORDER_CLOSEST = 1,
-    FIND_ORDER_FARTHEST = 2,
-    FIND_ORDER_ANY = 3, // Ordered by internal order
+    MINIMAL = -3,
+    LOWEST = -2,
+    LOW = -1,
+    NORMAL = 0, // Normal, should be default value
+    HIGH = 1,
+    ULTRA = 2,
+    SUPER_ULTRA = 3
 };
 
-enum ModifierPriority
+enum class ModifierFlags : unsigned int
 {
-    MODIFIER_PRIORITY_MINIMAL = -3,
-    MODIFIER_PRIORITY_LOWEST = -2,
-    MODIFIER_PRIORITY_LOW = -1,
-    MODIFIER_PRIORITY_NORMAL = 0, // Normal, should be default value
-    MODIFIER_PRIORITY_HIGH = 1,
-    MODIFIER_PRIORITY_ULTRA = 2,
-    MODIFIER_PRIORITY_SUPER_ULTRA = 3
+    NONE = 0,
+
+    STATUS_STUN = 1 << 0, // Cannot do anything
+    STATUS_ROOT = 1 << 1, // Cannot move (and cast some abilities)
+    STATUS_SILENCE = 1 << 2, // No casting of abilities
+    STATUS_MUTE = 1 << 3, // No casting of items
+    STATUS_BREAK = 1 << 4, // No passives (abilities and items)
+    STATUS_HIDDEN = 1 << 5, // Out of game - cannot be targeted
+
+    ABILITY_STOP_COOLDOWN = 1 << 6, // No cooldown progress on abilities
+    ABILITY_NO_COOLDOWN = 1 << 7, // No ability cost cooldown
+    ABILITY_NO_MANA = 1 << 8, // No ability cost mana
+    ABILITY_NO_GOLD = 1 << 9, // No ability cost gold
+
+    IMMUNITY_MAGIC = 1 << 10, // Cannot take magic damage
+    IMMUNITY_PHYSICAL = 1 << 11, // Cannot take physical damage
+    IMMUNITY_PURE = 1 << 12, // Cannot take pure damage
+    IMMUNITY_ALL = 1 << 13, // Cannot take damage
+    IMMUNITY_DEATH = 1 << 14, // Cannot die
+    IMMUNITY_HEAL = 1 << 15, // Cannot be healed
+
+    INVISIBLE = 1 << 16, // Cannot be seen by enemies, can be revealed
+    INVISIBLE_RAW = 1 << 17, // Cannot be seen by enemies, cannot be revealed
+
+    ATTACK_GLOBAL = 1 << 18, // Has global attack
+    ATTACK_UNABLE = 1 << 19, // Cannot attack
 };
 
-enum ModifierFlags : unsigned int
+enum class AbilityTargeting
 {
-    MODIFIER_FLAG_NONE = 0,
-
-    MODIFIER_FLAG_STATUS_STUN = 1 << 0, // Cannot do anything
-    MODIFIER_FLAG_STATUS_ROOT = 1 << 1, // Cannot move (and cast some abilities)
-    MODIFIER_FLAG_STATUS_SILENCE = 1 << 2, // No casting of abilities
-    MODIFIER_FLAG_STATUS_MUTE = 1 << 3, // No casting of items
-    MODIFIER_FLAG_STATUS_BREAK = 1 << 4, // No passives (abilities and items)
-    MODIFIER_FLAG_STATUS_HIDDEN = 1 << 5, // Out of game - cannot be targeted
-
-    MODIFIER_FLAG_ABILITY_STOP_COOLDOWN = 1 << 6, // No cooldown progress on abilities
-    MODIFIER_FLAG_ABILITY_NO_COOLDOWN = 1 << 7, // No ability cost cooldown
-    MODIFIER_FLAG_ABILITY_NO_MANA = 1 << 8, // No ability cost mana
-    MODIFIER_FLAG_ABILITY_NO_GOLD = 1 << 9, // No ability cost gold
-
-    MODIFIER_FLAG_IMMUNITY_MAGIC = 1 << 10, // Cannot take magic damage
-    MODIFIER_FLAG_IMMUNITY_PHYSICAL = 1 << 11, // Cannot take physical damage
-    MODIFIER_FLAG_IMMUNITY_PURE = 1 << 12, // Cannot take pure damage
-    MODIFIER_FLAG_IMMUNITY_ALL = 1 << 13, // Cannot take damage
-    MODIFIER_FLAG_IMMUNITY_DEATH = 1 << 14, // Cannot die
-    MODIFIER_FLAG_IMMUNITY_HEAL = 1 << 15, // Cannot be healed
-
-    MODIFIER_FLAG_INVISIBLE = 1 << 16, // Cannot be seen by enemies, can be revealed
-    MODIFIER_FLAG_INVISIBLE_RAW = 1 << 17, // Cannot be seen by enemies, cannot be revealed
-
-    MODIFIER_FLAG_ATTACK_GLOBAL = 1 << 18, // Has global attack
-    MODIFIER_FLAG_ATTACK_UNABLE = 1 << 19, // Cannot attack
+    PASSIVE = 0,
+    NONE = 1 << 0,
+    POINT = 1 << 1,
+    UNIT = 1 << 2,
+    AOE = 1 << 3,
+    AURA = PASSIVE | AOE,
+    VECTOR = 1 << 4,
+    TOGGLE = 1 << 5,
+    TREE = 1 << 6
 };
 
-enum AbilityTargeting
+enum class AttackType
 {
-    ABILITY_TARGETTING_PASSIVE = 0,
-    ABILITY_TARGETTING_NONE = 1 << 0,
-    ABILITY_TARGETTING_POINT = 1 << 1,
-    ABILITY_TARGETTING_UNIT = 1 << 2,
-    ABILITY_TARGETTING_AOE = 1 << 3,
-    ABILITY_TARGETTING_AURA = ABILITY_TARGETTING_PASSIVE | ABILITY_TARGETTING_AOE,
-    ABILITY_TARGETTING_VECTOR = 1 << 4,
-    ABILITY_TARGETTING_ATTACK = 1 << 5,
-    ABILITY_TARGETTING_TREE = 1 << 6
+    MELEE = 0,
+    RANGED = 1
 };
 
-enum AttackType
+enum class UnitType
 {
-    ATTACK_TYPE_MELEE = 0,
-    ATTACK_TYPE_RANGED = 1
+    CREEP = 0,
+    HERO, // Heroes (have attributes)
+    HERO_CREEP, // Higher-level creep summons
+    BOSS,
+    BUILDING,
+    _COUNT
+};
+
+enum class UnitTypeFlag
+{
+    CREEP = 1 << (int)UnitType::CREEP,
+    HERO = 1 << (int)UnitType::HERO,
+    HERO_CREEP = 1 << (int)UnitType::HERO_CREEP,
+    BOSS = 1 << (int)UnitType::BOSS,
+    BUILDING = 1 << (int)UnitType::BUILDING
 };
 
 #endif //STANDALONE_HEADERS_H

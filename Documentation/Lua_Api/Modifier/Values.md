@@ -278,3 +278,16 @@ Default: `nil`
 float GetPercentageBonusGold()
 ```
 Default: `nil` or `0`
+
+## Attack Modifiers
+
+### Get Critical Hit
+```
+float,float GetCriticalHit()
+float,float,func GetCriticalHit()
+```
+Default: `nil, nil, nil` or `0, 0, function() end`
+
+Returns `chance` and `damagePercentage`.
+
+Can also return `callbackFunction` which is function called when **this** critical hit is triggered.

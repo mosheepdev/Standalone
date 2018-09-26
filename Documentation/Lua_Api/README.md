@@ -1,8 +1,8 @@
 # Lua Api
 
-LUA [5.3](https://www.lua.org/versions.html#5.3).5
+LUA [5.3](https://www.lua.org/versions.html#5.3)
 - [Official Manual](https://www.lua.org/manual/5.3/)
-- [Download](https://www.lua.org/ftp/lua-5.3.5.tar.gz) (`.tar.gz`)
+- Download [5.3.5](https://www.lua.org/ftp/lua-5.3.5.tar.gz) (`.tar.gz`)
 - [Readme](https://www.lua.org/manual/5.3/readme.html) ([Changes since 5.2](https://www.lua.org/manual/5.3/readme.html#changes))
 - [Online Source](https://www.lua.org/source/5.3/)
 
@@ -23,7 +23,9 @@ Functions / variables are called in order:
 
 - LUA Instance (current instance of the ability)
 - LUA Definition (the one using `Ability("...")` or similar, base instance)
-- C++ Core (value defined in C++, often "dummy value" or default behavior)
+- C++ Code (value defined in C++, often "dummy value" or default behavior)
+  - C++ Class
+  - C++ Parent Class (this is `Ability` for `Item` or `Unit` for `Hero`)
 
 C++ [Enums](Enums/README.md) are implemented as global variables with unique name based on the enum name.
 

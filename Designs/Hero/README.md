@@ -341,6 +341,22 @@ Heroes considered for `Alpha` stage have `✓` before their name.
     - R
       - ``
         - ?
+- Archax
+  - ``
+  - Spider
+  - Abilities
+    - Q
+      - `We are the Swarm`
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - ``
+        - ?
         
 ## Ability Ideas
 
@@ -368,3 +384,8 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 - Mechanical (multi-unit) hero
 - Good heal / buff support
 - Late-game carry
+- Map control hero (hook enemies)
+- Hero based on stealing spells
+- Make sure team-fights take some time
+  - The game should be slower then [Dota 2](http://dota2.com/) or [LoL](https://leagueoflegends.com/)
+  - All abilities / heroes should feel like having impact

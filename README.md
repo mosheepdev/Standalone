@@ -21,15 +21,29 @@ Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
 ## Contributors
 
 - [Abit Gray](https://github.com/AbitTheGray/)
+  - Programmer
+  - Project Leader
 - Snowflake Gray
 - Haxxepod
+  - Game Designer
 
 ## Origins
 
-This started as own implementation of OAA ([Open Angel Arena](https://github.com/OpenAngelArena/oaa/)) from [Thinking Bottle](https://www.thinkingbottle.com/).
+This started as own standalone implementation of OAA ([Open Angel Arena](https://github.com/OpenAngelArena/oaa/)) from [Thinking Bottle](https://www.thinkingbottle.com/).
 
 Started from same idea but this project is going different route from them.
 They have money for development and do it for money. That is not what this projects aims to.
+
+## AI / Bots
+
+There is 100% chance we will make bots... when the time comes (probably in `Beta`).
+
+Current idea of how to make those is:
+- Simple AI for 10 heroes
+- Simple AI for all heroes
+- Hero-specific AI for all heroes
+
+The idea is not to replace players but allow players to practise even without time for full match.
 
 ## Game Modes
 

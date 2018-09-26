@@ -7,11 +7,13 @@ class Unit;
 #include <cmath>
 
 #include <vector>
+#include <math.h>
 
 
 #include "Enums.h"
 #include "Ability.h"
 #include "Modifier.h"
+#include "Map.h"
 
 using namespace std;
 using namespace glm;
@@ -45,14 +47,71 @@ public:
 
     vec3 GetAbsOrigin() { return GetPosition(); }
 
-    void Teleport(vec2 position) { Teleport(vec3(position, 0.0)); }
+    void Teleport(vec2 position) { Teleport(nullptr, position); }
 
-    void Teleport(vec3 position);
+    void Teleport(vec3 position) { Teleport(nullptr, position); }
+
+    void Teleport(Map* map, vec2 position) { Teleport(map, vec3(position, 0.0)); }
+
+    void Teleport(Map* map, vec3 position);
 
 private:
     vec3 _Position = vec3(0, 0, 0);
 
+// Map
+public:
+    Map* GetMap() { return _Map; }
+
+private:
+    Map* _Map;
+
 // Rotation
+public:
+    float GetRotationRad() { return _Rotation; }
+
+    float GetRotationDeg() { return (float)(_Rotation / M_PI * 180); }
+
+    void SetRotationRad(float radian);
+
+    void SetRotationDeg(float degree) { SetRotationRad((float)(degree / 180 * M_PI)); }
+
+private:
+    float _Rotation = 0; // In Radians
+
+public:
+    void LookAt(vec2 position) { SetRotationRad(atan2(position.y - _Position.y, position.x - _Position.x)); }
+
+    void LookAt(vec3 position) { LookAt(position.x, position.y); }
+
+    void LookAt(float x, float y) { LookAt(vec2(x, y)); }
+
+    void LookAt(Unit* unit) { LookAt(unit->GetPosition()); }
+
+public:
+    vec2 GetForward() { return vec2(cos(_Rotation), sin(_Rotation)); }
+
+    vec2 GetBack() { return -GetForward(); }
+
+    vec2 GetRight()
+    {
+        float rot = (float)(_Rotation + M_PI_2);
+        return vec2(cos(rot), sin(rot));
+    }
+
+    vec2 GetLeft() { return -GetRight(); }
+
+
+// Unit Type
+public:
+    UnitType GetUnitType() { return _UnitType; }
+    bool IsCreep() { return _UnitType == UnitType::CREEP; }
+    bool IsHero() { return _UnitType == UnitType::HERO; }
+    bool IsHeroCreep() { return _UnitType == UnitType::HERO_CREEP; }
+    bool IsBoss() { return _UnitType == UnitType::BOSS; }
+    bool IsBuiling() { return _UnitType == UnitType::BUILDING; }
+    void SetUnitType(UnitType unitType);
+private:
+    UnitType _UnitType = UnitType::CREEP;
 
 
 // Level
@@ -895,9 +954,9 @@ private:
     AttackType _OriginalAttackType;
 public:
     AttackType GetAttackType(); // After calculating from modifiers
-    bool IsMelee() { return GetAttackType() == ATTACK_TYPE_MELEE; }
+    bool IsMelee() { return GetAttackType() == AttackType::MELEE; }
 
-    bool IsRanged() { return GetAttackType() != ATTACK_TYPE_MELEE; }
+    bool IsRanged() { return GetAttackType() == AttackType::RANGED; }
 
 // Inventory
 //TODO

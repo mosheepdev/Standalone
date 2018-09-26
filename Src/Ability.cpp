@@ -164,7 +164,7 @@ TeamFlags Ability::GetAbilityTargetTeam(int level)
     throw std::logic_error("Not Implemented");
 }
 
-TypeFilter Ability::GetAbilityTargetType(int level)
+UnitTypeFlag Ability::GetAbilityTargetType(int level)
 {
     throw std::logic_error("Not Implemented");
 }
