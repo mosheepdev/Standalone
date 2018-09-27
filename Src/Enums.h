@@ -146,7 +146,7 @@ enum class ModifierFlags : unsigned int
     NONE = 0,
 
     STATUS_STUN = 1 << 0, // Cannot do anything
-    STATUS_ROOT = 1 << 1, // Cannot move (and cast some abilities)
+    STATUS_ROOT = 1 << 1, // Cannot move (and cast some movement abilities), can still attack
     STATUS_SILENCE = 1 << 2, // No casting of abilities
     STATUS_MUTE = 1 << 3, // No casting of items
     STATUS_BREAK = 1 << 4, // No passives (abilities and items)
@@ -160,15 +160,15 @@ enum class ModifierFlags : unsigned int
     IMMUNITY_MAGIC = 1 << 10, // Cannot take magic damage
     IMMUNITY_PHYSICAL = 1 << 11, // Cannot take physical damage
     IMMUNITY_PURE = 1 << 12, // Cannot take pure damage
-    IMMUNITY_ALL = 1 << 13, // Cannot take damage
-    IMMUNITY_DEATH = 1 << 14, // Cannot die
-    IMMUNITY_HEAL = 1 << 15, // Cannot be healed
+    IMMUNITY_ALL = IMMUNITY_MAGIC | IMMUNITY_PHYSICAL | IMMUNITY_PURE, // Cannot take damage
+    IMMUNITY_DEATH = 1 << 13, // Cannot die
+    IMMUNITY_HEAL = 1 << 14, // Cannot be healed
 
-    INVISIBLE = 1 << 16, // Cannot be seen by enemies, can be revealed
-    INVISIBLE_RAW = 1 << 17, // Cannot be seen by enemies, cannot be revealed
+    INVISIBLE = 1 << 15, // Cannot be seen by enemies, can be revealed
+    INVISIBLE_RAW = 1 << 16, // Cannot be seen by enemies, cannot be revealed
 
-    ATTACK_GLOBAL = 1 << 18, // Has global attack
-    ATTACK_UNABLE = 1 << 19, // Cannot attack
+    ATTACK_GLOBAL = 1 << 17, // Has global attack
+    ATTACK_UNABLE = 1 << 18, // Cannot attack
 };
 
 enum class AbilityTargeting
@@ -178,10 +178,10 @@ enum class AbilityTargeting
     POINT = 1 << 1,
     UNIT = 1 << 2,
     AOE = 1 << 3,
-    AURA = PASSIVE | AOE,
     VECTOR = 1 << 4,
     TOGGLE = 1 << 5,
-    TREE = 1 << 6
+    TREE = 1 << 6,
+    AURA = TOGGLE | AOE,
 };
 
 enum class AttackType

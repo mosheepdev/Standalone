@@ -236,6 +236,201 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) PurgeType::_COUNT);
             lua_setglobal(_Lua, "PURGE__COUNT");
         }
+        // Flag Filter
+        {
+
+        }
+        // Find Order
+        {
+            lua_pushinteger(_Lua, (int) FindOrder::RANDOMIZED);
+            lua_setglobal(_Lua, "FIND_ORDER_RANDOMIZED");
+
+            lua_pushinteger(_Lua, (int) FindOrder::CLOSEST);
+            lua_setglobal(_Lua, "FIND_ORDER_CLOSEST");
+
+            lua_pushinteger(_Lua, (int) FindOrder::FARTHEST);
+            lua_setglobal(_Lua, "FIND_ORDER_FARTHEST");
+
+            lua_pushinteger(_Lua, (int) FindOrder::ANY);
+            lua_setglobal(_Lua, "FIND_ORDER_ANY");
+        }
+        // Modifier Priority
+        {
+            lua_pushinteger(_Lua, (int) ModifierPriority::MINIMAL);
+            lua_setglobal(_Lua, "MODIFIER_PRIORITY_MINIMAL");
+
+            lua_pushinteger(_Lua, (int) ModifierPriority::LOWEST);
+            lua_setglobal(_Lua, "MODIFIER_PRIORITY_LOWEST");
+
+            lua_pushinteger(_Lua, (int) ModifierPriority::LOW);
+            lua_setglobal(_Lua, "MODIFIER_PRIORITY_LOW");
+
+            lua_pushinteger(_Lua, (int) ModifierPriority::NORMAL);
+            lua_setglobal(_Lua, "MODIFIER_PRIORITY_NORMAL");
+
+            lua_pushinteger(_Lua, (int) ModifierPriority::HIGH);
+            lua_setglobal(_Lua, "MODIFIER_PRIORITY_HIGH");
+
+            lua_pushinteger(_Lua, (int) ModifierPriority::ULTRA);
+            lua_setglobal(_Lua, "MODIFIER_PRIORITY_ULTRA");
+
+            lua_pushinteger(_Lua, (int) ModifierPriority::SUPER_ULTRA);
+            lua_setglobal(_Lua, "MODIFIER_PRIORITY_SUPER_ULTRA");
+        }
+        // Modifier Flags
+        {
+            lua_pushinteger(_Lua, (int) ModifierFlags::NONE);
+            lua_setglobal(_Lua, "MODIFIER_FLAGS_NONE");
+
+            // Status
+            {
+                lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_STUN);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_STUN");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_ROOT);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_ROOT");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_SILENCE);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_SILENCE");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_MUTE);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_MUTE");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_BREAK);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_BREAK");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_HIDDEN);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_HIDDEN");
+            }
+
+            // Ability
+            {
+                lua_pushinteger(_Lua, (int) ModifierFlags::ABILITY_STOP_COOLDOWN);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_ABILITY_STOP_COOLDOWN");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::ABILITY_NO_COOLDOWN);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_ABILITY_NO_COOLDOWN");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::ABILITY_NO_MANA);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_ABILITY_NO_MANA");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::ABILITY_NO_GOLD);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_ABILITY_NO_GOLD");
+            }
+
+            // Immunity
+            {
+                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_MAGIC);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_MAGIC");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_PHYSICAL);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_PHYSICAL");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_PURE);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_PURE");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_ALL);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_ALL");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_DEATH);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_DEATH");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_HEAL);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_HEAL");
+            }
+
+            // Invisible
+            {
+                lua_pushinteger(_Lua, (int) ModifierFlags::INVISIBLE);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_INVISIBLE");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::INVISIBLE_RAW);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_INVISIBLE_RAW");
+            }
+
+            // Attack
+            {
+                lua_pushinteger(_Lua, (int) ModifierFlags::ATTACK_GLOBAL);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_ATTACK_GLOBAL");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::ATTACK_UNABLE);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_ATTACK_UNABLE");
+            }
+        }
+        // Ability Targeting
+        {
+            lua_pushinteger(_Lua, (int) AbilityTargeting::PASSIVE);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_PASSIVE");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::NONE);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_NONE");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::POINT);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_POINT");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::UNIT);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_UNIT");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::AOE);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_AOE");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::VECTOR);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_VECTOR");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::TOGGLE);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_TOGGLE");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::TREE);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_TREE");
+
+            lua_pushinteger(_Lua, (int) AbilityTargeting::AURA);
+            lua_setglobal(_Lua, "ABILITY_TARGETING_AURA");
+        }
+        // Attack Type
+        {
+            lua_pushinteger(_Lua, (int) AttackType::MELEE);
+            lua_setglobal(_Lua, "ATTACK_TYPE_MELEE");
+
+            lua_pushinteger(_Lua, (int) AttackType::RANGED);
+            lua_setglobal(_Lua, "ATTACK_TYPE_RANGED");
+        }
+        // Unit Type
+        {
+            lua_pushinteger(_Lua, (int) UnitType::CREEP);
+            lua_setglobal(_Lua, "UNIT_TYPE_CREEP");
+
+            lua_pushinteger(_Lua, (int) UnitType::HERO);
+            lua_setglobal(_Lua, "UNIT_TYPE_HERO");
+
+            lua_pushinteger(_Lua, (int) UnitType::HERO_CREEP);
+            lua_setglobal(_Lua, "UNIT_TYPE_HERO_CREEP");
+
+            lua_pushinteger(_Lua, (int) UnitType::BOSS);
+            lua_setglobal(_Lua, "UNIT_TYPE_BOSS");
+
+            lua_pushinteger(_Lua, (int) UnitType::BUILDING);
+            lua_setglobal(_Lua, "UNIT_TYPE_BUILDING");
+
+            lua_pushinteger(_Lua, (int) UnitType::_COUNT);
+            lua_setglobal(_Lua, "UNIT_TYPE__COUNT");
+        }
+        // Unit Type Flag
+        {
+            lua_pushinteger(_Lua, (int) UnitTypeFlag::CREEP);
+            lua_setglobal(_Lua, "UNIT_TYPE_FLAG_CREEP");
+
+            lua_pushinteger(_Lua, (int) UnitTypeFlag::HERO);
+            lua_setglobal(_Lua, "UNIT_TYPE_FLAG_HERO");
+
+            lua_pushinteger(_Lua, (int) UnitTypeFlag::HERO_CREEP);
+            lua_setglobal(_Lua, "UNIT_TYPE_FLAG_HERO_CREEP");
+
+            lua_pushinteger(_Lua, (int) UnitTypeFlag::BOSS);
+            lua_setglobal(_Lua, "UNIT_TYPE_FLAG_BOSS");
+
+            lua_pushinteger(_Lua, (int) UnitTypeFlag::BUILDING);
+            lua_setglobal(_Lua, "UNIT_TYPE_FLAG_BUILDING");
+        }
     }
 
     // Open custom libraries
