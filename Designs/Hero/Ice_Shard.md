@@ -48,8 +48,8 @@ Jumps back from current facing direction.
 
 Notes:
 - Provides invincibility frames during the jump
-- The hero ends facing same direction as the jump
-  - Rotates by 180° during the jump
+- The hero ends facing same direction as before the jump
+- Disjoins projectiles
 
 ### Thrill of the Hunt
 
@@ -103,10 +103,10 @@ When not seen by enemies, gains increased movement speed and bonus damage for ne
 | Key | Value |
 |-----|:-----:|
 | Manacost | ? |
-| Cooldown | ? |
-| Duration | ? |
-| Not Seen Bonus Damage | ? |
-| Not Seen Bonus Movement Speed | ? |
+| Cooldown | 60 / 45 / 30 / 15 |
+| Duration | 20 |
+| Not Seen Bonus Damage | 100 / 200 / 300 / 400 |
+| Not Seen Bonus Movement Speed | 50% |
 | Not Seen Cooldown | 6 |
 
 Notes:
