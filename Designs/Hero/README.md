@@ -51,7 +51,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 | Name | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:-----------:|:---:|:----:|:--------:|:----:|
 | ✓ Ancient Dragon | ⟿ | ♂ | Dragon | Support + Offlane | DoT Nuker |
-| [Black Jack](Black_Jack.md) | ⟿ | ♂ | Human | Carry | Auto-Attack + Nuke |
+| ~~[Black Jack](Black_Jack.md)~~ | ⟿ | ♂ | Human | Carry | Auto-Attack + Nuke |
 | Dark Lord | ⟿ | ♂ | Elf | Ganker | Nuker |
 | Spirit of The Forest | ˨ | ⚪ | Spirit *(Nature)* | Ganker | Summon + Heal |
 | [Succubus](Succubus.md) | ⟿ + ˨ | ⚥ | Demon | Carry | Auto-Attack + Utility Cast |
@@ -381,6 +381,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 - Rework some heroes
   - [Riders of Apocalypse](Riders_of_Apocalypse.md)
   - [Black Jack](Black_Jack.md)
+    - Small black dragon
 - Mechanical (multi-unit) hero
 - Good heal / buff support
 - Late-game carry
