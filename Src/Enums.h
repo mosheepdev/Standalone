@@ -14,12 +14,11 @@ enum class DamageType
 enum class DamageFlags
 {
     NONE = 0,
-    NO_ARMOR, // Ignore armor
-    NO_MAGIC_RESIST, // Ignore magic resistance
-    NO_DAMAGE_BLOCK, // Ignore damage block
-    NON_LETHAL, // Cannot kill target
-    REFLECTION, // Is reflection damage (cannot be reflected)
-    _COUNT
+    NO_ARMOR = 1 << 0, // Ignore armor
+    NO_MAGIC_RESIST = 1 << 1, // Ignore magic resistance
+    NO_DAMAGE_BLOCK = 1 << 2, // Ignore damage block
+    NON_LETHAL = 1 << 3, // Cannot kill target
+    REFLECTION = 1 << 4, // Is reflection damage (cannot be reflected)
 };
 
 enum class Attribute
