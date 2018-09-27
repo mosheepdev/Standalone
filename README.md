@@ -18,14 +18,15 @@ There is currently only 1 programmer working on all of this.
 Any help is welcomed.
 Contact [Abit Gray](https://github.com/AbitTheGray/) for more info.
 
-## Contributors
+## Team
 
 - [Abit Gray](https://github.com/AbitTheGray/)
   - Programmer
   - Project Leader
 - Snowflake Gray
 - Haxxepod
-  - Game Designer
+  - Game Design + Balance
+  - Community
 
 ## Origins
 
