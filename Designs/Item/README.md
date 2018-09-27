@@ -304,3 +304,6 @@ Used in recipes but cannot be upgraded with [Cores](Core.md).
 ## Special
 
 - [Core](Core.md)
+
+## Think About
+- Add some simple items (mostly stats)
