@@ -88,6 +88,9 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) Team::SPECTATOR);
             lua_setglobal(_Lua, "TEAM_SPECTATOR");
 
+            lua_pushinteger(_Lua, (unsigned int) TeamFlags::ANY);
+            lua_setglobal(_Lua, "TEAMFLAGS_ANY");
+
             // Numbers
             {
                 lua_pushinteger(_Lua, (int) Team::TEAM_1);

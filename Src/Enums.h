@@ -48,7 +48,7 @@ enum class Team : unsigned int
     NEUTRAL = 0,
     SPECTATOR = NEUTRAL, // Spectators are players assigned to Neutrals
     //TEAM_0 = NEUTRAL, // Neutrals, better not provide for confusion
-        TEAM_1 = 1,
+    TEAM_1 = 1,
     TEAM_2 = 2,
     TEAM_3 = 3,
     TEAM_4 = 4,
