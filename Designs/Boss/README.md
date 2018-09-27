@@ -12,7 +12,7 @@ Bosses are strong enemies which provide [Cores](../Item/Core.md) for whole team.
 
 - [Miner](Miner.md) (Map Control)
 - [Alpha Wolf](Alpha_Wolf.md) (Summon)
-- [Big B] (Cleave)
+- Big B (Cleave)
 
 # Tier 3
 

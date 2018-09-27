@@ -324,7 +324,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
         - Stun based on `Soul Catch` charges
 - Dark Lord
   - `Will`
-  - Elf
+  - Elf or Demon
   - Abilities
     - Q
       - ``
@@ -341,7 +341,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
     - R
       - ``
         - ?
-- Archax
+- Arachax
   - ``
   - Spider
   - Abilities
@@ -354,6 +354,45 @@ Heroes considered for `Alpha` stage have `✓` before their name.
     - E
       - ``
         - ?
+    - R
+      - ``
+        - ?
+- Naga
+  - ``
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - R
+      - `Naga Song`
+        - Active
+        - Chanel
+        - Enemies are invulnerable and walks towards her
+- Medusa
+  - ``
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - `Snake Look`
+        - Active
+        - While active
+          - In cone in front of her (looking direction)
+          - When enemy is facing her
+          - Effect on enemy
+            - Turn Slow
+            - Attack Speed Slow
+            - Takes more Physical Damage
     - R
       - ``
         - ?
@@ -374,7 +413,12 @@ Heroes considered for `Alpha` stage have `✓` before their name.
   - Attacks to allies heal them
   - Scaling
     - Increasing damage-to-heal
-    - 100% damage-to-heal and decreasing percentage-of-damage-to-self 
+    - 100% damage-to-heal and decreasing percentage-of-damage-to-self
+- ?
+  - When hit, increases stacks
+    - Has upper limit
+    - Refreshes previous stacks
+  - Provides armor per each stack
 
 ## Think About
 - Detection spells
