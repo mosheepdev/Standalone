@@ -346,8 +346,14 @@ Heroes considered for `Alpha` stage have `✓` before their name.
   - Spider
   - Abilities
     - Q
-      - `We are the Swarm`
-        - ?
+      - `Swarm Attack`
+        - Single Enemy Unit
+        - Throws eggs on the target
+          - Multiple instances with slightly different time
+        - After a moment, small spiders spawn from them
+          - Spiders automatically attack their previous host
+        - One unit can have more stacks on them
+          - Stacks are independent
     - W
       - ``
         - ?
@@ -378,11 +384,16 @@ Heroes considered for `Alpha` stage have `✓` before their name.
   - ``
   - Abilities
     - Q
-      - ``
-        - ?
+      - `Splitshot`
+        - Toggle
+        - Attack additional targets
+          - Do proc Attack Modifiers on those targets
+          - Critical Hits work per each target separately
+        - Decreases Attack Damage by X
     - W
-      - ``
-        - ?
+      - `Mana Shield`
+        - Toggle
+        - Percentage of taken damage is done to mana (when available)
     - E
       - `Snake Look`
         - Active
@@ -396,6 +407,45 @@ Heroes considered for `Alpha` stage have `✓` before their name.
     - R
       - ``
         - ?
+- ???
+  - ``
+  - Abilities
+    - Q
+      - `Hook`
+        - Throws hook forward
+    - W
+      - `Rot`
+        - Deals DoT around caster
+          - Also deals damage to caster
+        - Damage increases per `Stolen Flesh` stack
+    - E
+      - ``
+        - ?
+    - R
+      - `Stolen Flesh`
+        - Provides `Strength` for each stack
+        - Stacks are gained for enemies dying around
+          - Does not need to be killed by owner's team
+- ???
+  - ``
+  - Abilities
+    - Q
+      - ``
+        - ?
+    - W
+      - ``
+        - ?
+    - E
+      - ``
+        - ?
+    - D, F
+      - `Spell Steal - Empty Slot`
+        - Slots for `Spell Steal`
+        - Stolen spells will be placed into those slots
+    - R
+      - `Spell Steal`
+        - Enemy Hero
+        - Steals last used spell
         
 ## Ability Ideas
 
@@ -428,9 +478,6 @@ Heroes considered for `Alpha` stage have `✓` before their name.
     - Small black dragon
 - Mechanical (multi-unit) hero
 - Good heal / buff support
-- Late-game carry
-- Map control hero (hook enemies)
-- Hero based on stealing spells
 - Make sure team-fights take some time
   - The game should be slower then [Dota 2](http://dota2.com/) or [LoL](https://leagueoflegends.com/)
   - All abilities / heroes should feel like having impact
