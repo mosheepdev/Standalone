@@ -147,19 +147,19 @@ enum class ModifierFlags : unsigned int
     STATUS_STUN = 1 << 0, // Cannot do anything
     STATUS_ROOT = 1 << 1, // Cannot move (and cast some movement abilities), can still attack
     STATUS_SILENCE = 1 << 2, // No casting of abilities
-    STATUS_MUTE = 1 << 3, // No casting of items
-    STATUS_BREAK = 1 << 4, // No passives (abilities and items)
+    STATUS_MUTE = 1 << 3, // No active or passive effects of items (still provide stats)
+    STATUS_BREAK = 1 << 4, // No passive effect of abilities
     STATUS_HIDDEN = 1 << 5, // Out of game - cannot be targeted
+    STATUS_HASTE = 1 << 6, // Maximum movement speed, cannot be slowed
 
-    ABILITY_STOP_COOLDOWN = 1 << 6, // No cooldown progress on abilities
-    ABILITY_NO_COOLDOWN = 1 << 7, // No ability cost cooldown
-    ABILITY_NO_MANA = 1 << 8, // No ability cost mana
-    ABILITY_NO_GOLD = 1 << 9, // No ability cost gold
+    ABILITY_STOP_COOLDOWN = 1 << 7, // No cooldown progress on abilities
+    ABILITY_NO_COOLDOWN = 1 << 8, // No ability cost cooldown
+    ABILITY_NO_MANA = 1 << 9, // No ability cost mana
+    ABILITY_NO_GOLD = 1 << 10, // No ability cost gold
 
-    IMMUNITY_MAGIC = 1 << 10, // Cannot take magic damage
-    IMMUNITY_PHYSICAL = 1 << 11, // Cannot take physical damage
-    IMMUNITY_PURE = 1 << 12, // Cannot take pure damage
-    IMMUNITY_ALL = IMMUNITY_MAGIC | IMMUNITY_PHYSICAL | IMMUNITY_PURE, // Cannot take damage
+    IMMUNITY_MAGIC = 1 << 11, // Cannot take magic damage and is not affected by (most) spells
+    IMMUNITY_ATTACK = 1 << 12, // Cannot take physical damage and is immune to attacks
+    IMMUNITY_PHYSICAL = IMMUNITY_ATTACK
     IMMUNITY_DEATH = 1 << 13, // Cannot die
     IMMUNITY_HEAL = 1 << 14, // Cannot be healed
 
@@ -206,6 +206,17 @@ enum class UnitTypeFlag
     HERO_CREEP = 1 << (int)UnitType::HERO_CREEP,
     BOSS = 1 << (int)UnitType::BOSS,
     BUILDING = 1 << (int)UnitType::BUILDING
+};
+
+enum class ActionType
+{
+    MOVE = 0,
+    ATTACK,
+    ATTACK_MOVE,
+    ATTACK_MOVE_TARGET,
+    FOLLOW,
+    CAST,
+    _COUNT
 };
 
 #endif //STANDALONE_HEADERS_H

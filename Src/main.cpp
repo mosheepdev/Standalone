@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
     }
     else if(HasArg(argc, argv, 'e', "editor")) // Start Editor Tools
     {
-
+        throw std::logic_error("Not Implemented");
     }
     else // Start client
     {

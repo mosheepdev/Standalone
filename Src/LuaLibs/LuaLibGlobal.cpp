@@ -160,12 +160,196 @@ int LuaLibGlobal::GetSystemTime(lua_State *Lua)
     return 1;
 }
 
+int GetDateTimeLen(lua_State *Lua)
+{
+    if(!lua_istable(Lua, -1))
+        luaL_error(Lua, "First argument of `__len` must be table.");
+
+    lua_pushnumber(Lua, 6);
+    return 1;
+}
+
+int GetDateTimeType(lua_State *Lua)
+{
+    if(lua_istable(Lua, -1))
+        lua_pushstring(Lua, "DateTime");
+    else
+        lua_pushstring(Lua, "Unknown");
+    return 1;
+}
+
+int GetDateTimeToString(lua_State *Lua)
+{
+    if(!lua_istable(Lua, -1))
+        luaL_error(Lua, "First argument of `__tostring` must be table.");
+
+    std::ostringstream stringStream;
+    // Year
+    {
+        int year = 0;
+        lua_pushstring(Lua, "year");
+        if(lua_isnumber(Lua, -1))
+        {
+            year = (int)lua_tonumber(Lua, -1);
+        }
+        lua_pop(Lua, 1);
+
+        if(year < 1000)
+        {
+            stringStream << 0;
+            if(year < 100)
+            {
+                stringStream << 0;
+                if(year < 10)
+                {
+                    stringStream << 0;
+                }
+            }
+        }
+        stringStream << year;
+    }
+    stringStream << "/";
+    // Month
+    {
+        int month = 0;
+        lua_pushstring(Lua, "month");
+        if(lua_isnumber(Lua, -1))
+        {
+            month = (int)lua_tonumber(Lua, -1);
+        }
+        lua_pop(Lua, 1);
+
+        if(month < 10)
+        {
+            stringStream << 0;
+        }
+        stringStream << month;
+    }
+    stringStream << "/";
+    // Day
+    {
+        int day = 0;
+        lua_pushstring(Lua, "day");
+        if(lua_isnumber(Lua, -1))
+        {
+            day = (int)lua_tonumber(Lua, -1);
+        }
+        lua_pop(Lua, 1);
+
+        if(day < 10)
+        {
+            stringStream << 0;
+        }
+        stringStream << day;
+    }
+    stringStream << " ";
+    // Hour
+    {
+        int hour = 0;
+        lua_pushstring(Lua, "hour");
+        if(lua_isnumber(Lua, -1))
+        {
+            hour = (int)lua_tonumber(Lua, -1);
+        }
+        lua_pop(Lua, 1);
+
+        if(hour < 10)
+        {
+            stringStream << 0;
+        }
+        stringStream << hour;
+    }
+    stringStream << ":";
+    // Minute
+    {
+        int minute = 0;
+        lua_pushstring(Lua, "minute");
+        if(lua_isnumber(Lua, -1))
+        {
+            minute = (int)lua_tonumber(Lua, -1);
+        }
+        lua_pop(Lua, 1);
+
+        if(minute < 10)
+        {
+            stringStream << 0;
+        }
+        stringStream << minute;
+    }
+    stringStream << ":";
+    // Second
+    {
+        int second = 0;
+        lua_pushstring(Lua, "second");
+        if(lua_isnumber(Lua, -1))
+        {
+            second = (int)lua_tonumber(Lua, -1);
+        }
+        lua_pop(Lua, 1);
+
+        if(second < 10)
+        {
+            stringStream << 0;
+        }
+        stringStream << second;
+    }
+
+    string str = stringStream.str();
+
+    lua_pushstring(Lua, str.c_str());// yy/mm/dd hh:MM:ss
+    return 1;
+}
+
 int LuaLibGlobal::GetSystemDateTime(lua_State *Lua)
 {
+    if(luaL_newmetatable(Lua, "DateTime"))
+    {
+        lua_pushstring(Lua, "__len");
+        lua_pushcfunction(Lua, GetDateTimeLen);
+        lua_settable(Lua, -3);
+
+        lua_pushstring(Lua, "__type");
+        lua_pushcfunction(Lua, GetDateTimeType);
+        lua_settable(Lua, -3);
+
+        lua_pushstring(Lua, "__tostring");
+        lua_pushcfunction(Lua, GetDateTimeToString);
+        lua_settable(Lua, -3);
+
+        lua_pop(Lua, -1);
+    }
+
     time_t now = time(0);
     tm *ltm = localtime(&now);
 
-    //TODO Push table
+    lua_createtable(Lua, 0, 6);
+
+    lua_pushstring(Lua, "year");
+    lua_pushinteger(Lua, ltm->tm_year);
+    lua_settable(Lua, -3);
+
+    lua_pushstring(Lua, "month");
+    lua_pushinteger(Lua, ltm->tm_mon);
+    lua_settable(Lua, -3);
+
+    lua_pushstring(Lua, "day");
+    lua_pushinteger(Lua, ltm->tm_mday);
+    lua_settable(Lua, -3);
+
+    lua_pushstring(Lua, "hour");
+    lua_pushinteger(Lua, ltm->tm_hour);
+    lua_settable(Lua, -3);
+
+    lua_pushstring(Lua, "minute");
+    lua_pushinteger(Lua, ltm->tm_min);
+    lua_settable(Lua, -3);
+
+    lua_pushstring(Lua, "second");
+    lua_pushinteger(Lua, ltm->tm_sec);
+    lua_settable(Lua, -3);
+
+    luaL_setmetatable(Lua, "DateTime");
+
     return 1;
 }
 

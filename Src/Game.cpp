@@ -41,6 +41,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) DamageType::_COUNT);
             lua_setglobal(_Lua, "DAMAGE_TYPE__COUNT");
         }
+
         // Damage Flags
         {
             lua_pushinteger(_Lua, (int) DamageFlags::NONE);
@@ -61,6 +62,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) DamageFlags::REFLECTION);
             lua_setglobal(_Lua, "DAMAGE_FLAGS_REFLECTION");
         }
+
         // Attribute
         {
             lua_pushinteger(_Lua, (int) Attribute::STRENGTH);
@@ -78,6 +80,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) Attribute::_COUNT);
             lua_setglobal(_Lua, "ATTRIBUTE__COUNT");
         }
+
         // Team + TeamFlags
         {
             lua_pushinteger(_Lua, (int) Team::NEUTRAL);
@@ -222,6 +225,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) Team::_COUNT);
             lua_setglobal(_Lua, "TEAM__COUNT");
         }
+
         // Purge Type
         {
             lua_pushinteger(_Lua, (int) PurgeType::NONE);
@@ -239,10 +243,12 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) PurgeType::_COUNT);
             lua_setglobal(_Lua, "PURGE__COUNT");
         }
+
         // Flag Filter
         {
 
         }
+
         // Find Order
         {
             lua_pushinteger(_Lua, (int) FindOrder::RANDOMIZED);
@@ -257,6 +263,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) FindOrder::ANY);
             lua_setglobal(_Lua, "FIND_ORDER_ANY");
         }
+
         // Modifier Priority
         {
             lua_pushinteger(_Lua, (int) ModifierPriority::MINIMAL);
@@ -280,6 +287,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) ModifierPriority::SUPER_ULTRA);
             lua_setglobal(_Lua, "MODIFIER_PRIORITY_SUPER_ULTRA");
         }
+
         // Modifier Flags
         {
             lua_pushinteger(_Lua, (int) ModifierFlags::NONE);
@@ -304,6 +312,9 @@ bool Game::InitLua()
 
                 lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_HIDDEN);
                 lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_HIDDEN");
+
+                lua_pushinteger(_Lua, (int) ModifierFlags::STATUS_HASTE);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_STATUS_HASTE");
             }
 
             // Ability
@@ -326,14 +337,11 @@ bool Game::InitLua()
                 lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_MAGIC);
                 lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_MAGIC");
 
+                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_ATTACK);
+                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_ATTACK");
+
                 lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_PHYSICAL);
                 lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_PHYSICAL");
-
-                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_PURE);
-                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_PURE");
-
-                lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_ALL);
-                lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_ALL");
 
                 lua_pushinteger(_Lua, (int) ModifierFlags::IMMUNITY_DEATH);
                 lua_setglobal(_Lua, "MODIFIER_FLAGS_IMMUNITY_DEATH");
@@ -360,6 +368,7 @@ bool Game::InitLua()
                 lua_setglobal(_Lua, "MODIFIER_FLAGS_ATTACK_UNABLE");
             }
         }
+
         // Ability Targeting
         {
             lua_pushinteger(_Lua, (int) AbilityTargeting::PASSIVE);
@@ -389,6 +398,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) AbilityTargeting::AURA);
             lua_setglobal(_Lua, "ABILITY_TARGETING_AURA");
         }
+
         // Attack Type
         {
             lua_pushinteger(_Lua, (int) AttackType::MELEE);
@@ -397,6 +407,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) AttackType::RANGED);
             lua_setglobal(_Lua, "ATTACK_TYPE_RANGED");
         }
+
         // Unit Type
         {
             lua_pushinteger(_Lua, (int) UnitType::CREEP);
@@ -417,6 +428,7 @@ bool Game::InitLua()
             lua_pushinteger(_Lua, (int) UnitType::_COUNT);
             lua_setglobal(_Lua, "UNIT_TYPE__COUNT");
         }
+
         // Unit Type Flag
         {
             lua_pushinteger(_Lua, (int) UnitTypeFlag::CREEP);
@@ -433,6 +445,30 @@ bool Game::InitLua()
 
             lua_pushinteger(_Lua, (int) UnitTypeFlag::BUILDING);
             lua_setglobal(_Lua, "UNIT_TYPE_FLAG_BUILDING");
+        }
+
+        // Action Type
+        {
+            lua_pushinteger(_Lua, (int) ActionType::MOVE);
+            lua_setglobal(_Lua, "ACTION_TYPE_MOVE");
+
+            lua_pushinteger(_Lua, (int) ActionType::ATTACK);
+            lua_setglobal(_Lua, "ACTION_TYPE_ATTACK");
+
+            lua_pushinteger(_Lua, (int) ActionType::ATTACK_MOVE);
+            lua_setglobal(_Lua, "ACTION_TYPE_ATTACK_MOVE");
+
+            lua_pushinteger(_Lua, (int) ActionType::ATTACK_MOVE_TARGET);
+            lua_setglobal(_Lua, "ACTION_TYPE_ATTACK_MOVE_TARGET");
+
+            lua_pushinteger(_Lua, (int) ActionType::FOLLOW);
+            lua_setglobal(_Lua, "ACTION_TYPE_FOLLOW");
+
+            lua_pushinteger(_Lua, (int) ActionType::CAST);
+            lua_setglobal(_Lua, "ACTION_TYPE_CAST");
+
+            lua_pushinteger(_Lua, (int) ActionType::_COUNT);
+            lua_setglobal(_Lua, "ACTION_TYPE__COUNT");
         }
     }
 

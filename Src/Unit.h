@@ -1012,6 +1012,40 @@ public:
 
 public:
     int PurgeModifiers(PurgeType purgeType);
+
+
+// Visibility
+public:
+    bool CanBeSeenBy(Team team);
+
+    bool CanBeSeenBy(Unit* unit);
+
+public:
+    bool IsInvisible();
+
+// Effects
+public:
+    bool IsStunned();
+
+    bool IsRooted();
+
+    bool IsSilenced();
+
+    bool IsMuted();
+
+    bool IsBroken();
+
+    bool IsHidden();
+
+    bool IsHasted();
+
+public:
+    bool DoAbilitiesHaveStoppedCooldown();
+
+    bool DoAbilitiesHaveNoCooldownCost();
+
+    bool DoAbilitiesHaveNoManaCost();
+
 };
 
 
