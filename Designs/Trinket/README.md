@@ -35,3 +35,8 @@ When activated, places buff/debuff on allies/enemies around caster.
 
 - Dust of Appearance
 - Smoke of Decide
+
+## Teleportation
+
+- Teleport to Base
+- Teleport to Building

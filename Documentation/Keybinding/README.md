@@ -45,7 +45,8 @@
 | Item 4 | V | V |
 | Item 5 | B | B |
 | Item 6 | N | N |
-| Trinket | ` | ` |
+| Trinket 1 | F1 | F1 |
+| Trinket 2 | F2 | F2 |
 
 ## Action
 
@@ -53,5 +54,11 @@
 |------|--------|------|
 | Attack Move | A | Mouse 4 |
 | Stop | S | Spacebar |
+| Follow |  |  |
+
+## Other
+
+| Name | Normal | WASD |
+|------|--------|------|
 | Scoreboard | TAB | TAB |
-| Next Unit | CapsLock | CapsLock |
+| Next Unit | ` | ` |
