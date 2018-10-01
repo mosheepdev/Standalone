@@ -17,7 +17,6 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 | ✓ [Earth Elemental](Earth_Elemental.md) | ˨ | ⚪ | Spirit *(Earth)* | Support | Disable |
 | [Living Armor](Living_Armor.md) | ˨ (⟿) | ⚪ | Other | Support | Auto-Attack + Utility |
 | ✓ [Loyal Knight](Loyal_Knight.md) | ˨ | ♂ | Human | Tank | Tank + Utility |
-| Phoenix | ⟿ | ⚪ | Spirit *(Fire)* | Semi-Carry | Tank + Utility |
 | ✓ [Storm Hammer](Storm_Hammer.md) | ˨ | ♂ | Dwarf | Carry | Auto-Attack |
 | [Undead Queen](Undead_Queen.md) | ˨ | ♀ | Elf | Tank | Auto-Attack + Summon |
 | [Young Dragon](Young_Dragon.md) | ˨ | ⚪ | Dragon | Tank | Protection + Heal |
@@ -28,32 +27,23 @@ Heroes considered for `Alpha` stage have `✓` before their name.
 
 | Name | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:-----------:|:---:|:----:|:--------:|:----:|
-| ✓ Flag Bearer | ˨ | ♂ | Human | Carry | Auto-Attack |
 | ✓ [Harpy](Harpy.md) | ˨ | ♀ | Demon | Carry | Auto-Attack |
 | [Hunter](Hunter.md) | ˨ | ♂ | Human | Ganker, Semi-Carry | Auto-Attack + Utility + Summon |
 | ✓ [Ice Shard](Ice_Shard.md) | ˨ | ♀ | Animal | Ganker | Auto-Attack |
 | ✓ [Sniper](Sniper.md) | ⟿ | ♀ | Elf | Carry | Auto-Attack |
-| Water Elemental | ˨ | ⚪ | Spirit *(Water)* | Carry | Auto-Attack + Disable |
-| WereBear | ˨ | ♂ | Dwarf + Animal | ??? | Auto-Attack + Self-Transformation |
 
 ### Intelligence
 
 | Name | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:-----------:|:---:|:----:|:--------:|:----:|
-| Elemental Mage | ⟿ | ⚪ | Elf | Support | Heal + Utility |
-| ✓ Logan | ⟿ | ♂ | Human | Ganker | Nuke |
 | [Mori](Mori.md) | ˨ | ⚪ | Spirit *(Death)* | Carry | Auto-Attack |
 | ✓ [Plague Doctor](Plague_Doctor.md) | ⟿ | ♂ | Human | Support | Heal + DoT |
-| Wyvern | ⟿ | ♀ | Wyvern | ??? | ??? |
 
 ### Will
 
 | Name | Attack Type | Sex | [Race](../../Documentation/Universe/Race/README.md) | Position | Type |
 |------|:-----------:|:---:|:----:|:--------:|:----:|
-| ✓ Ancient Dragon | ⟿ | ♂ | Dragon | Support + Offlane | DoT Nuker |
 | ~~[Black Jack](Black_Jack.md)~~ | ⟿ | ♂ | Human | Carry | Auto-Attack + Nuke |
-| Dark Lord | ⟿ | ♂ | Elf | Ganker | Nuker |
-| Spirit of The Forest | ˨ | ⚪ | Spirit *(Nature)* | Ganker | Summon + Heal |
 | [Succubus](Succubus.md) | ⟿ + ˨ | ⚥ | Demon | Carry | Auto-Attack + Utility Cast |
 | ✓ [Sun Lord](Sun_Lord.md) | ⟿ | ♂ | Elf | Support + Ganker | Skillshot + Nuke |
 
