@@ -115,7 +115,7 @@ Heroes considered for `Alpha` stage have `✓` before their name.
       - ``
         - ?
     - R
-      - ``
+      - `Half Dwarf, Half Bear`
         - Passive
         - Effect during night
         - Transforms into bear
@@ -144,18 +144,20 @@ Heroes considered for `Alpha` stage have `✓` before their name.
         - Passive
           - Armor
     - D
-      - ``
-        - ?
+      - `Tsunami`
+        - Direction
+        - Enemy Units
         - Element: Water
+        - Pushes units away
+          - Forced Movement
     - F
-      - `Air Force`
-        - Vector Unit
-        - Enemy Unit
+      - `Cyclone`
+        - Single Enemy Unit
         - Element: Air
-        - Pushes target unit in direction
+        - Keeps unit in air
     - R
       - `One Step Closer`
-        - Single Target
+        - Single Enemy Hero
         - Element: Death
         - Massive DoT
 - Wyvern
@@ -171,8 +173,12 @@ Heroes considered for `Alpha` stage have `✓` before their name.
       - ``
         - ?
     - R
-      - ``
-        - ?
+      - `Frozen Breath`
+        - Point Target
+        - Cone AoE
+        - Channel (effect over time)
+        - Damage Enemy Units
+        - Heal Allied Units
 - Ancient Dragon
   - `Will`
   - Abilities
@@ -324,23 +330,33 @@ Heroes considered for `Alpha` stage have `✓` before their name.
         - Stun based on `Soul Catch` charges
 - Dark Lord
   - `Will`
-  - Elf or Demon
+  - Demon (Elf)
   - Abilities
     - Q
       - ``
         - ?
     - W
-      - ``
-        - ?
+      - `Conduction`
+        - Enemy Unit
+        - Damage
+        - When cast into fog, jumps to another closest target
+          - Hero or Hero-Creep is preferred
     - E
       - `Fog of Shadows`
-        - Point AoE
-        - Silence
-        - Movement Slow
-        - DoT
+        - Passive
+          - Movement Slow
+          - Leave (big) trail of fog
+            - Limited lifetime
+        - Point
+          - Teleport
+          - Global
+          - Only into fog
     - R
-      - ``
-        - ?
+      - `Global Darkness`
+        - Active
+          - Place fog on whole map
+        - Passive
+          - Allies in the fog gain Movement Speed
 - Arachax
   - `Agility`
   - Spider
