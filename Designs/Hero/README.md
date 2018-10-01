@@ -342,8 +342,13 @@ Heroes considered for `Alpha` stage have `✓` before their name.
       - ``
         - ?
 - Arachax
-  - ``
+  - `Agility`
   - Spider
+  - Eldritch
+    - 8 legs
+    - A lot of eyes
+      - Red!
+    - Hard unused wings on back
   - Abilities
     - Q
       - `Swarm Attack`
@@ -351,18 +356,29 @@ Heroes considered for `Alpha` stage have `✓` before their name.
         - Throws eggs on the target
           - Multiple instances with slightly different time
         - After a moment, small spiders spawn from them
-          - Spiders automatically attack their previous host
+          - Automatically attack their previous host
+          - Their attacks cause Movement Speed Slow
+            - Stacks
+          - Have limited lifetime
         - One unit can have more stacks on them
           - Stacks are independent
     - W
-      - ``
-        - ?
+      - `Web`
+        - AoE Point
+        - Limited amount
+        - Provides `Health Regeneration` and `Movement Speed` to all allies
+        - Visible through FoV
     - E
-      - ``
-        - ?
+      - `Toxic Bite`
+        - Passive or Auto-Attack
+        - Has cooldown
+        - DoT of target's max health
     - R
-      - ``
-        - ?
+      - `Food for Later`
+        - Single Enemy Unit
+        - Stun
+        - Amplifies Physical Damage
+        - Low Cooldown
 - Naga
   - ``
   - Abilities
@@ -381,7 +397,8 @@ Heroes considered for `Alpha` stage have `✓` before their name.
         - Chanel
         - Enemies are invulnerable and walks towards her
 - Medusa
-  - ``
+  - `Agility`
+  - Medusa was a loyal woman who spent her youth training to become a priestess to a goddess she worshiped and believed was the strongest of all the Olympians.
   - Abilities
     - Q
       - `Splitshot`
@@ -389,43 +406,72 @@ Heroes considered for `Alpha` stage have `✓` before their name.
         - Attack additional targets
           - Do proc Attack Modifiers on those targets
           - Critical Hits work per each target separately
-        - Decreases Attack Damage by X
+        - Decreases Attack Damage by X percent
     - W
       - `Mana Shield`
         - Toggle
         - Percentage of taken damage is done to mana (when available)
     - E
-      - `Snake Look`
-        - Active
-        - While active
-          - In cone in front of her (looking direction)
-          - When enemy is facing her
-          - Effect on enemy
-            - Turn Slow
-            - Attack Speed Slow
-            - Takes more Physical Damage
+      - `Beauty`
+        - Passive 
+        - Gain stacks for killed units
+          - More from heroes
+        - Each stack provide `Mana Regeneration` and increases `Mana Pool`
     - R
-      - ``
-        - ?
+      - `Snake Look`
+        - Toggle
+        - Consumes mana while active
+          - Percentage?
+        - In cone in front of her (looking direction)
+        - When enemy is facing her
+        - `Petrify` effect on enemy
+          - Turn Slow
+          - Attack Speed Slow
+          - Takes more Physical Damage
 - ???
-  - ``
+  - `Strength`
+  - Melee
+  - "Meatball"
+  - Eldritch
+    - Deeper female voice
+    - A lot of flesh
+    - Meat formed to "tentacles" for movement
+      - Like [Viscous Ooze](https://www.youtube.com/watch?v=U6n1bfaZQpY) from [Dota 2](http://www.dota2.com/)'s [CHIP](https://steamcommunity.com/sharedfiles/filedetails/?id=1136081305) (Custom Hero and Item Project)
   - Abilities
     - Q
-      - `Hook`
-        - Throws hook forward
+      - `Pull`
+        - Throws "tentacles" forward
+          - Like [`Augur of Ebrietas`](https://bloodborne.wiki.fextralife.com/Augur+of+Ebrietas) from [Bloodborne](https://www.playstation.com/en-us/games/bloodborne-ps4/)
+        - Pulls to self first hit target
     - W
-      - `Rot`
-        - Deals DoT around caster
+      - `Parasites`
+        - Deals Pure Damage around caster
           - Also deals damage to caster
-        - Damage increases per `Stolen Flesh` stack
+        - Damage is increased by `Flesh Manifestation` stack
     - E
-      - ``
-        - ?
+      - `Unexpected Movement`
+        - Target Point
+        - Dash
+          - Can go up/down high ground
+          - Not stopped by stun or root
+          - Not immune
+          - Can be cast during root
+        - Can pull from it
+          - Cast item or ability 
+        - Long(er) range
+        - Slow(er)
+        - Higher cooldown
     - R
-      - `Stolen Flesh`
+      - `Flesh Manifestation`
         - Provides `Strength` for each stack
         - Stacks are gained for enemies dying around
           - Does not need to be killed by owner's team
+        - Aura
+          - Allied Hero or Hero-Creep
+          - Reduces All taken damage
+            - Flat reduction
+              - Based on stacks
+            - Strong against DoT
 - ???
   - ``
   - Abilities
