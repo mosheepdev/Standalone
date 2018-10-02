@@ -1,0 +1,135 @@
+"Addon_Info"
+{
+    "Name"                              "Moba"
+    "Game_Modes"
+    {
+        "Unranked"
+        {
+            "Teams"
+            {
+                "Angels"                "5"
+                "Demons"                "5"
+            }
+            "Map"                       "Normal"
+            "Script_File"               "Init_Unranked.lua"
+            "Allowed_In_Debug"          "Yes"
+            "Twitch_Chat"               "Yes"
+            "Dedicated_Server"          "No"
+
+            Options
+            {
+                "Allow_Cheats"
+                {
+                    "Default"           "No"
+                    "Type"              "Boolean"
+                }
+
+                "Kill_Limit"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "300"
+                }
+                "Kill_Limit_Increase"
+                {
+                    "Default"           "10"
+                    "Type"              "Integer"
+                    "Min"               "1"
+                    "Max"               "50"
+                }
+
+                "Gold_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+                "Experience_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+            }
+        }
+
+        "Ranked"
+        {
+            "Teams"
+            {
+                "Angels"                "5"
+                "Demons"                "5"
+            }
+            "Map"                       "Normal"
+            "Respect_Party"             "True"
+            "Script_File"               "Init_Ranked.lua"
+            "Allowed_In_Debug"          "No"
+            "Twitch_Chat"               "No"
+            "Dedicated_Server"          "Require"
+
+            "Allow_Cheats"              "No"
+
+            "Kill_Limit"                "100"
+            "Kill_Limit_Increase"       "10"
+
+            "Gold_Multiplier"           "100"
+            "Experience_Multiplier"     "100"
+        }
+
+        "10v10"
+        {
+            "Teams"
+            {
+                "Angels"                "10"
+                "Demons"                "10"
+            }
+            "Map"                       "10v10"
+            "Script_File"               "Init_Unranked.lua"
+            "Allowed_In_Debug"          "Yes"
+            "Twitch_Chat"               "Yes"
+            "Dedicated_Server"          "No"
+
+            Options
+            {
+                "Allow_Cheats"
+                {
+                    "Default"           "No"
+                    "Type"              "Boolean"
+                }
+
+                "Kill_Limit"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "300"
+                }
+                "Kill_Limit_Increase"
+                {
+                    "Default"           "10"
+                    "Type"              "Integer"
+                    "Min"               "1"
+                    "Max"               "50"
+                }
+
+                "Gold_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+                "Experience_Multiplier"
+                {
+                    "Default"           "100"
+                    "Type"              "Integer"
+                    "Min"               "10"
+                    "Max"               "1000"
+                }
+            }
+        }
+    }
+}

@@ -1,2 +1,2 @@
-require(MainMenu.lua)
-require(Minimap.lua)
+require("MainMenu.lua")
+require("Minimap.lua")

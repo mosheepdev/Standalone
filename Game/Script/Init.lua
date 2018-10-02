@@ -1,2 +1,0 @@
-require("Gui/Init.lua")
-
